@@ -128,6 +128,10 @@ ul.plain li{margin-bottom:4px}
 .badge.plan{background:#E8EEFB;border-color:#B8C7EE;color:#1F3A7A}
 ol.plain{margin:4px 0 12px;padding-left:22px}
 ol.plain li{margin-bottom:4px}
+.semrow{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;margin-bottom:10px}
+.semrow .search{flex:1 1 220px;margin-bottom:0}
+.semnote{margin:0 0 12px;font-size:.92rem;color:var(--ink2);max-width:70ch}
+.semnote .badge{margin-right:6px}
 footer{margin-top:28px;font-size:.85rem;color:var(--ink2);max-width:70ch}
 </style>
 </head>
@@ -424,7 +428,7 @@ const DIS=[
 ];
 
 /* ---------- State dan util ---------- */
-const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:''};
+const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:'',cmode:'kw',sem:null,semBusy:false};
 const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['cari','Cari'],['para','Terjemahan paralel'],['makna','Makna kontekstual'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const cur=()=>SURAHS[state.s].verses[state.v-1];
@@ -635,18 +639,81 @@ function cariResults(){
   if(r.makna.length)s+='<h3>Makna kontekstual</h3>'+r.makna.map(d=>`<button class="hit" data-dis="${d.id}"><span class="hv">${esc(d.ref)}</span><span class="har" lang="ar">${d.term}</span><span class="hmain"><strong>${esc(d.lat)}</strong>, makna terpilih: ${esc(d.pilihan)}</span></button>`).join('');
   return s;
 }
+function modeChips(){
+  return `<div class="ayat" role="group" aria-label="Mode pencarian"><span class="lbl">Mode</span>
+    <button class="chip wide" data-cmode="kw" aria-pressed="${state.cmode==='kw'}">Kata kunci</button>
+    <button class="chip wide" data-cmode="sem" aria-pressed="${state.cmode==='sem'}">Makna (eksperimen AI)</button></div>`;
+}
+const skorFmt=x=>Number(x).toFixed(2).replace('.',',');
+function semRow(h){
+  const p=String(h.id).split(':');
+  const sk=`<br><span class="muted">Kemiripan ${skorFmt(h.skor)}</span>`;
+  if(p[0]==='w'){
+    const si=+p[1],vn=+p[2],i=+p[3],v=SURAHS[si]&&SURAHS[si].verses[vn-1],w=v&&v.words[i];
+    if(!w)return '';
+    return `<button class="hit" data-goto="${si}:${vn}:${i}"><span class="hv">QS ${v.sn}:${v.n}</span><span class="har" lang="ar">${w.ar}</span><span class="hmain"><strong>${esc(w.lat)}</strong>, ${esc(w.gloss)}${sk}</span></button>`;
+  }
+  if(p[0]==='v'){
+    const si=+p[1],vn=+p[2],v=SURAHS[si]&&SURAHS[si].verses[vn-1];
+    if(!v)return '';
+    return `<button class="hit ay" data-goto="${si}:${vn}:0"><span class="hv">QS ${v.sn}:${v.n}</span><span class="hmain">${esc(v.tr)}${sk}</span><span class="har" lang="ar">${v.ar}</span></button>`;
+  }
+  if(p[0]==='d'){
+    const d=DIS.find(x=>x.id===p[1]);
+    if(!d)return '';
+    return `<button class="hit" data-dis="${d.id}"><span class="hv">${esc(d.ref)}</span><span class="har" lang="ar">${d.term}</span><span class="hmain"><strong>${esc(d.lat)}</strong>, makna terpilih: ${esc(d.pilihan)}${sk}</span></button>`;
+  }
+  return '';
+}
+function semResults(){
+  if(state.semBusy)return '<p class="empty">Mencari kemiripan makna…</p>';
+  const r=state.sem;
+  if(!r)return '<p class="empty">Tulis pertanyaan dalam bahasa Indonesia, lalu ketuk Cari makna.</p>';
+  if(r.galat)return `<p class="empty">${esc(r.galat)}</p><p><button class="link" data-cmode="kw">Gunakan pencarian kata kunci</button></p>`;
+  const rows=r.hasil.map(semRow).filter(Boolean);
+  if(!rows.length)return '<p class="empty">Tidak ada hasil.</p>';
+  return `<p class="rcount">${rows.length} entri teratas menurut kemiripan makna untuk “${esc(r.q)}”</p>`+rows.join('');
+}
+function paintSem(){
+  const el=document.getElementById('cresults');
+  if(el&&state.cmode==='sem')el.innerHTML=semResults();
+}
+async function semSearch(raw){
+  const q=String(raw||'').replace(/\s+/g,' ').trim();
+  state.cq=q;
+  if(q.length<2){state.sem={q,galat:'Ketik minimal dua huruf.'};paintSem();return;}
+  state.semBusy=true;state.sem=null;paintSem();
+  try{
+    const r=await fetch('/api/cari?q='+encodeURIComponent(q)+'&k=8',{headers:{accept:'application/json'}});
+    let j=null;try{j=await r.json();}catch(_){}
+    if(r.status===404||r.status===405)throw new Error('Mode ini hanya aktif pada situs di Cloudflare. Pada alamat ini, gunakan pencarian kata kunci.');
+    if(!r.ok||!j||!j.ok)throw new Error((j&&j.galat)||('Server menjawab dengan kode '+r.status+'.'));
+    state.sem={q,hasil:j.hasil||[],model:j.model};
+  }catch(e){
+    state.sem={q,galat:(e&&e.name==='TypeError')?'Tidak dapat terhubung ke server. Mode ini hanya aktif pada situs di Cloudflare.':((e&&e.message)||'Terjadi kesalahan.')};
+  }
+  state.semBusy=false;paintSem();
+}
 function cari(){
+  if(state.cmode==='sem'){
+    const ex=['kasih sayang','berlindung dari kejahatan','jalan yang benar','hari pembalasan'];
+    return modeChips()+`<p class="semnote"><span class="badge warn">Eksperimen, belum dievaluasi</span>Mode ini memakai model AI di server Cloudflare untuk mengurutkan entri korpus berdasarkan kemiripan makna. AI tidak menulis jawaban atau tafsir; ia hanya mengurutkan entri yang sudah ada. Hasilnya bisa meleset.</p>
+      <div class="semrow"><input id="cq" class="search" type="search" placeholder="Contoh: kasih sayang, berlindung" value="${esc(state.cq)}" aria-label="Pertanyaan"><button class="btn" data-sem>Cari makna</button></div>
+      <div class="ex"><span>Coba:</span>${ex.map(x=>`<button class="formbtn" data-qs="${x}">${x}</button>`).join('')}</div>
+      <div id="cresults" aria-live="polite">${semResults()}</div>
+      <p class="note" style="margin-top:14px">Pertanyaan Anda dikirim ke layanan Workers AI untuk dihitung vektor maknanya. Mode ini hanya aktif pada alamat Cloudflare.</p>`;
+  }
   const ex=['rahmat','mudaf ilayh','jalan','الله'];
-  return `<p class="note">Cari berdasarkan kata Arab (dengan atau tanpa harakat), transliterasi, makna Indonesia, akar kata, atau fungsi i‘rāb seperti “naʿt” dan “muḍāf ilayh”. Huruf bertanda seperti ḥ, ṣ, ā, dan ʿ boleh diketik biasa.</p>
+  return modeChips()+`<p class="note">Cari berdasarkan kata Arab (dengan atau tanpa harakat), transliterasi, makna Indonesia, akar kata, atau fungsi i‘rāb seperti “naʿt” dan “muḍāf ilayh”. Huruf bertanda seperti ḥ, ṣ, ā, dan ʿ boleh diketik biasa.</p>
     <input id="cq" class="search" type="search" placeholder="Contoh: rahmat, naʿt, jalan, الله" value="${esc(state.cq)}" aria-label="Cari di korpus">
     <div class="ex"><span>Coba:</span>${ex.map(x=>`<button class="formbtn" data-q="${x}">${x}</button>`).join('')}</div>
     <div id="cresults" aria-live="polite">${cariResults()}</div>
-    <p class="note" style="margin-top:14px">Ini pencarian kata kunci: sistem mencocokkan huruf yang diketik tanpa memahami makna. Pencarian ini menjadi pembanding bagi pencarian semantik yang direncanakan pada tab Rencana AI.</p>`;
+    <p class="note" style="margin-top:14px">Mode ini mencocokkan huruf yang diketik tanpa memahami makna. Ia menjadi pembanding bagi mode Makna (eksperimen AI).</p>`;
 }
 
 /* ---------- Tab: Rencana AI ---------- */
 const PLAN=[
- {t:'Pencarian semantik',
+ {t:'Pencarian semantik',s:'Eksperimen, belum dievaluasi',
   f:'Pengguna mengetik pertanyaan dalam bahasa sehari-hari, misalnya “ayat tentang kasih sayang”, dan sistem menampilkan ayat serta entri yang maknanya berdekatan, bukan hanya yang hurufnya sama.',
   l:'Tab Cari, sebagai mode kedua di samping pencarian kata kunci.',
   d:'Terjemahan paralel dan lapisan makna kontekstual yang sudah diverifikasi ahli.',
@@ -666,26 +733,27 @@ const PLAN=[
   b:'Tidak ada draf yang terbit tanpa verifikasi ahli nahwu-sharaf atau ahli tafsir.'}
 ];
 function planCard(c){
-  return `<article class="card plan"><div class="ct"><h2 style="margin:0">${esc(c.t)}</h2><span class="badge plan">Rencana, belum dibangun</span></div>
+  return `<article class="card plan"><div class="ct"><h2 style="margin:0">${esc(c.t)}</h2><span class="badge plan">${esc(c.s||'Rencana, belum dibangun')}</span></div>
     <dl><dt>Fungsi</dt><dd>${esc(c.f)}</dd><dt>Letak di platform</dt><dd>${esc(c.l)}</dd><dt>Data yang dibutuhkan</dt><dd>${esc(c.d)}</dd><dt>Cara mengukur keberhasilan</dt><dd>${esc(c.m)}</dd><dt>Batas</dt><dd>${esc(c.b)}</dd></dl></article>`;
 }
 function ai(){
   return `<h2>Rencana pengembangan AI</h2>
-   <p class="note">Bagian ini menjelaskan tempat dan tujuan fitur AI pada platform. Belum ada fitur AI yang aktif pada purwarupa ini. Semua fitur bergantung pada korpus yang sudah divalidasi ahli, sehingga korpus dikerjakan lebih dulu.</p>
+   <p class="note">Bagian ini menjelaskan tempat dan tujuan fitur AI pada platform. Satu fitur sudah tersedia sebagai eksperimen: pencarian semantik pada tab Cari (mode Makna). Fitur lainnya masih rencana. Semua fitur bergantung pada korpus yang sudah divalidasi ahli, sehingga korpus dikerjakan lebih dulu.</p>
    ${PLAN.map(planCard).join('')}
    <h3>Batas penggunaan AI</h3>
    <ul class="plain">
     <li>AI tidak menafsirkan. Jawaban hanya berasal dari entri korpus yang sudah diverifikasi dan selalu menyertakan sumbernya. Bila tidak ada entri yang relevan, sistem menyatakan tidak ada jawaban.</li>
     <li>Setiap keluaran AI diberi tanda yang jelas dan dapat dilacak ke data asalnya.</li>
-    <li>Fitur AI memerlukan server perantara agar kunci layanan tidak terbuka di halaman publik, sehingga tidak dapat berjalan hanya pada hosting statis seperti purwarupa ini.</li>
+    <li>Fitur AI berjalan lewat server perantara (Cloudflare Worker) agar kunci layanan tidak terbuka di halaman publik. Karena itu mode Makna hanya aktif pada alamat Cloudflare, bukan pada hosting statis biasa.</li>
     <li>Pemakaian terjemahan Kemenag dan penerbit untuk melatih atau menguji model tunduk pada izin data.</li>
+    <li>Yang dikirim ke layanan AI hanyalah teks korpus buatan sendiri dan pertanyaan pengguna. Terjemahan Kemenag dan penerbit tidak dikirim sebelum izin data tersedia.</li>
    </ul>
    <h3>Urutan kerja</h3>
    <ol class="plain">
     <li>Korpus dan anotasi divalidasi ahli lebih dulu.</li>
     <li>Pencarian kata kunci pada tab Cari menjadi pembanding dasar (sudah tersedia).</li>
     <li>Set pertanyaan uji dan label ahli disusun.</li>
-    <li>Fitur AI dibangun, lalu dibandingkan dengan pembanding dasar.</li>
+    <li>Fitur AI dibandingkan dengan pembanding dasar. Pencarian semantik eksperimen sudah tersedia untuk diuji.</li>
     <li>Kebermanfaatan dievaluasi bersama santri, mahasiswa, dan penerjemah.</li>
    </ol>`;
 }
@@ -703,7 +771,7 @@ function pedoman(){
     <tr><td>Terjemahan paralel</td><td>Satu terjemahan kerja. Kolom Kemenag dan penerbit menunggu izin data.</td></tr>
     <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan tafsir belum diisi.</td></tr>
     <tr><td>Pencarian kata kunci</td><td>Tersedia pada tab Cari. Pencarian ini leksikal dan tidak memakai AI.</td></tr>
-    <tr><td>Fitur AI</td><td>Berupa rencana pada tab Rencana AI. Belum ada yang aktif.</td></tr>
+    <tr><td>Fitur AI</td><td>Pencarian semantik tersedia sebagai eksperimen (mode Makna pada tab Cari) dan belum dievaluasi. Fitur lain masih rencana.</td></tr>
    </tbody></table></div>
 
    <h3>Istilah anotasi</h3>
@@ -741,7 +809,7 @@ function pedoman(){
     <li>Terjemahan Kemenag dan penerbit belum dimuat karena menunggu izin data.</li>
     <li>Rujukan kitab tafsir pada lapisan makna kontekstual belum diisi.</li>
     <li>Cakupan baru dua surah pendek, sebagai bukti rancangan dan bukan korpus lengkap.</li>
-    <li>Tidak ada fitur AI yang aktif. Pencarian bersifat kata kunci.</li>
+    <li>Satu-satunya fitur AI adalah pencarian semantik eksperimen yang belum dievaluasi dan hanya aktif pada alamat Cloudflare. Selebihnya pencarian bersifat kata kunci.</li>
    </ul>
 
    <h3>Rencana validasi</h3>
@@ -774,7 +842,7 @@ function renderView(){
 
 /* ---------- Event ---------- */
 document.addEventListener('click',function(e){
-  const t=e.target.closest('[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s]');
+  const t=e.target.closest('[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem]');
   if(!t)return;
   if(t.dataset.tab){state.tab=t.dataset.tab;renderView();window.scrollTo({top:0});return;}
   if(t.dataset.s!==undefined){state.s=+t.dataset.s;state.v=1;state.w=0;renderView();return;}
@@ -782,12 +850,19 @@ document.addEventListener('click',function(e){
   if(t.dataset.w!==undefined){state.w=+t.dataset.w;renderView();return;}
   if(t.dataset.root){state.tab='akar';state.q='';state.focusRoot=t.dataset.root;renderView();return;}
   if(t.dataset.dis){state.tab='makna';state.focusDis=t.dataset.dis;renderView();return;}
+  if(t.dataset.cmode){state.cmode=t.dataset.cmode;renderView();return;}
+  if(t.dataset.qs!==undefined){state.cq=t.dataset.qs;renderView();semSearch(t.dataset.qs);return;}
+  if(t.dataset.sem!==undefined){const i=document.getElementById('cq');semSearch(i?i.value:state.cq);return;}
   if(t.dataset.q!==undefined){state.cq=t.dataset.q;renderView();return;}
   if(t.dataset.goto){const p=t.dataset.goto.split(':');state.tab='baca';state.s=+p[0];state.v=+p[1];state.w=+p[2];renderView();window.scrollTo({top:0});return;}
 });
 document.addEventListener('input',function(e){
-  if(e.target&&e.target.id==='cq'){state.cq=e.target.value;document.getElementById('cresults').innerHTML=cariResults();}
+  if(e.target&&e.target.id==='cq'){state.cq=e.target.value;if(state.cmode==='kw')document.getElementById('cresults').innerHTML=cariResults();}
   if(e.target&&e.target.id==='q'){state.q=e.target.value;document.getElementById('rootlist').innerHTML=akarList();}
+});
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&e.target&&e.target.id==='cq'&&state.cmode==='sem'){e.preventDefault();semSearch(e.target.value);}
 });
 
 renderStatus();

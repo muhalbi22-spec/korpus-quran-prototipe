@@ -1,0 +1,18 @@
+{
+  // Konfigurasi Worker untuk purwarupa korpus Al-Qur’an terjemahan Indonesia.
+  // Nama harus sama dengan nama proyek di Cloudflare.
+  "name": "korpus-quran-prototipe",
+  "main": "worker.js",
+  "compatibility_date": "2025-09-09",
+
+  // Folder situs statis (dibuat oleh Build command: mkdir -p public && cp index.html public/)
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Akses ke Workers AI, dipakai oleh /api/cari untuk pencarian makna (eksperimen)
+  "ai": {
+    "binding": "AI"
+  }
+}
