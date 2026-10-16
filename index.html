@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: QS Al-Fātiḥah</title>
+<title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: Al-Fātiḥah dan An-Nās</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -38,6 +38,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 
 .ayat{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:14px}
 .ayat .lbl{font-size:.9rem;color:var(--ink2);margin-right:4px}
+.chip.wide{padding:0 14px}
 .chip{min-width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:6px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 
@@ -114,6 +115,19 @@ th{background:var(--soft);font-weight:600}
 .tw{overflow-x:auto;margin-bottom:12px}
 ul.plain{margin:4px 0 12px;padding-left:20px}
 ul.plain li{margin-bottom:4px}
+.hit{display:grid;grid-template-columns:auto auto 1fr;gap:4px 12px;align-items:center;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:8px;font:inherit;color:inherit;cursor:pointer}
+.hit .hv{font-size:.82rem;color:var(--ink2);border:1px solid var(--line);border-radius:4px;padding:1px 7px;background:var(--soft);white-space:nowrap}
+.hit .har{font-family:var(--arab);font-size:1.6rem;direction:rtl;line-height:1.5}
+.hit .hmain{min-width:0}
+.hit.ay{grid-template-columns:auto 1fr}
+.hit.ay .har{grid-column:1 / -1;font-size:1.4rem;line-height:1.8}
+@media(max-width:480px){.hit{grid-template-columns:auto 1fr}.hit .hmain{grid-column:1 / -1}}
+.ex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 14px;font-size:.9rem;color:var(--ink2)}
+.rcount{margin:0 0 10px;color:var(--ink2);font-size:.92rem}
+.card.plan{border-left-color:var(--tree)}
+.badge.plan{background:#E8EEFB;border-color:#B8C7EE;color:#1F3A7A}
+ol.plain{margin:4px 0 12px;padding-left:22px}
+ol.plain li{margin-bottom:4px}
 footer{margin-top:28px;font-size:.85rem;color:var(--ink2);max-width:70ch}
 </style>
 </head>
@@ -121,13 +135,13 @@ footer{margin-top:28px;font-size:.85rem;color:var(--ink2);max-width:70ch}
 <div class="wrap">
   <header>
     <h1>Korpus Al-Qur’an Terjemahan Indonesia</h1>
-    <p class="sub">Purwarupa tahap awal untuk QS Al-Fātiḥah: teks Arab dengan anotasi i‘rāb per kata, treebank sintaksis, kamus akar kata, terjemahan paralel, dan makna kontekstual berbasis tafsir.</p>
+    <p class="sub">Purwarupa tahap awal untuk QS Al-Fātiḥah dan QS An-Nās: teks Arab dengan anotasi i‘rāb per kata, treebank sintaksis, kamus akar kata, terjemahan paralel, dan makna kontekstual berbasis tafsir.</p>
     <div class="status" id="status"></div>
   </header>
   <nav class="tabs" role="tablist" id="tabs" aria-label="Lapisan korpus"></nav>
   <main id="view" role="tabpanel"></main>
   <footer>
-    Peneliti: Muhammad Albie Fathurrahman. Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim. Penomoran ayat mengikuti mushaf standar Indonesia, dengan basmalah sebagai ayat 1.
+    Peneliti: Muhammad Albie Fathurrahman. Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim. Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.
   </footer>
 </div>
 
@@ -154,7 +168,7 @@ const ROOTS={
   hmd:{ar:'ح م د',lat:'ḥ-m-d',makna:'pujian, memuji',cat:'Dari akar ini juga terbentuk nama Muḥammad dan Aḥmad.'},
   rbb:{ar:'ر ب ب',lat:'r-b-b',makna:'Tuhan, pemelihara, pengatur, pemilik',cat:'Satu akar dengan banyak nuansa; padanan “Tuhan” menyederhanakan makna pemeliharaan.'},
   alm:{ar:'ع ل م',lat:'ʿ-l-m',makna:'mengetahui; ʿālam = alam, segala sesuatu selain Allah',cat:'Satu akar dengan ʿilm (“ilmu”) dan ʿalāmah (“tanda”).'},
-  mlk:{ar:'م ل ك',lat:'m-l-k',makna:'memiliki, berkuasa',cat:'Ayat 4 mengikuti bacaan māliki (Ḥafṣ ʿan ʿĀṣim), “pemilik”; bacaan lain malik, “raja”.'},
+  mlk:{ar:'م ل ك',lat:'m-l-k',makna:'memiliki, berkuasa',cat:'Al-Fātiḥah ayat 4 dibaca māliki (Ḥafṣ ʿan ʿĀṣim), “pemilik”, sedangkan An-Nās ayat 2 dibaca malik, “raja”. Bacaan lain pada Al-Fātiḥah ayat 4 adalah malik.'},
   ywm:{ar:'ي و م',lat:'y-w-m',makna:'hari',cat:''},
   dyn:{ar:'د ي ن',lat:'d-y-n',makna:'pembalasan, perhitungan; agama; ketaatan',cat:'Akar polisemi. Lihat entri pada tab Makna kontekstual.'},
   abd:{ar:'ع ب د',lat:'ʿ-b-d',makna:'menyembah, mengabdi; hamba',cat:''},
@@ -165,10 +179,19 @@ const ROOTS={
   nem:{ar:'ن ع م',lat:'n-ʿ-m',makna:'nikmat; anʿama = memberi nikmat',cat:'Bentuk IV (afʿala) bersifat transitif.'},
   gyr:{ar:'غ ي ر',lat:'gh-y-r',makna:'lain, selain; ghayr = bukan',cat:''},
   gdb:{ar:'غ ض ب',lat:'gh-ḍ-b',makna:'marah, murka; maghḍūb = yang dimurkai',cat:'Maghḍūb adalah isim mafʿūl.'},
-  dll:{ar:'ض ل ل',lat:'ḍ-l-l',makna:'tersesat, menyimpang dari jalan; ḍāll = yang sesat',cat:'Ḍāll adalah isim fāʿil.'}
+  dll:{ar:'ض ل ل',lat:'ḍ-l-l',makna:'tersesat, menyimpang dari jalan; ḍāll = yang sesat',cat:'Ḍāll adalah isim fāʿil.'},
+  qwl:{ar:'ق و ل',lat:'q-w-l',makna:'berkata, mengucapkan',cat:'Qul adalah fiʿil amr dari akar ini; huruf wāw hilang pada bentuk perintah.'},
+  awdh:{ar:'ع و ذ',lat:'ʿ-w-dh',makna:'berlindung, memohon perlindungan',cat:'Aʿūdhu adalah fiʿil muḍāriʿ orang pertama (“aku berlindung”).'},
+  nws:{ar:'ن و س',lat:'n-w-s',makna:'manusia (an-nās)',cat:'Ahli bahasa berbeda pendapat tentang asal kata nās (misalnya dari ʾ-n-s atau n-w-s). Prototipe mencatat n-w-s dan menandainya untuk verifikasi.'},
+  shrr:{ar:'ش ر ر',lat:'sh-r-r',makna:'kejahatan, keburukan',cat:''},
+  wsws:{ar:'و س و س',lat:'w-s-w-s',makna:'membisikkan, bisikan',cat:'Akar empat huruf dengan pengulangan (waswasa). Waswās dan yuwaswisu berasal dari akar ini. Lihat entri pada tab Makna kontekstual.'},
+  khns:{ar:'خ ن س',lat:'kh-n-s',makna:'mundur, bersembunyi',cat:'Khannās berpola faʿʿāl, yang bernuansa sering atau berulang.'},
+  sdr:{ar:'ص د ر',lat:'ṣ-d-r',makna:'dada',cat:'Ṣudūr adalah jamak taksir dari ṣadr (“dada”).'},
+  jnn:{ar:'ج ن ن',lat:'j-n-n',makna:'tertutup, tersembunyi; jin',cat:'Satu akar dengan janna (“taman”) dan majnūn; makna dasarnya tertutup atau tersembunyi.'}
+
 };
 
-const VERSES=[
+const V_FATIHAH=[
 {n:1,ar:'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',tr:'Dengan nama Allah, Yang Maha Pengasih, Maha Penyayang.',
  words:[
   W('بِسْمِ','bismi','dengan nama','smw','majrur',false,[
@@ -210,7 +233,7 @@ const VERSES=[
     AL('ٱل','ar-',true),
     ['رَّحِيمِ','raḥīmi','Isim (ṣifah)','Naʿt kedua bagi lafẓ al-jalālah pada ayat 2, majrūr, tanda jarr kasrah.']],'rhm')
  ],
- edges:[[0,-1,'naʿt bagi Allāh, ay. 2'],[1,-1,'naʿt bagi Allāh, ay. 2']]},
+ edges:[[0,-1,'naʿt, ay. 2'],[1,-1,'naʿt kedua, ay. 2']]},
 
 {n:4,ar:'مَٰلِكِ يَوْمِ ٱلدِّينِ',tr:'Penguasa hari pembalasan.',
  words:[
@@ -285,6 +308,95 @@ const VERSES=[
  edges:[[0,-1,'badal dari aṣ-ṣirāṭ, ay. 6'],[1,0,'muḍāf ilayh'],[2,1,'ṣilah'],[3,2,'jar-majrūr'],[4,1,'naʿt'],[5,4,'muḍāf ilayh'],[6,5,'jar-majrūr'],[8,5,'maʿṭūf'],[7,8,'ʿaṭf']]}
 ];
 
+const V_NAS=[
+{n:1,ar:'قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ',tr:'Katakanlah, “Aku berlindung kepada Tuhan manusia,',
+ words:[
+  W('قُلْ','qul','katakanlah','qwl','mabni',false,[
+    ['قُلْ','qul','Fiʿil amr','Fiʿil amr, mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Kalimat berikutnya menjadi isi ucapan (maqūl al-qawl) yang berstatus mafʿūl bih.']]),
+  W('أَعُوذُ','aʿūdhu','aku berlindung','awdh','marfu',false,[
+    ['أَعُوذُ','aʿūdhu','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ marfūʿ, tanda rafaʿ ḍammah; fāʿil: ḍamīr mustatir wājib, taqdīr “ana” (aku). Kalimat aʿūdhu bi-rabbi an-nās berstatus maqūl al-qawl, di posisi naṣab.']]),
+  W('بِرَبِّ','bi-rabbi','kepada Tuhan','rbb','majrur',false,[
+    ['بِ','bi','Huruf jarr','Huruf jarr, mabnī. Jar-majrūr bermuta‘alliq pada aʿūdhu.'],
+    ['رَبِّ','rabbi','Isim','Isim majrūr oleh huruf jarr, tanda jarr kasrah; sekaligus muḍāf.']]),
+  W('ٱلنَّاسِ','an-nāsi','manusia','nws','majrur',false,[
+    AL('ٱل','an-',true),
+    ['نَّاسِ','nāsi','Isim','Muḍāf ilayh bagi rabbi, majrūr, tanda jarr kasrah.']])
+ ],
+ edges:[[1,0,'maqūl al-qawl'],[2,1,'jar-majrūr'],[3,2,'muḍāf ilayh']]},
+
+{n:2,ar:'مَلِكِ ٱلنَّاسِ',tr:'Raja manusia,',
+ words:[
+  W('مَلِكِ','maliki','Raja, Penguasa','mlk','majrur',false,[
+    ['مَلِكِ','maliki','Isim (ṣifah)','Naʿt bagi rabbi pada ayat 1 (ada pandangan: ʿaṭf bayān atau badal), majrūr, tanda jarr kasrah; sekaligus muḍāf. Pada ayat ini dibaca malik (“raja”), berbeda dari māliki pada Al-Fātiḥah ayat 4.']]),
+  W('ٱلنَّاسِ','an-nāsi','manusia','nws','majrur',false,[
+    AL('ٱل','an-',true),
+    ['نَّاسِ','nāsi','Isim','Muḍāf ilayh bagi maliki, majrūr, tanda jarr kasrah.']])
+ ],
+ edges:[[0,-1,'naʿt bagi rabbi, ay. 1'],[1,0,'muḍāf ilayh']]},
+
+{n:3,ar:'إِلَٰهِ ٱلنَّاسِ',tr:'Sembahan manusia,',
+ words:[
+  W('إِلَٰهِ','ilāhi','Sembahan, Tuhan','alh','majrur',false,[
+    ['إِلَٰهِ','ilāhi','Isim','ʿAṭf bayān bagi rabbi pada ayat 1 (ada pandangan: badal), majrūr, tanda jarr kasrah; sekaligus muḍāf.']]),
+  W('ٱلنَّاسِ','an-nāsi','manusia','nws','majrur',false,[
+    AL('ٱل','an-',true),
+    ['نَّاسِ','nāsi','Isim','Muḍāf ilayh bagi ilāhi, majrūr, tanda jarr kasrah.']])
+ ],
+ edges:[[0,-1,'ʿaṭf bayān bagi rabbi, ay. 1'],[1,0,'muḍāf ilayh']]},
+
+{n:4,ar:'مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ',tr:'dari kejahatan pembisik yang bersembunyi,',
+ words:[
+  W('مِن','min','dari',null,'mabni',false,[
+    ['مِن','min','Huruf jarr','Huruf jarr, mabnī atas sukūn. Jar-majrūr bermuta‘alliq pada aʿūdhu (ayat 1).']]),
+  W('شَرِّ','sharri','kejahatan','shrr','majrur',false,[
+    ['شَرِّ','sharri','Isim','Isim majrūr oleh huruf jarr min, tanda jarr kasrah; sekaligus muḍāf.']]),
+  W('ٱلْوَسْوَاسِ','al-waswāsi','pembisik, bisikan','wsws','majrur',false,[
+    AL('ٱلْ','al-',false),
+    ['وَسْوَاسِ','waswāsi','Isim','Muḍāf ilayh bagi sharri, majrūr, tanda jarr kasrah.']],'wsws'),
+  W('ٱلْخَنَّاسِ','al-khannāsi','yang bersembunyi','khns','majrur',false,[
+    AL('ٱلْ','al-',false),
+    ['خَنَّاسِ','khannāsi','Isim (ṣifah, pola faʿʿāl)','Naʿt bagi al-waswās, majrūr, tanda jarr kasrah.']],'wsws')
+ ],
+ edges:[[0,-1,'jar-majrūr bagi aʿūdhu, ay. 1'],[1,0,'majrūr'],[2,1,'muḍāf ilayh'],[3,2,'naʿt']]},
+
+{n:5,ar:'ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ',tr:'yang membisikkan ke dalam dada manusia,',
+ words:[
+  W('ٱلَّذِى','alladhī','yang',null,'majrur',true,[
+    ['ٱلَّذِى','alladhī','Isim mawṣūl','Isim mawṣūl, mabnī; di posisi jarr sebagai naʿt bagi al-khannās (ada pandangan: bagi al-waswās).']]),
+  W('يُوَسْوِسُ','yuwaswisu','membisikkan','wsws','marfu',false,[
+    ['يُوَسْوِسُ','yuwaswisu','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ marfūʿ, tanda rafaʿ ḍammah; fāʿil: ḍamīr mustatir jawāzan, taqdīr “huwa” (dia). Kalimatnya menjadi ṣilah mawṣūl (tidak memiliki posisi i‘rāb).']]),
+  W('فِى','fī','di dalam',null,'mabni',false,[
+    ['فِى','fī','Huruf jarr','Huruf jarr, mabnī atas sukūn. Jar-majrūr bermuta‘alliq pada yuwaswisu.']]),
+  W('صُدُورِ','ṣudūri','dada-dada','sdr','majrur',false,[
+    ['صُدُورِ','ṣudūri','Isim (jamak taksir)','Isim majrūr oleh huruf jarr fī, tanda jarr kasrah; sekaligus muḍāf. Bentuk tunggalnya ṣadr.']]),
+  W('ٱلنَّاسِ','an-nāsi','manusia','nws','majrur',false,[
+    AL('ٱل','an-',true),
+    ['نَّاسِ','nāsi','Isim','Muḍāf ilayh bagi ṣudūri, majrūr, tanda jarr kasrah.']])
+ ],
+ edges:[[0,-1,'naʿt bagi al-khannās, ay. 4'],[1,0,'ṣilah'],[2,1,'jar-majrūr'],[3,2,'majrūr'],[4,3,'muḍāf ilayh']]},
+
+{n:6,ar:'مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ',tr:'dari (golongan) jin dan manusia.”',
+ words:[
+  W('مِنَ','mina','dari',null,'mabni',false,[
+    ['مِنَ','mina','Huruf jarr','Huruf jarr, mabnī; berharakat fatḥah untuk menghindari pertemuan dua sukun sebelum alif-lām. Jar-majrūr bermuta‘alliq pada yuwaswisu (ada pandangan: ḥāl dari pelaku yuwaswisu, atau penjelas bagi al-waswās). Pilihan ini memengaruhi pemaknaan siapa pembisiknya dan perlu verifikasi ahli.']]),
+  W('ٱلْجِنَّةِ','al-jinnati','jin','jnn','majrur',false,[
+    AL('ٱلْ','al-',false),
+    ['جِنَّةِ','jinnati','Isim','Isim majrūr oleh huruf jarr min, tanda jarr kasrah.']]),
+  W('وَٱلنَّاسِ','wa-n-nāsi','dan manusia','nws','majrur',false,[
+    ['وَ','wa','Huruf ʿaṭf','Huruf sambung (ʿaṭf) yang menghubungkan an-nās dengan al-jinnah.'],
+    AL('ٱل','an-',true),
+    ['نَّاسِ','nāsi','Isim','Maʿṭūf pada al-jinnah, majrūr, tanda jarr kasrah.']])
+ ],
+ edges:[[0,-1,'jar-majrūr bagi yuwaswisu, ay. 5'],[1,0,'majrūr'],[2,1,'maʿṭūf']]}
+];
+
+const SURAHS=[
+ {no:1,nama:'Al-Fātiḥah',ar:'ٱلْفَاتِحَة',verses:V_FATIHAH},
+ {no:114,nama:'An-Nās',ar:'ٱلنَّاس',verses:V_NAS}
+];
+SURAHS.forEach((S,si)=>S.verses.forEach(v=>{v.si=si;v.sn=S.no;}));
+const VERSES=SURAHS.reduce((a,S)=>a.concat(S.verses),[]);
+
 const DIS=[
 {id:'dyn',term:'ٱلدِّينِ',lat:'ad-dīn',root:'dyn',ref:'QS 1:4',verse:4,word:2,
  senses:['pembalasan, perhitungan','agama, tatanan hidup','ketaatan, kepatuhan'],
@@ -299,22 +411,35 @@ const DIS=[
  pendapat:[
   {label:'Pendapat yang banyak dikutip',ringkas:'Ar-Raḥmān menunjuk kasih sayang yang meliputi seluruh makhluk, sedangkan ar-Raḥīm menunjuk kasih sayang yang terarah kepada orang beriman.'},
   {label:'Perlu dilengkapi',ringkas:'Ulama berbeda dalam merinci perbedaan kedua sifat ini. Entri final harus memuat seluruh pendapat yang dikutip ahli tafsir pemverifikasi.'}],
- risiko:'“Pengasih” dan “Penyayang” terbaca hampir sinonim bagi penutur awam, sehingga pembeda nuansanya tidak tampak.'}
+ risiko:'“Pengasih” dan “Penyayang” terbaca hampir sinonim bagi penutur awam, sehingga pembeda nuansanya tidak tampak.'},
+{id:'wsws',s:1,term:'ٱلْوَسْوَاسِ ٱلْخَنَّاسِ',lat:'al-waswās al-khannās',root:'wsws',ref:'QS 114:4',verse:4,word:2,
+ senses:['bisikan (waswasah)','pembisik, pelaku bisikan','yang mundur atau bersembunyi (khannās)'],
+ pilihan:'Pembisik yang bersembunyi: pelaku bisikan yang menyelinap lalu mundur.',
+ alasan:'Al-waswās dibaca sebagai bisikan atau pembisik, dan al-khannās menyifatinya dengan sifat mundur atau bersembunyi. Ayat 5 dan 6 melanjutkan dengan tempat bisikan itu (dada manusia) dan asalnya (jin dan manusia).',
+ pendapat:[
+  {label:'Tafsir klasik (pendapat yang dikenal luas)',ringkas:'Pembisik ini ditafsirkan sebagai setan yang membisikkan keburukan ke dalam hati manusia, lalu mundur atau bersembunyi ketika Allah disebut.'},
+  {label:'Perlu dilengkapi',ringkas:'Penafsiran atas “dari jin dan manusia” pada ayat 6 beragam. Entri final harus memuat seluruh pendapat yang dikutip ahli tafsir pemverifikasi.'}],
+ risiko:'Padanan “bisikan”, “pembisik”, atau penambahan kata “setan” masing-masing menyiratkan tafsir yang berbeda. Terjemahan yang memilih salah satunya tanpa catatan menyembunyikan perbedaan itu.'}
+
 ];
 
 /* ---------- State dan util ---------- */
-const state={tab:'baca',v:1,w:0,q:'',focusRoot:null,focusDis:null};
-const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['makna','Makna kontekstual'],['pedoman','Pedoman dan status']];
+const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:''};
+const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['cari','Cari'],['para','Terjemahan paralel'],['makna','Makna kontekstual'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const cur=()=>VERSES[state.v-1];
+const cur=()=>SURAHS[state.s].verses[state.v-1];
 const totalWords=VERSES.reduce((a,v)=>a+v.words.length,0);
 function kasusLabel(w){return w.mabni?('Mabnī, di posisi '+POSISI[w.kasus]):KASUS[w.kasus].n;}
-function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({v:v.n,w:i,ar:w.ar,lat:w.lat});}));return r;}
+function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({s:v.si,sn:v.sn,v:v.n,w:i,ar:w.ar,lat:w.lat});}));return r;}
 
 /* ---------- Komponen ---------- */
+function surahChips(){
+  return '<div class="ayat" role="group" aria-label="Pilih surah"><span class="lbl">Surah</span>'+
+    SURAHS.map((S,i)=>`<button class="chip wide" data-s="${i}" aria-pressed="${i===state.s}">${esc(S.nama)}</button>`).join('')+'</div>';
+}
 function ayatChips(){
-  return '<div class="ayat" role="group" aria-label="Pilih ayat"><span class="lbl">Ayat</span>'+
-    VERSES.map(v=>`<button class="chip" data-v="${v.n}" aria-pressed="${v.n===state.v}">${v.n}</button>`).join('')+'</div>';
+  return surahChips()+'<div class="ayat" role="group" aria-label="Pilih ayat"><span class="lbl">Ayat</span>'+
+    SURAHS[state.s].verses.map(v=>`<button class="chip" data-v="${v.n}" aria-pressed="${v.n===state.v}">${v.n}</button>`).join('')+'</div>';
 }
 function legend(){
   return `<div class="legend" aria-label="Keterangan warna">
@@ -330,7 +455,7 @@ function wordBtn(x,i){
     <span class="ar" lang="ar">${x.ar}</span><span class="bar"></span><span class="lat">${esc(x.lat)}</span><span class="gl">${esc(x.gloss)}</span></button>`;
 }
 function detail(v,w){
-  const data={ayat:v.n,urutan:state.w+1,arab:w.ar,transliterasi:w.lat,glosa:w.gloss,akar:w.root?ROOTS[w.root].lat:null,kasus:kasusLabel(w),
+  const data={surah:SURAHS[state.s].no,ayat:v.n,urutan:state.w+1,arab:w.ar,transliterasi:w.lat,glosa:w.gloss,akar:w.root?ROOTS[w.root].lat:null,kasus:kasusLabel(w),
     segmen:w.segs.map(s=>({arab:s[0],bentuk:s[1],kelas:s[2],irab:s[3]}))};
   return `<section class="detail" style="--c:${KASUS[w.kasus].c}" aria-live="polite">
     <div class="dhead"><span class="big" lang="ar">${w.ar}</span>
@@ -350,7 +475,7 @@ function baca(){
   const v=cur(),w=v.words[state.w];
   return ayatChips()+legend()+
    `<div class="reader"><div class="row">${v.words.map(wordBtn).join('')}</div>
-    <p class="terj"><strong>Ayat ${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p></div>`+detail(v,w);
+    <p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p></div>`+detail(v,w);
 }
 
 /* ---------- Tab: Treebank ---------- */
@@ -359,12 +484,12 @@ function svgTree(v){
   const maxD=Math.max(1,...v.edges.map(e=>e[1]>=0?Math.abs(e[0]-e[1]):1));
   const maxH=Math.max(92,30+24*maxD+18),y0=maxH+10,H=y0+84;
   const X=i=>totalW-pad-(i+0.5)*W;
-  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${totalW}" height="${H}" viewBox="0 0 ${totalW} ${H}" role="img" aria-label="Diagram dependensi sintaksis ayat ${v.n}"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2F4B9C"/></marker></defs>`;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${totalW}" height="${H}" viewBox="0 0 ${totalW} ${H}" role="img" aria-label="Diagram dependensi sintaksis QS ${v.sn}:${v.n}"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2F4B9C"/></marker></defs>`;
   v.edges.forEach(e=>{
     const d=e[0],h=e[1],lab=e[2],xd=X(d)+8;
     if(h<0){
-      s+=`<line x1="${xd}" y1="${y0-50}" x2="${xd}" y2="${y0-2}" stroke="#2F4B9C" stroke-width="1.6" marker-end="url(#ah)"/>`;
-      s+=`<text x="${xd}" y="${y0-58}" text-anchor="middle" class="tl">${esc(lab)}</text>`;
+      s+=`<line x1="${xd}" y1="${y0-62}" x2="${xd}" y2="${y0-2}" stroke="#2F4B9C" stroke-width="1.6" marker-end="url(#ah)"/>`;
+      s+=`<text x="${xd}" y="${y0-70}" text-anchor="middle" class="tl">${esc(lab)}</text>`;
     }else{
       const xh=X(h)-8,hh=30+24*Math.abs(d-h);
       s+=`<path d="M${xh} ${y0-2} C${xh} ${y0-2-hh},${xd} ${y0-2-hh},${xd} ${y0-2}" fill="none" stroke="#2F4B9C" stroke-width="1.6" marker-end="url(#ah)"/>`;
@@ -398,8 +523,8 @@ function rootEntry(k){
   return `<article class="entry ${state.focusRoot===k?'hl':''}" id="root-${k}">
     <div class="rhead"><span class="rt" lang="ar">${r.ar}</span><div><strong>${esc(r.lat)}</strong><br><span class="muted">${esc(r.makna)}</span></div></div>
     ${r.cat?`<p class="note">${esc(r.cat)}</p>`:''}
-    <div class="forms"><span class="muted">Bentuk dalam Al-Fātiḥah:</span>
-      ${occ.map(o=>`<button class="formbtn" data-goto="${o.v}:${o.w}"><span lang="ar">${o.ar}</span> <small>${esc(o.lat)}, ayat ${o.v}</small></button>`).join('')}
+    <div class="forms"><span class="muted">Bentuk dalam teks:</span>
+      ${occ.map(o=>`<button class="formbtn" data-goto="${o.s}:${o.v}:${o.w}"><span lang="ar">${o.ar}</span> <small>${esc(o.lat)}, QS ${o.sn}:${o.v}</small></button>`).join('')}
     </div></article>`;
 }
 function akarList(){
@@ -420,8 +545,8 @@ function akar(){
 
 /* ---------- Tab: Paralel ---------- */
 function para(){
-  return `<p class="note">Saat ini hanya terjemahan kerja prototipe yang dimuat. Kolom terjemahan Kemenag dan penerbit sudah disiapkan agar dapat dibandingkan sejajar per ayat setelah izin data tersedia.</p>`+
-   VERSES.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="muted">﴿${v.n}﴾</span></div>
+  return surahChips()+`<p class="note">Saat ini hanya terjemahan kerja prototipe yang dimuat. Kolom terjemahan Kemenag dan penerbit sudah disiapkan agar dapat dibandingkan sejajar per ayat setelah izin data tersedia.</p>`+
+   SURAHS[state.s].verses.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="muted">﴿${v.n}﴾</span></div>
      <div class="trow"><div class="lab">Terjemahan kerja prototipe</div><div>${esc(v.tr)}</div></div>
      <div class="trow"><div class="lab">Terjemahan resmi Kemenag</div><div class="slot">Belum dimuat. Diisi dari sumber resmi setelah izin data.</div></div>
      <div class="trow"><div class="lab">Terjemahan penerbit</div><div class="slot">Belum dimuat. Diisi setelah kerja sama data.</div></div></section>`).join('');
@@ -440,11 +565,11 @@ function disCard(d){
       <dt>Risiko terjemahan literal</dt><dd>${esc(d.risiko)}</dd>
       <dt>Verifikator</dt><dd><span class="slot">Belum ada</span></dd>
     </dl>
-    <p><button class="link" data-goto="${d.verse}:${d.word}">Buka kata ini pada tab Baca</button></p>
+    <p><button class="link" data-goto="${d.s||0}:${d.verse}:${d.word}">Buka kata ini pada tab Baca</button></p>
   </article>`;
 }
 function makna(){
-  return `<p class="note">Lapisan ini memuat penjelasan kontekstual dari tafsir untuk istilah yang rawan disalahpahami. Dua entri berikut adalah contoh bentuk anotasi pada Al-Fātiḥah. Isinya draf kerja dan wajib diverifikasi ahli tafsir sebelum dipublikasikan.</p>`+
+  return `<p class="note">Lapisan ini memuat penjelasan kontekstual dari tafsir untuk istilah yang rawan disalahpahami. Entri berikut adalah contoh bentuk anotasi pada Al-Fātiḥah dan An-Nās. Isinya draf kerja dan wajib diverifikasi ahli tafsir sebelum dipublikasikan.</p>`+
    DIS.map(disCard).join('')+
    `<article class="card tpl"><div class="ct"><strong>Templat entri berikutnya: kāfir pada ayat-ayat qitāl</strong></div>
      <dl>
@@ -454,14 +579,122 @@ function makna(){
       <dt>Pendapat mufasir, lengkap dengan rujukan</dt><dd><span class="slot">Belum diisi</span></dd>
       <dt>Verifikasi ahli tafsir</dt><dd><span class="slot">Belum diisi</span></dd>
      </dl>
-     <p class="note">Istilah ini menjadi sasaran utama penelitian dan berada di luar cakupan Al-Fātiḥah. Bentuk entrinya sudah ditetapkan di sini agar dapat diterapkan seragam.</p></article>`;
+     <p class="note">Istilah ini menjadi sasaran utama penelitian dan berada di luar cakupan dua surah ini. Bentuk entrinya sudah ditetapkan di sini agar dapat diterapkan seragam.</p></article>`;
+}
+
+/* ---------- Tab: Cari ---------- */
+const stripLat=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[\u02BE\u02BF\u2018\u2019'`\-]/g,'');
+const stripAr=s=>String(s).replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g,'').replace(/[\u0671\u0622\u0623\u0625]/g,'\u0627');
+const hasArabic=s=>/[\u0600-\u06FF]/.test(s);
+const clip=s=>s.length>130?s.slice(0,130)+'…':s;
+function runSearch(raw){
+  const q=String(raw||'').trim();
+  if(!q)return null;
+  const ar=hasArabic(q);
+  const nq=ar?stripAr(q):stripLat(q);
+  if(!ar&&nq.length<2)return {short:true};
+  const has=t=>(ar?stripAr(t):stripLat(t)).includes(nq);
+  const words=[],ayat=[],makna=[];
+  VERSES.forEach(v=>{
+    v.words.forEach((w,i)=>{
+      const f=[];let snip=null;
+      if(ar){
+        if(has(w.ar))f.push('teks Arab');
+      }else{
+        if(has(w.lat))f.push('transliterasi');
+        if(has(w.gloss))f.push('makna');
+        if(w.root){const r=ROOTS[w.root];if(has(r.lat)||has(r.makna))f.push('akar');}
+        const seg=w.segs.find(s=>has(s[1]+' '+s[2]+' '+s[3]));
+        if(seg){f.push('i‘rāb');snip=seg;}
+      }
+      if(f.length)words.push({s:v.si,sn:v.sn,v:v.n,i,w,f,snip});
+    });
+    if(has(ar?v.ar:v.tr))ayat.push(v);
+  });
+  if(!ar){
+    DIS.forEach(d=>{
+      const txt=[d.lat,d.ref,d.pilihan,d.alasan,d.risiko].concat(d.senses,d.pendapat.map(p=>p.label+' '+p.ringkas)).join(' ');
+      if(has(txt))makna.push(d);
+    });
+  }
+  return {ar,words,ayat,makna};
+}
+function hitWord(h){
+  const w=h.w;
+  return `<button class="hit" data-goto="${h.s}:${h.v}:${h.i}"><span class="hv">QS ${h.sn}:${h.v}</span><span class="har" lang="ar">${w.ar}</span><span class="hmain"><strong>${esc(w.lat)}</strong>, ${esc(w.gloss)}<br><span class="muted">Cocok pada: ${h.f.join(', ')}</span>${h.snip?`<br><span class="muted">Segmen ${esc(h.snip[1])}: ${esc(clip(h.snip[3]))}</span>`:''}</span></button>`;
+}
+function cariResults(){
+  const r=runSearch(state.cq);
+  if(!r)return '<p class="empty">Ketik kata kunci atau pilih salah satu contoh di atas.</p>';
+  if(r.short)return '<p class="empty">Ketik minimal dua huruf.</p>';
+  const total=r.words.length+r.ayat.length+r.makna.length;
+  if(!total)return `<p class="empty">Tidak ada hasil untuk “${esc(state.cq)}”. Coba kata yang lebih pendek, tulis tanpa tanda khusus, atau pakai istilah i‘rāb seperti “naʿt”.</p>`;
+  let s=`<p class="rcount">${r.words.length} kata, ${r.ayat.length} ayat, ${r.makna.length} entri makna kontekstual</p>`;
+  if(r.words.length)s+='<h3>Kata</h3>'+r.words.map(hitWord).join('');
+  if(r.ayat.length)s+='<h3>Ayat</h3>'+r.ayat.map(v=>`<button class="hit ay" data-goto="${v.si}:${v.n}:0"><span class="hv">QS ${v.sn}:${v.n}</span><span class="hmain">${esc(v.tr)}</span><span class="har" lang="ar">${v.ar}</span></button>`).join('');
+  if(r.makna.length)s+='<h3>Makna kontekstual</h3>'+r.makna.map(d=>`<button class="hit" data-dis="${d.id}"><span class="hv">${esc(d.ref)}</span><span class="har" lang="ar">${d.term}</span><span class="hmain"><strong>${esc(d.lat)}</strong>, makna terpilih: ${esc(d.pilihan)}</span></button>`).join('');
+  return s;
+}
+function cari(){
+  const ex=['rahmat','mudaf ilayh','jalan','الله'];
+  return `<p class="note">Cari berdasarkan kata Arab (dengan atau tanpa harakat), transliterasi, makna Indonesia, akar kata, atau fungsi i‘rāb seperti “naʿt” dan “muḍāf ilayh”. Huruf bertanda seperti ḥ, ṣ, ā, dan ʿ boleh diketik biasa.</p>
+    <input id="cq" class="search" type="search" placeholder="Contoh: rahmat, naʿt, jalan, الله" value="${esc(state.cq)}" aria-label="Cari di korpus">
+    <div class="ex"><span>Coba:</span>${ex.map(x=>`<button class="formbtn" data-q="${x}">${x}</button>`).join('')}</div>
+    <div id="cresults" aria-live="polite">${cariResults()}</div>
+    <p class="note" style="margin-top:14px">Ini pencarian kata kunci: sistem mencocokkan huruf yang diketik tanpa memahami makna. Pencarian ini menjadi pembanding bagi pencarian semantik yang direncanakan pada tab Rencana AI.</p>`;
+}
+
+/* ---------- Tab: Rencana AI ---------- */
+const PLAN=[
+ {t:'Pencarian semantik',
+  f:'Pengguna mengetik pertanyaan dalam bahasa sehari-hari, misalnya “ayat tentang kasih sayang”, dan sistem menampilkan ayat serta entri yang maknanya berdekatan, bukan hanya yang hurufnya sama.',
+  l:'Tab Cari, sebagai mode kedua di samping pencarian kata kunci.',
+  d:'Terjemahan paralel dan lapisan makna kontekstual yang sudah diverifikasi ahli.',
+  m:'Dibandingkan dengan pencarian kata kunci pada tab Cari, memakai set pertanyaan uji yang relevansi hasilnya dinilai ahli, misalnya dengan ketepatan pada k hasil teratas (precision@k).',
+  b:'Hanya menampilkan ayat dan entri yang sudah ada. Tidak menulis penjelasan baru.'},
+ {t:'Klasifikasi padanan formal dan dinamis',
+  f:'Menandai otomatis apakah padanan suatu istilah dalam terjemahan bersifat formal atau dinamis, agar penyempitan makna dapat ditelusuri dalam skala besar.',
+  l:'Tab Terjemahan paralel, sebagai penanda pada setiap padanan.',
+  d:'Himpunan padanan yang diberi label manual oleh anotator sebagai standar acuan, mengikuti analisis kecenderungan padanan pada istilah teologis.',
+  m:'Kesesuaian dengan label ahli (akurasi dan kesepakatan seperti Cohen’s κ) pada data yang tidak dipakai untuk pelatihan.',
+  b:'Penanda berstatus saran. Keputusan akhir tetap pada anotator.'},
+ {t:'Asisten anotasi (internal)',
+  f:'Mengusulkan draf i‘rāb atau kandidat makna kontekstual untuk dikoreksi anotator.',
+  l:'Alur kerja anotator di balik layar. Tidak ditampilkan kepada pengguna publik.',
+  d:'Anotasi yang sudah diverifikasi sebagai contoh, serta pedoman anotasi.',
+  m:'Waktu anotasi per kata dan kesepakatan antar-anotator, dengan dan tanpa bantuan.',
+  b:'Tidak ada draf yang terbit tanpa verifikasi ahli nahwu-sharaf atau ahli tafsir.'}
+];
+function planCard(c){
+  return `<article class="card plan"><div class="ct"><h2 style="margin:0">${esc(c.t)}</h2><span class="badge plan">Rencana, belum dibangun</span></div>
+    <dl><dt>Fungsi</dt><dd>${esc(c.f)}</dd><dt>Letak di platform</dt><dd>${esc(c.l)}</dd><dt>Data yang dibutuhkan</dt><dd>${esc(c.d)}</dd><dt>Cara mengukur keberhasilan</dt><dd>${esc(c.m)}</dd><dt>Batas</dt><dd>${esc(c.b)}</dd></dl></article>`;
+}
+function ai(){
+  return `<h2>Rencana pengembangan AI</h2>
+   <p class="note">Bagian ini menjelaskan tempat dan tujuan fitur AI pada platform. Belum ada fitur AI yang aktif pada purwarupa ini. Semua fitur bergantung pada korpus yang sudah divalidasi ahli, sehingga korpus dikerjakan lebih dulu.</p>
+   ${PLAN.map(planCard).join('')}
+   <h3>Batas penggunaan AI</h3>
+   <ul class="plain">
+    <li>AI tidak menafsirkan. Jawaban hanya berasal dari entri korpus yang sudah diverifikasi dan selalu menyertakan sumbernya. Bila tidak ada entri yang relevan, sistem menyatakan tidak ada jawaban.</li>
+    <li>Setiap keluaran AI diberi tanda yang jelas dan dapat dilacak ke data asalnya.</li>
+    <li>Fitur AI memerlukan server perantara agar kunci layanan tidak terbuka di halaman publik, sehingga tidak dapat berjalan hanya pada hosting statis seperti purwarupa ini.</li>
+    <li>Pemakaian terjemahan Kemenag dan penerbit untuk melatih atau menguji model tunduk pada izin data.</li>
+   </ul>
+   <h3>Urutan kerja</h3>
+   <ol class="plain">
+    <li>Korpus dan anotasi divalidasi ahli lebih dulu.</li>
+    <li>Pencarian kata kunci pada tab Cari menjadi pembanding dasar (sudah tersedia).</li>
+    <li>Set pertanyaan uji dan label ahli disusun.</li>
+    <li>Fitur AI dibangun, lalu dibandingkan dengan pembanding dasar.</li>
+    <li>Kebermanfaatan dievaluasi bersama santri, mahasiswa, dan penerjemah.</li>
+   </ol>`;
 }
 
 /* ---------- Tab: Pedoman ---------- */
 function pedoman(){
   const nRoots=Object.keys(ROOTS).length;
   return `<h2>Cakupan purwarupa</h2>
-   <p>QS Al-Fātiḥah: ${VERSES.length} ayat dan ${totalWords} kata, dengan ${nRoots} akar kata dan ${DIS.length} contoh entri makna kontekstual.</p>
+   <p>${SURAHS.length} surah (${SURAHS.map(S=>'QS '+S.no+' '+S.nama).join(' dan ')}): ${VERSES.length} ayat dan ${totalWords} kata, dengan ${nRoots} akar kata dan ${DIS.length} contoh entri makna kontekstual.</p>
    <h3>Status tiap lapisan</h3>
    <div class="tw"><table><thead><tr><th>Lapisan</th><th>Status saat ini</th></tr></thead><tbody>
     <tr><td>Anotasi i‘rāb per kata</td><td>Tersedia untuk seluruh kata, berstatus draf kerja.</td></tr>
@@ -469,6 +702,8 @@ function pedoman(){
     <tr><td>Kamus akar kata</td><td>${nRoots} entri ringkas dengan tautan ke setiap bentuknya.</td></tr>
     <tr><td>Terjemahan paralel</td><td>Satu terjemahan kerja. Kolom Kemenag dan penerbit menunggu izin data.</td></tr>
     <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan tafsir belum diisi.</td></tr>
+    <tr><td>Pencarian kata kunci</td><td>Tersedia pada tab Cari. Pencarian ini leksikal dan tidak memakai AI.</td></tr>
+    <tr><td>Fitur AI</td><td>Berupa rencana pada tab Rencana AI. Belum ada yang aktif.</td></tr>
    </tbody></table></div>
 
    <h3>Istilah anotasi</h3>
@@ -481,7 +716,7 @@ function pedoman(){
     <tr><td>Fāʿil</td><td>Pelaku pekerjaan pada fiʿil.</td></tr>
     <tr><td>Mafʿūl bih</td><td>Objek yang dikenai pekerjaan.</td></tr>
     <tr><td>Naʿt</td><td>Sifat yang mengikuti kata yang disifati.</td></tr>
-    <tr><td>Badal</td><td>Kata pengganti yang menjelaskan kata sebelumnya dan sejajar dengannya.</td></tr>
+    <tr><td>Badal dan ʿaṭf bayān</td><td>Kata yang menggantikan atau menjelaskan kata sebelumnya dan sejajar dengannya.</td></tr>
     <tr><td>Muḍāf dan muḍāf ilayh</td><td>Pasangan penyandaran (iḍāfah); muḍāf ilayh selalu majrūr.</td></tr>
     <tr><td>ʿAṭf dan maʿṭūf</td><td>Penyambungan dengan huruf sambung; maʿṭūf mengikuti i‘rāb kata yang disambungi.</td></tr>
     <tr><td>Ṣilah</td><td>Klausa penyerta isim mawṣūl yang melengkapi maknanya.</td></tr>
@@ -497,6 +732,7 @@ function pedoman(){
     <li>Satu pandangan utama dicatat pada setiap kata. Bila ahli i‘rāb berbeda pandangan, perbedaan itu ditulis dalam keterangan, misalnya naʿt atau badal pada rabbi dan ghayri.</li>
     <li>Istilah kategori memakai bentuk Arab klasik dengan penjelasan berbahasa Indonesia.</li>
     <li>Transliterasi dan glosa kata per kata adalah rancangan kerja peneliti.</li>
+    <li>Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung sebagai ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.</li>
    </ul>
 
    <h3>Keterbatasan</h3>
@@ -504,7 +740,8 @@ function pedoman(){
     <li>Seluruh anotasi adalah draf kerja dan belum divalidasi ahli nahwu-sharaf maupun ahli tafsir.</li>
     <li>Terjemahan Kemenag dan penerbit belum dimuat karena menunggu izin data.</li>
     <li>Rujukan kitab tafsir pada lapisan makna kontekstual belum diisi.</li>
-    <li>Cakupan baru satu surah, sebagai bukti rancangan dan bukan korpus lengkap.</li>
+    <li>Cakupan baru dua surah pendek, sebagai bukti rancangan dan bukan korpus lengkap.</li>
+    <li>Tidak ada fitur AI yang aktif. Pencarian bersifat kata kunci.</li>
    </ul>
 
    <h3>Rencana validasi</h3>
@@ -518,7 +755,7 @@ function pedoman(){
 /* ---------- Render ---------- */
 function renderStatus(){
   document.getElementById('status').innerHTML=
-    `<span class="badge">QS 1, ${VERSES.length} ayat, ${totalWords} kata</span>
+    `<span class="badge">${SURAHS.length} surah, ${VERSES.length} ayat, ${totalWords} kata</span>
      <span class="badge">${Object.keys(ROOTS).length} akar kata</span>
      <span class="badge warn">Draf kerja: belum divalidasi ahli</span>`;
 }
@@ -526,7 +763,7 @@ function renderTabs(){
   document.getElementById('tabs').innerHTML=TABS.map(t=>`<button role="tab" data-tab="${t[0]}" aria-selected="${t[0]===state.tab}">${t[1]}</button>`).join('');
 }
 function renderView(){
-  const fn={baca,tree,akar,para,makna,pedoman}[state.tab];
+  const fn={baca,tree,akar,cari,para,makna,ai,pedoman}[state.tab];
   document.getElementById('view').innerHTML=fn();
   renderTabs();
   const target=state.tab==='akar'&&state.focusRoot?document.getElementById('root-'+state.focusRoot):
@@ -537,16 +774,19 @@ function renderView(){
 
 /* ---------- Event ---------- */
 document.addEventListener('click',function(e){
-  const t=e.target.closest('[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto]');
+  const t=e.target.closest('[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s]');
   if(!t)return;
   if(t.dataset.tab){state.tab=t.dataset.tab;renderView();window.scrollTo({top:0});return;}
+  if(t.dataset.s!==undefined){state.s=+t.dataset.s;state.v=1;state.w=0;renderView();return;}
   if(t.dataset.v){state.v=+t.dataset.v;state.w=0;renderView();return;}
   if(t.dataset.w!==undefined){state.w=+t.dataset.w;renderView();return;}
   if(t.dataset.root){state.tab='akar';state.q='';state.focusRoot=t.dataset.root;renderView();return;}
   if(t.dataset.dis){state.tab='makna';state.focusDis=t.dataset.dis;renderView();return;}
-  if(t.dataset.goto){const p=t.dataset.goto.split(':');state.tab='baca';state.v=+p[0];state.w=+p[1];renderView();window.scrollTo({top:0});return;}
+  if(t.dataset.q!==undefined){state.cq=t.dataset.q;renderView();return;}
+  if(t.dataset.goto){const p=t.dataset.goto.split(':');state.tab='baca';state.s=+p[0];state.v=+p[1];state.w=+p[2];renderView();window.scrollTo({top:0});return;}
 });
 document.addEventListener('input',function(e){
+  if(e.target&&e.target.id==='cq'){state.cq=e.target.value;document.getElementById('cresults').innerHTML=cariResults();}
   if(e.target&&e.target.id==='q'){state.q=e.target.value;document.getElementById('rootlist').innerHTML=akarList();}
 });
 
