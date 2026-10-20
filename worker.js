@@ -119,11 +119,17 @@ async function status(env) {
 // ---------- Lab label padanan (eksperimen, akses terbatas) ----------
 // Model generatif hanya diminta mengklasifikasikan teknik penerjemahan (formal/dinamis),
 // tidak menafsirkan ayat. Akses dikunci dengan secret LAB_KEY agar jatah AI tidak dipakai umum.
+// Opsi per model. Gemma 4 punya mode berpikir yang aktif secara default; tanpa dimatikan,
+// jatah token habis untuk berpikir dan jawabannya kosong. max_tokens sudah usang untuk Gemma 4,
+// diganti max_completion_tokens (skema resmi model).
 const LAB_MODELS = {
-  sealion: { id: '@cf/aisingapore/gemma-sea-lion-v4-27b-it', nama: 'SEA-LION v4 27B' },
-  gemma: { id: '@cf/google/gemma-4-26b-a4b-it', nama: 'Gemma 4 26B-A4B' },
+  sealion: { id: '@cf/aisingapore/gemma-sea-lion-v4-27b-it', nama: 'SEA-LION v4 27B', opsi: { max_tokens: 220 } },
+  gemma: {
+    id: '@cf/google/gemma-4-26b-a4b-it', nama: 'Gemma 4 26B-A4B',
+    opsi: { max_completion_tokens: 300, chat_template_kwargs: { enable_thinking: false }, response_format: { type: 'json_object' } },
+  },
 };
-const PROMPT_VERSI = 'v1-2026-10-20';
+const PROMPT_VERSI = 'v1.1-2026-10-20';
 const TEMPLATE = `Anda adalah asisten anotasi untuk penelitian penerjemahan Al-Qur'an. Tugas Anda HANYA mengklasifikasikan teknik padanan dalam terjemahan bahasa Indonesia. Jangan menafsirkan ayat.
 
 Definisi (Nida dan Taber):
@@ -158,8 +164,9 @@ function bacaTeks(res) {
   if (res.response && typeof res.response === 'object') return JSON.stringify(res.response);
   const c = res.choices && res.choices[0];
   if (c) {
-    if (c.message && typeof c.message.content === 'string') return c.message.content;
-    if (typeof c.text === 'string') return c.text;
+    if (c.message && typeof c.message.content === 'string' && c.message.content.trim()) return c.message.content;
+    if (typeof c.text === 'string' && c.text.trim()) return c.text;
+    return '';
   }
   if (res.result) return bacaTeks(res.result);
   return JSON.stringify(res);
@@ -182,9 +189,9 @@ function uraiLabel(teks) {
 
 async function labelPadanan(request, env) {
   if (request.method === 'GET') {
-    const model = {};
-    for (const k of Object.keys(LAB_MODELS)) model[k] = LAB_MODELS[k].id;
-    return json({ ok: true, versi: PROMPT_VERSI, model, template: TEMPLATE });
+    const model = {}, opsi = {};
+    for (const k of Object.keys(LAB_MODELS)) { model[k] = LAB_MODELS[k].id; opsi[k] = LAB_MODELS[k].opsi; }
+    return json({ ok: true, versi: PROMPT_VERSI, model, opsi, template: TEMPLATE });
   }
   if (request.method !== 'POST') return json({ ok: false, galat: 'Metode tidak didukung.' }, 405);
   if (!env.LAB_KEY) return json({ ok: false, galat: 'Lab belum diaktifkan: secret LAB_KEY belum diatur di Cloudflare.' }, 503);
@@ -201,9 +208,11 @@ async function labelPadanan(request, env) {
   const hasil = {};
   await Promise.all(pilih.map(async (k) => {
     try {
-      const res = await env.AI.run(LAB_MODELS[k].id, { messages: [{ role: 'user', content: prompt }], max_tokens: 220, temperature: 0 });
+      const res = await env.AI.run(LAB_MODELS[k].id, { messages: [{ role: 'user', content: prompt }], temperature: 0, ...LAB_MODELS[k].opsi });
       const teks = bacaTeks(res);
-      hasil[k] = { model: LAB_MODELS[k].id, ...uraiLabel(teks), mentah: teks.slice(0, 600) };
+      // Jika jawaban kosong, sertakan respons mentah agar penyebabnya terlihat (mis. finish_reason "length").
+      const mentah = (teks.trim() ? teks : JSON.stringify(res)).slice(0, 600);
+      hasil[k] = { model: LAB_MODELS[k].id, ...uraiLabel(teks), mentah };
     } catch (err) {
       hasil[k] = { model: LAB_MODELS[k].id, galat: String((err && err.message) || err).slice(0, 200) };
     }
