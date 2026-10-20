@@ -8,6 +8,7 @@
 // Titik akses:
 //   GET /api/cari?q=kasih+sayang&k=8   -> entri teratas menurut kemiripan makna
 //   GET /api/status                    -> pemeriksaan cepat bahwa layanan AI berfungsi
+//   POST /api/label (butuh kunci lab)  -> saran label padanan formal/dinamis (eksperimen)
 // Permintaan lain dilayani sebagai berkas statis (index.html).
 
 import CORPUS from './corpus.json';
@@ -115,9 +116,106 @@ async function status(env) {
   }
 }
 
+// ---------- Lab label padanan (eksperimen, akses terbatas) ----------
+// Model generatif hanya diminta mengklasifikasikan teknik penerjemahan (formal/dinamis),
+// tidak menafsirkan ayat. Akses dikunci dengan secret LAB_KEY agar jatah AI tidak dipakai umum.
+const LAB_MODELS = {
+  sealion: { id: '@cf/aisingapore/gemma-sea-lion-v4-27b-it', nama: 'SEA-LION v4 27B' },
+  gemma: { id: '@cf/google/gemma-4-26b-a4b-it', nama: 'Gemma 4 26B-A4B' },
+};
+const PROMPT_VERSI = 'v1-2026-10-20';
+const TEMPLATE = `Anda adalah asisten anotasi untuk penelitian penerjemahan Al-Qur'an. Tugas Anda HANYA mengklasifikasikan teknik padanan dalam terjemahan bahasa Indonesia. Jangan menafsirkan ayat.
+
+Definisi (Nida dan Taber):
+- formal: padanan berorientasi pada bentuk teks sumber, misalnya kata serapan langsung atau padanan kamus satu lawan satu tanpa uraian tambahan.
+- dinamis: padanan berorientasi pada pemahaman pembaca sasaran, misalnya menguraikan makna, menambahkan konteks, atau memparafrasakan.
+- tidak_pasti: informasi tidak cukup untuk memutuskan.
+
+Contoh:
+1. Istilah: taqwā. Padanan: "takwa". Label: formal (kata serapan langsung).
+2. Istilah: taqwā. Padanan: "memelihara diri dari murka Allah dengan menaati-Nya". Label: dinamis (menguraikan makna).
+
+Data:
+Istilah sumber: {istilah}
+Konteks ayat: {konteks}
+Padanan dalam terjemahan: {padanan}
+
+Jawab HANYA dengan satu objek JSON tanpa teks lain, dengan format:
+{"label":"formal|dinamis|tidak_pasti","alasan":"satu kalimat bahasa Indonesia tentang teknik penerjemahannya"}`;
+
+const bersih = (x, max) => String(x == null ? '' : x).replace(/\s+/g, ' ').trim().slice(0, max);
+
+function buatPrompt({ istilah, konteks, padanan }) {
+  return TEMPLATE.split('{istilah}').join(istilah)
+    .split('{konteks}').join(konteks || '(tidak diberikan)')
+    .split('{padanan}').join(padanan);
+}
+
+function bacaTeks(res) {
+  if (typeof res === 'string') return res;
+  if (!res) return '';
+  if (typeof res.response === 'string') return res.response;
+  if (res.response && typeof res.response === 'object') return JSON.stringify(res.response);
+  const c = res.choices && res.choices[0];
+  if (c) {
+    if (c.message && typeof c.message.content === 'string') return c.message.content;
+    if (typeof c.text === 'string') return c.text;
+  }
+  if (res.result) return bacaTeks(res.result);
+  return JSON.stringify(res);
+}
+
+function uraiLabel(teks) {
+  let label = 'tidak_pasti', alasan = '', terbaca = false;
+  const a = teks.indexOf('{'), b = teks.lastIndexOf('}');
+  if (a >= 0 && b > a) {
+    try {
+      const o = JSON.parse(teks.slice(a, b + 1));
+      const l = String(o.label || '').toLowerCase();
+      label = /dinam|dynamic/.test(l) ? 'dinamis' : /formal/.test(l) ? 'formal' : 'tidak_pasti';
+      alasan = String(o.alasan || o.reason || '').trim().slice(0, 300);
+      terbaca = true;
+    } catch (e) { /* keluaran tidak berbentuk JSON yang sah */ }
+  }
+  return { label, alasan, terbaca };
+}
+
+async function labelPadanan(request, env) {
+  if (request.method === 'GET') {
+    const model = {};
+    for (const k of Object.keys(LAB_MODELS)) model[k] = LAB_MODELS[k].id;
+    return json({ ok: true, versi: PROMPT_VERSI, model, template: TEMPLATE });
+  }
+  if (request.method !== 'POST') return json({ ok: false, galat: 'Metode tidak didukung.' }, 405);
+  if (!env.LAB_KEY) return json({ ok: false, galat: 'Lab belum diaktifkan: secret LAB_KEY belum diatur di Cloudflare.' }, 503);
+  if ((request.headers.get('x-lab-key') || '') !== env.LAB_KEY) return json({ ok: false, galat: 'Kunci lab salah.' }, 401);
+  if (!env.AI) return json({ ok: false, galat: 'Binding AI belum aktif pada Worker ini.' }, 503);
+
+  let body;
+  try { body = await request.json(); } catch (e) { return json({ ok: false, galat: 'Format permintaan tidak valid.' }, 400); }
+  const data = { istilah: bersih(body.istilah, 100), konteks: bersih(body.konteks, 600), padanan: bersih(body.padanan, 300) };
+  if (!data.istilah || !data.padanan) return json({ ok: false, galat: 'Istilah dan padanan wajib diisi.' }, 400);
+
+  const pilih = body.model === 'sealion' ? ['sealion'] : body.model === 'gemma' ? ['gemma'] : ['sealion', 'gemma'];
+  const prompt = buatPrompt(data);
+  const hasil = {};
+  await Promise.all(pilih.map(async (k) => {
+    try {
+      const res = await env.AI.run(LAB_MODELS[k].id, { messages: [{ role: 'user', content: prompt }], max_tokens: 220, temperature: 0 });
+      const teks = bacaTeks(res);
+      hasil[k] = { model: LAB_MODELS[k].id, ...uraiLabel(teks), mentah: teks.slice(0, 600) };
+    } catch (err) {
+      hasil[k] = { model: LAB_MODELS[k].id, galat: String((err && err.message) || err).slice(0, 200) };
+    }
+  }));
+  return json({ ok: true, versi: PROMPT_VERSI, hasil });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/api/label') return labelPadanan(request, env);
 
     if (url.pathname === '/api/cari' || url.pathname === '/api/status') {
       if (request.method !== 'GET' && request.method !== 'HEAD')
