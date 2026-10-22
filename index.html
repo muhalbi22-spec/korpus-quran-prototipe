@@ -148,6 +148,10 @@ sup.fn{color:#B42318;font-size:.72em;margin-left:1px}
 .fnl{margin:6px 0 0;padding-left:24px;font-size:.86rem;color:var(--ink2)}
 .fnl li{margin-bottom:4px}
 .reader .fnl{margin:6px 6px 0 30px}
+details.tafsir{margin-top:12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--tree);border-radius:10px;padding:10px 14px}
+details.tafsir summary{cursor:pointer;font-weight:600;font-family:var(--serif)}
+details.tafsir p{margin:8px 0 0;line-height:1.6}
+details.tafsir .tfq{font-family:var(--serif);font-style:italic}
 footer{margin-top:28px;font-size:.85rem;color:var(--ink2);max-width:70ch}
 </style>
 </head>
@@ -651,6 +655,50 @@ const NU={
 };
 // Ayat yang sengaja belum diisi karena sumbernya belum terbaca utuh.
 const NU_TERTUNDA={};
+// Ringkasan Tafsir Al-Mishbah (contoh awal). Disusun dengan kata-kata sendiri, bukan kutipan utuh.
+// Kutipan langsung hanya terjemahan pembuka tafsir yang pendek. Tidak dimasukkan ke corpus.json (tidak diproses AI).
+const TAFSIR_SUMBER={penulis:'M. Quraish Shihab',kitab:'Tafsir Al-Mishbah',media:'aplikasi Al-Mishbah, Pusat Studi Al-Qur’an',diakses:'22 Oktober 2026'};
+const TAFSIR_CATATAN='Contoh awal untuk purwarupa riset. Ringkasan ini disusun dengan kata-kata sendiri dari Tafsir Al-Mishbah karya M. Quraish Shihab, bukan kutipan utuh. Ke depan, pemuatan tafsir dalam korpus akan dilakukan melalui izin kerja sama langsung dengan Pusat Studi Al-Qur’an.';
+const TAFSIR_MISBAH={
+ '0:1':{kelompok:'kelompok 1 (ayat 1–4)',terjemah:'Dengan nama Allah yang Raḫmân lagi Raḫîm.',ringkasan:[
+  'Basmalah dipandang sebagai pesan pertama Allah kepada manusia, sejalan dengan wahyu pertama iqra’ bismi rabbik: setiap aktivitas hendaknya dimulai dengan nama-Nya. Memulai dengan nama Allah berarti pekerjaan dilakukan atas perintah dan karena Allah, bukan dorongan hawa nafsu, dengan harapan pekerjaan itu bernilai kekal di sisi-Nya.',
+  'Kata Allah dijelaskan sebagai nama yang mencakup seluruh sifat-Nya dan tidak dapat disandang selain-Nya. Dari sekian banyak sifat, ar-Raḥmān dan ar-Raḥīm dipilih karena rahmat adalah sifat yang paling dominan.',
+  'Penulis juga memaparkan perbedaan pendapat tentang status Basmalah sebagai bagian Al-Fātiḥah, antara lain pandangan Imam Malik yang tidak memasukkannya dan Imam Syafi‘i yang menjadikannya ayat pertama, serta menilai bahwa masing-masing pendapat memiliki dalil.']},
+ '0:2':{kelompok:'kelompok 1 (ayat 1–4)',terjemah:'Segala puji hanya bagi Allah pemelihara seluruh alam.',ringkasan:[
+  'Alif-lām pada al-ḥamd dipahami mencakup segala jenis pujian, sedangkan lām pada lillāh menunjukkan kekhususan: seluruh pujian layak dipersembahkan hanya kepada Allah.',
+  'Ḥamd dibedakan dari syukur. Pujian ditujukan kepada pihak yang berbuat baik secara sadar dan tanpa paksaan, walaupun pemuji tidak menerima apa pun, sedangkan syukur adalah pengakuan atas nikmat yang diterima.',
+  'Kata rabb dikaitkan dengan tarbiyah, yakni mengarahkan sesuatu tahap demi tahap menuju kesempurnaannya. Al-‘ālamīn dipahami sebagai kumpulan jenis makhluk yang masing-masing memiliki ciri, dari akar yang sama dengan ‘ilm (ilmu) dan ‘alāmah (tanda).']},
+ '0:3':{kelompok:'kelompok 1 (ayat 1–4)',terjemah:'',ringkasan:[
+  'Ayat ini tidak dipahami sebagai pengulangan Basmalah, melainkan penegasan bahwa pemeliharaan dan pendidikan Allah yang disebut pada ayat 2 dilandasi rahmat, bukan kepentingan, sekaligus menghapus kesan kekuasaan yang sewenang-wenang.',
+  'Kedua kata berakar dari rahmat. Pola fa‘lān pada Raḥmān dipahami menunjuk kesempurnaan, sedangkan pola fa‘īl pada Raḥīm menunjuk kesinambungan. Raḥmān hanya digunakan untuk Allah, sedangkan sifat raḥīm dapat disandang makhluk.',
+  'Penulis memaparkan beberapa pendapat, antara lain pandangan Muhammad ‘Abduh bahwa Raḥmān adalah rahmat sempurna tetapi sementara yang meliputi semua makhluk di dunia, sedangkan Raḥīm adalah rahmat yang langgeng bagi yang taat, serta uraian al-Ghazālī tentang buah kedua sifat ini bagi akhlak manusia.']},
+ '0:4':{kelompok:'kelompok 1 (ayat 1–4)',terjemah:'Pemilik hari Pembalasan.',ringkasan:[
+  'Setelah sifat pemeliharaan dan rahmat, ayat ini menegaskan kepemilikan dan kekuasaan Allah, sehingga manusia terdorong menaati-Nya karena kelak dimintai pertanggungjawaban.',
+  'Penulis menjelaskan dua bacaan yang sama-sama mutawātir, mālik (pemilik) dan malik (raja), dan menegaskan bahwa Allah sekaligus Raja dan Pemilik, dengan kepemilikan yang berbeda dari kepemilikan manusia. Kata yawm dipahami sebagai waktu atau periode, bukan hari 24 jam.',
+  'Kata-kata yang tersusun dari huruf d-y-n, seperti dīn (agama), dain (utang), dan dāna (menghukum), menggambarkan hubungan dua pihak yang salah satunya lebih tinggi. Karena itu ad-dīn di sini dipahami sebagai pembalasan, perhitungan, atau ketaatan.']},
+ '0:5':{kelompok:'kelompok 2 (ayat 5–7)',terjemah:'Hanya kepada-Mu kami mengabdi dan hanya kepada-Mu kami meminta pertolongan.',ringkasan:[
+  'Redaksi beralih dari bentuk orang ketiga ke orang kedua (Engkau), mengajak pembaca menghadirkan Allah di hadapannya saat beribadah dan memohon. Didahulukannya iyyāka bermakna pengkhususan: tidak kepada selain Engkau.',
+  'Ibadah dipahami sebagai puncak ketundukan yang lahir dari rasa keagungan, tidak terbatas pada salat, puasa, zakat, dan haji, tetapi mencakup segala aktivitas yang tujuannya kepada Allah. Bentuk jamak “kami” dibaca sebagai pesan kebersamaan dan kesadaran sosial.',
+  'Ibadah didahulukan atas permohonan karena mendekat sepatutnya dilakukan sebelum meminta. Permohonan pertolongan hanya kepada Allah dipahami tidak bertentangan dengan perintah saling menolong di antara manusia.']},
+ '0:6':{kelompok:'kelompok 2 (ayat 5–7)',terjemah:'Bimbing (antar)lah kami (memasuki) jalan lebar dan luas.',ringkasan:[
+  'Setelah pujian dan pengakuan, hamba mengajukan permohonan. Ihdinā dari akar h-d-y dipahami bermakna tampil memberi petunjuk dan menyampaikannya dengan lemah lembut. Penulis memaparkan tingkat-tingkat hidayah, dari naluri, pancaindra, dan akal hingga hidayah agama.',
+  'Karena kata kerjanya tidak disertai ilā, permohonan di sini dipahami bukan sekadar ditunjuki jalan, melainkan diantar hingga masuk ke dalamnya.',
+  'Ṣirāṭ dipahami sebagai jalan lebar yang dalam Al-Qur’an selalu tunggal dan selalu benar, berbeda dengan sabīl yang dapat berbentuk jamak dan dapat menunjuk jalan yang salah. Mustaqīm berarti lurus dan tegak.']},
+ '0:7':{kelompok:'kelompok 2 (ayat 5–7)',terjemah:'',ringkasan:[
+  'Jalan yang dimohonkan dirinci sebagai jalan orang-orang yang diberi nikmat, dengan rujukan QS an-Nisā’ [4]: 69 tentang para nabi, ṣiddīqīn, syuhadā’, dan orang-orang saleh.',
+  'Tentang al-maghḍūb ‘alayhim dan aḍ-ḍāllīn, penulis mencatat riwayat yang menyebut Yahudi dan Nasrani, tetapi menegaskan bahwa itu contoh konkret yang diangkat Nabi dari masyarakat beliau. Yang dimurkai adalah siapa pun yang melakukan pelanggaran serupa, dan tidak berarti seluruh Bani Israil.',
+  'Penulis juga menyoroti adab redaksi: nikmat disandarkan langsung kepada Allah (“Engkau beri nikmat”), sedangkan murka tidak (“yang dimurkai”), sebagai pelajaran agar yang buruk tidak dinisbahkan kepada Allah. Uraian ditutup dengan anjuran membaca Āmīn beserta maknanya.']}
+};
+function tafsirBlock(v){
+  const t=TAFSIR_MISBAH[`${v.si}:${v.n}`];if(!t)return '';
+  return `<details class="tafsir"><summary>Ringkasan Tafsir Al-Mishbah <span class="badge warn" style="margin-left:6px">contoh awal</span></summary>`+
+    (t.terjemah?`<p class="tfq">Terjemahan dalam tafsir: “${esc(t.terjemah)}”</p>`:'')+
+    t.ringkasan.map(p=>`<p>${esc(p)}</p>`).join('')+
+    `<p class="note">Rujukan: ${esc(TAFSIR_SUMBER.penulis)}, <em>${esc(TAFSIR_SUMBER.kitab)}</em>, ${esc(TAFSIR_SUMBER.media)}, QS Al-Fātiḥah ${esc(t.kelompok)}, diakses ${esc(TAFSIR_SUMBER.diakses)}. Nomor jilid dan halaman edisi cetak belum dicocokkan.</p>`+
+    `<p class="note">${esc(TAFSIR_CATATAN)}</p></details>`;
+}
+
+
 // Padanan istilah dalam terjemahan Kemenag (potongan persis dari teks Kemenag ayat terkait), dipakai Lab label.
 const KEMENAG_PADANAN={rhm:'Yang Maha Pengasih lagi Maha Penyayang',dyn:'hari Pembalasan',tqw:'orang-orang yang bertakwa',kfr:'orang-orang yang kufur',wsws:'(setan) pembisik yang bersembunyi'};
 const normTeks=t=>String(t).replace(/\[\[\d+\]\]/g,'').replace(/\s+/g,' ').trim();
@@ -676,7 +724,8 @@ const DIS=[
  senses:['pembalasan, perhitungan','agama, tatanan hidup','ketaatan, kepatuhan'],
  pilihan:'pembalasan, perhitungan',
  alasan:'Frasa yawm ad-dīn memasangkan dīn dengan kata “hari” dan dengan sifat kepemilikan Allah atas hari itu. Rangkaian ini dipahami sebagai hari perhitungan dan pembalasan.',
- pendapat:[{label:'Tafsir klasik (pendapat yang dikenal luas)',ringkas:'Yawm ad-dīn ditafsirkan sebagai hari perhitungan dan pembalasan, yaitu hari kiamat.'}],
+ pendapat:[{label:'Tafsir klasik (pendapat yang dikenal luas)',ringkas:'Yawm ad-dīn ditafsirkan sebagai hari perhitungan dan pembalasan, yaitu hari kiamat.'},
+  {label:'M. Quraish Shihab, Tafsir Al-Mishbah',ringkas:'Kata-kata dari huruf d-y-n (dīn, dain, dāna) menggambarkan hubungan dua pihak yang salah satunya lebih tinggi; ad-dīn pada ayat ini dipahami sebagai pembalasan, perhitungan, atau ketaatan, dan yawm sebagai waktu atau periode.',rujukan:'M. Quraish Shihab, Tafsir Al-Mishbah, aplikasi Al-Mishbah (Pusat Studi Al-Qur’an), QS Al-Fātiḥah kelompok 1 (ayat 1–4), diakses 22 Oktober 2026'}],
  risiko:'Padanan “agama” membuat ayat terbaca sebagai “hari agama”, yang menyimpang dari konteks akhirat pada ayat ini.'},
 {id:'rhm',term:'ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',lat:'ar-raḥmān ar-raḥīm',root:'rhm',ref:'QS 1:1 dan 1:3',verse:3,word:0,
  senses:['belas kasih','rahmat (kebaikan yang lahir dari belas kasih)'],
@@ -684,6 +733,7 @@ const DIS=[
  alasan:'Al-Qur’an menyebut dua bentuk sifat dari akar yang sama secara berurutan. Pasangan ini dibaca sebagai dua nuansa, bukan pengulangan.',
  pendapat:[
   {label:'Pendapat yang banyak dikutip',ringkas:'Ar-Raḥmān menunjuk kasih sayang yang meliputi seluruh makhluk, sedangkan ar-Raḥīm menunjuk kasih sayang yang terarah kepada orang beriman.'},
+  {label:'M. Quraish Shihab, Tafsir Al-Mishbah',ringkas:'Ayat 3 bukan pengulangan Basmalah, melainkan penegasan bahwa pemeliharaan Allah dilandasi rahmat. Pola fa‘lān (Raḥmān) menunjuk kesempurnaan dan pola fa‘īl (Raḥīm) kesinambungan; Raḥmān khusus untuk Allah, sedangkan raḥīm dapat disandang makhluk. Pandangan Muhammad ‘Abduh yang dikutip: Raḥmān rahmat sempurna tetapi sementara bagi semua makhluk di dunia, Raḥīm rahmat langgeng bagi yang taat.',rujukan:'M. Quraish Shihab, Tafsir Al-Mishbah, aplikasi Al-Mishbah (Pusat Studi Al-Qur’an), QS Al-Fātiḥah kelompok 1 (ayat 1–4), diakses 22 Oktober 2026'},
   {label:'Perlu dilengkapi',ringkas:'Ulama berbeda dalam merinci perbedaan kedua sifat ini. Entri final harus memuat seluruh pendapat yang dikutip ahli tafsir pemverifikasi.'}],
  risiko:'“Pengasih” dan “Penyayang” terbaca hampir sinonim bagi penutur awam, sehingga pembeda nuansanya tidak tampak.'},
 {id:'tqw',s:1,term:'ٱلْمُتَّقِينَ',lat:'al-muttaqīn',root:'wqy',ref:'QS 2:2',verse:2,word:6,
@@ -767,7 +817,7 @@ function baca(){
   const v=cur(),w=v.words[state.w];
   return ayatChips()+legend()+
    `<div class="reader"><div class="row">${v.words.map(wordBtn).join('')}</div>
-    ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+detail(v,w);
+    ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+tafsirBlock(v)+detail(v,w);
 }
 
 /* ---------- Tab: Treebank ---------- */
@@ -854,7 +904,7 @@ function disCard(d){
       <dt>Makna dasar akar</dt><dd><ul>${d.senses.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></dd>
       <dt>Makna terpilih pada ayat ini</dt><dd>${esc(d.pilihan)}</dd>
       <dt>Alasan konteks</dt><dd>${esc(d.alasan)}</dd>
-      <dt>Pendapat mufasir</dt><dd>${d.pendapat.map(p=>`<div class="op"><strong>${esc(p.label)}</strong><br>${esc(p.ringkas)}<br><span class="slot" style="display:inline-block;margin-top:4px">Rujukan kitab, jilid, dan halaman: belum diisi</span></div>`).join('')}</dd>
+      <dt>Pendapat mufasir</dt><dd>${d.pendapat.map(p=>`<div class="op"><strong>${esc(p.label)}</strong><br>${esc(p.ringkas)}<br>${p.rujukan?`<span class="muted" style="display:inline-block;margin-top:4px">Rujukan: ${esc(p.rujukan)}</span>`:'<span class="slot" style="display:inline-block;margin-top:4px">Rujukan kitab, jilid, dan halaman: belum diisi</span>'}</div>`).join('')}</dd>
       <dt>Risiko terjemahan literal</dt><dd>${esc(d.risiko)}</dd>
       <dt>Verifikator</dt><dd><span class="slot">Belum ada</span></dd>
     </dl>
@@ -1173,7 +1223,8 @@ function pedoman(){
     <tr><td>Treebank sintaksis</td><td>Tersedia pada tingkat kata untuk ${VERSES.length} ayat, berstatus draf kerja.</td></tr>
     <tr><td>Kamus akar kata</td><td>${nRoots} entri ringkas dengan tautan ke setiap bentuknya.</td></tr>
     <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag untuk seluruh ayat purwarupa (Al-Fātiḥah, Al-Baqarah 1–6, An-Nās), terjemahan NU Online untuk seluruh ayat purwarupa (dengan penanda kesamaan teks per ayat), serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
-    <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan tafsir belum diisi.</td></tr>
+    <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan Tafsir Al-Mishbah sudah diisi untuk entri ar-raḥmān ar-raḥīm dan ad-dīn; entri lain belum.</td></tr>
+    <tr><td>Ringkasan tafsir</td><td>Ringkasan Tafsir Al-Mishbah untuk Al-Fātiḥah 1–7 sebagai contoh awal, bukan teks utuh, dan tidak diproses AI.</td></tr>
     <tr><td>Pencarian kata kunci</td><td>Tersedia pada tab Cari. Pencarian ini leksikal dan tidak memakai AI.</td></tr>
     <tr><td>Fitur AI</td><td>Pencarian semantik (mode Makna pada tab Cari) dan penyaran label padanan (tab Lab label, akses terbatas) tersedia sebagai eksperimen dan belum dievaluasi. Fitur lain masih rencana.</td></tr>
    </tbody></table></div>
@@ -1213,6 +1264,7 @@ function pedoman(){
    <ul class="plain">
     <li>Seluruh anotasi adalah draf kerja dan belum divalidasi ahli nahwu-sharaf maupun ahli tafsir.</li>
     <li>Terjemahan Kemenag dan NU Online sudah dimuat untuk seluruh ayat purwarupa, dikutip apa adanya dengan atribusi. Izin pemakaian formal untuk korpus penuh tetap perlu diurus dengan LPMQ. Terjemahan Kemenag beserta catatan kakinya sudah dimasukkan ke pencarian makna (AI); terjemahan NU Online tidak dimasukkan terpisah karena identik. Terjemahan penerbit belum dimuat.</li>
+    <li>Ringkasan Tafsir Al-Mishbah hanyalah contoh awal untuk Al-Fātiḥah, disusun dengan kata-kata sendiri. Pemuatan tafsir dalam korpus ke depan akan dilakukan melalui izin kerja sama langsung dengan Pusat Studi Al-Qur’an.</li>
     <li>Rujukan kitab tafsir pada lapisan makna kontekstual belum diisi.</li>
     <li>Cakupan baru dua surah pendek dan enam ayat awal Al-Baqarah, sebagai bukti rancangan dan bukan korpus lengkap.</li>
     <li>Fitur AI (pencarian semantik dan penyaran label padanan) masih eksperimen, belum dievaluasi, dan hanya aktif pada alamat Cloudflare.</li>
