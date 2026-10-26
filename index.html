@@ -212,6 +212,40 @@ footer p{margin:0 0 6px}
   :root{--mh-bg:#0C1529;--mh-dome:#223C69;--mh-cut:#0B1428;--gold:#E0B55A}
   .masthead{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M28 8 L48 28 L28 48 L8 28 Z'/%3E%3Cpath d='M14 14 H42 V42 H14 Z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(180deg,#0A1324 0%,#152A50 100%);border:1px solid var(--line)}
 }
+
+/* ---- Peta sisipan ---- */
+:root{--hl:rgba(37,86,196,.15);--s-ruj:#E2EAFB;--s-taf:#FADFEA;--s-str:#E9EDF2;--s-bel:#FFF1CC}
+.sg-p{cursor:pointer;border-radius:3px;border-bottom:2px solid var(--line)}
+.sg-p:hover{background:var(--soft)}
+.sg-s{cursor:pointer;border-radius:4px;padding:0 3px;font-weight:600;color:var(--ink)}
+.sg-rujukan{background:var(--s-ruj)}.sg-tafsir{background:var(--s-taf)}.sg-struktur{background:var(--s-str)}.sg-belum{background:var(--s-bel)}
+.sg-x{border-bottom:1.5px dotted var(--ink2)}
+.sg-p.on,.sg-s.on,.sw-ar.on{background:var(--hl);box-shadow:0 0 0 1.5px var(--rafa)}
+[data-sw]:focus-visible{outline:2px solid var(--rafa);outline-offset:2px}
+.sis-leg{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:.88rem;color:var(--ink2);margin:10px 0 14px}
+.sis-leg .sw-ar{font-size:1rem;padding:0 8px;cursor:default}
+.sis-sum{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+@media(min-width:760px){.sis-sum{grid-template-columns:1fr 1fr}.sis-riset{grid-column:1/-1}}
+.sis-col h3{margin:0 0 6px;font-size:1rem}
+.sis-big{margin:0 0 8px;font-size:.95rem}.sis-big b{font-family:var(--serif);font-size:1.7rem;color:var(--tree);margin-right:4px}
+.sbar{display:grid;grid-template-columns:9.5em 1fr 2em;align-items:center;gap:8px;font-size:.88rem;margin:4px 0}
+.sbar b{text-align:right}
+.bar{height:10px;background:var(--soft);border-radius:5px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:5px}
+.b-rujukan{background:var(--rafa)}.b-tafsir{background:var(--jarr)}.b-struktur{background:var(--mabni)}.b-belum{background:var(--warnline)}
+.sis-riset{border-top:1px solid var(--line);padding-top:10px}
+.sis-riset p{margin:0 0 10px;color:var(--ink2);font-size:.93rem}
+.sis-ref{font-weight:600;font-size:.9rem;color:var(--ink2);margin-bottom:6px}
+.sis-ar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sw-ar{font-family:var(--arab);font-size:1.55rem;line-height:1.7;padding:0 9px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.sw-ar.lebur{border-style:dashed;color:var(--ink2)}
+.sis-terj{font-family:var(--serif);font-size:1.08rem;line-height:2.05;margin:10px 0 4px}
+.sis-info{margin:0;font-size:.9rem;color:var(--ink2);min-height:1.5em}
+.ar-inline{font-family:var(--arab);font-size:1.25em}
+.terj .sg-p{border-bottom-width:1.5px}
+@media (prefers-color-scheme: dark){
+  :root{--hl:rgba(134,169,255,.24);--s-ruj:#1F2D4D;--s-taf:#47213A;--s-str:#26364B;--s-bel:#3D3112}
+}
 </style>
 </head>
 <body>
@@ -853,7 +887,7 @@ const DIS=[
 
 /* ---------- State dan util ---------- */
 const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:'',cmode:'kw',sem:null,semBusy:false};
-const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['makna','Makna kontekstual'],['cari','Cari'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
+const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['sisipan','Peta sisipan'],['makna','Makna kontekstual'],['cari','Cari'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const cur=()=>SURAHS[state.s].verses[state.v-1];
 const arabNum=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
@@ -905,7 +939,7 @@ function baca(){
   const v=cur(),w=v.words[state.w];
   return ayatChips()+legend()+
    `<div class="baca-grid"><div class="baca-main"><div class="reader"><div class="row">${v.words.map(wordBtn).join('')}<span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
-    ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+tafsirBlock(v)+'</div>'+detail(v,w)+'</div>';
+    ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${selarasHtml(v,state.w)||kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+tafsirBlock(v)+'</div>'+detail(v,w)+'</div>';
 }
 
 /* ---------- Tab: Treebank ---------- */
@@ -1312,6 +1346,7 @@ function pedoman(){
     <tr><td>Kamus akar kata</td><td>${nRoots} entri ringkas dengan tautan ke setiap bentuknya.</td></tr>
     <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag untuk seluruh ayat purwarupa (Al-Fātiḥah, Al-Baqarah 1–6, An-Nās), terjemahan NU Online untuk seluruh ayat purwarupa (dengan penanda kesamaan teks per ayat), serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
     <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan Tafsir Al-Mishbah sudah diisi untuk entri ar-raḥmān ar-raḥīm dan ad-dīn; entri lain belum.</td></tr>
+    <tr><td>Peta sisipan</td><td>Terjemahan Kemenag untuk 19 ayat diselaraskan dengan kata Arab; 14 sisipan dalam kurung terdeteksi otomatis dan diklasifikasi (draf peneliti).</td></tr>
     <tr><td>Ringkasan tafsir</td><td>Ringkasan Tafsir Al-Mishbah untuk Al-Fātiḥah 1–7 sebagai contoh awal, bukan teks utuh, dan tidak diproses AI.</td></tr>
     <tr><td>Pencarian kata kunci</td><td>Tersedia pada tab Cari. Pencarian ini leksikal dan tidak memakai AI.</td></tr>
     <tr><td>Fitur AI</td><td>Pencarian semantik (mode Makna pada tab Cari) dan penyaran label padanan (tab Lab label, akses terbatas) tersedia sebagai eksperimen dan belum dievaluasi. Fitur lain masih rencana.</td></tr>
@@ -1376,8 +1411,132 @@ function renderStatus(){
 function renderTabs(){
   document.getElementById('tabs').innerHTML=TABS.map(t=>(t[0]==='cari'?'<span class="tabsep" aria-hidden="true"></span>':'')+`<button role="tab" data-tab="${t[0]}" aria-selected="${t[0]===state.tab}">${t[1]}</button>`).join('');
 }
+/* ---------- Peta sisipan penerjemah ---------- */
+// Markah penyelarasan terjemahan Kemenag dengan kata Arab (indeks kata dimulai dari 0):
+//   {i|teks}           = padanan kata Arab ke-i
+//   {i|teks|catatan}   = padanan dengan catatan pergeseran
+//   «i|jenis|(teks)»   = sisipan dalam tanda kurung yang terkait kata ke-i
+//   teks tanpa markah  = tambahan tanpa tanda kurung atau tanda baca
+// Tanda kurung yang tidak dimarkahi tetap terdeteksi otomatis sebagai sisipan "belum diklasifikasi".
+const SISIPAN_JENIS={rujukan:'Penegasan rujukan',tafsir:'Penafsiran makna',struktur:'Pelengkap struktur',belum:'Belum diklasifikasi'};
+const SELARAS={
+ '0:1':'{0|Dengan nama} {1|Allah} {2|Yang Maha Pengasih} lagi {3|Maha Penyayang}.',
+ '0:2':'{0|Segala puji} {1|bagi Allah}, {2|Tuhan[[1]]} {3|semesta alam}',
+ '0:3':'{0|Yang Maha Pengasih} lagi {1|Maha Penyayang},',
+ '0:4':'{0|Pemilik} {1|hari} {2|Pembalasan}.[[2]]',
+ '0:5':'{0|Hanya kepada Engkaulah} {1|kami menyembah} {2|dan hanya kepada Engkaulah} {3|kami memohon pertolongan}.',
+ '0:6':'{0|Bimbinglah kami} ke {1|jalan} {2|yang lurus},[[3]]',
+ '0:7':'«0|struktur|(yaitu)» {0|jalan} {1|orang-orang yang} {2|telah Engkau beri nikmat}, {4|bukan} «4|struktur|(jalan)» {5|mereka yang dimurkai} {7|dan bukan} «7|struktur|(pula jalan)» {8|orang-orang yang sesat}.',
+ '1:1':'{0|Alif Lām Mīm}.[[4]]',
+ '1:2':'{1|Kitab} «1|rujukan|(Al-Qur’an)» {0|ini|Dhālika secara harfiah berarti “itu” (penunjuk jauh), tetapi dipadankan “ini” (penunjuk dekat).} {2|tidak ada} {3|keraguan} {4|di dalamnya}; «5|struktur|(ia merupakan)» {5|petunjuk} {6|bagi orang-orang yang bertakwa},',
+ '1:3':'«0|struktur|(yaitu)» {0|orang-orang yang} {1|beriman} {2|pada yang gaib}, {3|menegakkan} {4|salat}, {5|dan} {7|menginfakkan} {5|sebagian} {6|rezeki|Kata kerja razaqnā (Kami beri rezeki) dipadankan dengan nomina “rezeki” beserta klausa relatif.} {5|yang} {6|Kami anugerahkan kepada mereka},',
+ '1:4':'{0|dan mereka yang} {1|beriman} {2|pada} «2|rujukan|(Al-Qur’an)» {2|yang} {3|diturunkan} {4|kepadamu} «4|rujukan|(Nabi Muhammad)» {5|dan} «5|rujukan|(kitab-kitab suci)» {5|yang} {6|telah diturunkan} {8|sebelum engkau} {9|dan} {10|mereka} {11|yakin} {9|akan} adanya {9|akhirat}.',
+ '1:5':'{0|Merekalah} yang {1|mendapat|‘Alā (di atas) dipadankan “mendapat”: keberadaan di atas petunjuk diungkapkan sebagai perolehan.} {2|petunjuk} {3|dari} {4|Tuhannya} {5|dan mereka itulah} {7|orang-orang yang beruntung}.',
+ '1:6':'{0|Sesungguhnya} {1|orang-orang yang} {2|kufur} itu {3|sama saja} {4|bagi mereka}, {5|apakah engkau} «5|rujukan|(Nabi Muhammad)» {5|beri peringatan} {6|atau} {7|tidak} {8|engkau beri peringatan}, {10|mereka} {9|tidak} akan {10|beriman}.',
+ '2:1':'{0|Katakanlah} «0|rujukan|(Nabi Muhammad)», “{1|Aku berlindung} {2|kepada Tuhan} {3|manusia},',
+ '2:2':'{0|raja} {1|manusia},',
+ '2:3':'{0|sembahan} {1|manusia}',
+ '2:4':'{0|dari} {1|kejahatan} «2|tafsir|(setan)» {2|pembisik} {3|yang bersembunyi}',
+ '2:5':'{0|yang} {1|membisikkan} «1|tafsir|(kejahatan)» {2|ke dalam} {3|dada} {4|manusia},',
+ '2:6':'{0|dari} «1|struktur|(golongan)» {1|jin} {2|dan manusia}.”'
+};
+const KATA_RE=/[A-Za-zÀ-ÖØ-öø-ɏḀ-ỿ’'-]+/g;
+function parseSelaras(m){
+  const out=[];const re=/\{(\d+)\|([^{}|]*)(?:\|([^{}]*))?\}|«(\d+)\|(\w+)\|([^«»]*)»/g;let last=0,x;
+  const polos=t=>{let i=0,y;const r=/\([^()]*\)/g;
+    while((y=r.exec(t))){if(y.index>i)out.push({t:t.slice(i,y.index),w:-1,k:'x'});out.push({t:y[0],w:-1,k:'s',j:'belum'});i=y.index+y[0].length;}
+    if(i<t.length)out.push({t:t.slice(i),w:-1,k:'x'});};
+  while((x=re.exec(m))){
+    if(x.index>last)polos(m.slice(last,x.index));
+    if(x[1]!==undefined)out.push({t:x[2],w:+x[1],k:'p',n:x[3]||''});else out.push({t:x[6],w:+x[4],k:'s',j:x[5]});
+    last=re.lastIndex;
+  }
+  if(last<m.length)polos(m.slice(last));
+  return out;
+}
+const selarasOf=v=>{const m=SELARAS[`${v.si}:${v.n}`];return m?parseSelaras(m):null;};
+const fnSup=t=>esc(t).replace(/\[\[(\d+)\]\]/g,'<sup class="fn">$1)</sup>');
+function selarasHtml(v,on){
+  const seg=selarasOf(v);if(!seg)return '';
+  const key=`${v.si}:${v.n}`;
+  return seg.map(s=>{
+    const sw=s.w>=0?` data-sw="${key}:${s.w}" role="button" tabindex="0"`:'';
+    const cls=(s.w>=0&&s.w===on)?' on':'';
+    if(s.k==='p')return `<span class="sg-p${cls}"${sw}>${fnSup(s.t)}</span>`;
+    if(s.k==='s')return `<span class="sg-s sg-${s.j}${cls}"${sw} title="Sisipan: ${esc(SISIPAN_JENIS[s.j]||s.j)}">${esc(s.t)}</span>`;
+    return esc(s.t).replace(KATA_RE,'<span class="sg-x" title="Tambahan tanpa tanda kurung">$&</span>').replace(/\[\[(\d+)\]\]/g,'<sup class="fn">$1)</sup>');
+  }).join('');
+}
+function sisStat(list){
+  const r={sisipan:0,jenis:{rujukan:0,tafsir:0,struktur:0,belum:0},tambahan:[],lebur:[],kata:0};
+  list.forEach(v=>{const seg=selarasOf(v);if(!seg)return;
+    seg.forEach(s=>{if(s.k==='s'){r.sisipan++;r.jenis[s.j]=(r.jenis[s.j]||0)+1;}
+      if(s.k==='x')(s.t.match(KATA_RE)||[]).forEach(t=>r.tambahan.push({t,ref:`QS ${v.sn}:${v.n}`}));});
+    v.words.forEach((w,i)=>{r.kata++;if(!seg.some(s=>s.k==='p'&&s.w===i))r.lebur.push({w,ref:`QS ${v.sn}:${v.n}`});});
+  });
+  return r;
+}
+const SIS_HINT='Ketuk kata Arab atau bagian terjemahan untuk melihat padanannya.';
+function sisInfo(si,n,i){
+  const v=SURAHS[si].verses[n-1],w=v.words[i],seg=selarasOf(v)||[];
+  const p=seg.filter(s=>s.k==='p'&&s.w===i),sp=seg.filter(s=>s.k==='s'&&s.w===i);
+  let h=`<span class="ar-inline" lang="ar">${w.ar}</span> ${esc(w.lat)} <span class="muted">(${esc(w.gloss)})</span>: `;
+  h+=p.length?`padanan Kemenag ${p.map(s=>'“'+esc(s.t.replace(/\[\[\d+\]\]/g,''))+'”').join(', ')}.`:'tidak dirender sebagai kata tersendiri; maknanya melebur ke padanan kata lain.';
+  sp.forEach(s=>{h+=` Sisipan terkait <strong>${esc(s.t)}</strong>: ${esc((SISIPAN_JENIS[s.j]||s.j).toLowerCase())}.`;});
+  p.filter(s=>s.n).forEach(s=>{h+=` <em>${esc(s.n)}</em>`;});
+  return h;
+}
+function sisPilih(sw){
+  const [si,n,i]=sw.split(':').map(Number);
+  if(state.tab==='baca'){state.w=i;renderView();return;}
+  document.querySelectorAll('[data-sw].on').forEach(e=>e.classList.remove('on'));
+  document.querySelectorAll(`[data-sw="${sw}"]`).forEach(e=>e.classList.add('on'));
+  document.querySelectorAll('.sis-info').forEach(e=>{e.textContent=SIS_HINT;});
+  const box=document.getElementById(`sis-info-${si}-${n}`);if(box)box.innerHTML=sisInfo(si,n,i);
+}
+function sisBar(label,n,max,cls){
+  return `<div class="sbar"><span>${label}</span><div class="bar"><i class="${cls}" style="width:${max?Math.round(n/max*100):0}%"></i></div><b>${n}</b></div>`;
+}
+function sisRingkas(judul,st){
+  const max=Math.max(1,st.jenis.rujukan,st.jenis.tafsir,st.jenis.struktur);
+  return `<div class="sis-col"><h3>${judul}</h3>
+    <p class="sis-big"><b>${st.sisipan}</b> sisipan dalam kurung</p>
+    ${sisBar('Penegasan rujukan',st.jenis.rujukan,max,'b-rujukan')}${sisBar('Penafsiran makna',st.jenis.tafsir,max,'b-tafsir')}${sisBar('Pelengkap struktur',st.jenis.struktur,max,'b-struktur')}
+    ${st.jenis.belum?sisBar('Belum diklasifikasi',st.jenis.belum,max,'b-belum'):''}
+    <p class="note">${st.tambahan.length} kata tambahan tanpa kurung${st.tambahan.length?` (${st.tambahan.map(x=>esc(x.t)).join(', ')})`:''}; ${st.lebur.length} dari ${st.kata} kata Arab tidak dirender sebagai kata tersendiri.</p></div>`;
+}
+function sisipan(){
+  const S=SURAHS[state.s],vs=S.verses,st=sisStat(vs),all=sisStat(VERSES);
+  const daftar=[];vs.forEach(v=>(selarasOf(v)||[]).forEach(s=>{if(s.k==='s')daftar.push({v,s});}));
+  return surahChips()+
+  `<p class="note" style="margin-top:0">Peta ini menautkan setiap bagian terjemahan Kemenag dengan kata Arabnya. Tambahan dalam tanda kurung ditandai otomatis, sehingga terlihat di mana penerjemah menambahkan penjelasan yang tidak tertulis dalam teks Arab.</p>
+  <div class="sis-leg" aria-label="Keterangan peta sisipan">
+    <span><span class="sg-p">padanan</span> padanan kata Arab</span>
+    <span><span class="sg-s sg-rujukan">(…)</span> penegasan rujukan</span>
+    <span><span class="sg-s sg-tafsir">(…)</span> penafsiran makna</span>
+    <span><span class="sg-s sg-struktur">(…)</span> pelengkap struktur</span>
+    <span><span class="sg-x">kata</span> tambahan tanpa kurung</span>
+    <span><span class="sw-ar lebur" lang="ar">ـ</span> kata Arab yang melebur</span>
+  </div>
+  <section class="sis-sum">
+    ${sisRingkas(esc('QS '+S.nama),st)}${sisRingkas('Seluruh korpus purwarupa ('+VERSES.length+' ayat)',all)}
+    <div class="sis-riset"><p>Riset magister menemukan 97,7% dari 535 istilah teologis dipadankan secara formal. Peta ini memperlihatkan bahwa unsur dinamis tetap hadir di sekitar istilah itu, melalui sisipan dalam kurung dan tambahan tanpa kurung.</p>
+    <button class="btn" data-sisgo="2:4:2">Lihat contoh: “(setan)” di QS 114:4</button></div>
+  </section>`+
+  vs.map(v=>`<section class="pblock sis-v" id="sis-${v.si}-${v.n}"><div class="sis-ref">QS ${v.sn}:${v.n}</div>
+    <div class="sis-ar" dir="rtl">${v.words.map((w,i)=>{const seg=selarasOf(v)||[];const lebur=!seg.some(s=>s.k==='p'&&s.w===i);
+      return `<span class="sw-ar${lebur?' lebur':''}" lang="ar" data-sw="${v.si}:${v.n}:${i}" role="button" tabindex="0" title="${esc(w.lat)}${lebur?': tidak dirender tersendiri':''}">${w.ar}</span>`;}).join('')}<span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
+    <p class="sis-terj">${selarasHtml(v,-1)}</p>
+    <p class="sis-info" id="sis-info-${v.si}-${v.n}" aria-live="polite">${SIS_HINT}</p></section>`).join('')+
+  `<h3>Daftar sisipan QS ${esc(S.nama)}</h3>
+  <div class="scroll"><table><thead><tr><th>Ayat</th><th>Sisipan</th><th>Kata Arab terkait</th><th>Jenis</th></tr></thead><tbody>${
+    daftar.length?daftar.map(({v,s})=>`<tr><td>QS ${v.sn}:${v.n}</td><td><span class="sg-s sg-${s.j}" data-sw="${v.si}:${v.n}:${s.w}" role="button" tabindex="0">${esc(s.t)}</span></td><td>${s.w>=0?`<span class="ar-inline" lang="ar">${v.words[s.w].ar}</span> ${esc(v.words[s.w].lat)}`:'—'}</td><td>${esc(SISIPAN_JENIS[s.j])}</td></tr>`).join(''):'<tr><td colspan="4">Tidak ada sisipan dalam kurung pada surah ini.</td></tr>'
+  }</tbody></table></div>
+  <p class="note">Penyelarasan dan klasifikasi jenis sisipan adalah draf peneliti dan perlu divalidasi. Sisipan dideteksi otomatis dari tanda kurung dalam teks Kemenag; tanda kurung yang belum diklasifikasi akan tampil sebagai “belum diklasifikasi”.</p>`;
+}
+
 function renderView(){
-  const fn={baca,tree,akar,cari,para,makna,lab,ai,pedoman}[state.tab];
+  const fn={baca,tree,akar,cari,para,sisipan,makna,lab,ai,pedoman}[state.tab];
   document.getElementById('view').innerHTML=fn();
   renderTabs();
   const target=state.tab==='akar'&&state.focusRoot?document.getElementById('root-'+state.focusRoot):
@@ -1388,8 +1547,10 @@ function renderView(){
 
 /* ---------- Event ---------- */
 document.addEventListener('click',function(e){
-  const t=e.target.closest('[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear]');
+  const t=e.target.closest('[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear]');
   if(!t)return;
+  if(t.dataset.sw){sisPilih(t.dataset.sw);return;}
+  if(t.dataset.sisgo){const g=t.dataset.sisgo.split(':');state.tab='sisipan';state.s=+g[0];state.v=+g[1];renderView();sisPilih(t.dataset.sisgo);const b=document.getElementById(`sis-${g[0]}-${g[1]}`);if(b)b.scrollIntoView({block:'center'});return;}
   if(t.dataset.tab){state.tab=t.dataset.tab;renderView();window.scrollTo({top:0});return;}
   if(t.dataset.s!==undefined){state.s=+t.dataset.s;state.v=1;state.w=0;renderView();return;}
   if(t.dataset.v){state.v=+t.dataset.v;state.w=0;renderView();return;}
@@ -1429,6 +1590,7 @@ document.addEventListener('toggle',function(e){
 },true);
 document.addEventListener('keydown',function(e){
   if(e.key==='Enter'&&e.target&&e.target.id==='cq'&&state.cmode==='sem'){e.preventDefault();semSearch(e.target.value);}
+  if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.dataset&&e.target.dataset.sw){e.preventDefault();sisPilih(e.target.dataset.sw);}
 });
 
 renderStatus();
