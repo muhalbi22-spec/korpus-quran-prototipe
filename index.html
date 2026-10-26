@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#EDF1F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1621" media="(prefers-color-scheme: dark)">
 <title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#1B2A41; --ink2:#4A5A70; --paper:#EDF1F5; --surface:#FFFFFF; --line:#CBD5E0; --soft:#F6F8FB;
@@ -19,13 +21,13 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
-.wrap{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 48px}
 h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,4.6vw,2.15rem);line-height:1.2;margin:0 0 6px}
 h2{font-family:var(--serif);font-weight:600;font-size:1.25rem;margin:0 0 8px}
 h3{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin:18px 0 6px}
 .sub{margin:0 0 12px;color:var(--ink2);max-width:64ch}
 .status{display:flex;flex-wrap:wrap;gap:8px}
-.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line);background:#fff;color:var(--ink2)}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--ink2)}
 .badge.warn{background:var(--warnbg);border-color:var(--warnline);color:var(--warnink)}
 .muted{color:var(--ink2)}
 .note{color:var(--ink2);font-size:.92rem;max-width:70ch}
@@ -39,8 +41,8 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 .ayat{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:14px}
 .ayat .lbl{font-size:.9rem;color:var(--ink2);margin-right:4px}
 .chip.wide{padding:0 14px}
-.chip{min-width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:6px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip{min-width:42px;height:42px;border:1px solid var(--line);background:var(--surface);border-radius:6px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--ink2);margin:0 0 12px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
@@ -68,20 +70,20 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 .seg p{margin:4px 0 0}
 .link{background:none;border:0;padding:0;color:var(--rafa);text-decoration:underline;cursor:pointer;font:inherit}
 .actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.btn{border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:6px;padding:7px 12px;font:inherit;font-size:.92rem;cursor:pointer}
+.btn{border:1px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:6px;padding:7px 12px;font:inherit;font-size:.92rem;cursor:pointer}
 details.json{margin-top:10px}
 details.json summary,details.textlist summary{cursor:pointer;color:var(--ink2);font-size:.92rem}
 pre{background:#14233A;color:#E6EDF7;border-radius:8px;padding:12px;overflow-x:auto;font-size:.8rem;line-height:1.5;direction:ltr}
 
-.scroll{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
-.tl{font:600 11.5px var(--sans);fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px}
+.tl{font:600 11.5px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
 .ta{font-family:var(--arab);font-size:30px}
 .tt{font:13px var(--sans);fill:var(--ink2)}
 details.textlist{margin-top:12px}
 details.textlist ul{margin:8px 0 0;padding-left:20px}
 
-.search{width:100%;max-width:420px;padding:10px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;background:#fff;margin-bottom:14px}
-.entry{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;scroll-margin-top:70px}
+.search{width:100%;max-width:420px;padding:10px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;background:var(--surface);color:var(--ink);margin-bottom:14px}
+.entry{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;scroll-margin-top:70px}
 .entry.hl{border-color:var(--rafa);box-shadow:0 0 0 2px rgba(37,86,196,.18)}
 .rhead{display:flex;align-items:center;gap:14px;margin-bottom:6px}
 .rt{font-family:var(--arab);font-size:2.1rem;direction:rtl;line-height:1.4}
@@ -91,14 +93,14 @@ details.textlist ul{margin:8px 0 0;padding-left:20px}
 .formbtn small{color:var(--ink2)}
 .empty{color:var(--ink2);padding:18px 4px}
 
-.pblock{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
+.pblock{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
 .pblock .parab{font-family:var(--arab);font-size:1.7rem;direction:rtl;line-height:1.8;margin:0 0 8px}
 .trow{display:grid;grid-template-columns:150px 1fr;gap:4px 12px;padding:8px 0;border-top:1px solid var(--line)}
 .trow .lab{font-size:.88rem;color:var(--ink2)}
 .slot{border:1px dashed var(--line);border-radius:6px;padding:6px 10px;color:var(--ink2);font-style:italic;font-size:.92rem}
 @media(max-width:560px){.trow{grid-template-columns:1fr}}
 
-.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--warnline);border-radius:10px;padding:14px 14px 6px;margin-bottom:14px;scroll-margin-top:70px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--warnline);border-radius:10px;padding:14px 14px 6px;margin-bottom:14px;scroll-margin-top:70px}
 .card.hl{box-shadow:0 0 0 2px rgba(37,86,196,.18)}
 .card.tpl{border-style:dashed;border-left-style:dashed;background:var(--soft)}
 .card .ct{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-bottom:8px}
@@ -109,13 +111,13 @@ dd{margin:2px 0 8px}
 dd ul{margin:2px 0;padding-left:20px}
 .op{border-left:3px solid var(--line);padding:2px 0 2px 10px;margin:6px 0}
 
-table{border-collapse:collapse;width:100%;font-size:.93rem;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--surface)}
 th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
 th{background:var(--soft);font-weight:600}
 .tw{overflow-x:auto;margin-bottom:12px}
 ul.plain{margin:4px 0 12px;padding-left:20px}
 ul.plain li{margin-bottom:4px}
-.hit{display:grid;grid-template-columns:auto auto 1fr;gap:4px 12px;align-items:center;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:8px;font:inherit;color:inherit;cursor:pointer}
+.hit{display:grid;grid-template-columns:auto auto 1fr;gap:4px 12px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:8px;font:inherit;color:inherit;cursor:pointer}
 .hit .hv{font-size:.82rem;color:var(--ink2);border:1px solid var(--line);border-radius:4px;padding:1px 7px;background:var(--soft);white-space:nowrap}
 .hit .har{font-family:var(--arab);font-size:1.6rem;direction:rtl;line-height:1.5}
 .hit .hmain{min-width:0}
@@ -135,7 +137,7 @@ ol.plain li{margin-bottom:4px}
 .labform label{display:block;font-size:.9rem;color:var(--ink2);margin-bottom:10px}
 .labform .search{display:block;margin:4px 0 0;max-width:560px;color:var(--ink)}
 .labform textarea.search{resize:vertical;font:inherit}
-.labres{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.labres{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:8px}
 .labres p{margin:6px 0 0}
 .lab-l{display:inline-block;font-size:.82rem;border-radius:4px;padding:1px 8px;margin-left:6px}
 .lab-l.formal{background:#E8EEFB;color:#1F3A7A}
@@ -148,24 +150,109 @@ sup.fn{color:#B42318;font-size:.72em;margin-left:1px}
 .fnl{margin:6px 0 0;padding-left:24px;font-size:.86rem;color:var(--ink2)}
 .fnl li{margin-bottom:4px}
 .reader .fnl{margin:6px 6px 0 30px}
-details.tafsir{margin-top:12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--tree);border-radius:10px;padding:10px 14px}
+details.tafsir{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tree);border-radius:10px;padding:10px 14px}
 details.tafsir summary{cursor:pointer;font-weight:600;font-family:var(--serif)}
 details.tafsir p{margin:8px 0 0;line-height:1.6}
 details.tafsir .tfq{font-family:var(--serif);font-style:italic}
 footer{margin-top:28px;font-size:.85rem;color:var(--ink2);max-width:70ch}
+
+/* ---- Perbaikan tampilan ---- */
+:root{color-scheme:light}
+h1{letter-spacing:-.01em}
+.tabs{gap:2px}
+.tabsep{flex:0 0 1px;align-self:stretch;background:var(--line);margin:10px 8px}
+.reader{border-radius:14px;padding:22px 16px 18px;box-shadow:0 1px 2px rgba(20,35,58,.06),0 10px 28px -16px rgba(20,35,58,.22)}
+.row{align-items:center}
+.word:hover{background:var(--soft)}
+.ayah-end{font-family:var(--arab);font-size:clamp(1.5rem,4.6vw,2.1rem);color:var(--tree);line-height:1;padding:0 8px;direction:rtl}
+.parab .ayah-end{font-size:1.3rem;padding:0 4px}
+.detail{border-radius:12px}
+.baca-main{min-width:0}
+@media(min-width:980px){
+  .baca-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start}
+  .baca-grid .detail{margin-top:0;position:sticky;top:62px;max-height:calc(100vh - 78px);overflow:auto}
+}
+footer{border-top:1px solid var(--line);padding-top:14px;line-height:1.6}
+footer p{margin:0 0 6px}
+/* ---- Mode gelap ---- */
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --ink:#E4EBF4; --ink2:#9DAEC2; --paper:#0E1621; --surface:#152131; --line:#2B3C53; --soft:#1B2A3D;
+    --rafa:#86A9FF; --nashb:#55C9A1; --jarr:#E68FC0; --mabni:#A5B3C4; --jazm:#EBA662; --tree:#93A9F6;
+    --warnbg:#33290F; --warnink:#F2D48C; --warnline:#8C6E22;
+  }
+  .reader{box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.7)}
+  .badge.plan{background:#1D2A47;border-color:#34497C;color:#C3D2FF}
+  .lab-l.formal{background:#1D2A47;color:#C3D2FF}
+  .lab-l.dinamis{background:#123326;color:#9EE7C6}
+  .lab-l.tidak_pasti{background:#223246;color:#AFBDCD}
+  sup.fn{color:#FF9B90}
+  pre{background:#0A111B;border:1px solid var(--line)}
+  .entry.hl,.card.hl{box-shadow:0 0 0 2px rgba(134,169,255,.35)}
+}
+
+/* ---- Kepala halaman bernuansa Islami ---- */
+:root{--callig:'Aref Ruqaa','Amiri',serif;--gold:#D4A84B;--mh-dome:#284676;--mh-cut:#122140;--mh-bg:#14223F}
+.masthead{position:relative;overflow:hidden;border-radius:16px;text-align:center;color:#EEF2F8;padding:26px 18px 0;
+  background-color:var(--mh-bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M28 8 L48 28 L28 48 L8 28 Z'/%3E%3Cpath d='M14 14 H42 V42 H14 Z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(180deg,#0F1A33 0%,#1B3260 100%)}
+.mh-text{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.callig{font-family:var(--callig);font-weight:700;font-size:clamp(2.5rem,8vw,4.3rem);line-height:1.45;color:var(--gold);margin:0;text-shadow:0 2px 16px rgba(212,168,75,.22)}
+.masthead h1{color:#F4F7FB;margin:2px 0 8px}
+.masthead .sub{color:#C6D1E5;margin:0 auto 14px}
+.masthead .status{justify-content:center}
+.masthead .badge{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#E4EAF4}
+.masthead .badge.warn{background:rgba(212,168,75,.16);border-color:rgba(212,168,75,.5);color:#F3D592}
+.mh-sky{display:block;width:100%;height:auto;margin-top:14px}
+.mh-dome{fill:var(--mh-dome)}
+.mh-cut{fill:var(--mh-cut)}
+.mh-gold{fill:var(--gold)}
+.mh-dot{fill:#F4E3B5;opacity:.7}
+@media (prefers-color-scheme: dark){
+  :root{--mh-bg:#0C1529;--mh-dome:#223C69;--mh-cut:#0B1428;--gold:#E0B55A}
+  .masthead{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M28 8 L48 28 L28 48 L8 28 Z'/%3E%3Cpath d='M14 14 H42 V42 H14 Z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(180deg,#0A1324 0%,#152A50 100%);border:1px solid var(--line)}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="masthead">
+    <div class="mh-text">
+    <p class="callig" lang="ar" dir="rtl">الْقُرْآنُ الْكَرِيمُ</p>
     <h1>Korpus Al-Qur’an Terjemahan Indonesia</h1>
     <p class="sub">Purwarupa tahap awal untuk QS Al-Fātiḥah, QS Al-Baqarah ayat 1–6, dan QS An-Nās: teks Arab dengan anotasi i‘rāb per kata, treebank sintaksis, kamus akar kata, terjemahan paralel, dan makna kontekstual berbasis tafsir.</p>
     <div class="status" id="status"></div>
+    </div>
+    <svg class="mh-sky" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="70" cy="40" r="1.6" class="mh-dot"/><circle cx="140" cy="92" r="1.1" class="mh-dot"/><circle cx="205" cy="30" r="1.4" class="mh-dot"/><circle cx="330" cy="62" r="1.2" class="mh-dot"/><circle cx="395" cy="24" r="1.7" class="mh-dot"/><circle cx="610" cy="34" r="1.3" class="mh-dot"/><circle cx="680" cy="80" r="1.1" class="mh-dot"/><circle cx="735" cy="22" r="1.5" class="mh-dot"/><circle cx="930" cy="96" r="1.3" class="mh-dot"/><circle cx="965" cy="30" r="1.6" class="mh-dot"/><circle cx="30" cy="118" r="1.2" class="mh-dot"/><circle cx="560" cy="96" r="1.0" class="mh-dot"/>
+      <path d="M839.94 34.08 A26 26 0 1 0 866.30 69.24 A22 22 0 0 1 839.94 34.08 Z" class="mh-gold"/>
+      <polygon points="871.0,36.0 872.9,41.4 878.6,41.5 874.0,45.0 875.7,50.5 871.0,47.2 866.3,50.5 868.0,45.0 863.4,41.5 869.1,41.4" class="mh-gold"/>
+      <g class="mh-dome">
+        <rect x="242" y="72" width="16" height="128"/><rect x="236" y="104" width="28" height="6" rx="1.5"/><path d="M240 72 L250 44 L260 72 Z"/><circle cx="250" cy="39" r="2.6"/>
+        <rect x="742" y="72" width="16" height="128"/><rect x="736" y="104" width="28" height="6" rx="1.5"/><path d="M740 72 L750 44 L760 72 Z"/><circle cx="750" cy="39" r="2.6"/>
+        <rect x="300" y="150" width="84" height="50"/><path d="M306 150 C306 128 324 116 342 113 C360 116 378 128 378 150 Z"/>
+        <rect x="616" y="150" width="84" height="50"/><path d="M622 150 C622 128 640 116 658 113 C676 116 694 128 694 150 Z"/>
+        <rect x="380" y="132" width="240" height="68"/><rect x="404" y="122" width="192" height="12" rx="2"/>
+        <path d="M410 124 C410 80 460 58 500 50 C540 58 590 80 590 124 Z"/>
+        <rect x="498.6" y="27" width="2.8" height="24"/>
+        <rect x="0" y="196" width="1000" height="4"/>
+      </g>
+      <path d="M492.80 15.48 A8.5 8.5 0 1 0 507.20 15.48 A7.2 7.2 0 0 1 492.80 15.48 Z" class="mh-gold"/>
+      <g class="mh-cut">
+        <path d="M478 200 L478 170 Q500 146 522 170 L522 200 Z"/>
+        <path d="M414 190 L414 170 Q422 159 430 170 L430 190 Z"/><path d="M446 190 L446 170 Q454 159 462 170 L462 190 Z"/>
+        <path d="M538 190 L538 170 Q546 159 554 170 L554 190 Z"/><path d="M570 190 L570 170 Q578 159 586 170 L586 190 Z"/>
+        <path d="M334 192 L334 176 Q342 166 350 176 L350 192 Z"/><path d="M650 192 L650 176 Q658 166 666 176 L666 192 Z"/>
+        <path d="M246 140 L246 128 Q250 121 254 128 L254 140 Z"/><path d="M746 140 L746 128 Q750 121 754 128 L754 140 Z"/>
+      </g>
+    </svg>
   </header>
   <nav class="tabs" role="tablist" id="tabs" aria-label="Lapisan korpus"></nav>
   <main id="view" role="tabpanel"></main>
   <footer>
-    Peneliti: Muhammad Albie Fathurrahman. Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim. Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.
+    <p>Peneliti: Muhammad Albie Fathurrahman. Purwarupa riset disertasi; anotasi berstatus draf dan belum divalidasi ahli.</p>
+    <p>Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim. Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.</p>
+    <p>Sumber terjemahan: <a href="https://quran.kemenag.go.id/" target="_blank" rel="noopener">Qur’an Kemenag (LPMQ)</a> dan <a href="https://quran.nu.or.id/" target="_blank" rel="noopener">NU Online</a>. Ringkasan Tafsir Al-Mishbah karya M. Quraish Shihab dimuat sebagai contoh awal.</p>
   </footer>
 </div>
 
@@ -766,9 +853,10 @@ const DIS=[
 
 /* ---------- State dan util ---------- */
 const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:'',cmode:'kw',sem:null,semBusy:false};
-const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['cari','Cari'],['para','Terjemahan paralel'],['makna','Makna kontekstual'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
+const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['makna','Makna kontekstual'],['cari','Cari'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const cur=()=>SURAHS[state.s].verses[state.v-1];
+const arabNum=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 const totalWords=VERSES.reduce((a,v)=>a+v.words.length,0);
 function kasusLabel(w){return w.mabni?('Mabnī, di posisi '+POSISI[w.kasus]):KASUS[w.kasus].n;}
 function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({s:v.si,sn:v.sn,v:v.n,w:i,ar:w.ar,lat:w.lat});}));return r;}
@@ -816,8 +904,8 @@ function detail(v,w){
 function baca(){
   const v=cur(),w=v.words[state.w];
   return ayatChips()+legend()+
-   `<div class="reader"><div class="row">${v.words.map(wordBtn).join('')}</div>
-    ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+tafsirBlock(v)+detail(v,w);
+   `<div class="baca-grid"><div class="baca-main"><div class="reader"><div class="row">${v.words.map(wordBtn).join('')}<span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
+    ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+tafsirBlock(v)+'</div>'+detail(v,w)+'</div>';
 }
 
 /* ---------- Tab: Treebank ---------- */
@@ -826,21 +914,21 @@ function svgTree(v){
   const maxD=Math.max(1,...v.edges.map(e=>e[1]>=0?Math.abs(e[0]-e[1]):1));
   const maxH=Math.max(92,30+24*maxD+18),y0=maxH+10,H=y0+84;
   const X=i=>totalW-pad-(i+0.5)*W;
-  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${totalW}" height="${H}" viewBox="0 0 ${totalW} ${H}" role="img" aria-label="Diagram dependensi sintaksis QS ${v.sn}:${v.n}"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2F4B9C"/></marker></defs>`;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${totalW}" height="${H}" viewBox="0 0 ${totalW} ${H}" role="img" aria-label="Diagram dependensi sintaksis QS ${v.sn}:${v.n}"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--tree)"/></marker></defs>`;
   v.edges.forEach(e=>{
     const d=e[0],h=e[1],lab=e[2],xd=X(d)+8;
     if(h<0){
-      s+=`<line x1="${xd}" y1="${y0-62}" x2="${xd}" y2="${y0-2}" stroke="#2F4B9C" stroke-width="1.6" marker-end="url(#ah)"/>`;
+      s+=`<line x1="${xd}" y1="${y0-62}" x2="${xd}" y2="${y0-2}" style="stroke:var(--tree)" stroke-width="1.6" marker-end="url(#ah)"/>`;
       s+=`<text x="${xd}" y="${y0-70}" text-anchor="middle" class="tl">${esc(lab)}</text>`;
     }else{
       const xh=X(h)-8,hh=30+24*Math.abs(d-h);
-      s+=`<path d="M${xh} ${y0-2} C${xh} ${y0-2-hh},${xd} ${y0-2-hh},${xd} ${y0-2}" fill="none" stroke="#2F4B9C" stroke-width="1.6" marker-end="url(#ah)"/>`;
+      s+=`<path d="M${xh} ${y0-2} C${xh} ${y0-2-hh},${xd} ${y0-2-hh},${xd} ${y0-2}" fill="none" style="stroke:var(--tree)" stroke-width="1.6" marker-end="url(#ah)"/>`;
       s+=`<text x="${(xh+xd)/2}" y="${y0-2-hh*0.75-5}" text-anchor="middle" class="tl">${esc(lab)}</text>`;
     }
   });
   v.words.forEach((w,i)=>{
     const x=X(i);
-    s+=`<text x="${x}" y="${y0+50}" text-anchor="middle" class="ta" fill="${KASUS[w.kasus].c.replace('var(--rafa)','#2556C4').replace('var(--nashb)','#17795A').replace('var(--jarr)','#A23B72').replace('var(--mabni)','#5D6B7A').replace('var(--jazm)','#B45309')}">${w.ar}</text>`;
+    s+=`<text x="${x}" y="${y0+50}" text-anchor="middle" class="ta" style="fill:${KASUS[w.kasus].c}">${w.ar}</text>`;
     s+=`<text x="${x}" y="${y0+72}" text-anchor="middle" class="tt">${esc(w.lat)}</text>`;
   });
   return s+'</svg>';
@@ -888,7 +976,7 @@ function akar(){
 /* ---------- Tab: Paralel ---------- */
 function para(){
   return surahChips()+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, dan saat ini tersedia untuk seluruh ayat purwarupa: Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās. Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a> pada tanggal yang sama. Setiap ayat diberi penanda otomatis apakah teksnya identik dengan Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
-   SURAHS[state.s].verses.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="muted">﴿${v.n}﴾</span></div>
+   SURAHS[state.s].verses.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
      <div class="trow"><div class="lab">Terjemahan resmi Kemenag</div><div>${kemenagOf(v)?kemenagHtml(kemenagOf(v))+kemenagNotes(kemenagOf(v)):'<div class="slot">Belum dimuat untuk ayat ini.</div>'}</div></div>
      <div class="trow"><div class="lab">Terjemahan NU Online</div><div>${nuHtml(v)}</div></div>
      <div class="trow"><div class="lab">Terjemahan kerja peneliti (draf)</div><div>${esc(v.tr)}</div></div>
@@ -1286,7 +1374,7 @@ function renderStatus(){
      <span class="badge warn">Draf kerja: belum divalidasi ahli</span>`;
 }
 function renderTabs(){
-  document.getElementById('tabs').innerHTML=TABS.map(t=>`<button role="tab" data-tab="${t[0]}" aria-selected="${t[0]===state.tab}">${t[1]}</button>`).join('');
+  document.getElementById('tabs').innerHTML=TABS.map(t=>(t[0]==='cari'?'<span class="tabsep" aria-hidden="true"></span>':'')+`<button role="tab" data-tab="${t[0]}" aria-selected="${t[0]===state.tab}">${t[1]}</button>`).join('');
 }
 function renderView(){
   const fn={baca,tree,akar,cari,para,makna,lab,ai,pedoman}[state.tab];
