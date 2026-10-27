@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#EDF1F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1621" media="(prefers-color-scheme: dark)">
-<title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās</title>
+<title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: Al-Fātiḥah, Al-Baqarah 1–6, Al-‘Alaq, dan An-Nās</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -254,7 +254,7 @@ footer p{margin:0 0 6px}
     <div class="mh-text">
     <p class="callig" lang="ar" dir="rtl">الْقُرْآنُ الْكَرِيمُ</p>
     <h1>Korpus Al-Qur’an Terjemahan Indonesia</h1>
-    <p class="sub">Purwarupa tahap awal untuk QS Al-Fātiḥah, QS Al-Baqarah ayat 1–6, dan QS An-Nās: teks Arab dengan anotasi i‘rāb per kata, treebank sintaksis, kamus akar kata, terjemahan paralel, dan makna kontekstual berbasis tafsir.</p>
+    <p class="sub">Purwarupa tahap awal untuk QS Al-Fātiḥah, QS Al-Baqarah ayat 1–6, QS Al-‘Alaq, dan QS An-Nās: teks Arab dengan anotasi i‘rāb per kata, treebank sintaksis, kamus akar kata, terjemahan paralel, dan makna kontekstual berbasis tafsir.</p>
     <div class="status" id="status"></div>
     </div>
     <svg class="mh-sky" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -285,7 +285,7 @@ footer p{margin:0 0 6px}
   <main id="view" role="tabpanel"></main>
   <footer>
     <p>Peneliti: Muhammad Albie Fathurrahman. Purwarupa riset disertasi; anotasi berstatus draf dan belum divalidasi ahli.</p>
-    <p>Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim. Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.</p>
+    <p>Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim dan dicocokkan dengan teks Uthmani <a href="https://tanzil.net/" target="_blank" rel="noopener">Tanzil</a> (CC BY 3.0). Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.</p>
     <p>Sumber terjemahan: <a href="https://quran.kemenag.go.id/" target="_blank" rel="noopener">Qur’an Kemenag (LPMQ)</a> dan <a href="https://quran.nu.or.id/" target="_blank" rel="noopener">NU Online</a>. Ringkasan Tafsir Al-Mishbah karya M. Quraish Shihab dimuat sebagai contoh awal.</p>
   </footer>
 </div>
@@ -349,7 +349,31 @@ const ROOTS={
   flh:{ar:'ف ل ح',lat:'f-l-ḥ',makna:'berhasil, beruntung',cat:'Mufliḥūn adalah isim fāʿil bentuk IV.'},
   kfr:{ar:'ك ف ر',lat:'k-f-r',makna:'menutupi; mengingkari (nikmat atau kebenaran)',cat:'Akar dari kāfir dan kufr, salah satu istilah teologis pada penelitian pendahuluan magister. Lihat entri pada tab Makna kontekstual.'},
   swy:{ar:'س و ي',lat:'s-w-y',makna:'sama, setara',cat:''},
-  ndhr:{ar:'ن ذ ر',lat:'n-dh-r',makna:'memberi peringatan',cat:'Andhara (bentuk IV) berarti memperingatkan.'}
+  ndhr:{ar:'ن ذ ر',lat:'n-dh-r',makna:'memberi peringatan',cat:'Andhara (bentuk IV) berarti memperingatkan.'},
+  qra:{ar:'ق ر أ',lat:'q-r-ʾ',makna:'membaca, menghimpun',cat:'Akar kata Qurʾān. Menurut pendapat mayoritas ulama, perintah iqraʾ pada QS 96:1 adalah wahyu pertama.'},
+  khlq:{ar:'خ ل ق',lat:'kh-l-q',makna:'menciptakan',cat:''},
+  ans:{ar:'أ ن س',lat:'ʾ-n-s',makna:'manusia; jinak, ramah',cat:'Al-insān (manusia) dicatat di bawah akar ini seperti pada korpus rujukan; an-nās pada An-Nās dicatat di bawah n-w-s.'},
+  alq:{ar:'ع ل ق',lat:'ʿ-l-q',makna:'melekat, bergantung',cat:'ʿAlaq dipadankan beragam dalam terjemahan, antara lain “segumpal darah” dan “sesuatu yang melekat”; perbedaan padanan ini layak dikaji pada lapisan makna kontekstual.'},
+  krm:{ar:'ك ر م',lat:'k-r-m',makna:'mulia, pemurah',cat:'Al-akram adalah isim tafḍīl (pola afʿal).'},
+  qlm:{ar:'ق ل م',lat:'q-l-m',makna:'memotong; pena',cat:''},
+  tgy:{ar:'ط غ ي',lat:'ṭ-gh-y',makna:'melampaui batas',cat:'Satu akar dengan ṭughyān dan ṭāghūt.'},
+  ray:{ar:'ر أ ي',lat:'r-ʾ-y',makna:'melihat; berpendapat',cat:'Araʾayta bermakna “kabarkanlah kepadaku” atau “tahukah engkau”.'},
+  gny:{ar:'غ ن ي',lat:'gh-n-y',makna:'kaya, tidak membutuhkan',cat:'Istaghnā (bentuk X) berarti merasa serba cukup.'},
+  rja:{ar:'ر ج ع',lat:'r-j-ʿ',makna:'kembali',cat:''},
+  nhy:{ar:'ن ه ي',lat:'n-h-y',makna:'melarang; berhenti',cat:'Yanhā (melarang) dan yantahi (berhenti, bentuk VIII) berasal dari akar yang sama.'},
+  kwn:{ar:'ك و ن',lat:'k-w-n',makna:'ada, menjadi',cat:''},
+  amr:{ar:'أ م ر',lat:'ʾ-m-r',makna:'memerintah; urusan',cat:''},
+  kdhb:{ar:'ك ذ ب',lat:'k-dh-b',makna:'dusta, mendustakan',cat:''},
+  wly:{ar:'و ل ي',lat:'w-l-y',makna:'dekat, mengikuti; berpaling',cat:'Akar yang sama melahirkan makna yang tampak berlawanan: walī (penolong) dan tawallā (berpaling).'},
+  sfa:{ar:'س ف ع',lat:'s-f-ʿ',makna:'menarik dengan keras',cat:''},
+  nsy:{ar:'ن ص ي',lat:'n-ṣ-y',makna:'ubun-ubun, rambut depan',cat:''},
+  kht:{ar:'خ ط أ',lat:'kh-ṭ-ʾ',makna:'berbuat salah',cat:'Khāṭiʾ: bersalah dengan sengaja; mukhṭiʾ: keliru tanpa sengaja.'},
+  dwa:{ar:'د ع و',lat:'d-ʿ-w',makna:'memanggil, menyeru, berdoa',cat:''},
+  ndw:{ar:'ن د و',lat:'n-d-w',makna:'tempat berkumpul (nādī)',cat:''},
+  zbn:{ar:'ز ب ن',lat:'z-b-n',makna:'mendorong dengan keras',cat:'Az-zabāniyah: malaikat penjaga neraka.'},
+  twa:{ar:'ط و ع',lat:'ṭ-w-ʿ',makna:'patuh, taat',cat:''},
+  sjd:{ar:'س ج د',lat:'s-j-d',makna:'sujud',cat:'Satu akar dengan masjid (tempat sujud).'},
+  qrb:{ar:'ق ر ب',lat:'q-r-b',makna:'dekat, mendekat',cat:''}
 
 
 };
@@ -719,13 +743,296 @@ const V_BAQARAH=[
  edges:[[1,0,'isim inna'],[2,1,'ṣilah'],[3,0,'khabar inna'],[4,3,'jar-majrūr'],[5,3,'mubtadaʾ'],[8,5,'maʿṭūf'],[6,8,'ʿaṭf'],[7,8,'ḥarf jazm'],[10,0,'khabar kedua'],[9,10,'nafy']]}
 ];
 
+// QS 96 Al-ʿAlaq. Teks Arab dicocokkan dengan teks Uthmani Tanzil (tanzil.net), dinormalisasi NFC.
+const V_ALAQ=[
+{n:1,ar:'ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ',tr:'Bacalah dengan nama Tuhanmu yang telah menciptakan,',
+ words:[
+  W('ٱقْرَأْ','iqraʾ','bacalah','qra','mabni',false,[
+    ['ٱقْرَأْ','iqraʾ','Fiʿil amr','Fiʿil amr, mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Menurut pendapat mayoritas ulama, ayat 1–5 surah ini adalah wahyu pertama yang diterima Nabi Muhammad saw.']]),
+  W('بِٱسْمِ','bi-smi','dengan nama','smw','majrur',false,[
+    ['بِ','bi','Huruf jarr','Huruf jarr, mabnī. Ulama berbeda pendapat tentang fungsinya: bāʾ al-istiʿānah atau al-muṣāḥabah (“dengan menyebut nama”), atau bāʾ zāʾidah sehingga ismi menjadi objek iqraʾ. Jar-majrūr bermutaʿalliq pada iqraʾ.'],
+    ['ٱسْمِ','smi','Isim','Isim majrūr oleh bi, tanda jarr kasrah; sekaligus muḍāf. Alif waṣl tidak dibaca.']]),
+  W('رَبِّكَ','rabbika','Tuhanmu','rbb','majrur',false,[
+    ['رَبِّ','rabbi','Isim','Muḍāf ilayh bagi ismi, majrūr, tanda jarr kasrah; sekaligus muḍāf.'],
+    ['كَ','ka','Ḍamīr muttaṣil','Ḍamīr muttaṣil (engkau, laki-laki), mabnī atas fatḥah; di posisi jarr sebagai muḍāf ilayh.']]),
+  W('ٱلَّذِى','alladhī','yang',null,'majrur',true,[
+    ['ٱلَّذِى','alladhī','Isim mawṣūl','Isim mawṣūl, mabnī atas sukūn; di posisi jarr sebagai naʿt bagi rabbi. Kalimat khalaqa sesudahnya adalah ṣilah, tidak memiliki posisi iʿrāb.']]),
+  W('خَلَقَ','khalaqa','menciptakan','khlq','mabni',false,[
+    ['خَلَقَ','khalaqa','Fiʿil māḍī','Fiʿil māḍī mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Objeknya tidak disebut sehingga maknanya umum: menciptakan segala sesuatu.']])
+ ],
+ edges:[[1,0,'jar-majrūr'],[2,1,'muḍāf ilayh'],[3,2,'naʿt'],[4,3,'ṣilah']]},
+
+{n:2,ar:'خَلَقَ ٱلْإِنسَٰنَ مِنْ عَلَقٍ',tr:'menciptakan manusia dari ʿalaq (sesuatu yang melekat).',
+ words:[
+  W('خَلَقَ','khalaqa','menciptakan','khlq','mabni',false,[
+    ['خَلَقَ','khalaqa','Fiʿil māḍī','Fiʿil māḍī mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kalimat ini merinci khalaqa pada ayat 1: ada yang menilainya badal, ada pula yang menilainya kalimat baru (istiʾnāf).']]),
+  W('ٱلْإِنسَٰنَ','al-insāna','manusia','ans','manshub',false,[
+    AL('ٱلْ','al-',false),
+    ['إِنسَٰنَ','insāna','Isim','Mafʿūl bih bagi khalaqa, manṣūb, tanda naṣab fatḥah. Alif-lām di sini bermakna jenis (manusia secara umum).']]),
+  W('مِنْ','min','dari',null,'mabni',false,[
+    ['مِنْ','min','Huruf jarr','Huruf jarr, mabnī atas sukūn; menunjukkan asal kejadian.']]),
+  W('عَلَقٍ','ʿalaqin','ʿalaq, sesuatu yang melekat','alq','majrur',false,[
+    ['عَلَقٍ','ʿalaqin','Isim','Isim majrūr oleh min, tanda jarr kasrah (tanwīn). ʿAlaq adalah isim jins jamʿī; bentuk tunggalnya ʿalaqah.']])
+ ],
+ edges:[[0,-1,'badal bagi khalaqa, ay. 1'],[1,0,'mafʿūl bih'],[2,0,'jar-majrūr'],[3,2,'majrūr']]},
+
+{n:3,ar:'ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ',tr:'Bacalah, dan Tuhanmu Mahamulia,',
+ words:[
+  W('ٱقْرَأْ','iqraʾ','bacalah','qra','mabni',false,[
+    ['ٱقْرَأْ','iqraʾ','Fiʿil amr','Fiʿil amr, mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Pengulangan perintah ini berfungsi sebagai penegasan (tawkīd).']]),
+  W('وَرَبُّكَ','wa-rabbuka','dan Tuhanmu','rbb','marfu',false,[
+    ['وَ','wa','Wāw ḥāliyyah','Wāw ḥāl (ada yang menilainya wāw istiʾnāf), mabnī; kalimat sesudahnya berposisi naṣab sebagai ḥāl.'],
+    ['رَبُّ','rabbu','Isim','Mubtadaʾ, marfūʿ, tanda rafaʿ ḍammah; sekaligus muḍāf.'],
+    ['كَ','ka','Ḍamīr muttaṣil','Ḍamīr muttaṣil (engkau, laki-laki), mabnī atas fatḥah; di posisi jarr sebagai muḍāf ilayh.']]),
+  W('ٱلْأَكْرَمُ','al-akramu','Yang Mahamulia','krm','marfu',false,[
+    AL('ٱلْ','al-',false),
+    ['أَكْرَمُ','akramu','Isim tafḍīl','Khabar bagi rabbuka, marfūʿ, tanda rafaʿ ḍammah. Pola afʿal (isim tafḍīl) menunjukkan kemuliaan yang paling tinggi. Ada pandangan lain: al-akram adalah naʿt, sedangkan khabar-nya alladhī pada ayat 4.']])
+ ],
+ edges:[[1,0,'ḥāl'],[2,1,'khabar']]},
+
+{n:4,ar:'ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ',tr:'yang mengajar dengan pena,',
+ words:[
+  W('ٱلَّذِى','alladhī','yang',null,'marfu',true,[
+    ['ٱلَّذِى','alladhī','Isim mawṣūl','Isim mawṣūl, mabnī atas sukūn; di posisi rafaʿ sebagai naʿt bagi al-akram (ada pandangan: khabar kedua bagi rabbuka). Kalimat ʿallama bil-qalam adalah ṣilah.']]),
+  W('عَلَّمَ','ʿallama','mengajar','alm','mabni',false,[
+    ['عَلَّمَ','ʿallama','Fiʿil māḍī','Fiʿil māḍī bentuk II (faʿʿala), mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kedua objeknya tidak disebut pada ayat ini (taqdīr: mengajarkan tulisan kepada manusia).']]),
+  W('بِٱلْقَلَمِ','bil-qalami','dengan pena','qlm','majrur',false,[
+    ['بِ','bi','Huruf jarr','Huruf jarr (bāʾ al-istiʿānah: dengan perantaraan), mabnī. Jar-majrūr bermutaʿalliq pada ʿallama.'],
+    AL('ٱلْ','l-',false),
+    ['قَلَمِ','qalami','Isim','Isim majrūr oleh bi, tanda jarr kasrah.']])
+ ],
+ edges:[[0,-1,'naʿt bagi al-akram, ay. 3'],[1,0,'ṣilah'],[2,1,'jar-majrūr']]},
+
+{n:5,ar:'عَلَّمَ ٱلْإِنسَٰنَ مَا لَمْ يَعْلَمْ',tr:'mengajarkan kepada manusia apa yang belum ia ketahui.',
+ words:[
+  W('عَلَّمَ','ʿallama','mengajarkan','alm','mabni',false,[
+    ['عَلَّمَ','ʿallama','Fiʿil māḍī','Fiʿil māḍī bentuk II, mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kalimat ini badal dari ʿallama pada ayat 4 (ada pula yang menilainya kalimat baru).']]),
+  W('ٱلْإِنسَٰنَ','al-insāna','manusia','ans','manshub',false,[
+    AL('ٱلْ','al-',false),
+    ['إِنسَٰنَ','insāna','Isim','Mafʿūl bih pertama bagi ʿallama, manṣūb, tanda naṣab fatḥah.']]),
+  W('مَا','mā','apa yang',null,'manshub',true,[
+    ['مَا','mā','Isim mawṣūl','Isim mawṣūl, mabnī atas sukūn; di posisi naṣab sebagai mafʿūl bih kedua bagi ʿallama. Kalimat lam yaʿlam adalah ṣilah.']]),
+  W('لَمْ','lam','belum, tidak',null,'mabni',false,[
+    ['لَمْ','lam','Ḥarf nafy, jazm, dan qalb','Huruf penafian yang menjazmkan fiʿil muḍāriʿ dan membalik maknanya ke masa lampau; mabnī atas sukūn.']]),
+  W('يَعْلَمْ','yaʿlam','ia ketahui','alm','majzum',false,[
+    ['يَعْلَمْ','yaʿlam','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ majzūm oleh lam, tanda jazm sukūn; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (manusia). Objeknya ḍamīr yang dihapus (taqdīr: yaʿlamuhu).']])
+ ],
+ edges:[[0,-1,'badal bagi ʿallama, ay. 4'],[1,0,'mafʿūl bih'],[2,0,'mafʿūl bih 2'],[3,4,'ḥarf jazm'],[4,2,'ṣilah']]},
+
+{n:6,ar:'كَلَّآ إِنَّ ٱلْإِنسَٰنَ لَيَطْغَىٰٓ',tr:'Sekali-kali tidak! Sungguh, manusia benar-benar melampaui batas,',
+ words:[
+  W('كَلَّآ','kallā','sekali-kali tidak',null,'mabni',false,[
+    ['كَلَّآ','kallā','Ḥarf radʿ','Huruf penolakan dan hardikan (radʿ wa zajr), atau bermakna ḥaqqan (“sungguh”) sebagai pembuka; mabnī atas sukūn, tidak memiliki posisi iʿrāb.']]),
+  W('إِنَّ','inna','sungguh',null,'mabni',false,[
+    ['إِنَّ','inna','Ḥarf tawkīd wa naṣb','Huruf penegas yang menaṣabkan isimnya dan merafaʿkan khabarnya; mabnī atas fatḥah.']]),
+  W('ٱلْإِنسَٰنَ','al-insāna','manusia','ans','manshub',false,[
+    AL('ٱلْ','al-',false),
+    ['إِنسَٰنَ','insāna','Isim','Isim inna, manṣūb, tanda naṣab fatḥah.']]),
+  W('لَيَطْغَىٰٓ','la-yaṭghā','benar-benar melampaui batas','tgy','marfu',false,[
+    ['لَ','la','Lām muzaḥlaqah','Lām penegas (al-lām al-muzaḥlaqah) yang masuk pada khabar inna, mabnī.'],
+    ['يَطْغَىٰٓ','yaṭghā','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ marfūʿ, tanda rafaʿ ḍammah muqaddarah pada alif (taʿadhdhur); fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kalimat ini berposisi rafaʿ sebagai khabar inna.']])
+ ],
+ edges:[[2,1,'isim inna'],[3,1,'khabar inna']]},
+
+{n:7,ar:'أَن رَّءَاهُ ٱسْتَغْنَىٰٓ',tr:'karena ia memandang dirinya serba cukup.',
+ words:[
+  W('أَن','an','karena (bahwa)',null,'mabni',false,[
+    ['أَن','an','Ḥarf maṣdarī','Huruf maṣdariyyah, mabnī atas sukūn. An bersama fiʿil sesudahnya ditakwil sebagai maṣdar (ruʾyatuhu) yang majrūr oleh lām taʿlīl yang dihapus: “karena ia memandang dirinya …”.']]),
+  W('رَّءَاهُ','raʾāhu','ia memandang dirinya','ray','mabni',false,[
+    ['رَّءَا','raʾā','Fiʿil māḍī','Fiʿil māḍī mabnī atas fatḥah muqaddarah pada alif; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (manusia). Raʾā di sini bermakna mengetahui atau menganggap (ruʾyah qalbiyyah), sehingga menuntut dua objek.'],
+    ['هُ','hu','Ḍamīr muttaṣil','Ḍamīr muttaṣil (dia), mabnī atas ḍamm; di posisi naṣab sebagai mafʿūl bih pertama. Fāʿil dan mafʿūl merujuk pada orang yang sama, hal yang dibolehkan pada fiʿil qalbiyyah.']]),
+  W('ٱسْتَغْنَىٰٓ','istaghnā','merasa serba cukup','gny','mabni',false,[
+    ['ٱسْتَغْنَىٰٓ','istaghnā','Fiʿil māḍī','Fiʿil māḍī bentuk X (istafʿala), mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kalimat ini berposisi naṣab sebagai mafʿūl bih kedua bagi raʾā.']])
+ ],
+ edges:[[0,-1,'taʿlīl bagi yaṭghā, ay. 6'],[1,0,'ṣilah'],[2,1,'mafʿūl bih 2']]},
+
+{n:8,ar:'إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجْعَىٰٓ',tr:'Sesungguhnya kepada Tuhanmulah tempat kembali.',
+ words:[
+  W('إِنَّ','inna','sesungguhnya',null,'mabni',false,[
+    ['إِنَّ','inna','Ḥarf tawkīd wa naṣb','Huruf penegas yang menaṣabkan isimnya dan merafaʿkan khabarnya; mabnī atas fatḥah. Kalimat ini kalimat baru (istiʾnāf) yang berisi peringatan.']]),
+  W('إِلَىٰ','ilā','kepada',null,'mabni',false,[
+    ['إِلَىٰ','ilā','Huruf jarr','Huruf jarr, mabnī atas sukūn. Jar-majrūr ilā rabbika bermutaʿalliq pada khabar inna yang didahulukan (khabar muqaddam); pendahuluan ini memberi makna pengkhususan: hanya kepada Tuhanmu.']]),
+  W('رَبِّكَ','rabbika','Tuhanmu','rbb','majrur',false,[
+    ['رَبِّ','rabbi','Isim','Isim majrūr oleh ilā, tanda jarr kasrah; sekaligus muḍāf.'],
+    ['كَ','ka','Ḍamīr muttaṣil','Ḍamīr muttaṣil (engkau, laki-laki), mabnī atas fatḥah; di posisi jarr sebagai muḍāf ilayh.']]),
+  W('ٱلرُّجْعَىٰٓ','ar-rujʿā','tempat kembali','rja','manshub',false,[
+    AL('ٱل','ar-',true),
+    ['رُّجْعَىٰٓ','rujʿā','Isim (maṣdar)','Isim inna yang diakhirkan, manṣūb, tanda naṣab fatḥah muqaddarah pada alif. Ar-rujʿā adalah maṣdar bermakna kembali.']])
+ ],
+ edges:[[3,0,'isim inna'],[1,0,'khabar inna'],[2,1,'majrūr']]},
+
+{n:9,ar:'أَرَءَيْتَ ٱلَّذِى يَنْهَىٰ',tr:'Tahukah engkau tentang orang yang melarang',
+ words:[
+  W('أَرَءَيْتَ','araʾayta','tahukah engkau','ray','mabni',false,[
+    ['أَ','a','Hamzah istifhām','Hamzah pertanyaan, mabnī; bermakna ajakan merenung dan keheranan (taʿajjub).'],
+    ['رَءَيْ','raʾay','Fiʿil māḍī','Fiʿil māḍī mabnī atas sukūn karena bersambung dengan ḍamīr rafaʿ. Araʾayta bermakna “kabarkanlah kepadaku” (akhbirnī) dan menuntut dua objek. Objek pertamanya alladhī; objek kedua, menurut banyak ahli iʿrāb, adalah kalimat tanya pada ayat 14.'],
+    ['تَ','ta','Ḍamīr muttaṣil','Ḍamīr muttaṣil (engkau), mabnī atas fatḥah; di posisi rafaʿ sebagai fāʿil.']]),
+  W('ٱلَّذِى','alladhī','orang yang',null,'manshub',true,[
+    ['ٱلَّذِى','alladhī','Isim mawṣūl','Isim mawṣūl, mabnī atas sukūn; di posisi naṣab sebagai mafʿūl bih pertama bagi araʾayta. Kalimat yanhā adalah ṣilah.']]),
+  W('يَنْهَىٰ','yanhā','melarang','nhy','marfu',false,[
+    ['يَنْهَىٰ','yanhā','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ marfūʿ, tanda rafaʿ ḍammah muqaddarah pada alif (taʿadhdhur); fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia).']])
+ ],
+ edges:[[1,0,'mafʿūl bih'],[2,1,'ṣilah']]},
+
+{n:10,ar:'عَبْدًا إِذَا صَلَّىٰٓ',tr:'seorang hamba ketika ia salat?',
+ words:[
+  W('عَبْدًا','ʿabdan','seorang hamba','abd','manshub',false,[
+    ['عَبْدًا','ʿabdan','Isim','Mafʿūl bih bagi yanhā pada ayat 9, manṣūb, tanda naṣab fatḥah (tanwīn). Bentuk nakirah (tak tentu) mengisyaratkan pengagungan; banyak mufasir menyebut yang dimaksud adalah Nabi Muhammad saw.']]),
+  W('إِذَا','idhā','ketika',null,'manshub',true,[
+    ['إِذَا','idhā','Ẓarf zamān','Ẓarf (keterangan waktu), mabnī atas sukūn; di posisi naṣab, bermutaʿalliq pada yanhā. Kalimat ṣallā berposisi jarr sebagai muḍāf ilayh.']]),
+  W('صَلَّىٰٓ','ṣallā','ia salat','slw','mabni',false,[
+    ['صَلَّىٰٓ','ṣallā','Fiʿil māḍī','Fiʿil māḍī bentuk II, mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (sang hamba). Kalimat ini berposisi jarr sebagai muḍāf ilayh bagi idhā.']])
+ ],
+ edges:[[0,-1,'mafʿūl bih bagi yanhā, ay. 9'],[1,-1,'ẓarf bagi yanhā, ay. 9'],[2,1,'muḍāf ilayh']]},
+
+{n:11,ar:'أَرَءَيْتَ إِن كَانَ عَلَى ٱلْهُدَىٰٓ',tr:'Tahukah engkau, jika ia berada di atas petunjuk,',
+ words:[
+  W('أَرَءَيْتَ','araʾayta','tahukah engkau','ray','mabni',false,[
+    ['أَ','a','Hamzah istifhām','Hamzah pertanyaan, mabnī; bermakna ajakan merenung dan keheranan (taʿajjub).'],
+    ['رَءَيْ','raʾay','Fiʿil māḍī','Fiʿil māḍī mabnī atas sukūn karena bersambung dengan ḍamīr rafaʿ. Araʾayta bermakna “kabarkanlah kepadaku” (akhbirnī) dan menuntut dua objek. Pengulangan araʾayta untuk penegasan; objek-objeknya dipahami dari konteks.'],
+    ['تَ','ta','Ḍamīr muttaṣil','Ḍamīr muttaṣil (engkau), mabnī atas fatḥah; di posisi rafaʿ sebagai fāʿil.']]),
+  W('إِن','in','jika',null,'mabni',false,[
+    ['إِن','in','Ḥarf syarṭ','Huruf syarat (jāzim), mabnī atas sukūn. Jawāb syarṭ dihapus karena dapat dipahami dari konteks.']]),
+  W('كَانَ','kāna','ia berada','kwn','mabni',false,[
+    ['كَانَ','kāna','Fiʿil māḍī nāqiṣ','Fiʿil māḍī nāqiṣ, mabnī atas fatḥah, di posisi jazm sebagai fiʿil syarat. Isimnya ḍamīr mustatir “huwa”: banyak mufasir merujukkannya pada sang hamba, sebagian merujukkannya pada orang yang melarang.']]),
+  W('عَلَى','ʿalā','di atas',null,'mabni',false,[
+    ['عَلَى','ʿalā','Huruf jarr','Huruf jarr, mabnī atas sukūn. Jar-majrūr ʿalā al-hudā bermutaʿalliq pada khabar kāna yang dihapus.']]),
+  W('ٱلْهُدَىٰٓ','al-hudā','petunjuk','hdy','majrur',false,[
+    AL('ٱلْ','al-',false),
+    ['هُدَىٰٓ','hudā','Isim','Isim majrūr oleh ʿalā, tanda jarr kasrah muqaddarah pada alif (taʿadhdhur).']])
+ ],
+ edges:[[1,0,'syarṭ'],[2,1,'fiʿil syarat'],[3,2,'khabar kāna'],[4,3,'majrūr']]},
+
+{n:12,ar:'أَوْ أَمَرَ بِٱلتَّقْوَىٰٓ',tr:'atau ia menyuruh bertakwa?',
+ words:[
+  W('أَوْ','aw','atau',null,'mabni',false,[
+    ['أَوْ','aw','Ḥarf ʿaṭf','Huruf ʿaṭf (pilihan), mabnī atas sukūn.']]),
+  W('أَمَرَ','amara','menyuruh','amr','mabni',false,[
+    ['أَمَرَ','amara','Fiʿil māḍī','Fiʿil māḍī mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Diʿaṭafkan pada kāna pada ayat 11, sehingga berposisi jazm.']]),
+  W('بِٱلتَّقْوَىٰٓ','bit-taqwā','dengan takwa','wqy','majrur',false,[
+    ['بِ','bi','Huruf jarr','Huruf jarr, mabnī. Jar-majrūr bermutaʿalliq pada amara.'],
+    AL('ٱل','t-',true),
+    ['تَّقْوَىٰٓ','taqwā','Isim','Isim majrūr oleh bi, tanda jarr kasrah muqaddarah pada alif.']])
+ ],
+ edges:[[1,-1,'maʿṭūf pada kāna, ay. 11'],[0,1,'ʿaṭf'],[2,1,'jar-majrūr']]},
+
+{n:13,ar:'أَرَءَيْتَ إِن كَذَّبَ وَتَوَلَّىٰٓ',tr:'Tahukah engkau, jika ia mendustakan dan berpaling?',
+ words:[
+  W('أَرَءَيْتَ','araʾayta','tahukah engkau','ray','mabni',false,[
+    ['أَ','a','Hamzah istifhām','Hamzah pertanyaan, mabnī; bermakna ajakan merenung dan keheranan (taʿajjub).'],
+    ['رَءَيْ','raʾay','Fiʿil māḍī','Fiʿil māḍī mabnī atas sukūn karena bersambung dengan ḍamīr rafaʿ. Araʾayta bermakna “kabarkanlah kepadaku” (akhbirnī) dan menuntut dua objek. Pengulangan ketiga; objek kedua dari ketiga araʾayta, menurut banyak ahli iʿrāb, adalah kalimat tanya pada ayat 14.'],
+    ['تَ','ta','Ḍamīr muttaṣil','Ḍamīr muttaṣil (engkau), mabnī atas fatḥah; di posisi rafaʿ sebagai fāʿil.']]),
+  W('إِن','in','jika',null,'mabni',false,[
+    ['إِن','in','Ḥarf syarṭ','Huruf syarat (jāzim), mabnī atas sukūn. Jawāb syarṭ dihapus karena dapat dipahami dari konteks.']]),
+  W('كَذَّبَ','kadhdhaba','mendustakan','kdhb','mabni',false,[
+    ['كَذَّبَ','kadhdhaba','Fiʿil māḍī','Fiʿil māḍī bentuk II, mabnī atas fatḥah, di posisi jazm sebagai fiʿil syarat; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (orang yang melarang).']]),
+  W('وَتَوَلَّىٰٓ','wa-tawallā','dan berpaling','wly','mabni',false,[
+    ['وَ','wa','Ḥarf ʿaṭf','Huruf ʿaṭf, mabnī.'],
+    ['تَوَلَّىٰٓ','tawallā','Fiʿil māḍī','Fiʿil māḍī bentuk V (tafaʿʿala), mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Diʿaṭafkan pada kadhdhaba.']])
+ ],
+ edges:[[1,0,'syarṭ'],[2,1,'fiʿil syarat'],[3,2,'maʿṭūf']]},
+
+{n:14,ar:'أَلَمْ يَعْلَم بِأَنَّ ٱللَّهَ يَرَىٰ',tr:'Tidakkah ia mengetahui bahwa Allah melihat?',
+ words:[
+  W('أَلَمْ','a-lam','tidakkah',null,'mabni',false,[
+    ['أَ','a','Hamzah istifhām','Hamzah pertanyaan bermakna penegasan dan teguran (taqrīr wa tawbīkh), mabnī.'],
+    ['لَمْ','lam','Ḥarf nafy, jazm, dan qalb','Huruf penafian yang menjazmkan fiʿil muḍāriʿ dan membalik maknanya ke masa lampau; mabnī atas sukūn.']]),
+  W('يَعْلَم','yaʿlam','ia mengetahui','alm','majzum',false,[
+    ['يَعْلَم','yaʿlam','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ majzūm oleh lam, tanda jazm sukūn (tidak ditulis karena ikhfāʾ syafawī sebelum bāʾ); fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (orang yang melarang). Menurut banyak ahli iʿrāb, kalimat ini mafʿūl bih kedua bagi araʾayta pada ayat 9.']]),
+  W('بِأَنَّ','bi-anna','bahwa',null,'mabni',false,[
+    ['بِ','bi','Huruf jarr zāʾidah','Huruf jarr tambahan (zāʾidah) untuk penegasan, mabnī.'],
+    ['أَنَّ','anna','Ḥarf tawkīd wa naṣb','Huruf penegas dan maṣdariyyah, mabnī atas fatḥah. Anna bersama isim dan khabarnya ditakwil sebagai maṣdar yang menjadi objek yaʿlam.']]),
+  W('ٱللَّهَ','Allāha','Allah','alh','manshub',false,[
+    ['ٱللَّهَ','Allāha','Isim (lafẓ al-jalālah)','Isim anna, manṣūb, tanda naṣab fatḥah.']]),
+  W('يَرَىٰ','yarā','melihat','ray','marfu',false,[
+    ['يَرَىٰ','yarā','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ marfūʿ, tanda rafaʿ ḍammah muqaddarah pada alif; fāʿil: ḍamīr mustatir, taqdīr “huwa” (Allah). Objeknya dihapus untuk keumuman. Kalimat ini berposisi rafaʿ sebagai khabar anna.']])
+ ],
+ edges:[[0,1,'ḥarf jazm'],[1,-1,'mafʿūl bih 2 bagi araʾayta, ay. 9'],[2,1,'mafʿūl bih'],[3,2,'isim anna'],[4,2,'khabar anna']]},
+
+{n:15,ar:'كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا بِٱلنَّاصِيَةِ',tr:'Sekali-kali tidak! Sungguh, jika ia tidak berhenti, niscaya Kami tarik ubun-ubunnya,',
+ words:[
+  W('كَلَّا','kallā','sekali-kali tidak',null,'mabni',false,[
+    ['كَلَّا','kallā','Ḥarf radʿ','Huruf penolakan dan hardikan (radʿ wa zajr), atau bermakna ḥaqqan (“sungguh”) sebagai pembuka; mabnī atas sukūn, tidak memiliki posisi iʿrāb.']]),
+  W('لَئِن','laʾin','sungguh, jika',null,'mabni',false,[
+    ['لَ','la','Lām muwaṭṭiʾah','Lām pengantar sumpah (al-lām al-muwaṭṭiʾah lil-qasam) yang menandakan adanya sumpah yang dihapus; mabnī.'],
+    ['ئِن','in','Ḥarf syarṭ','Huruf syarat (jāzim), mabnī atas sukūn. Karena sumpah dan syarat berhimpun, jawaban yang disebut adalah jawaban sumpah; jawāb syarṭ dihapus.']]),
+  W('لَّمْ','lam','tidak',null,'mabni',false,[
+    ['لَّمْ','lam','Ḥarf nafy, jazm, dan qalb','Huruf penafian yang menjazmkan fiʿil muḍāriʿ dan membalik maknanya ke masa lampau; mabnī atas sukūn.']]),
+  W('يَنتَهِ','yantahi','berhenti','nhy','majzum',false,[
+    ['يَنتَهِ','yantahi','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ bentuk VIII (iftaʿala), majzūm oleh lam, tanda jazm hilangnya huruf ʿillah (yāʾ); fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Lam yantahi adalah fiʿil syarat.']]),
+  W('لَنَسْفَعًۢا','la-nasfaʿan','niscaya Kami tarik','sfa','mabni',false,[
+    ['لَ','la','Lām jawāb al-qasam','Lām jawaban sumpah, mabnī.'],
+    ['نَسْفَعًۢا','nasfaʿan','Fiʿil muḍāriʿ + nūn tawkīd','Fiʿil muḍāriʿ mabnī atas fatḥah karena bersambung dengan nūn tawkīd khafīfah (nūn penegas ringan), yang ditulis sebagai tanwīn dan alif; saat berhenti dibaca alif. Fāʿil: ḍamīr mustatir wājib, taqdīr “naḥnu” (Kami). Kalimat ini jawāb al-qasam.']]),
+  W('بِٱلنَّاصِيَةِ','bin-nāṣiyati','ubun-ubun','nsy','majrur',false,[
+    ['بِ','bi','Huruf jarr','Huruf jarr, mabnī. Jar-majrūr bermutaʿalliq pada nasfaʿan.'],
+    AL('ٱل','n-',true),
+    ['نَّاصِيَةِ','nāṣiyati','Isim','Isim majrūr oleh bi, tanda jarr kasrah. Alif-lām di sini menggantikan ḍamīr (taqdīr: nāṣiyatihi, ubun-ubunnya).']])
+ ],
+ edges:[[2,3,'ḥarf jazm'],[3,1,'fiʿil syarat'],[4,1,'jawāb qasam'],[5,4,'jar-majrūr']]},
+
+{n:16,ar:'نَاصِيَةٍ كَٰذِبَةٍ خَاطِئَةٍ',tr:'ubun-ubun yang pendusta lagi durhaka.',
+ words:[
+  W('نَاصِيَةٍ','nāṣiyatin','ubun-ubun','nsy','majrur',false,[
+    ['نَاصِيَةٍ','nāṣiyatin','Isim','Badal (nakirah dari maʿrifah) bagi an-nāṣiyah pada ayat 15, majrūr, tanda jarr kasrah (tanwīn).']]),
+  W('كَٰذِبَةٍ','kādhibatin','pendusta','kdhb','majrur',false,[
+    ['كَٰذِبَةٍ','kādhibatin','Isim fāʿil','Naʿt bagi nāṣiyatin, majrūr, tanda jarr kasrah. Sifat dusta dinisbahkan pada ubun-ubun sebagai majāz: bagian disebut untuk keseluruhan.']]),
+  W('خَاطِئَةٍ','khāṭiʾatin','durhaka, bersalah','kht','majrur',false,[
+    ['خَاطِئَةٍ','khāṭiʾatin','Isim fāʿil','Naʿt kedua bagi nāṣiyatin, majrūr, tanda jarr kasrah. Khāṭiʾ adalah yang bersalah dengan sengaja, berbeda dengan mukhṭiʾ yang keliru tanpa sengaja.']])
+ ],
+ edges:[[0,-1,'badal bagi an-nāṣiyah, ay. 15'],[1,0,'naʿt'],[2,0,'naʿt']]},
+
+{n:17,ar:'فَلْيَدْعُ نَادِيَهُۥ',tr:'Maka biarlah ia memanggil golongannya;',
+ words:[
+  W('فَلْيَدْعُ','fal-yadʿu','maka biarlah ia memanggil','dwa','majzum',false,[
+    ['فَ','fa','Ḥarf istiʾnāf','Huruf fāʾ kelanjutan (istiʾnāf), mabnī.'],
+    ['لْ','l','Lām amr','Lām perintah yang menjazmkan fiʿil muḍāriʿ; disukunkan setelah fāʾ, mabnī.'],
+    ['يَدْعُ','yadʿu','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ majzūm oleh lām amr, tanda jazm hilangnya huruf ʿillah (wāw); fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Perintah ini bermakna tantangan dan ancaman.']]),
+  W('نَادِيَهُۥ','nādiyahu','golongannya','ndw','manshub',false,[
+    ['نَادِيَ','nādiya','Isim','Mafʿūl bih bagi yadʿu, manṣūb, tanda naṣab fatḥah; sekaligus muḍāf. Nādī (tempat berkumpul) di sini bermakna orang-orang yang berkumpul di dalamnya (majāz mursal): kaum dan pendukungnya.'],
+    ['هُۥ','hu','Ḍamīr muttaṣil','Ḍamīr muttaṣil (dia), mabnī atas ḍamm; di posisi jarr sebagai muḍāf ilayh. Wāw kecil menandakan bacaan dipanjangkan.']])
+ ],
+ edges:[[1,0,'mafʿūl bih']]},
+
+{n:18,ar:'سَنَدْعُ ٱلزَّبَانِيَةَ',tr:'Kami akan memanggil malaikat Zabāniyah.',
+ words:[
+  W('سَنَدْعُ','sanadʿu','Kami akan memanggil','dwa','marfu',false,[
+    ['سَ','sa','Ḥarf istiqbāl','Huruf penanda masa depan (sīn), mabnī.'],
+    ['نَدْعُ','nadʿu','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ marfūʿ, tanda rafaʿ ḍammah muqaddarah pada wāw yang tidak ditulis dalam rasm ʿUthmānī, mengikuti bacaan saat disambung; fāʿil: ḍamīr mustatir wājib, taqdīr “naḥnu” (Kami).']]),
+  W('ٱلزَّبَانِيَةَ','az-zabāniyata','malaikat Zabāniyah','zbn','manshub',false,[
+    AL('ٱل','az-',true),
+    ['زَّبَانِيَةَ','zabāniyata','Isim','Mafʿūl bih bagi nadʿu, manṣūb, tanda naṣab fatḥah. Az-zabāniyah adalah para malaikat penjaga neraka.']])
+ ],
+ edges:[[1,0,'mafʿūl bih']]},
+
+{n:19,ar:'كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب',tr:'Sekali-kali tidak! Jangan patuhi dia; sujudlah dan dekatkanlah dirimu (kepada Allah).',
+ words:[
+  W('كَلَّا','kallā','sekali-kali tidak',null,'mabni',false,[
+    ['كَلَّا','kallā','Ḥarf radʿ','Huruf penolakan dan hardikan (radʿ wa zajr), atau bermakna ḥaqqan (“sungguh”) sebagai pembuka; mabnī atas sukūn, tidak memiliki posisi iʿrāb.']]),
+  W('لَا','lā','jangan',null,'mabni',false,[
+    ['لَا','lā','Lā nāhiyah','Huruf larangan yang menjazmkan fiʿil muḍāriʿ, mabnī atas sukūn.']]),
+  W('تُطِعْهُ','tuṭiʿhu','engkau patuhi dia','twa','majzum',false,[
+    ['تُطِعْ','tuṭiʿ','Fiʿil muḍāriʿ','Fiʿil muḍāriʿ bentuk IV (afʿala), majzūm oleh lā nāhiyah, tanda jazm sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau).'],
+    ['هُ','hu','Ḍamīr muttaṣil','Ḍamīr muttaṣil (dia), mabnī atas ḍamm; di posisi naṣab sebagai mafʿūl bih.']]),
+  W('وَٱسْجُدْ','wa-sjud','dan sujudlah','sjd','mabni',false,[
+    ['وَ','wa','Ḥarf ʿaṭf','Huruf ʿaṭf, mabnī.'],
+    ['ٱسْجُدْ','sjud','Fiʿil amr','Fiʿil amr, mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Ayat ini adalah ayat sajdah: disunahkan sujud tilawah ketika membaca atau mendengarnya.']]),
+  W('وَٱقْتَرِب','wa-qtarib','dan dekatkanlah dirimu','qrb','mabni',false,[
+    ['وَ','wa','Ḥarf ʿaṭf','Huruf ʿaṭf, mabnī.'],
+    ['ٱقْتَرِب','qtarib','Fiʿil amr','Fiʿil amr bentuk VIII (iftaʿala), mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Diʿaṭafkan pada usjud: mendekatkan diri kepada Allah melalui sujud.']])
+ ],
+ edges:[[2,1,'nafy'],[3,2,'maʿṭūf'],[4,3,'maʿṭūf']]},
+
+];
 const SURAHS=[
  {no:1,nama:'Al-Fātiḥah',ar:'ٱلْفَاتِحَة',verses:V_FATIHAH},
  {no:2,nama:'Al-Baqarah',label:'Al-Baqarah 1–6',ar:'ٱلْبَقَرَة',verses:V_BAQARAH},
- {no:114,nama:'An-Nās',ar:'ٱلنَّاس',verses:V_NAS}
+ {no:114,nama:'An-Nās',ar:'ٱلنَّاس',verses:V_NAS},
+ {no:96,nama:'Al-‘Alaq',ar:'ٱلْعَلَق',verses:V_ALAQ}
 ];
 SURAHS.forEach((S,si)=>S.verses.forEach(v=>{v.si=si;v.sn=S.no;}));
 const VERSES=SURAHS.reduce((a,S)=>a.concat(S.verses),[]);
+// Urutan tampilan mengikuti nomor surah dalam mushaf; indeks data (si) tidak berubah.
+const SURAH_URUT=SURAHS.map((S,i)=>i).sort((a,b)=>SURAHS[a].no-SURAHS[b].no);
 // Terjemahan Kemenag, dikutip apa adanya dari Qur’an Kemenag (LPMQ). Penanda [[n]] = catatan kaki ke-n.
 const KEMENAG_SUMBER={nama:'Qur’an Kemenag (Lajnah Pentashihan Mushaf Al-Qur’an)',url:'https://quran.kemenag.go.id/',diakses:'22 Oktober 2026'};
 const KEMENAG={
@@ -898,7 +1205,7 @@ function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(
 /* ---------- Komponen ---------- */
 function surahChips(){
   return '<div class="ayat" role="group" aria-label="Pilih surah"><span class="lbl">Surah</span>'+
-    SURAHS.map((S,i)=>`<button class="chip wide" data-s="${i}" aria-pressed="${i===state.s}">${esc(S.label||S.nama)}</button>`).join('')+'</div>';
+    SURAH_URUT.map(i=>{const S=SURAHS[i];return `<button class="chip wide" data-s="${i}" aria-pressed="${i===state.s}">${esc(S.label||S.nama)}</button>`;}).join('')+'</div>';
 }
 function ayatChips(){
   return surahChips()+'<div class="ayat" role="group" aria-label="Pilih ayat"><span class="lbl">Ayat</span>'+
@@ -946,14 +1253,19 @@ function baca(){
 function svgTree(v){
   const n=v.words.length,W=104,pad=84,totalW=pad*2+n*W;
   const maxD=Math.max(1,...v.edges.map(e=>e[1]>=0?Math.abs(e[0]-e[1]):1));
-  const maxH=Math.max(92,30+24*maxD+18),y0=maxH+10,H=y0+84;
+  // Label relasi ke luar ayat diletakkan di atas busur tertinggi dan dibuat bertingkat agar tidak bertumpuk.
+  const arcH=v.edges.filter(e=>e[1]>=0).map(e=>30+24*Math.abs(e[0]-e[1]));
+  const nExt=v.edges.filter(e=>e[1]<0).length,extBase=Math.max(62,(arcH.length?Math.max(...arcH):0)+16);
+  const maxH=Math.max(92,30+24*maxD+18,nExt?extBase+16*(nExt-1)+20:0),y0=maxH+10,H=y0+84;
+  let kExt=0;
   const X=i=>totalW-pad-(i+0.5)*W;
   let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${totalW}" height="${H}" viewBox="0 0 ${totalW} ${H}" role="img" aria-label="Diagram dependensi sintaksis QS ${v.sn}:${v.n}"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--tree)"/></marker></defs>`;
   v.edges.forEach(e=>{
     const d=e[0],h=e[1],lab=e[2],xd=X(d)+8;
     if(h<0){
-      s+=`<line x1="${xd}" y1="${y0-62}" x2="${xd}" y2="${y0-2}" style="stroke:var(--tree)" stroke-width="1.6" marker-end="url(#ah)"/>`;
-      s+=`<text x="${xd}" y="${y0-70}" text-anchor="middle" class="tl">${esc(lab)}</text>`;
+      const top=y0-extBase-16*(kExt++);
+      s+=`<line x1="${xd}" y1="${top}" x2="${xd}" y2="${y0-2}" style="stroke:var(--tree)" stroke-width="1.6" marker-end="url(#ah)"/>`;
+      s+=`<text x="${xd}" y="${top-8}" text-anchor="middle" class="tl">${esc(lab)}</text>`;
     }else{
       const xh=X(h)-8,hh=30+24*Math.abs(d-h);
       s+=`<path d="M${xh} ${y0-2} C${xh} ${y0-2-hh},${xd} ${y0-2-hh},${xd} ${y0-2}" fill="none" style="stroke:var(--tree)" stroke-width="1.6" marker-end="url(#ah)"/>`;
@@ -1009,7 +1321,7 @@ function akar(){
 
 /* ---------- Tab: Paralel ---------- */
 function para(){
-  return surahChips()+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, dan saat ini tersedia untuk seluruh ayat purwarupa: Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās. Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a> pada tanggal yang sama. Setiap ayat diberi penanda otomatis apakah teksnya identik dengan Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
+  return surahChips()+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, dan saat ini tersedia untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās; Al-‘Alaq menyusul. Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a> pada tanggal yang sama. Setiap ayat diberi penanda otomatis apakah teksnya identik dengan Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
    SURAHS[state.s].verses.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
      <div class="trow"><div class="lab">Terjemahan resmi Kemenag</div><div>${kemenagOf(v)?kemenagHtml(kemenagOf(v))+kemenagNotes(kemenagOf(v)):'<div class="slot">Belum dimuat untuk ayat ini.</div>'}</div></div>
      <div class="trow"><div class="lab">Terjemahan NU Online</div><div>${nuHtml(v)}</div></div>
@@ -1338,13 +1650,13 @@ function ai(){
 function pedoman(){
   const nRoots=Object.keys(ROOTS).length;
   return `<h2>Cakupan purwarupa</h2>
-   <p>${SURAHS.length} surah (${SURAHS.map(S=>'QS '+S.no+' '+(S.label||S.nama)).join(', ')}): ${VERSES.length} ayat dan ${totalWords} kata, dengan ${nRoots} akar kata dan ${DIS.length} contoh entri makna kontekstual.</p>
+   <p>${SURAHS.length} surah (${SURAH_URUT.map(i=>SURAHS[i]).map(S=>'QS '+S.no+' '+(S.label||S.nama)).join(', ')}): ${VERSES.length} ayat dan ${totalWords} kata, dengan ${nRoots} akar kata dan ${DIS.length} contoh entri makna kontekstual.</p>
    <h3>Status tiap lapisan</h3>
    <div class="tw"><table><thead><tr><th>Lapisan</th><th>Status saat ini</th></tr></thead><tbody>
     <tr><td>Anotasi i‘rāb per kata</td><td>Tersedia untuk seluruh kata, berstatus draf kerja.</td></tr>
     <tr><td>Treebank sintaksis</td><td>Tersedia pada tingkat kata untuk ${VERSES.length} ayat, berstatus draf kerja.</td></tr>
     <tr><td>Kamus akar kata</td><td>${nRoots} entri ringkas dengan tautan ke setiap bentuknya.</td></tr>
-    <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag untuk seluruh ayat purwarupa (Al-Fātiḥah, Al-Baqarah 1–6, An-Nās), terjemahan NU Online untuk seluruh ayat purwarupa (dengan penanda kesamaan teks per ayat), serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
+    <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag dan NU Online untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās (dengan penanda kesamaan teks per ayat); Al-‘Alaq menunggu data terjemahan, serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
     <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan Tafsir Al-Mishbah sudah diisi untuk entri ar-raḥmān ar-raḥīm dan ad-dīn; entri lain belum.</td></tr>
     <tr><td>Peta sisipan</td><td>Terjemahan Kemenag untuk 19 ayat diselaraskan dengan kata Arab; 14 sisipan dalam kurung terdeteksi otomatis dan diklasifikasi (draf peneliti).</td></tr>
     <tr><td>Ringkasan tafsir</td><td>Ringkasan Tafsir Al-Mishbah untuk Al-Fātiḥah 1–7 sebagai contoh awal, bukan teks utuh, dan tidak diproses AI.</td></tr>
@@ -1386,7 +1698,7 @@ function pedoman(){
    <h3>Keterbatasan</h3>
    <ul class="plain">
     <li>Seluruh anotasi adalah draf kerja dan belum divalidasi ahli nahwu-sharaf maupun ahli tafsir.</li>
-    <li>Terjemahan Kemenag dan NU Online sudah dimuat untuk seluruh ayat purwarupa, dikutip apa adanya dengan atribusi. Izin pemakaian formal untuk korpus penuh tetap perlu diurus dengan LPMQ. Terjemahan Kemenag beserta catatan kakinya sudah dimasukkan ke pencarian makna (AI); terjemahan NU Online tidak dimasukkan terpisah karena identik. Terjemahan penerbit belum dimuat.</li>
+    <li>Terjemahan Kemenag dan NU Online sudah dimuat untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās (Al-‘Alaq belum), dikutip apa adanya dengan atribusi. Izin pemakaian formal untuk korpus penuh tetap perlu diurus dengan LPMQ. Terjemahan Kemenag beserta catatan kakinya sudah dimasukkan ke pencarian makna (AI); terjemahan NU Online tidak dimasukkan terpisah karena identik. Terjemahan penerbit belum dimuat.</li>
     <li>Ringkasan Tafsir Al-Mishbah hanyalah contoh awal untuk Al-Fātiḥah, disusun dengan kata-kata sendiri. Pemuatan tafsir dalam korpus ke depan akan dilakukan melalui izin kerja sama langsung dengan Pusat Studi Al-Qur’an.</li>
     <li>Rujukan kitab tafsir pada lapisan makna kontekstual belum diisi.</li>
     <li>Cakupan baru dua surah pendek dan enam ayat awal Al-Baqarah, sebagai bukti rancangan dan bukan korpus lengkap.</li>
@@ -1498,6 +1810,7 @@ function sisBar(label,n,max,cls){
   return `<div class="sbar"><span>${label}</span><div class="bar"><i class="${cls}" style="width:${max?Math.round(n/max*100):0}%"></i></div><b>${n}</b></div>`;
 }
 function sisRingkas(judul,st){
+  if(!st.kata)return `<div class="sis-col"><h3>${judul}</h3><p class="note">Belum ada ayat berpeta pada surah ini; menunggu terjemahan Kemenag.</p></div>`;
   const max=Math.max(1,st.jenis.rujukan,st.jenis.tafsir,st.jenis.struktur);
   return `<div class="sis-col"><h3>${judul}</h3>
     <p class="sis-big"><b>${st.sisipan}</b> sisipan dalam kurung</p>
@@ -1519,15 +1832,15 @@ function sisipan(){
     <span><span class="sw-ar lebur" lang="ar">ـ</span> kata Arab yang melebur</span>
   </div>
   <section class="sis-sum">
-    ${sisRingkas(esc('QS '+S.nama),st)}${sisRingkas('Seluruh korpus purwarupa ('+VERSES.length+' ayat)',all)}
+    ${sisRingkas(esc('QS '+S.nama),st)}${sisRingkas('Seluruh ayat berpeta ('+VERSES.filter(v=>SELARAS[`${v.si}:${v.n}`]).length+' ayat)',all)}
     <div class="sis-riset"><p>Riset magister menemukan 97,7% dari 535 istilah teologis dipadankan secara formal. Peta ini memperlihatkan bahwa unsur dinamis tetap hadir di sekitar istilah itu, melalui sisipan dalam kurung dan tambahan tanpa kurung.</p>
     <button class="btn" data-sisgo="2:4:2">Lihat contoh: “(setan)” di QS 114:4</button></div>
   </section>`+
   vs.map(v=>`<section class="pblock sis-v" id="sis-${v.si}-${v.n}"><div class="sis-ref">QS ${v.sn}:${v.n}</div>
-    <div class="sis-ar" dir="rtl">${v.words.map((w,i)=>{const seg=selarasOf(v)||[];const lebur=!seg.some(s=>s.k==='p'&&s.w===i);
+    <div class="sis-ar" dir="rtl">${v.words.map((w,i)=>{const seg=selarasOf(v);const lebur=!!seg&&!seg.some(s=>s.k==='p'&&s.w===i);
       return `<span class="sw-ar${lebur?' lebur':''}" lang="ar" data-sw="${v.si}:${v.n}:${i}" role="button" tabindex="0" title="${esc(w.lat)}${lebur?': tidak dirender tersendiri':''}">${w.ar}</span>`;}).join('')}<span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
-    <p class="sis-terj">${selarasHtml(v,-1)}</p>
-    <p class="sis-info" id="sis-info-${v.si}-${v.n}" aria-live="polite">${SIS_HINT}</p></section>`).join('')+
+    ${selarasOf(v)?`<p class="sis-terj">${selarasHtml(v,-1)}</p>
+    <p class="sis-info" id="sis-info-${v.si}-${v.n}" aria-live="polite">${SIS_HINT}</p>`:'<p class="slot">Peta belum tersedia: terjemahan Kemenag untuk ayat ini belum dimuat.</p>'}</section>`).join('')+
   `<h3>Daftar sisipan QS ${esc(S.nama)}</h3>
   <div class="scroll"><table><thead><tr><th>Ayat</th><th>Sisipan</th><th>Kata Arab terkait</th><th>Jenis</th></tr></thead><tbody>${
     daftar.length?daftar.map(({v,s})=>`<tr><td>QS ${v.sn}:${v.n}</td><td><span class="sg-s sg-${s.j}" data-sw="${v.si}:${v.n}:${s.w}" role="button" tabindex="0">${esc(s.t)}</span></td><td>${s.w>=0?`<span class="ar-inline" lang="ar">${v.words[s.w].ar}</span> ${esc(v.words[s.w].lat)}`:'—'}</td><td>${esc(SISIPAN_JENIS[s.j])}</td></tr>`).join(''):'<tr><td colspan="4">Tidak ada sisipan dalam kurung pada surah ini.</td></tr>'
