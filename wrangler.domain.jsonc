@@ -1,0 +1,28 @@
+{
+  // Konfigurasi Worker KEDUA untuk situs dengan domain sendiri.
+  // Worker pertama (korpus-quran-prototipe, lihat wrangler.jsonc) tidak terpengaruh oleh berkas ini.
+  // Deploy command di Cloudflare: npx wrangler deploy --config wrangler.domain.jsonc
+  "name": "korpus-quran",
+  "main": "worker.js",
+  "compatibility_date": "2025-09-09",
+
+  // Folder situs statis (dibuat oleh Build command: mkdir -p public && cp index.html public/)
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Akses ke Workers AI, dipakai oleh /api/cari untuk pencarian makna (eksperimen)
+  "ai": {
+    "binding": "AI"
+  },
+
+  // Alamat gratis bawaan: https://korpus-quran.muhalbi22.workers.dev
+  "workers_dev": true
+
+  // Setelah domain sendiri sudah ditambahkan ke akun Cloudflare, hapus tanda // di bawah
+  // (dan tambahkan koma setelah "workers_dev": true), lalu ganti namanya:
+  // "routes": [
+  //   { "pattern": "korpusquran.my.id", "custom_domain": true }
+  // ]
+}
