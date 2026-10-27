@@ -1034,7 +1034,7 @@ const VERSES=SURAHS.reduce((a,S)=>a.concat(S.verses),[]);
 // Urutan tampilan mengikuti nomor surah dalam mushaf; indeks data (si) tidak berubah.
 const SURAH_URUT=SURAHS.map((S,i)=>i).sort((a,b)=>SURAHS[a].no-SURAHS[b].no);
 // Terjemahan Kemenag, dikutip apa adanya dari Qur’an Kemenag (LPMQ). Penanda [[n]] = catatan kaki ke-n.
-const KEMENAG_SUMBER={nama:'Qur’an Kemenag (Lajnah Pentashihan Mushaf Al-Qur’an)',url:'https://quran.kemenag.go.id/',diakses:'22 Oktober 2026'};
+const KEMENAG_SUMBER={nama:'Qur’an Kemenag (Lajnah Pentashihan Mushaf Al-Qur’an)',url:'https://quran.kemenag.go.id/',diakses:'22 dan 26 Oktober 2026'};
 const KEMENAG={
  '0:1':{teks:'Dengan nama Allah Yang Maha Pengasih lagi Maha Penyayang.'},
  '0:2':{teks:'Segala puji bagi Allah, Tuhan[[1]] semesta alam',catatan:{1:'Allah Swt. disebut rabb (Tuhan) seluruh alam karena Dialah yang telah menciptakan, memelihara, mendidik, mengatur, mengurus, memberi rezeki, dan sebagainya kepada semua makhluk-Nya.'}},
@@ -1054,7 +1054,27 @@ const KEMENAG={
  '2:3':{teks:'sembahan manusia'},
  '2:4':{teks:'dari kejahatan (setan) pembisik yang bersembunyi'},
  '2:5':{teks:'yang membisikkan (kejahatan) ke dalam dada manusia,'},
- '2:6':{teks:'dari (golongan) jin dan manusia.”'}
+ '2:6':{teks:'dari (golongan) jin dan manusia.”'},
+ // QS 96 Al-ʿAlaq, diakses 26 Oktober 2026.
+ '3:1':{teks:'Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan!'},
+ '3:2':{teks:'Dia menciptakan manusia dari segumpal darah.'},
+ '3:3':{teks:'Bacalah! Tuhanmulah Yang Maha Mulia,'},
+ '3:4':{teks:'yang mengajar (manusia) dengan pena.'},
+ '3:5':{teks:'Dia mengajarkan manusia apa yang tidak diketahuinya.'},
+ '3:6':{teks:'Sekali-kali tidak! Sesungguhnya manusia itu benar-benar melampaui batas'},
+ '3:7':{teks:'ketika melihat dirinya serba berkecukupan.'},
+ '3:8':{teks:'Sesungguhnya hanya kepada Tuhanmulah tempat kembali(-mu).'},
+ '3:9':{teks:'Tahukah kamu tentang orang yang melarang'},
+ '3:10':{teks:'seorang hamba ketika dia melaksanakan salat?'},
+ '3:11':{teks:'Bagaimana pendapatmu kalau terbukti dia berada di dalam kebenaran'},
+ '3:12':{teks:'atau dia menyuruh bertakwa (kepada Allah)?'},
+ '3:13':{teks:'Bagaimana pendapatmu kalau dia mendustakan (kebenaran) dan berpaling (dari keimanan)?'},
+ '3:14':{teks:'Tidakkah dia mengetahui bahwa sesungguhnya Allah melihat (segala perbuatannya)?'},
+ '3:15':{teks:'Sekali-kali tidak! Sungguh, jika dia tidak berhenti (berbuat demikian), niscaya Kami tarik ubun-ubunnya (ke dalam neraka),'},
+ '3:16':{teks:'(yaitu) ubun-ubun orang yang mendustakan (kebenaran) dan durhaka.'},
+ '3:17':{teks:'Biarlah dia memanggil golongannya (untuk menolongnya).'},
+ '3:18':{teks:'Kelak Kami akan memanggil (Malaikat) Zabaniah (penyiksa orang-orang yang berdosa).[[759]]',catatan:{759:'Zabaniah adalah malaikat yang bertugas menyiksa orang-orang yang berdosa.'}},
+ '3:19':{teks:'Sekali-kali tidak! Janganlah patuh kepadanya, (tetapi) sujud dan mendekatlah (kepada Allah).'}
 };
 const kemenagOf=v=>KEMENAG[`${v.si}:${v.n}`]||null;
 // Terjemahan NU Online, dikutip apa adanya dari quran.nu.or.id (tanpa catatan kaki).
@@ -1321,7 +1341,7 @@ function akar(){
 
 /* ---------- Tab: Paralel ---------- */
 function para(){
-  return surahChips()+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, dan saat ini tersedia untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās; Al-‘Alaq menyusul. Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a> pada tanggal yang sama. Setiap ayat diberi penanda otomatis apakah teksnya identik dengan Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
+  return surahChips()+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, dan saat ini tersedia untuk seluruh ayat purwarupa. Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a> pada tanggal yang sama. Setiap ayat diberi penanda otomatis apakah teksnya identik dengan Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
    SURAHS[state.s].verses.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
      <div class="trow"><div class="lab">Terjemahan resmi Kemenag</div><div>${kemenagOf(v)?kemenagHtml(kemenagOf(v))+kemenagNotes(kemenagOf(v)):'<div class="slot">Belum dimuat untuk ayat ini.</div>'}</div></div>
      <div class="trow"><div class="lab">Terjemahan NU Online</div><div>${nuHtml(v)}</div></div>
@@ -1656,9 +1676,9 @@ function pedoman(){
     <tr><td>Anotasi i‘rāb per kata</td><td>Tersedia untuk seluruh kata, berstatus draf kerja.</td></tr>
     <tr><td>Treebank sintaksis</td><td>Tersedia pada tingkat kata untuk ${VERSES.length} ayat, berstatus draf kerja.</td></tr>
     <tr><td>Kamus akar kata</td><td>${nRoots} entri ringkas dengan tautan ke setiap bentuknya.</td></tr>
-    <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag dan NU Online untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās (dengan penanda kesamaan teks per ayat); Al-‘Alaq menunggu data terjemahan, serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
+    <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag untuk seluruh ayat purwarupa, termasuk Al-‘Alaq; NU Online untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās (dengan penanda kesamaan teks per ayat), sedangkan NU Online untuk Al-‘Alaq menunggu data, serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
     <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan Tafsir Al-Mishbah sudah diisi untuk entri ar-raḥmān ar-raḥīm dan ad-dīn; entri lain belum.</td></tr>
-    <tr><td>Peta sisipan</td><td>Terjemahan Kemenag untuk 19 ayat diselaraskan dengan kata Arab; 14 sisipan dalam kurung terdeteksi otomatis dan diklasifikasi (draf peneliti).</td></tr>
+    <tr><td>Peta sisipan</td><td>Terjemahan Kemenag untuk ${VERSES.filter(v=>SELARAS[`${v.si}:${v.n}`]).length} ayat diselaraskan dengan kata Arab; ${sisStat(VERSES).sisipan} sisipan dalam kurung terdeteksi otomatis dan diklasifikasi (draf peneliti).</td></tr>
     <tr><td>Ringkasan tafsir</td><td>Ringkasan Tafsir Al-Mishbah untuk Al-Fātiḥah 1–7 sebagai contoh awal, bukan teks utuh, dan tidak diproses AI.</td></tr>
     <tr><td>Pencarian kata kunci</td><td>Tersedia pada tab Cari. Pencarian ini leksikal dan tidak memakai AI.</td></tr>
     <tr><td>Fitur AI</td><td>Pencarian semantik (mode Makna pada tab Cari) dan penyaran label padanan (tab Lab label, akses terbatas) tersedia sebagai eksperimen dan belum dievaluasi. Fitur lain masih rencana.</td></tr>
@@ -1698,7 +1718,7 @@ function pedoman(){
    <h3>Keterbatasan</h3>
    <ul class="plain">
     <li>Seluruh anotasi adalah draf kerja dan belum divalidasi ahli nahwu-sharaf maupun ahli tafsir.</li>
-    <li>Terjemahan Kemenag dan NU Online sudah dimuat untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās (Al-‘Alaq belum), dikutip apa adanya dengan atribusi. Izin pemakaian formal untuk korpus penuh tetap perlu diurus dengan LPMQ. Terjemahan Kemenag beserta catatan kakinya sudah dimasukkan ke pencarian makna (AI); terjemahan NU Online tidak dimasukkan terpisah karena identik. Terjemahan penerbit belum dimuat.</li>
+    <li>Terjemahan Kemenag sudah dimuat untuk seluruh ayat purwarupa, dan NU Online untuk Al-Fātiḥah, Al-Baqarah 1–6, dan An-Nās (Al-‘Alaq belum), dikutip apa adanya dengan atribusi. Izin pemakaian formal untuk korpus penuh tetap perlu diurus dengan LPMQ. Terjemahan Kemenag beserta catatan kakinya sudah dimasukkan ke pencarian makna (AI); terjemahan NU Online tidak dimasukkan terpisah karena identik. Terjemahan penerbit belum dimuat.</li>
     <li>Ringkasan Tafsir Al-Mishbah hanyalah contoh awal untuk Al-Fātiḥah, disusun dengan kata-kata sendiri. Pemuatan tafsir dalam korpus ke depan akan dilakukan melalui izin kerja sama langsung dengan Pusat Studi Al-Qur’an.</li>
     <li>Rujukan kitab tafsir pada lapisan makna kontekstual belum diisi.</li>
     <li>Cakupan baru dua surah pendek dan enam ayat awal Al-Baqarah, sebagai bukti rancangan dan bukan korpus lengkap.</li>
@@ -1750,7 +1770,26 @@ const SELARAS={
  '2:3':'{0|sembahan} {1|manusia}',
  '2:4':'{0|dari} {1|kejahatan} «2|tafsir|(setan)» {2|pembisik} {3|yang bersembunyi}',
  '2:5':'{0|yang} {1|membisikkan} «1|tafsir|(kejahatan)» {2|ke dalam} {3|dada} {4|manusia},',
- '2:6':'{0|dari} «1|struktur|(golongan)» {1|jin} {2|dan manusia}.”'
+ '2:6':'{0|dari} «1|struktur|(golongan)» {1|jin} {2|dan manusia}.”',
+ '3:1':'{0|Bacalah} {1|dengan} «1|tafsir|(menyebut)» {1|nama} {2|Tuhanmu} {3|yang} {4|menciptakan}!',
+ '3:2':'{0|Dia menciptakan} {1|manusia} {2|dari} {3|segumpal darah|ʿAlaq dipadankan “segumpal darah”; padanan lain yang dikenal adalah “sesuatu yang melekat”.}.',
+ '3:3':'{0|Bacalah}! {1|Tuhanmulah|Wāw (dan) tidak diterjemahkan; partikel -lah memberi penekanan pada “Tuhanmu”.} {2|Yang Maha Mulia},',
+ '3:4':'{0|yang} {1|mengajar} «1|rujukan|(manusia)» {2|dengan pena}.',
+ '3:5':'{0|Dia mengajarkan} {1|manusia} {2|apa yang} {3|tidak|Lam membalik makna ke masa lampau (“belum”), tetapi dipadankan “tidak”.} {4|diketahuinya|Fiʿil aktif yaʿlam (ia mengetahui) dipadankan dengan bentuk pasif “diketahuinya”.}.',
+ '3:6':'{0|Sekali-kali tidak}! {1|Sesungguhnya} {2|manusia} itu {3|benar-benar melampaui batas}',
+ '3:7':'{0|ketika|Secara iʿrāb, an di sini bermakna sebab (“karena”), tetapi dipadankan “ketika”: hubungan sebab dibaca sebagai hubungan waktu.} {1|melihat dirinya} {2|serba berkecukupan}.',
+ '3:8':'{0|Sesungguhnya} {1|hanya kepada|Kata “hanya” memadankan makna pengkhususan dari didahulukannya ilā rabbika.} {2|Tuhanmulah} {3|tempat kembali}«3|rujukan|(-mu)».',
+ '3:9':'{0|Tahukah kamu} tentang {1|orang yang} {2|melarang}',
+ '3:10':'{0|seorang hamba} {1|ketika} {2|dia melaksanakan salat}?',
+ '3:11':'{0|Bagaimana pendapatmu|Araʾayta dipadankan “bagaimana pendapatmu”, berbeda dari “tahukah kamu” pada ayat 9.} {1|kalau} terbukti {2|dia berada} {3|di dalam|ʿAlā (di atas) dipadankan “di dalam”.} {4|kebenaran|Al-hudā (petunjuk) dipadankan “kebenaran”.}',
+ '3:12':'{0|atau} {1|dia menyuruh} {2|bertakwa} «2|rujukan|(kepada Allah)»?',
+ '3:13':'{0|Bagaimana pendapatmu} {1|kalau} {2|dia mendustakan} «2|tafsir|(kebenaran)» {3|dan berpaling} «3|tafsir|(dari keimanan)»?',
+ '3:14':'{0|Tidakkah} {1|dia mengetahui} {2|bahwa sesungguhnya} {3|Allah} {4|melihat} «4|tafsir|(segala perbuatannya)»?',
+ '3:15':'{0|Sekali-kali tidak}! {1|Sungguh, jika} {3|dia} {2|tidak} {3|berhenti} «3|struktur|(berbuat demikian)», {4|niscaya Kami tarik} {5|ubun-ubunnya} «4|tafsir|(ke dalam neraka)»,',
+ '3:16':'«0|struktur|(yaitu)» {0|ubun-ubun} orang {1|yang mendustakan|Kādhibah berarti “berdusta” (pendusta), tetapi dipadankan “mendustakan”, makna yang lebih dekat dengan mukadhdhib.} «1|tafsir|(kebenaran)» dan {2|durhaka}.',
+ '3:17':'{0|Biarlah dia memanggil|Fāʾ (maka) tidak diterjemahkan.} {1|golongannya} «0|tafsir|(untuk menolongnya)».',
+ '3:18':'{0|Kelak Kami akan memanggil} «1|rujukan|(Malaikat)» {1|Zabaniah} «1|tafsir|(penyiksa orang-orang yang berdosa)».[[759]]',
+ '3:19':'{0|Sekali-kali tidak}! {1|Janganlah} {2|patuh kepadanya}, «3|struktur|(tetapi)» {3|sujud} {4|dan mendekatlah} «4|rujukan|(kepada Allah)».'
 };
 const KATA_RE=/[A-Za-zÀ-ÖØ-öø-ɏḀ-ỿ’'-]+/g;
 function parseSelaras(m){
@@ -1834,7 +1873,7 @@ function sisipan(){
   <section class="sis-sum">
     ${sisRingkas(esc('QS '+S.nama),st)}${sisRingkas('Seluruh ayat berpeta ('+VERSES.filter(v=>SELARAS[`${v.si}:${v.n}`]).length+' ayat)',all)}
     <div class="sis-riset"><p>Riset magister menemukan 97,7% dari 535 istilah teologis dipadankan secara formal. Peta ini memperlihatkan bahwa unsur dinamis tetap hadir di sekitar istilah itu, melalui sisipan dalam kurung dan tambahan tanpa kurung.</p>
-    <button class="btn" data-sisgo="2:4:2">Lihat contoh: “(setan)” di QS 114:4</button></div>
+    <button class="btn" data-sisgo="2:4:2">Lihat contoh: “(setan)” di QS 114:4</button> <button class="btn" data-sisgo="3:2:3">Lihat contoh: ‘alaq di QS 96:2</button> <button class="btn" data-sisgo="3:15:4">Lihat contoh: “(ke dalam neraka)” di QS 96:15</button></div>
   </section>`+
   vs.map(v=>`<section class="pblock sis-v" id="sis-${v.si}-${v.n}"><div class="sis-ref">QS ${v.sn}:${v.n}</div>
     <div class="sis-ar" dir="rtl">${v.words.map((w,i)=>{const seg=selarasOf(v);const lebur=!!seg&&!seg.some(s=>s.k==='p'&&s.w===i);
