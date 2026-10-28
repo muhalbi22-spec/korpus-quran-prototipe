@@ -29,3 +29,9 @@ Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus di
 7. `penyunting-q1` → pemolesan akhir sesuai selingkung jurnal.
 
 Semua agen dilarang mengarang data atau referensi. Bagian yang belum pasti ditandai `[PERLU DATA]` atau `[PERLU VERIFIKASI]`.
+
+## Kantor agen (tampilan status)
+Halaman https://claude.ai/artifact/27BGJNd1Btq6Mf3khyQetk menampilkan status langsung keenam agen.
+Sesi utama Claude memperbaruinya lewat basis data halaman itu (ArtifactData):
+- `agen/<nama-agen>`: `{status: "bekerja" | "selesai" | "menunggu", tugas: "<ringkas>"}`, ubah sebelum dan sesudah agen dijalankan
+- `log/<id>`: `{waktu: "<ISO 8601>", agen: "<nama-agen>", pesan: "<apa yang dikerjakan atau dihasilkan>"}`
