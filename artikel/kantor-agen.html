@@ -41,7 +41,7 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 4vw
 .counts { font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 14px; }
 .counts b { color: var(--ink); font-variant-numeric: tabular-nums; }
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
-.d-bekerja { background: var(--work); } .d-selesai { background: var(--ok); } .d-menunggu { background: var(--idle); }
+.d-bekerja { background: var(--work); } .d-rapat { background: #9a6fd0; } .d-selesai { background: var(--ok); } .d-menunggu { background: var(--idle); }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel); }
 .seg button { font: 600 12.5px var(--body); color: var(--muted); background: none; border: 0; padding: 6px 11px; cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--line); }
@@ -131,8 +131,8 @@ const AGEN = [
   { id: "pemilih-jurnal",  nama: "Juna",  peran: "Pemilih jurnal",   rambut: "#0f0f0f", baju: "#23706f", kulit: "#e6b38a", panjang: false, suka: ["jendela2", "rapat3", "kopi2"] },
   { id: "pemeriksa-metadata", nama: "Meta", peran: "Pemeriksa metadata", rambut: "#3a2214", baju: "#4a5a6e", kulit: "#d39a6a", panjang: true, suka: ["rak2", "kopi1", "jendela1"] },
 ];
-const LABEL = { bekerja: "Bekerja", selesai: "Selesai", menunggu: "Menunggu tugas" };
-const STC = { bekerja: "#f2b234", selesai: "#4cc684", menunggu: "#9aa6b0" };
+const LABEL = { bekerja: "Bekerja", rapat: "Rapat", selesai: "Selesai", menunggu: "Menunggu tugas" };
+const STC = { bekerja: "#f2b234", rapat: "#b48ae6", selesai: "#4cc684", menunggu: "#9aa6b0" };
 
 // ---------- Geometri isometrik ----------
 const TW = 64, TH = 32, MW = 14, MH = 11, WALL = 130, OX = MH * TW / 2, OY = 150, LW = 800, LH = 575;
@@ -381,12 +381,25 @@ function decide(c, now) {
     if (c.mode !== "work") { release(c); c.mode = "work"; c.until = Infinity; sitAtDesk(c, now, Infinity); }
     return;
   }
+  if (c.status === "rapat") {
+    if (c.mode !== "meet") {
+      release(c); c.mode = "meet"; c.until = Infinity;
+      const seats = POI.filter(p => p.id.startsWith("rapat"));
+      const p = seats.find(p => !p.by || p.by.status !== "rapat") || seats[0];
+      if (p.by && p.by !== c) { const o = p.by; o.path = []; o.onArrive = null; o.poi = null; o.until = 0; o.mode = "idle"; }
+      p.by = c; c.poi = p;
+      goTo(c, p.at, { x: p.x, y: p.y }, () => { c.pose = "stand"; c.face = p.face; c.flip = !!p.flip; });
+    }
+    return;
+  }
+  if (c.mode === "meet") { c.mode = "desk"; c.until = now + rand(2000, 5000); return; }
   if (c.mode === "work") { c.mode = "desk"; c.until = now + rand(4000, 8000); return; }
   if (now < c.until) return;
   release(c);
   c.until = Infinity;
   if (RM) { c.mode = "desk"; if (!c.seated) sitAtDesk(c, now, 1e12); else c.until = now + 1e12; return; }
-  const free = POI.filter(p => !p.by);
+  const meeting = chars.some(x => x.status === "rapat");
+  const free = POI.filter(p => !p.by && !(meeting && p.id.startsWith("rapat")));
   const liked = free.filter(p => c.suka.includes(p.id));
   const r = Math.random();
   if (r < .28 || !free.length) { c.mode = "desk"; sitAtDesk(c, now, rand(8000, 16000)); return; }
@@ -501,6 +514,7 @@ function drawOverlay(t, now) {
     ctx.fillStyle = "#eef2f5"; ctx.textBaseline = "middle"; ctx.fillText(c.nama, sx - nw / 2 + 11 * ts, ny + 6.5 * ts);
     let text = "", dots = false;
     if (c.status === "bekerja") { text = c.tugas || "Mengerjakan tugas"; dots = c.seated; }
+    else if (c.status === "rapat") { text = c.tugas || "Rapat"; dots = !c.walking && !c.path.length; }
     else if (now < c.sayUntil) text = c.say;
     else if (selected === c) text = c.tugas || LABEL[c.status];
     if (!text) continue;
@@ -587,10 +601,10 @@ cv.addEventListener("click", e => {
   select(hit && hit !== selected ? hit : null);
 });
 function renderCounts() {
-  const n = { bekerja: 0, selesai: 0, menunggu: 0 };
-  for (const c of chars) { n[c.status]++; rbtn[c.id].querySelector(".dot").className = "dot d-" + c.status; rbtn[c.id].querySelector(".r").textContent = c.status === "bekerja" ? (c.tugas || c.peran) : c.peran; }
+  const n = { bekerja: 0, rapat: 0, selesai: 0, menunggu: 0 };
+  for (const c of chars) { n[c.status]++; rbtn[c.id].querySelector(".dot").className = "dot d-" + c.status; rbtn[c.id].querySelector(".r").textContent = c.status === "bekerja" || c.status === "rapat" ? (c.tugas || c.peran) : c.peran; }
   const el = document.getElementById("counts"); el.replaceChildren();
-  for (const s of ["bekerja", "selesai", "menunggu"]) {
+  for (const s of ["bekerja", "rapat", "selesai", "menunggu"]) {
     const sp = document.createElement("span"); sp.innerHTML = `<i class="dot d-${s}"></i> `;
     const b = document.createElement("b"); b.textContent = n[s]; sp.append(b, " " + LABEL[s].toLowerCase()); el.appendChild(sp);
   }
@@ -602,8 +616,8 @@ function applyStatus(map) {
   for (const c of chars) {
     const s = map[c.id] || {}, st = LABEL[s.status] ? s.status : "menunggu", tugas = typeof s.tugas === "string" ? s.tugas : "";
     if (st !== c.status) {
-      if (st === "bekerja") { c.path = []; c.onArrive = null; release(c); c.mode = "idle"; }
-      if (st === "selesai" && c.status === "bekerja") say(c, "Selesai: " + (tugas || "tugas"), 9000, now);
+      if (st === "bekerja" || st === "rapat") { c.path = []; c.onArrive = null; release(c); c.mode = "idle"; }
+      if (st === "selesai" && (c.status === "bekerja" || c.status === "rapat")) say(c, "Selesai: " + (tugas || "tugas"), 9000, now);
     }
     c.status = st; c.tugas = tugas;
   }
