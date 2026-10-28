@@ -18,7 +18,7 @@ Workbook `Crypto_Legitimation_Corpus_EN_v12.xlsx` dengan sheet Corpus, Coding_Lo
 - v12: **27 teks, 143 ekstrak, 42 kode**, temuan F1–F58
 - Yurisdiksi: AS, Inggris, UE/ECB, Indonesia, Brasil, El Salvador, Argentina, aktor keuangan (Dimon, Fink)
 - Arsip sumber: `Corpus_Archive_v12.zip` (PDF/HTML resmi + checksum SHA-256)
-- **Workbook belum ada di repo ini.** Unggah ke `artikel/data/`.
+- Workbook disimpan lokal di `artikel/data/` (tidak di-commit, repo publik).
 
 ## Temuan kunci (dari Analysis_Memo)
 - **RQ2, tipologi *accounts***: pengakuan (REV-ADM), dalih, klaim konsistensi (REV-CON), diskontinuitas, *silent reversal* (REV-SIL). Jenis *account* tidak bergantung pada arah perubahan sikap. Ini kontribusi paling orisinal.

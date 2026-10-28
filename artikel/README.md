@@ -1,6 +1,6 @@
 # Ruang kerja artikel CDA
 
-Folder ini dipakai bersama oleh lima agen di `.claude/agents/`.
+Folder ini dipakai bersama oleh enam agen di `.claude/agents/`.
 
 | Agen | Fokus |
 |---|---|
@@ -9,12 +9,13 @@ Folder ini dipakai bersama oleh lima agen di `.claude/agents/`.
 | `penulis-artikel` | Pendahuluan, Metode, Hasil & Pembahasan, Kesimpulan, Abstrak |
 | `penyunting-q1` | Bahasa akademik dan gaya selingkung jurnal Scopus Q1 |
 | `referensi` | Verifikasi sumber, daftar pustaka, BibTeX, daftar isi/kerangka |
+| `pemilih-jurnal` | Membandingkan dan memeringkat jurnal sasaran (kuartil, cakupan, APC, lama review) |
 
 Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus ditangani.
 
 ## Struktur folder
 - `draf/`: artikel sebelumnya dan draf tiap bagian
-- `data/`: data penelitian (teks yang dianalisis)
+- `data/`: data penelitian (tidak ikut di-commit karena repo publik)
 - `referensi/`: daftar pustaka, BibTeX, laporan verifikasi
 - `selingkung-jurnal.md`: ringkasan panduan penulis jurnal sasaran (dibuat oleh `penyunting-q1`)
 
@@ -24,6 +25,7 @@ Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus di
 3. `riset-analisis` → menganalisis data sesuai kerangka.
 4. `penulis-artikel` → menulis atau menulis ulang tiap bagian.
 5. `referensi` → memverifikasi semua sitasi dan menyusun daftar pustaka.
-6. `penyunting-q1` → pemolesan akhir sesuai selingkung jurnal.
+6. `pemilih-jurnal` → memilih jurnal sasaran (bisa juga dikerjakan di awal).
+7. `penyunting-q1` → pemolesan akhir sesuai selingkung jurnal.
 
 Semua agen dilarang mengarang data atau referensi. Bagian yang belum pasti ditandai `[PERLU DATA]` atau `[PERLU VERIFIKASI]`.
