@@ -1,6 +1,6 @@
 # Ruang kerja artikel CDA
 
-Folder ini dipakai bersama oleh enam agen di `.claude/agents/`.
+Folder ini dipakai bersama oleh tujuh agen di `.claude/agents/`.
 
 | Agen | Fokus |
 |---|---|
@@ -10,6 +10,7 @@ Folder ini dipakai bersama oleh enam agen di `.claude/agents/`.
 | `penyunting-q1` | Bahasa akademik dan gaya selingkung jurnal Scopus Q1 |
 | `referensi` | Verifikasi sumber, daftar pustaka, BibTeX, daftar isi/kerangka |
 | `pemilih-jurnal` | Membandingkan dan memeringkat jurnal sasaran (kuartil, cakupan, APC, lama review) |
+| `pemeriksa-metadata` | Mengaudit dan melengkapi metadata korpus, mendaftar data yang masih dibutuhkan |
 
 Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus ditangani.
 
