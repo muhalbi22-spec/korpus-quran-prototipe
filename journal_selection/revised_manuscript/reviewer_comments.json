@@ -1,0 +1,182 @@
+[
+ {
+  "anchor": "Between gloss and faith: Interlinear glossing",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[Ringkasan] Vonis reviewer: belum siap dikirim, perlu revisi mayor terbatas. Semua temuan kritis (C1–C6) dan penting (P1–P13) sudah ditangani dalam versi ini. Lihat komentar per bagian dan Lampiran A (tabel tanggapan) di akhir dokumen."
+ },
+ {
+  "anchor": "Corpus-based studies of Qur'an translation frequently treat",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P8, P9] Reviewer: angka 95,6% tidak boleh jadi temuan utama; abstrak 226 kata dan 8 kata kunci. → Perbaikan: abstrak ditulis ulang agar menonjolkan kontribusi (tiga lokus penyempitan, kesadaran lapisan teks); 271 kata (Hikma: 200–300); 5 kata kunci, urut abjad, tanpa titik. Abstrak bahasa Spanyol ditambahkan sesuai aturan Hikma."
+ },
+ {
+  "anchor": "Studies that quote one of these layers while coding another",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C5] Reviewer: naskah menyebut editor New Voices dan 'versi asli', sehingga membuka riwayat penolakan dan identitas penulis. → Perbaikan: semua rujukan ke editor dan versi sebelumnya dihapus; tersisa satu sitasi diri yang netral (di versi anonim menjadi 'Author, 2025'). Penjelasan perbedaan dengan versi New Voices cukup di cover letter."
+ },
+ {
+  "anchor": "Second, Nida himself located a kind of translation",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[Minor + C3b] Reviewer: 'gloss translation' Nida bukan interlinear; Toury's law of growing standardisation salah diterapkan. → Perbaikan: dirumuskan sebagai 'an extreme form of this orientation'; prioritas contextual vs verbal consistency (Nida & Taber) dipakai; norma gloss kini disebut 'source-oriented concordance norm' (adequacy/interference), bukan standardisasi. Ditambah Lehmann (2004) dan Leipzig Glossing Rules (literatur glossing yang diminta, P10)."
+ },
+ {
+  "anchor": "Baker's (2018) typology of lexical meaning describes",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3a] Reviewer: presupposed/evoked meaning Baker dipakai di luar definisinya. → Perbaikan: definisi Baker dipakai persis (selectional/collocational restrictions; dialect/register). Pengetahuan tafsir/sejarah kini dianalisis dengan distingsi basic vs relational meaning Izutsu dan konsep pragmatic equivalence Baker."
+ },
+ {
+  "anchor": "The status of the gloss matters for the design",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3c] Reviewer: FAQ QAC menyatakan gloss diturunkan dari Sahih International, Pickthall, Yusuf Ali, sehingga perbandingan sebagian sirkular. → Perbaikan: paragraf baru tentang status derivatif gloss (dikutip dari FAQ); Arberry (dan sebagian Hilali-Khan) dipakai sebagai pembanding independen; ketegangan klaim 'contextual' vs praktik satu-default dijadikan temuan."
+ },
+ {
+  "anchor": "The dataset was originally compiled for",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C6] Reviewer: tanggal 'data first collected in August 2026' tidak akurat. → Perbaikan: diganti 'originally compiled for Author (2025); re-verified 28 October 2026'."
+ },
+ {
+  "anchor": "The default/variant distinction measures lexical concordance",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3d] Reviewer: default = formal tidak tepat; yang diukur konsistensi leksikal. → Perbaikan: dinyatakan eksplisit bahwa default/variant mengukur konkordansi leksikal; pemetaan ke label formal/dinamis hanya historis."
+ },
+ {
+  "anchor": "was first screened automatically",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C4, P2] Reviewer: 17:24 Yusuf Ali 'out of kindness' salah dikode; klaim pembacaan manual tidak terpenuhi; aturan doublet tidak dijelaskan. → Perbaikan: penyaringan diganti metode hitung (jumlah 'mercy' vs jumlah token raḥmat per ayat + bendera bentuk verba); 23 sel terbendera dibaca manual satu per satu; hanya 17:24 yang salah dan sudah dikoreksi di CSV/JSON/Tabel 3. Aturan doublet ditulis."
+ },
+ {
+  "anchor": "Selected tokens were read against classical sources in Arabic",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P6] Reviewer: klaim al-Qurṭubī/Ibn ʿAbbās (khashyah), al-Jurjānī dan al-Ghazālī belum terverifikasi; tafsir perlu edisi Arab. → Perbaikan: semua tafsir kini dicek di teks Arab (al-Ṭabarī, al-Qurṭubī, Ibn Kathīr via quran.com). Klaim yang tidak bisa diverifikasi (al-Jurjānī, al-Ghazālī, Ibn ʿAbbās–khashyah) dihapus. Definisi al-Rāghib dikoreksi sesuai teks al-Mufradāt (entri w-q-y)."
+ },
+ {
+  "anchor": "The variants fall into three groups",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3a] Collocational blocking kini dikaitkan dengan presupposed meaning Baker dalam arti aslinya (collocational restriction)."
+ },
+ {
+  "anchor": "Answer to RQ1.",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3b] Kalimat 'what the law of growing standardisation would predict' dihapus; diganti rumusan norma konkordansi berorientasi sumber."
+ },
+ {
+  "anchor": "The gloss agrees with Sahih International in 15 of 17 tokens",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3c] Reviewer: 'Sahih International follows the gloss' terbalik arah. → Perbaikan: arah dibalik; kesamaan dijelaskan sebagai akibat SI menjadi salah satu sumber gloss."
+ },
+ {
+  "anchor": "Protective anchor (Pickthall)",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P1] Reviewer: klaim Pickthall 'the only translator' bertentangan dengan Tabel 2. → Perbaikan: diganti 'most consistently', dan penggunaan 'self-restraint' oleh Yusuf Ali disebut."
+ },
+ {
+  "anchor": "The protective anchor is the closest to the classical definitions",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P6] Definisi al-Rāghib dikutip sesuai teks Arab al-Mufradāt (jaʿl al-nafs fī wiqāya mimmā yukhāf; ḥifẓ al-nafs ʿammā yuʾthim). Definisi al-Qurṭubī (penghalang dari yang ditakuti) dan riwayat Ubayy ibn Kaʿb diverifikasi dari teks Arab tafsir Q 2:2."
+ },
+ {
+  "anchor": "Each is defensible, and each keeps a different strand",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C1] Reviewer: definisi Oxford Learner's untuk 'righteousness' dan 'mercy' tidak sesuai sumber. → Perbaikan: diganti kutipan OLD yang persis (diakses 28 Okt 2026): 'behaviour that is morally right or good, especially according to a religion'. Argumen dirumuskan ulang: register religius tetap ada, tetapi yang ditonjolkan adalah perilaku, bukan relasi perlindungan kepada Allah."
+ },
+ {
+  "anchor": "Most reports transmitted by al-Ṭabarī",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P4] Reviewer: 48:26 terlalu tunggal. → Perbaikan: diverifikasi di teks Arab al-Ṭabarī dan Ibn Kathīr. Mayoritas riwayat = lā ilāha illā Allāh (Ibn ʿAbbās: 'raʾs al-taqwā'), tetapi Mujāhid = al-ikhlāṣ. Pluralitas pendapat kini disebut."
+ },
+ {
+  "anchor": "Al-Ṭabarī (n.d., commenting on Q 74:56)",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P6] Tambahan berbasis sumber terverifikasi: tafsir al-Ṭabarī dan riwayat Qatāda tentang 74:56, sehingga argumen 'guarding' punya dasar teks."
+ },
+ {
+  "anchor": "Yusuf Ali, 17:24.",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C4] Koreksi data: Yusuf Ali menerjemahkan raḥmat di 17:24 sebagai 'out of kindness' (kasih sayang manusiawi kepada orang tua), bukan 'mercy'. Kasus ini dijadikan contoh diferensiasi."
+ },
+ {
+  "anchor": "The near-uniformity of the gloss, Sahih International, Pickthall and Yusuf Ali",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3c] Klaim 'shared convention' dibatasi: kesamaan dengan SI/PI/YA sebagian akibat derivasi; bukti konvensi luas berasal dari Arberry (113/114) dan Hilali-Khan (114/114)."
+ },
+ {
+  "anchor": "Al-Ṭabarī (n.d., commenting on Q 11:63) glosses",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P5] Reviewer: rujuk al-Ṭabarī secara eksplisit. → Perbaikan: dikutip dari teks Arab: al-nubuwwah wa-l-ḥikmah wa-l-islām."
+ },
+ {
+  "anchor": "The learner's dictionary definition of \"mercy\"",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C1, P7] Definisi 'mercy' dikutip persis dari OLD ('a kind or forgiving attitude towards somebody that you have the power to harm or right to punish'); klaim semantik bahasa Inggris dilunakkan dan disandarkan pada definisi kamus, bukan klaim umum."
+ },
+ {
+  "anchor": "Verbal reformulations have two sources",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P3] Reviewer: deskripsi verbal reformulation tidak akurat. → Perbaikan: 2:41 (diverbalkan oleh kelima penerjemah) dan 5:57 (Yusuf Ali) disebut eksplisit selain rumus 'mati dalam keadaan kufur'."
+ },
+ {
+  "anchor": "\"Disbeliever\" is an agentive noun naming the absence of belief",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P7, P6] Klaim tentang 'disbeliever' dilunakkan; definisi kufr dari al-Jurjānī (tidak terverifikasi) diganti dengan analisis basic/relational meaning Izutsu."
+ },
+ {
+  "anchor": "Q 9:123.",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C2, P12] Reviewer: atribusi al-Ṭabarī ('kelompok yang melanggar perjanjian') salah. → Perbaikan: dilaporkan sesuai teks Arab al-Ṭabarī: mulai dari musuh terdekat; saat itu al-Rūm di Syam; lalu kaidah per wilayah; riwayat al-Ḥasan menyebut al-Daylam. Ibn Kathīr (Tabuk) ditambahkan. Status 'spesifik vs umum' disajikan sebagai posisi tafsir yang diperdebatkan. Baris Hilali-Khan untuk 9:123 ditambahkan."
+ },
+ {
+  "anchor": "Narrowing beyond the lexical level.",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C3a] Lokus ketiga kini berlandaskan relational meaning (Izutsu) dan pragmatic equivalence (Baker), bukan presupposed/evoked meaning."
+ },
+ {
+  "anchor": "Indonesian provides an instructive contrast",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P11] Reviewer: 'bertakwa' bukan strategi retensi karena 'takwa' sudah kata serapan. → Perbaikan: dirumuskan ulang sebagai kontras: bahasa Indonesia sudah menyerap istilah itu, bahasa Inggris tidak."
+ },
+ {
+  "anchor": "Other translations, such as Abdel Haleem's",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C4, P10] Keterbatasan metode raḥmat dinyatakan jujur; terjemahan modern lain (Abdel Haleem) disebut sebagai batas cakupan."
+ },
+ {
+  "anchor": "[AUTHOR: replace this paragraph",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[C6] Reviewer: pernyataan AI tidak boleh mengklaim verifikasi yang belum dilakukan penulis. → Perbaikan: diganti placeholder yang jujur. WAJIB diisi penulis setelah menulis ulang dan memverifikasi sendiri. Hikma meminta pernyataan bahwa hasil analisis adalah pemikiran kritis manusia dan penulis bertanggung jawab penuh."
+ },
+ {
+  "anchor": "Elimam, A. (2009).",
+  "author": "Telaah pakar",
+  "initials": "TP",
+  "text": "[P10] Literatur yang diminta ditambahkan dan diverifikasi via Crossref: Elimam (2009, Across Languages and Cultures), Lehmann (2004), Abdul-Raof (2001/2013), Comrie et al. (2008). Albahiri & Alhaj (WJEL, status Scopus belum pasti) dihapus (P13). DOI Zitouni, Hizbullah, Shehab (e2063) dilengkapi."
+ }
+]

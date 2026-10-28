@@ -108,3 +108,16 @@ The WBW gloss counts match the article: taqwā has righteousness 11, piety 5, "t
 | ʿadhāb and rizq (thesis) | Available in the thesis appendix. Left out to keep the article focused. |
 | Inter-coder reliability | **Needs a second coder** (not done). |
 | Reader-response evidence of misreading (e.g. 9:123) | Needs new empirical data. Proposed as future work only. |
+
+## 5. Update after the expert review (28 Oct 2026)
+
+- **Data correction.** At 17:24, Yusuf Ali renders *raḥmat* as "out of kindness"; the verb that follows is what he renders "Mercy". The token was miscoded as mercy, as the reviewer found. To make sure no similar case remained, all 114 raḥmat tokens × 5 translations were re-screened by comparing the count of "mercy" with the count of raḥmat tokens in each verse, flagging verses with verbal forms. All 23 flagged cells were read. **17:24 YA was the only error.** It is corrected in `data/token_coding_158.csv` and `coding_summary.json` (YA: mercy 105, grace 8, kindness 1).
+- **Exegesis checked in Arabic** (quran.com: al-Ṭabarī id 15, Ibn Kathīr id 14, al-Qurṭubī id 90):
+  - 9:123: al-Ṭabarī says "begin with the nearest"; at the time this meant al-Rūm in Syria, and afterwards a rule for each region. There is **no** mention of treaty-breaking, so the earlier claim was wrong.
+  - 48:26: most reports read *lā ilāha illā Allāh*, but Mujāhid reads *al-ikhlāṣ*.
+  - 11:63: al-Ṭabarī glosses *raḥmat* as "al-nubuwwah wa-l-ḥikmah wa-l-islām".
+  - 10:57 and 74:56: confirmed.
+  - 2:197: the Yemen report is confirmed via al-Qurṭubī (from al-Bukhārī).
+  - Claims I could not verify were removed: Ibn ʿAbbās on *khashyah*, al-Jurjānī's definition of *kufr*, and al-Ghazālī on *taqwā*.
+- **Al-Rāghib's definition** was corrected to the wording of *al-Mufradāt* (entry w-q-y).
+- **Oxford Learner's Dictionaries** definitions were re-quoted exactly (accessed 28 Oct 2026).

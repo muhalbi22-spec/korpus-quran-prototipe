@@ -165,3 +165,36 @@ SCImago (scimagojr.com) and Scopus Sources could not be opened, so **no SJR quar
 - **New Voices:** Chulalongkorn's "Q1 Linguistics" vs aggregator "Q2 L&L 2025". This is a year difference; the 2025 aggregator figure is the more recent.
 - **Babel:** SJR Q1 (old) vs JCR Q3/Q4 (new). These are different systems and different years.
 - **Target:** JCR Q2 (2025) vs older SJR Q1. Different systems.
+
+## Update after the expert review (28 Oct 2026)
+
+**SJR vs CiteScore.** "Scopus Q1" can mean two different things:
+- the **SJR quartile**, computed by SCImago from Scopus data;
+- Scopus's own **CiteScore quartile/percentile**.
+
+Most institutions mean SJR. For Perspectives, the publisher page shows a Q1 **CiteScore** (V2), which is the most direct evidence of "Scopus Q1" for that title. Record both measures in the manual check.
+
+### 15. Cadernos de Tradução (UFSC): new
+- **Quartile:** "mantivemos o Q1 na área de Literatura e Teoria Literária e permanecemos com Q2 na área de Linguística" (SJR 2025). New categories: Cultural Studies Q2, Gender Studies Q3, Artificial Intelligence Q4, Education Q4. Source: official announcement, 28 Apr 2026, https://periodicos.ufsc.br/index.php/traducao/announcement/view/2195 (**V1**).
+- **Fees:** "não cobra nenhum tipo de taxa de submissão, avaliação ou publicação" (**V1**, /about).
+- **Length:** up to 10,000 words, references not counted (**V1**, /about/submissions).
+- **Format:** APA 7; abstract 150–300 words; English abstract mandatory; ORCID required; journal template mandatory.
+
+### 16. TRANS (Málaga) and Sendebar (Granada): new
+- **TRANS:** "En ningún caso … obligados a pagar cargos por el procesamiento de artículos (APC)" (V1). SJR 2025 = 0.171 (V3, SciJournal); quartile not found.
+- **Sendebar:** "se incluye en el cuartil 3 de la categoría Lengua y Lingüística de SJR" (V1). Diamond (DOAJ). **Not Q1.**
+
+### Hikma: additional V1 details
+From the 2026 English guidelines and template (Google Drive folder linked from journals.uco.es/hikma/about/submissions):
+- **Length:** 7,000–9,000 words including references.
+- **Title and abstracts:** title, abstract and keywords in English and Spanish; abstracts of 200–300 words.
+- **Keywords:** 4–5, alphabetical, no final period.
+- **Style:** APA 7; British English.
+- **Footnotes:** only for clarifications.
+- **Tables:** black borders, caption below.
+- **Submission requirements:**
+  - an Ethics Statement;
+  - anonymisation ("Autor");
+  - three suggested reviewers;
+  - ORCID;
+  - an AI-use declaration.

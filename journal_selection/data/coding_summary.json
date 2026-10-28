@@ -54,8 +54,9 @@
     "zero": 1
    },
    "YA": {
-    "mercy": 106,
-    "grace": 8
+    "mercy": 105,
+    "grace": 8,
+    "kindness": 1
    },
    "AR": {
     "mercy": 113,

@@ -39,3 +39,16 @@ Also considered and dropped without full verification:
 
 - **Q1 depends on the category.** Several translation journals are Q1 only in *Literature and Literary Theory* and Q2 in *Linguistics and Language*. Hikma (official journal page) and New Voices (aggregator) both follow this pattern for 2025. The ranking tables say which category each quartile refers to.
 - **The free route is mostly the subscription route.** The large translation journals (Taylor & Francis, Benjamins, Akadémiai, EUP) are hybrid. Publishing without open access carries no fee, and OA is optional and paid: Benjamins lists EUR 1,800 excl. tax. The diamond options with no fee at all are Hikma, JoSTrans, New Voices and Al-Jāmiʿah.
+
+## Update after the expert review (28 Oct 2026)
+
+Screened at the reviewer's suggestion:
+
+| Journal | Result |
+|---|---|
+| **Cadernos de Tradução** (UFSC) | **Shortlisted, Category A**: SJR 2025 Q1 Lit. & Lit. Theory / Q2 Linguistics (official announcement); no fees (V1); English accepted; ≤10,000 words excl. references |
+| TRANS (Málaga) | Backup: no APC (V1); SJR 2025 = 0.171, quartile not shown |
+| Sendebar (Granada) | **Excluded**: Q3 per its own page |
+| Mutatis Mutandis (Antioquia), Translation Spaces (Benjamins) | Not verified (HTTP 403) |
+
+**Correction:** New Voices' no-fee status is V2 (Chulalongkorn news), not V1. The earlier "diamond" label for it was too strong.

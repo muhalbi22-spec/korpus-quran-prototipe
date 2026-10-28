@@ -83,3 +83,20 @@ DOIs and bibliographic details of the recent articles were checked against **Cro
 The papers themselves were identified through the Consensus research database.
 
 Not checked against Crossref (rate-limited or no DOI): Alhamshary 2025 (DOI taken from your original manuscript), Zitouni et al. 2023 (no volume/DOI in your original; complete it), and the classical and Arabic sources (editions as in your thesis).
+
+## Additional sources (expert-review round, 28 Oct 2026)
+
+| Item | URL | Level |
+|------|-----|-------|
+| Hikma template and guidelines (EN/ES/FR, 2026) | Google Drive folder linked from https://journals.uco.es/hikma/about/submissions | V1 (downloaded) |
+| Cadernos de Tradução: SJR 2025 announcement | https://periodicos.ufsc.br/index.php/traducao/announcement/view/2195 | V1 |
+| Cadernos de Tradução: about / submissions | https://periodicos.ufsc.br/index.php/traducao/about ; …/about/submissions | V1 |
+| TRANS: about | https://revistas.uma.es/index.php/trans/about | V1 |
+| Sendebar: about | https://revistaseug.ugr.es/index.php/sendebar/about | V1 |
+| Oxford Learner's Dictionaries: mercy, righteousness | https://www.oxfordlearnersdictionaries.com/definition/english/mercy ; …/righteousness | V1 |
+| al-Ṭabarī, Ibn Kathīr, al-Qurṭubī (Arabic), Q 2:2, 2:197, 9:123, 10:57, 11:63, 48:26, 74:56 | https://api.quran.com/api/v4/tafsirs/{15,14,90}/by_ayah/{verse} ; web: https://quran.com/9:123/tafsirs/ar-tafsir-al-tabari | V1 |
+| al-Rāghib, al-Mufradāt (entry w-q-y), via al-Maktaba al-Shāmila | https://shamela.ws/book/96301/720 | V2 |
+| Lehmann (2004); Elimam (2009); Abdul-Raof (2001/2013); Hizbullah & Mutaali (2019) | Crossref API | V1 |
+| Zitouni et al. (2023) DOI 10.36923/jicc.v23i1.106 | resolves via doi.org | V1 |
+
+**Manual check (row 1 in the table above), add:** record both the **SJR quartile** (scimagojr.com) and the **CiteScore quartile** (Scopus source page) for Perspectives and The Translator.
