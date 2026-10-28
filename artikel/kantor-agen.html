@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: panggung diorama kantor isometrik (kanvas) di atas, daftar agen dan papan aktivitas di bawah. */
+/* Layout: gedung dua lantai. Tab lantai, panggung diorama isometrik (kanvas), lalu daftar agen dan papan aktivitas. */
 :root {
   --bg: #e8ecef;
   --ink: #1d262e;
@@ -27,12 +27,12 @@
   --gold: #d7b46a; --ok: #5ccf8a; --work: #f2b234; --idle: #6f7d88; color-scheme: dark }
 
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-block: 22px 40px;
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 22px 40px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   display: grid; gap: 16px; }
 header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
 h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0; letter-spacing: .02em; text-wrap: balance; }
-.sub { margin: 2px 0 0; color: var(--muted); max-width: 62ch; }
+.sub { margin: 2px 0 0; color: var(--muted); max-width: 64ch; }
 .live { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
 .live i { width: 9px; height: 9px; border-radius: 50%; background: var(--idle); display: inline-block; }
 .live.on i { background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent); }
@@ -41,17 +41,24 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 4vw
 .counts { font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 14px; }
 .counts b { color: var(--ink); font-variant-numeric: tabular-nums; }
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
-.d-bekerja { background: var(--work); } .d-rapat { background: #9a6fd0; } .d-selesai { background: var(--ok); } .d-menunggu { background: var(--idle); }
+.d-bekerja { background: var(--work); } .d-rapat { background: #9a6fd0; } .d-selesai { background: var(--ok); } .d-menunggu { background: var(--idle); } .d-boss { background: var(--gold); }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel); }
 .seg button { font: 600 12.5px var(--body); color: var(--muted); background: none; border: 0; padding: 6px 11px; cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-.seg button:focus-visible, .roster button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.seg button:focus-visible, .roster button:focus-visible, .floors button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-.scene { position: relative; border-radius: 14px; overflow: hidden; background: var(--stage); aspect-ratio: 928 / 630; max-width: 100%;
+.floors { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.floors button { font: inherit; color: inherit; text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; cursor: pointer; display: grid; gap: 1px; min-width: 0; }
+.floors button strong { font-family: var(--display); font-weight: 500; font-size: 16px; letter-spacing: .03em; }
+.floors button span { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.floors button[aria-pressed="true"] { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold) inset; }
+
+.scene { position: relative; border-radius: 14px; overflow: hidden; background: var(--stage); aspect-ratio: 1088 / 718; max-width: 100%;
   box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 12px 30px -18px rgba(0,0,0,.5); }
 .scene canvas { display: block; width: 100%; height: 100%; cursor: pointer; }
 .hint { position: absolute; left: 12px; bottom: 10px; margin: 0; font-size: 12px; color: #c9d2d9; background: rgba(10,14,18,.55); padding: 3px 9px; border-radius: 6px; pointer-events: none; }
+.flabel { position: absolute; left: 12px; top: 10px; margin: 0; font: 500 14px var(--display); letter-spacing: .05em; color: #e9d29a; background: rgba(10,14,18,.6); padding: 3px 10px; border-radius: 6px; pointer-events: none; }
 .card { position: absolute; right: 12px; top: 12px; width: min(300px, calc(100% - 24px)); background: rgba(14,18,23,.88); color: #eef3f6;
   border: 1px solid rgba(215,180,106,.45); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; backdrop-filter: blur(4px); }
 .card h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 18px; letter-spacing: .03em; display: flex; align-items: center; gap: 8px; }
@@ -64,13 +71,14 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 4vw
 .roster button { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; align-items: center; text-align: left; font: inherit; color: inherit;
   background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; cursor: pointer; min-width: 0; }
 .roster button[aria-pressed="true"] { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold) inset; }
+.roster button.boss { border-color: color-mix(in srgb, var(--gold) 60%, var(--line)); background: color-mix(in srgb, var(--gold) 9%, var(--panel)); }
 .roster strong { font-family: var(--display); font-weight: 500; font-size: 15px; letter-spacing: .03em; }
 .roster span.r { grid-column: 2; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .board { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
 .board h2 { font-family: var(--display); font-weight: 500; font-size: 1.15rem; margin: 0; letter-spacing: .03em; }
 ol.log { list-style: none; margin: 0; padding: 0; display: grid; }
-ol.log li { display: grid; grid-template-columns: 52px 150px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13.5px; align-items: baseline; }
+ol.log li { display: grid; grid-template-columns: 52px 160px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13.5px; align-items: baseline; }
 ol.log li:first-child { border-top: 0; }
 ol.log time { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 ol.log .who { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -83,10 +91,15 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
   <header>
     <div>
       <h1>Kantor Agen CDA</h1>
-      <p class="sub">Sembilan agen penulisan artikel <em>crypto legitimation discourse</em>. Saat Claude memberi tugas, agen kembali ke mejanya dan mulai bekerja. Di sela tugas mereka ngopi, membaca, atau rehat.</p>
+      <p class="sub">Gedung dua lantai untuk artikel <em>crypto legitimation discourse</em>. Lantai 1 untuk tim, dengan perpustakaan dan ruang game. Lantai 2 untuk eksekutif: Big Boss Fathur dan reviewer Prof. Hana.</p>
     </div>
     <div class="live" id="live"><i></i><span id="liveTxt">Menyambung…</span></div>
   </header>
+
+  <div class="floors" role="group" aria-label="Pilih lantai">
+    <button type="button" data-floor="1" aria-pressed="true"><strong>Lantai 1 · Tim</strong><span id="f1info">Area kerja, perpustakaan, ruang game</span></button>
+    <button type="button" data-floor="2" aria-pressed="false"><strong>Lantai 2 · Eksekutif</strong><span id="f2info">Kantor Big Boss dan reviewer</span></button>
+  </div>
 
   <div class="controls">
     <div class="counts" id="counts"></div>
@@ -99,7 +112,8 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
   </div>
 
   <div class="scene" id="scene">
-    <canvas id="cv" role="img" aria-label="Kantor isometrik berisi sembilan agen AI"></canvas>
+    <canvas id="cv" role="img" aria-label="Kantor isometrik dua lantai berisi agen AI"></canvas>
+    <p class="flabel" id="flabel">LANTAI 1</p>
     <p class="hint">Ketuk karakter untuk melihat tugasnya</p>
     <div class="card" id="card" hidden>
       <h3><i class="dot" id="cDot"></i><span id="cName"></span></h3>
@@ -110,82 +124,346 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
     </div>
   </div>
 
-  <div class="roster" id="roster" aria-label="Daftar agen"></div>
+  <div class="roster" id="roster" aria-label="Daftar penghuni kantor"></div>
 
   <section class="board" aria-labelledby="logH">
     <h2 id="logH">Papan aktivitas</h2>
     <ol class="log" id="log"></ol>
     <p class="empty" id="logEmpty">Belum ada aktivitas. Minta Claude menjalankan salah satu agen dan catatannya muncul di sini.</p>
   </section>
-  <p class="note">Status disimpan di basis data halaman ini dan diperbarui oleh sesi Claude Code Anda. Gerakan di sela tugas hanya animasi.</p>
+  <p class="note">Status agen disimpan di basis data halaman ini dan diperbarui oleh sesi Claude Code. Gerakan di sela tugas (ngopi, membaca, main game) hanya animasi.</p>
 </div>
 
 <script>
-// ---------- Data agen ----------
+// ---------- Penghuni ----------
 const AGEN = [
-  { id: "teori-cda",       nama: "Tara",  peran: "Teori CDA",        rambut: "#5a2f17", baju: "#2f6b4f", kulit: "#e3b088", panjang: true,  suka: ["rak1", "rak2", "jendela1"] },
-  { id: "riset-analisis",  nama: "Rian",  peran: "Riset & analisis", rambut: "#161616", baju: "#9c3b2a", kulit: "#c48a5c", panjang: false, suka: ["rak2", "rapat1", "kopi1"] },
-  { id: "penulis-artikel", nama: "Pena",  peran: "Penulis artikel",  rambut: "#b5502a", baju: "#27507a", kulit: "#efc49d", panjang: true,  suka: ["sofa1", "jendela2", "kopi2"] },
-  { id: "penyunting-q1",   nama: "Sinta", peran: "Penyunting Q1",    rambut: "#24160d", baju: "#6d3f80", kulit: "#d9a274", panjang: true,  suka: ["sofa2", "kopi1", "jendela1"] },
-  { id: "referensi",       nama: "Rafa",  peran: "Referensi",        rambut: "#3d2718", baju: "#b8892a", kulit: "#b57b4f", panjang: false, suka: ["rak1", "rak2", "rapat2"] },
-  { id: "pemilih-jurnal",  nama: "Juna",  peran: "Pemilih jurnal",   rambut: "#0f0f0f", baju: "#23706f", kulit: "#e6b38a", panjang: false, suka: ["jendela2", "rapat3", "kopi2"] },
-  { id: "pengumpul-data", nama: "Dara", peran: "Pengumpul data", rambut: "#1c120b", baju: "#8a5a2b", kulit: "#c98f60", panjang: true, suka: ["rak1", "kopi2", "jendela2"] },
-  { id: "pemeriksa-metadata", nama: "Meta", peran: "Pemeriksa metadata", rambut: "#3a2214", baju: "#4a5a6e", kulit: "#d39a6a", panjang: true, suka: ["rak2", "kopi1", "jendela1"] },
-  { id: "reviewer-q1", nama: "Prof. Hana", peran: "Reviewer Q1", rambut: "#8d8d8d", baju: "#1c2740", kulit: "#e0b089", panjang: false, suka: ["rak1", "jendela1", "rapat2"] },
+  { id: "teori-cda",          nama: "Tara",  peran: "Teori CDA",          floor: 1, desk: [3, 3],  rambut: "#5a2f17", baju: "#2f6b4f", kulit: "#e3b088", panjang: true,  suka: ["perpus1", "rak3", "jendela1"] },
+  { id: "riset-analisis",     nama: "Rian",  peran: "Riset & analisis",   floor: 1, desk: [6, 3],  rambut: "#161616", baju: "#9c3b2a", kulit: "#c48a5c", panjang: false, suka: ["rak2", "game1", "kopi1"] },
+  { id: "penulis-artikel",    nama: "Pena",  peran: "Penulis artikel",    floor: 1, desk: [9, 3],  rambut: "#b5502a", baju: "#27507a", kulit: "#efc49d", panjang: true,  suka: ["perpus2", "jendela2", "kopi2"] },
+  { id: "penyunting-q1",      nama: "Sinta", peran: "Penyunting Q1",      floor: 1, desk: [12, 3], rambut: "#24160d", baju: "#6d3f80", kulit: "#d9a274", panjang: true,  suka: ["perpus1", "kopi1", "jendela3"] },
+  { id: "referensi",          nama: "Rafa",  peran: "Referensi",          floor: 1, desk: [3, 6],  rambut: "#3d2718", baju: "#b8892a", kulit: "#b57b4f", panjang: false, suka: ["rak3", "rak4", "rak1"] },
+  { id: "pemilih-jurnal",     nama: "Juna",  peran: "Pemilih jurnal",     floor: 1, desk: [6, 6],  rambut: "#0f0f0f", baju: "#23706f", kulit: "#e6b38a", panjang: false, suka: ["game2", "game3", "kopi2"] },
+  { id: "pengumpul-data",     nama: "Dara",  peran: "Pengumpul data",     floor: 1, desk: [9, 6],  rambut: "#1c120b", baju: "#8a5a2b", kulit: "#c98f60", panjang: true,  suka: ["rak4", "kopi2", "jendela2"] },
+  { id: "pemeriksa-metadata", nama: "Meta",  peran: "Pemeriksa metadata", floor: 1, desk: [12, 6], rambut: "#3a2214", baju: "#4a5a6e", kulit: "#d39a6a", panjang: true,  suka: ["rak2", "game3", "jendela1"] },
+  { id: "reviewer-q1",        nama: "Prof. Hana", peran: "Reviewer Q1",   floor: 2, desk: [3, 3],  rambut: "#9a9a9a", baju: "#1c2740", kulit: "#e0b089", panjang: false, kacamata: true, suka: ["h-rak", "h-jendela", "h-kursi"] },
+  { id: "fathur",             nama: "Fathur", peran: "Big Boss · peneliti utama", floor: 2, boss: true, seatAt: [11.5, 2.4], seatTile: [11, 2], rambut: "#0d0d0d", baju: "#141518", kulit: "#c68b5c", panjang: false, suka: ["b-bar", "b-sofa1", "b-jendela", "b-rapat"] },
 ];
-const LABEL = { bekerja: "Bekerja", rapat: "Rapat", selesai: "Selesai", menunggu: "Menunggu tugas" };
-const STC = { bekerja: "#f2b234", rapat: "#b48ae6", selesai: "#4cc684", menunggu: "#9aa6b0" };
+const LABEL = { bekerja: "Bekerja", rapat: "Rapat", selesai: "Selesai", menunggu: "Menunggu tugas", boss: "Big Boss" };
+const STC = { bekerja: "#f2b234", rapat: "#b48ae6", selesai: "#4cc684", menunggu: "#9aa6b0", boss: "#d7b46a" };
 
-// ---------- Geometri isometrik ----------
-const TW = 64, TH = 32, MW = 17, MH = 12, WALL = 130, OX = MH * TW / 2, OY = 150, LW = 928, LH = 630;
+// ---------- Geometri ----------
+const TW = 64, TH = 32, WALL = 130, OY = 150;
+let MW = 20, MH = 14, OX = MH * 32, LW = 1088, LH = 718;
 const iso = (x, y, z = 0) => [OX + (x - y) * TW / 2, OY + (x + y) * TH / 2 - z];
 function shade(hex, f) {
   const n = parseInt(hex.slice(1), 16), ch = [n >> 16, (n >> 8) & 255, n & 255];
   const m = v => Math.max(0, Math.min(255, Math.round(f < 0 ? v * (1 + f) : v + (255 - v) * f)));
   return `rgb(${ch.map(m).join(",")})`;
 }
-function poly(ctx, pts, fill) { ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fillStyle = fill; ctx.fill(); }
-function box(ctx, x, y, w, d, z, h, col) {
+let ctx;
+function poly(c, pts, fill) { c.beginPath(); pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.closePath(); c.fillStyle = fill; c.fill(); }
+function box(x, y, w, d, z, h, col) {
   const C = iso(x + w, y + d, z + h), D = iso(x, y + d, z + h), B = iso(x + w, y, z + h), A = iso(x, y, z + h);
   poly(ctx, [iso(x, y + d, z), iso(x + w, y + d, z), C, D], shade(col, -.16));
   poly(ctx, [iso(x + w, y, z), iso(x + w, y + d, z), C, B], shade(col, -.32));
   poly(ctx, [A, B, C, D], col);
 }
+function faceY(x0, x1, y, z0, z1, fill) { poly(ctx, [iso(x0, y, z0), iso(x1, y, z0), iso(x1, y, z1), iso(x0, y, z1)], fill); }
+function faceX(x, y0, y1, z0, z1, fill) { poly(ctx, [iso(x, y0, z0), iso(x, y1, z0), iso(x, y1, z1), iso(x, y0, z1)], fill); }
+function line3(a, b, col, w) { ctx.strokeStyle = col; ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
 
-// ---------- Tata ruang ----------
-const DESKS = [{ x: 3, y: 3 }, { x: 6, y: 3 }, { x: 9, y: 3 }, { x: 3, y: 6 }, { x: 6, y: 6 }, { x: 9, y: 6 }, { x: 12, y: 6 }, { x: 12, y: 3 }, { x: 15, y: 3 }];
-const POI = [
-  { id: "kopi1",    at: [10, 1], x: 10.6, y: 1.35, face: "up",   say: "Ambil kopi dulu",      dur: [5, 9] },
-  { id: "kopi2",    at: [12, 1], x: 12.2, y: 1.35, face: "up",   say: "Espresso satu",        dur: [5, 9] },
-  { id: "jendela1", at: [6, 1],  x: 6.5,  y: 1.2,  face: "up",   say: "Lihat pemandangan",    dur: [6, 11] },
-  { id: "jendela2", at: [8, 1],  x: 8.4,  y: 1.2,  face: "up",   say: "Cari ide",             dur: [6, 11] },
-  { id: "rak1",     at: [1, 2],  x: 1.2,  y: 2.0,  face: "up", flip: true, say: "Cari buku teori", dur: [6, 10] },
-  { id: "rak2",     at: [1, 3],  x: 1.2,  y: 3.4,  face: "up", flip: true, say: "Cek referensi",   dur: [6, 10] },
-  { id: "sofa1",    at: [1, 9],  x: 1.75, y: 10.45, face: "up", pose: "sofa", say: "Rehat sejenak", dur: [8, 14] },
-  { id: "sofa2",    at: [3, 9],  x: 3.25, y: 10.45, face: "up", pose: "sofa", say: "Baca draf",     dur: [8, 14] },
-  { id: "rapat1",   at: [9, 9],  x: 9.55, y: 9.0,  face: "down",            say: "Diskusi sebentar", dur: [7, 12] },
-  { id: "rapat2",   at: [13, 9], x: 13.45, y: 9.0, face: "up", flip: true, say: "Diskusi sebentar", dur: [7, 12] },
-  { id: "rapat3",   at: [11, 10], x: 11.5, y: 10.3, face: "up",             say: "Rapat kecil",      dur: [7, 12] },
-];
-const blocked = new Set();
-const block = (x, y) => blocked.add(x + "," + y);
-for (const d of DESKS) { block(d.x, d.y); block(d.x + 1, d.y); }
-for (let y = 1; y <= 3; y++) block(0, y);                 // rak buku
-for (let x = 10; x <= 12; x++) block(x, 0);               // bar kopi
-for (let x = 1; x <= 3; x++) { block(x, 10); block(x, 8); } // sofa, meja tamu
-for (let x = 10; x <= 12; x++) { block(x, 8); block(x, 9); } // meja rapat
-const PLANTS = [[0, 6], [13, 5], [4, 0], [13, 10], [0, 0], [16, 0], [16, 11], [16, 6]];
-for (const [x, y] of PLANTS) block(x, y);
+// ---------- Lantai ----------
+const BOOKS = ["#7d2e2e", "#2e4d7d", "#c9a45c", "#3e6b4a", "#e6dfd0", "#5a3d6e", "#a8562f", "#1f2a36"];
+function mkFloor(o) { return Object.assign({ blocked: new Set(), furn: [], poi: [], lamps: [], glows: [], plants: [] }, o); }
+const F = {
+  1: mkFloor({ id: 1, MW: 20, MH: 14, label: "LANTAI 1 · TIM", sky: 1, logo: ["CDA LAB", "CRITICAL DISCOURSE ANALYSIS"], logoU: 160, lift: [17.2, 19.0], liftNo: "1" }),
+  2: mkFloor({ id: 2, MW: 16, MH: 12, label: "LANTAI 2 · EKSEKUTIF", sky: .55, logo: ["EXECUTIVE FLOOR", "OFFICE OF THE BIG BOSS"], logoU: 30, lift: [1.0, 2.6], liftNo: "2" }),
+};
+const blockT = (f, x, y) => f.blocked.add(x + "," + y);
+function addPOI(f, id, at, x, y, face, extra) { f.poi.push(Object.assign({ id, at, x, y, face, dur: [6, 11] }, extra || {})); }
 
-function bfs(sx, sy, tx, ty) {
+// perabot generik
+function shelfLeftWall(f, y0, y1, h) {
+  for (let y = y0; y < y1; y++) {
+    f.furn.push({ key: .3 + y + .5, draw: () => {
+      box(.02, y, .6, 1, 0, h, "#4a3326");
+      for (let z = 6; z < h - 14; z += 26) {
+        let yy = y + .06, i = 0;
+        while (yy < y + .94) {
+          const w = .07 + ((i * 37 + z + y * 11) % 5) * .012, hh = 17 + ((i * 13 + z) % 6);
+          const top = Math.min(yy + w, y + .96);
+          faceX(.62, yy, top, z, z + hh, BOOKS[(i * 7 + z + y * 3) % BOOKS.length]);
+          yy += w + .01; i++;
+        }
+        faceX(.62, y, y + 1, z - 2, z, "#2c1e15");
+      }
+    }});
+    blockT(f, 0, y);
+  }
+}
+function glassRunX(f, x0, x1, y, door) { // dinding kaca sejajar sumbu x, di garis y
+  for (let x = x0; x < x1; x++) {
+    if (door && door.includes(x)) continue;
+    f.furn.push({ key: x + .5 + y + .04, draw: () => glassSeg(x, y - .04, 1, .08) });
+    blockT(f, x, Math.floor(y));
+  }
+}
+function glassRunY(f, y0, y1, x, door) {
+  for (let y = y0; y < y1; y++) {
+    if (door && door.includes(y)) continue;
+    f.furn.push({ key: x + y + .5 + .04, draw: () => glassSeg(x - .04, y, .08, 1) });
+    blockT(f, Math.floor(x), y);
+  }
+}
+function glassSeg(x, y, w, d) {
+  const H = 64;
+  poly(ctx, [iso(x, y + d, 0), iso(x + w, y + d, 0), iso(x + w, y + d, H), iso(x, y + d, H)], "rgba(170,215,230,.16)");
+  poly(ctx, [iso(x + w, y, 0), iso(x + w, y + d, 0), iso(x + w, y + d, H), iso(x + w, y, H)], "rgba(170,215,230,.12)");
+  line3(iso(x, y + d, H), iso(x + w, y + d, H), "rgba(40,44,50,.9)", 2);
+  line3(iso(x, y + d, 0), iso(x + w, y + d, 0), "rgba(40,44,50,.6)", 1.5);
+  line3(iso(x, y + d, 0), iso(x, y + d, H), "rgba(40,44,50,.5)", 1);
+}
+function plant(f, x, y, big) {
+  blockT(f, x, y);
+  f.furn.push({ key: x + y + 1, draw: t => {
+    box(x + .3, y + .3, .4, .4, 0, big ? 20 : 16, "#e9e5dc");
+    const [sx, sy] = iso(x + .5, y + .5, big ? 20 : 16), sw = Math.sin(t * .8 + x) * .8, s = big ? 1.25 : 1;
+    for (const [dx, dy, r, col] of [[-6, -10, 8, "#2f6b3a"], [6, -12, 8, "#3a7d45"], [0, -20, 9, "#4b9152"], [-3, -28, 7, "#3a7d45"], [4, -30, 6, "#5aa260"]]) {
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(sx + dx * s + sw * (-dy / 20), sy + dy * s, r * s, 0, 7); ctx.fill();
+    }
+  }});
+}
+function deskFor(f, c) {
+  const [x, y] = c.desk, exec = f.id === 2;
+  blockT(f, x, y); blockT(f, x + 1, y);
+  c.seat = { x: x + 1, y: y + 1.4 }; c.seatTile = [x + 1, y + 1];
+  f.furn.push({ key: x + y + 1.5, draw: t => {
+    const on = c.status === "bekerja" && c.seated;
+    box(x + .1, y + .15, .08, .7, 0, 24, "#2a2b2f"); box(x + 1.82, y + .15, .08, .7, 0, 24, "#2a2b2f");
+    box(x + .05, y + .1, 1.9, .8, 24, 4, exec ? "#1d1e22" : "#5c3c29");
+    if (exec) box(x + .05, y + .86, 1.9, .04, 22, 2, "#c9a45c");
+    for (const mx of [x + .22, x + 1.08]) {
+      box(mx + .3, y + .26, .1, .08, 28, 7, "#1e1f23");
+      const yy = y + .32, z0 = 34, w = .7, h = 22;
+      faceY(mx, mx + w, yy, z0, z0 + h, "#15161a");
+      faceY(mx + .04, mx + w - .04, yy, z0 + 2, z0 + h - 2, on ? "#16507a" : (c.seated ? "#1d2a36" : "#121820"));
+      if (on) for (let j = 0; j < 4; j++) {
+        const len = .12 + .42 * Math.abs(Math.sin(t * 1.4 + j * 1.9 + mx));
+        line3(iso(mx + .09, yy, z0 + h - 5 - j * 4), iso(mx + .09 + len, yy, z0 + h - 5 - j * 4), "#8fdcff", 1.1);
+      }
+    }
+    poly(ctx, [iso(x + .68, y + .55, 28), iso(x + 1.32, y + .55, 28), iso(x + 1.32, y + .76, 28), iso(x + .68, y + .76, 28)], "#2b2e35");
+    box(x + 1.66, y + .52, .12, .12, 28, 6, "#ece6da");
+    if (exec) { box(x + .2, y + .45, .08, .08, 28, 14, "#c9a45c"); box(x + .1, y + .38, .3, .2, 42, 5, "#2f6b3a"); }
+    else box(x + .12, y + .5, .3, .22, 28, 2, "#f3f0ea");
+  }});
+  chair(f, c.seat, exec ? "#3a2418" : "#20242a");
+}
+function chair(f, s, col) {
+  f.furn.push({ key: s.x + s.y + .05, draw: () => {
+    box(s.x - .04, s.y - .04, .08, .08, 0, 10, "#4a4d52");
+    box(s.x - .28, s.y - .26, .56, .5, 10, 4, col);
+    box(s.x - .3, s.y + .2, .6, .1, 12, 7, shade(col, -.15).replace("rgb", "rgb"));
+  }});
+}
+function sofa(f, x, y, w, col, key) { // sofa menghadap -y (sandaran ke arah penonton)
+  for (let i = 0; i < w; i++) blockT(f, x + i, y);
+  f.furn.push({ key: key ?? (x + w / 2 + y + .5), draw: () => {
+    box(x, y + .12, w, .82, 0, 12, col);
+    box(x, y + .7, w, .26, 12, 16, shade(col, -.12).startsWith("rgb") ? col : col);
+    box(x - .1, y + .12, .14, .84, 0, 20, col); box(x + w - .04, y + .12, .14, .84, 0, 20, col);
+    box(x + .3, y + .55, .4, .15, 12, 10, "#c9a45c");
+  }});
+}
+
+// ===== LANTAI 1 =====
+(() => {
+  const f = F[1];
+  f.tile = (x, y) => {
+    if (x <= 5 && y >= 9) return (x + y) % 2 ? "#2c4a3f" : "#2f5043";                 // karpet perpustakaan
+    if (x >= 15 && y >= 9) return (x + y) % 2 ? "#2a2236" : "#2e263b";                // karpet ruang game
+    if (x >= 2 && x <= 16 && y >= 2 && y <= 7) return (x + y) % 2 ? "#946440" : "#9e6c46"; // kayu
+    return (x + y) % 2 ? "#e4dfd5" : "#ede9e1";                                        // marmer
+  };
+  f.isWood = (x, y) => x >= 2 && x <= 16 && y >= 2 && y <= 7;
+  f.rugs = c => {
+    poly(c, [iso(1.5, 9.6), iso(5.4, 9.6), iso(5.4, 13.6), iso(1.5, 13.6)], "#c9a45c");
+    poly(c, [iso(1.6, 9.7), iso(5.3, 9.7), iso(5.3, 13.5), iso(1.6, 13.5)], "#6b2a2a");
+    poly(c, [iso(15.3, 10.1), iso(19.7, 10.1), iso(19.7, 13.7), iso(15.3, 13.7)], "#e0409a");
+    poly(c, [iso(15.4, 10.2), iso(19.6, 10.2), iso(19.6, 13.6), iso(15.4, 13.6)], "#1b1626");
+  };
+  f.wallText = c => {
+    c.fillStyle = "#e9d29a"; c.font = '700 11px "Pixelify Sans", monospace'; c.fillText("PERPUSTAKAAN", 14, -121);
+  };
+  AGEN.filter(a => a.floor === 1).forEach(c => deskFor(f, c));
+  // rak buku belakang + perpustakaan
+  shelfLeftWall(f, 1, 4, 112);
+  shelfLeftWall(f, 9, 14, 112);
+  glassRunX(f, 0, 6, 8.95, [5]);
+  glassRunY(f, 9, 14, 6.95, [11]);
+  // perpustakaan: rak berdiri, meja baca, lampu hijau, kursi
+  for (let y = 9; y < 11; y++) f.furn.push({ key: 3.4 + y + .5, draw: () => {
+    box(3.1, y, .55, 1, 0, 84, "#4a3326");
+    for (let z = 6; z < 70; z += 26) { let yy = y + .06, i = 0; while (yy < y + .94) { const w = .08 + ((i * 29 + z) % 4) * .012; faceX(3.65, yy, Math.min(yy + w, y + .96), z, z + 18 + (i % 3), BOOKS[(i * 5 + z) % 8]); yy += w + .01; i++; } }
+  }});
+  blockT(f, 3, 9); blockT(f, 3, 10);
+  f.furn.push({ key: 3.2 + 12.4, draw: () => {
+    box(1.6, 12.05, 2.2, .75, 0, 3, "#1d1e22"); box(1.8, 12.3, .12, .12, 0, 20, "#1d1e22"); box(3.5, 12.3, .12, .12, 0, 20, "#1d1e22");
+    box(1.55, 12.0, 2.3, .85, 20, 3, "#6d4730");
+    box(2.0, 12.25, .08, .08, 23, 10, "#c9a45c"); box(1.92, 12.18, .25, .22, 33, 5, "#2f7a4a");
+    box(3.2, 12.3, .35, .25, 23, 3, "#e8e2d6"); box(2.5, 12.4, .3, .22, 23, 2, "#9c3b2a");
+  }});
+  blockT(f, 1, 12); blockT(f, 2, 12); blockT(f, 3, 12);
+  chair(f, { x: 2.1, y: 11.45 }, "#5a3a22"); chair(f, { x: 3.4, y: 11.45 }, "#5a3a22");
+  f.glows.push([2.05, 12.3, 34, 60, "120,220,150"]);
+  addPOI(f, "perpus1", [2, 11], 2.1, 11.55, "down", { pose: "sit", say: "Membaca jurnal", dur: [9, 15] });
+  addPOI(f, "perpus2", [3, 11], 3.4, 11.55, "down", { pose: "sit", say: "Menelaah teori", dur: [9, 15] });
+  addPOI(f, "rak3", [1, 10], 1.2, 10.4, "up", { flip: true, say: "Cari buku van Leeuwen" });
+  addPOI(f, "rak4", [1, 13], 1.2, 13.2, "up", { flip: true, say: "Cek referensi" });
+  addPOI(f, "rak1", [1, 2], 1.2, 2.0, "up", { flip: true, say: "Cari buku teori" });
+  addPOI(f, "rak2", [1, 3], 1.2, 3.4, "up", { flip: true, say: "Ambil kamus" });
+  // ruang game
+  glassRunX(f, 14, 20, 8.95, [19]);
+  glassRunY(f, 9, 14, 14.05, [11]);
+  f.furn.push({ key: 16.5 + 9.4, draw: t => {
+    box(15.2, 9.15, 2.8, .45, 0, 14, "#141418");
+    box(16.1, 9.3, .5, .3, 14, 4, "#e9ecef"); line3(iso(16.15, 9.6, 16), iso(16.55, 9.6, 16), "#3fa9ff", 1.5);
+    faceY(15.3, 17.9, 9.42, 18, 54, "#0c0c0f");
+    const g = ctx.createLinearGradient(...iso(15.4, 9.42, 50), ...iso(17.8, 9.42, 20));
+    const h = (t * 40) % 360; g.addColorStop(0, `hsl(${h},80%,55%)`); g.addColorStop(1, `hsl(${(h + 120) % 360},80%,45%)`);
+    faceY(15.38, 17.82, 9.42, 20, 52, g);
+    for (let j = 0; j < 4; j++) { const p = ((t * .6 + j / 4) % 1); const xx = 15.5 + p * 2.2; faceY(xx, Math.min(17.8, xx + .14), 9.42, 24 + j * 6, 27 + j * 6, "rgba(255,255,255,.75)"); }
+  }});
+  for (let x = 15; x <= 17; x++) blockT(f, x, 9);
+  f.glows.push([16.6, 9.6, 36, 80, "120,140,255"]);
+  sofa(f, 15, 12, 3, "#3b2a5c");
+  f.furn.push({ key: 18.6 + 10.6, draw: () => { // bean bag
+    const [sx, sy] = iso(18.6, 10.6, 0); ctx.fillStyle = "#e0409a"; ctx.beginPath(); ctx.ellipse(sx, sy - 7, 18, 11, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = "#b8307d"; ctx.beginPath(); ctx.ellipse(sx + 4, sy - 2, 16, 7, 0, 0, 7); ctx.fill();
+  }});
+  blockT(f, 18, 10);
+  f.furn.push({ key: 19.5 + 12.5, draw: t => { // mesin arcade
+    box(19.1, 12.2, .8, .7, 0, 70, "#1a1a2a");
+    faceX(19.1, 12.3, 12.8, 34, 60, `hsl(${(t * 60) % 360},70%,50%)`);
+    box(19.0, 12.3, .12, .5, 30, 4, "#e0409a");
+  }});
+  blockT(f, 19, 12);
+  f.neon = c => { // garis neon di kaca ruang game
+    line3(iso(14, 8.95, 66), iso(19, 8.95, 66), "#ff4fb4", 2.4);
+    line3(iso(14.05, 9, 66), iso(14.05, 14, 66), "#45e3ff", 2.4);
+  };
+  f.glows.push([16.5, 8.95, 66, 90, "255,80,180"], [14.05, 11.5, 66, 80, "70,220,255"]);
+  addPOI(f, "game1", [15, 11], 15.8, 12.45, "up", { pose: "sofa", say: "Main game dulu", dur: [10, 16], game: true });
+  addPOI(f, "game2", [17, 11], 17.2, 12.45, "up", { pose: "sofa", say: "Satu ronde lagi", dur: [10, 16], game: true });
+  addPOI(f, "game3", [18, 11], 18.6, 10.7, "up", { pose: "sofa", flip: true, say: "Ayo tanding", dur: [10, 16], game: true });
+  // bar kopi, jendela, meja rapat
+  f.furn.push({ key: 10.5, draw: t => {
+    box(10, .1, 3, .82, 0, 36, "#26292e"); box(10, .06, 3, .9, 36, 3, "#ece8e0");
+    box(10.3, .18, .55, .42, 39, 18, "#b9bdc3"); box(10.38, .52, .1, .1, 46, 2, "#202226");
+    box(11.6, .4, .1, .1, 39, 5, "#f4f1ea"); box(11.8, .45, .1, .1, 39, 5, "#f4f1ea"); box(12.3, .2, .45, .35, 39, 10, "#3b2a20");
+    for (let j = 0; j < 3; j++) { const p = (t * .5 + j / 3) % 1, [sx, sy] = iso(10.55, .4, 60 + p * 22); ctx.fillStyle = `rgba(255,255,255,${(1 - p) * .35})`; ctx.beginPath(); ctx.arc(sx + Math.sin(t * 2 + j) * 3, sy, 2 + p * 3, 0, 7); ctx.fill(); }
+  }});
+  for (let x = 10; x <= 12; x++) blockT(f, x, 0);
+  addPOI(f, "kopi1", [10, 1], 10.6, 1.35, "up", { say: "Ambil kopi dulu" });
+  addPOI(f, "kopi2", [12, 1], 12.2, 1.35, "up", { say: "Espresso satu" });
+  addPOI(f, "jendela1", [6, 1], 6.5, 1.2, "up", { say: "Lihat pemandangan" });
+  addPOI(f, "jendela2", [8, 1], 8.4, 1.2, "up", { say: "Cari ide" });
+  addPOI(f, "jendela3", [15, 1], 15.5, 1.2, "up", { say: "Rehat sejenak" });
+  f.furn.push({ key: 9.5 + 11, draw: () => {
+    box(9.3, 10.8, .4, .3, 0, 22, "#2a2b2f"); box(8, 10.15, 3, 1.7, 22, 3, "#f1eee8");
+    box(8.4, 10.4, .3, .22, 25, 1, "#ffffff"); box(10.1, 11.2, .3, .22, 25, 1, "#ffffff"); box(9.4, 10.9, .12, .12, 25, 5, "#3b2a20");
+  }});
+  for (let x = 8; x <= 10; x++) { blockT(f, x, 10); blockT(f, x, 11); }
+  addPOI(f, "rapat1", [7, 11], 7.55, 11.0, "down", { say: "Diskusi sebentar" });
+  addPOI(f, "rapat2", [11, 11], 11.45, 11.0, "up", { flip: true, say: "Diskusi sebentar" });
+  addPOI(f, "rapat3", [9, 12], 9.5, 12.3, "up", { say: "Rapat kecil" });
+  for (const [x, y, b] of [[0, 0], [4, 0], [16, 0], [7, 13, 1], [13, 13, 1], [16, 5], [0, 7]]) plant(f, x, y, b);
+  f.lamps = [[4, 3.5], [7, 3.5], [10, 3.5], [13, 3.5], [4, 6.5], [7, 6.5], [10, 6.5], [13, 6.5], [9.5, 11], [3, 11.5]];
+})();
+
+// ===== LANTAI 2 =====
+(() => {
+  const f = F[2];
+  f.tile = (x, y) => (x + y) % 2 ? "#3b2a20" : "#432f24";
+  f.isWood = () => true;
+  f.rugs = c => {
+    poly(c, [iso(8.6, 1.9), iso(14.6, 1.9), iso(14.6, 6.9), iso(8.6, 6.9)], "#c9a45c");
+    poly(c, [iso(8.75, 2.05), iso(14.45, 2.05), iso(14.45, 6.75), iso(8.75, 6.75)], "#6e1f2a");
+    poly(c, [iso(1.2, 7.9), iso(8.8, 7.9), iso(8.8, 11.6), iso(1.2, 11.6)], "#d8d2c6");
+    poly(c, [iso(11.3, 8.3), iso(15.7, 8.3), iso(15.7, 11.7), iso(11.3, 11.7)], "#1f3a4a");
+  };
+  f.wallText = c => {
+    c.fillStyle = "#e9d29a"; c.font = '700 9px "Pixelify Sans", monospace'; c.fillText("BIG BOSS · FATHUR", 200, -120);
+  };
+  const hana = AGEN.find(a => a.id === "reviewer-q1"); deskFor(f, hana);
+  shelfLeftWall(f, 1, 6, 112);
+  glassRunY(f, 1, 7, 7.95, [6]);
+  addPOI(f, "h-rak", [1, 2], 1.2, 2.4, "up", { flip: true, say: "Cek pedoman jurnal" });
+  addPOI(f, "h-jendela", [5, 1], 5.5, 1.2, "up", { say: "Menimbang argumen" });
+  f.furn.push({ key: 1.6 + 5.6, draw: () => { box(1.2, 5.2, .8, .8, 0, 12, "#5a2f22"); box(1.2, 5.8, .8, .2, 12, 16, "#4a261c"); } });
+  blockT(f, 1, 5);
+  addPOI(f, "h-kursi", [2, 5], 1.6, 5.45, "up", { pose: "sofa", say: "Membaca naskah", dur: [9, 15] });
+  // meja Big Boss
+  f.furn.push({ key: 11.5 + 3.6, draw: () => {
+    box(10.0, 3.05, .25, 1.0, 0, 26, "#1a1a1d"); box(12.75, 3.05, .25, 1.0, 0, 26, "#1a1a1d");
+    box(10.25, 3.9, 2.5, .12, 0, 24, "#1d1d21");
+    box(9.9, 2.95, 3.2, 1.2, 26, 4, "#121214");
+    box(9.9, 4.12, 3.2, .05, 24, 3, "#c9a45c");
+    for (const mx of [10.4, 11.3, 12.2]) { box(mx + .25, 3.2, .1, .08, 30, 8, "#1e1f23"); faceY(mx, mx + .7, 3.28, 37, 60, "#15161a"); faceY(mx + .3, mx + .4, 3.28, 44, 52, "#2a2b30"); }
+    box(10.1, 3.6, .3, .3, 30, 8, "#c9a45c");
+    // papan nama di muka meja
+    ctx.save(); const o = iso(10.6, 4.17, 22); ctx.translate(o[0], o[1]); ctx.transform(1, .5, 0, 1, 0, 0);
+    ctx.fillStyle = "#c9a45c"; ctx.fillRect(0, -2, 92, 12); ctx.fillStyle = "#141414"; ctx.font = '700 8px "Plus Jakarta Sans", sans-serif'; ctx.fillText("FATHUR · BIG BOSS", 6, 7); ctx.restore();
+  }});
+  for (let x = 10; x <= 12; x++) blockT(f, x, 3);
+  const boss = AGEN.find(a => a.boss);
+  boss.seat = { x: boss.seatAt[0], y: boss.seatAt[1] };
+  f.furn.push({ key: boss.seat.x + boss.seat.y - .1, draw: () => {
+    const s = boss.seat; box(s.x - .05, s.y - .05, .1, .1, 0, 10, "#3a3a3a");
+    box(s.x - .36, s.y - .42, .72, .14, 12, 30, "#2e1c12");
+    box(s.x - .34, s.y - .3, .68, .58, 10, 6, "#3a2418");
+  }});
+  // minibar
+  f.furn.push({ key: 14.5, draw: () => {
+    box(13, .1, 2.6, .8, 0, 34, "#1b1b1f"); box(13, .06, 2.6, .88, 34, 3, "#c9a45c");
+    for (let i = 0; i < 6; i++) box(13.2 + i * .38, .3, .1, .1, 37, 12 + (i % 3) * 3, ["#7a1f2b", "#2f5a2f", "#c9a45c"][i % 3]);
+  }});
+  for (let x = 13; x <= 15; x++) blockT(f, x, 0);
+  addPOI(f, "b-bar", [14, 1], 14.2, 1.35, "up", { say: "Satu espresso, double", dur: [6, 10] });
+  addPOI(f, "b-jendela", [10, 1], 10.5, 1.2, "up", { say: "Memantau kota", dur: [7, 12] });
+  // sofa kulit Big Boss
+  sofa(f, 12, 10, 3, "#5a2f1b");
+  f.furn.push({ key: 13.5 + 9, draw: () => { box(12.4, 8.7, 2.2, .7, 0, 12, "#1d1e22"); box(12.3, 8.6, 2.4, .9, 12, 2, "#9fb4bd"); box(13.3, 8.9, .3, .3, 14, 9, "#c9a45c"); } });
+  for (let x = 12; x <= 14; x++) blockT(f, x, 8);
+  addPOI(f, "b-sofa1", [12, 9], 12.7, 10.45, "up", { pose: "sofa", say: "Membaca draf Introduction", dur: [10, 16] });
+  addPOI(f, "b-sofa2", [14, 9], 14.2, 10.45, "up", { pose: "sofa", say: "Rehat sejenak", dur: [10, 16] });
+  // ruang rapat direksi
+  glassRunX(f, 0, 8, 7.95, [7]);
+  f.furn.push({ key: 5 + 9.4, draw: () => {
+    box(4.6, 9.1, .8, .5, 0, 22, "#1d1e22");
+    box(2.5, 8.7, 5, 1.4, 22, 4, "#3a2416"); box(2.5, 10.05, 5, .05, 20, 3, "#c9a45c");
+    for (const x of [3.2, 4.6, 6.0]) { box(x, 9.2, .3, .22, 26, 1, "#ffffff"); }
+  }});
+  for (let x = 2; x <= 7; x++) { blockT(f, x, 8); blockT(f, x, 9); }
+  for (const x of [3, 4.6, 6.2]) { chair(f, { x, y: 10.55 }, "#2e1c12"); }
+  addPOI(f, "rapat1", [1, 9], 2.0, 9.4, "down", { say: "Rapat direksi" });
+  addPOI(f, "rapat2", [8, 9], 8.0, 9.4, "up", { flip: true, say: "Rapat direksi" });
+  addPOI(f, "rapat3", [4, 10], 4.6, 10.6, "up", { pose: "sit", say: "Rapat direksi" });
+  addPOI(f, "b-rapat", [6, 10], 6.2, 10.6, "up", { pose: "sit", say: "Cek progres tim", dur: [8, 14] });
+  for (const [x, y, b] of [[0, 0], [7, 0], [15, 4, 1], [15, 11, 1], [9, 11, 1], [0, 7]]) plant(f, x, y, b);
+  f.lamps = [[4, 3.5], [11.5, 3.6], [5, 9.4], [13.5, 9.2]];
+  f.glows.push([11.5, 3.6, 30, 90, "255,200,120"]);
+})();
+
+function bfs(f, sx, sy, tx, ty) {
   const key = (x, y) => x + "," + y, prev = new Map([[key(sx, sy), null]]), q = [[sx, sy]];
   while (q.length) {
     const [x, y] = q.shift();
     if (x === tx && y === ty) { const out = []; let k = key(x, y); while (k) { out.unshift(k.split(",").map(Number)); k = prev.get(k); } return out; }
     for (const [dx, dy] of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]) {
       const nx = x + dx, ny = y + dy, k = key(nx, ny);
-      if (nx < 0 || ny < 0 || nx >= MW || ny >= MH || prev.has(k) || blocked.has(k)) continue;
-      if (dx && dy && (blocked.has(key(x + dx, y)) || blocked.has(key(x, y + dy)))) continue;
+      if (nx < 0 || ny < 0 || nx >= f.MW || ny >= f.MH || prev.has(k) || f.blocked.has(k)) continue;
+      if (dx && dy && (f.blocked.has(key(x + dx, y)) || f.blocked.has(key(x, y + dy)))) continue;
       prev.set(k, key(x, y)); q.push([nx, ny]);
     }
   }
@@ -194,182 +472,105 @@ function bfs(sx, sy, tx, ty) {
 
 // ---------- Suasana ----------
 const MOODS = {
-  siang: { sky: ["#7fb8e3", "#d6ebf6"], bld: ["#7b90a5", "#90a3b6", "#6a7f94"], win: null, winP: 0, tint: null, glow: 0, sun: "#fff6d8" },
-  senja: { sky: ["#e98d52", "#f7d29c"], bld: ["#5a465a", "#6c5869", "#4b3c50"], win: "#ffd27a", winP: .25, tint: "rgba(255,150,90,.14)", glow: .55, sun: "#ffb468" },
+  siang: { sky: ["#7fb8e3", "#d6ebf6"], bld: ["#7b90a5", "#90a3b6", "#6a7f94"], win: null, winP: 0, tint: null, glow: .15, sun: "#fff6d8" },
+  senja: { sky: ["#e98d52", "#f7d29c"], bld: ["#5a465a", "#6c5869", "#4b3c50"], win: "#ffd27a", winP: .25, tint: "rgba(255,150,90,.14)", glow: .6, sun: "#ffb468" },
   malam: { sky: ["#08122a", "#1c2b52"], bld: ["#141c2d", "#1a2438", "#0f1629"], win: "#ffd98a", winP: .45, tint: "rgba(6,12,32,.45)", glow: 1, sun: "#f4f1e6" },
 };
 let modePref = "auto";
 try { modePref = localStorage.getItem("kantor-mode") || "auto"; } catch (e) {}
-function moodNow() {
-  if (modePref !== "auto") return modePref;
-  const h = new Date().getHours();
-  return h >= 6 && h < 17 ? "siang" : h >= 17 && h < 19 ? "senja" : "malam";
-}
+function moodNow() { if (modePref !== "auto") return modePref; const h = new Date().getHours(); return h >= 6 && h < 17 ? "siang" : h >= 17 && h < 19 ? "senja" : "malam"; }
 let mood = moodNow();
-
 let seed = 11; const srnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-const SKYLINE = []; { let u = 6; while (u < MW * 32 - 8) { const w = 14 + srnd() * 30, h = 26 + srnd() * 72; SKYLINE.push({ u, w, h, c: Math.floor(srnd() * 3), l: Array.from({ length: 60 }, srnd) }); u += w + 2 + srnd() * 7; } }
-const BOOKS = ["#7d2e2e", "#2e4d7d", "#c9a45c", "#3e6b4a", "#e6dfd0", "#5a3d6e", "#a8562f", "#1f2a36"];
+const SKYLINE = []; { let u = 6; while (u < 20 * 32) { const w = 14 + srnd() * 30, h = 26 + srnd() * 72; SKYLINE.push({ u, w, h, c: Math.floor(srnd() * 3), l: Array.from({ length: 60 }, srnd) }); u += w + 2 + srnd() * 7; } }
 
 // ---------- Kanvas ----------
-const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const cv = document.getElementById("cv"); ctx = cv.getContext("2d");
 const bg = document.createElement("canvas");
-let k = 1, cssW = 800;
+let k = 1, cssW = 1088, cur = F[1];
+try { const s = localStorage.getItem("kantor-lantai"); if (s === "2") cur = F[2]; } catch (e) {}
+
+function setGeom(f) { MW = f.MW; MH = f.MH; OX = MH * 32; LW = (MW + MH) * 32; LH = OY + (MW + MH) * 16 + 30; }
 
 function drawBG() {
-  const m = MOODS[mood], c = bg.getContext("2d");
+  const f = cur, m = MOODS[mood], c = bg.getContext("2d");
   bg.width = cv.width; bg.height = cv.height;
   c.setTransform(k, 0, 0, k, 0, 0);
   const st = c.createLinearGradient(0, 0, 0, LH); st.addColorStop(0, "#1b2129"); st.addColorStop(1, "#0f1317");
   c.fillStyle = st; c.fillRect(0, 0, LW, LH);
-  // lantai: kayu di area kerja, marmer di sekelilingnya
   for (let y = 0; y < MH; y++) for (let x = 0; x < MW; x++) {
-    const wood = x >= 2 && x <= 16 && y >= 2 && y <= 7;
-    const col = wood ? ((x + y) % 2 ? "#946440" : "#9e6c46") : ((x + y) % 2 ? "#e4dfd5" : "#ede9e1");
-    poly(c, [iso(x, y), iso(x + 1, y), iso(x + 1, y + 1), iso(x, y + 1)], col);
-    if (wood) { c.strokeStyle = "rgba(0,0,0,.08)"; c.lineWidth = 1; c.beginPath(); const a = iso(x, y + .5), b = iso(x + 1, y + .5); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); }
-    else { c.strokeStyle = "rgba(120,110,95,.12)"; c.lineWidth = .8; c.beginPath(); const a = iso(x + .2, y + .1), b = iso(x + .7, y + .8); c.moveTo(a[0], a[1]); c.quadraticCurveTo(...iso(x + .6, y + .3), b[0], b[1]); c.stroke(); }
+    poly(c, [iso(x, y), iso(x + 1, y), iso(x + 1, y + 1), iso(x, y + 1)], f.tile(x, y));
+    c.strokeStyle = f.isWood(x, y) ? "rgba(0,0,0,.08)" : "rgba(120,110,95,.12)"; c.lineWidth = 1;
+    const a = iso(x, y + .5), b = iso(x + 1, y + .5); c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke();
   }
-  // karpet ruang santai
-  poly(c, [iso(.4, 7.6), iso(4.6, 7.6), iso(4.6, 10.95), iso(.4, 10.95)], "#c9a45c");
-  poly(c, [iso(.55, 7.75), iso(4.45, 7.75), iso(4.45, 10.85), iso(.55, 10.85)], "#24413d");
-  // dinding kanan: kaca dengan pemandangan kota
+  f.rugs(c);
+  // dinding kanan: kaca dan kota
   c.save(); c.setTransform(k, k * .5, 0, -k, k * OX, k * OY);
-  c.fillStyle = "#cfc9bf"; c.fillRect(0, 0, MW * 32, WALL);
+  const L = MW * 32;
+  c.fillStyle = "#cfc9bf"; c.fillRect(0, 0, L, WALL);
   const g = c.createLinearGradient(0, 122, 0, 16); g.addColorStop(0, m.sky[0]); g.addColorStop(1, m.sky[1]);
-  c.fillStyle = g; c.fillRect(6, 16, MW * 32 - 12, 106);
-  c.save(); c.beginPath(); c.rect(6, 16, MW * 32 - 12, 106); c.clip();
-  c.fillStyle = m.sun; c.globalAlpha = mood === "siang" ? .8 : .9; c.beginPath(); c.arc(330, mood === "senja" ? 44 : 100, mood === "malam" ? 7 : 11, 0, 7); c.fill(); c.globalAlpha = 1;
-  if (mood === "malam") { c.fillStyle = "#ffffff"; for (let i = 0; i < 40; i++) c.fillRect((i * 97) % (MW * 32), 70 + (i * 53) % 50, 1, 1); }
+  c.fillStyle = g; c.fillRect(6, 16, L - 12, 106);
+  c.save(); c.beginPath(); c.rect(6, 16, L - 12, 106); c.clip();
+  c.fillStyle = m.sun; c.beginPath(); c.arc(L * .62, mood === "senja" ? 44 : 100, mood === "malam" ? 7 : 11, 0, 7); c.fill();
+  if (mood === "malam") { c.fillStyle = "#ffffff"; for (let i = 0; i < 50; i++) c.fillRect((i * 97) % L, 60 + (i * 53) % 60, 1, 1); }
   SKYLINE.forEach((b, j) => {
-    c.fillStyle = m.bld[b.c]; c.fillRect(b.u, 16, b.w, b.h);
-    if (j % 4 === 1) c.fillRect(b.u + b.w / 2 - 1, 16 + b.h, 2, 10);
+    if (b.u > L) return;
+    const h = b.h * f.sky;
+    c.fillStyle = m.bld[b.c]; c.fillRect(b.u, 16, b.w, h);
     let i = 0;
-    for (let yy = 22; yy < 16 + b.h - 6; yy += 7) for (let xx = b.u + 3; xx < b.u + b.w - 3; xx += 5) {
+    for (let yy = 22; yy < 16 + h - 6; yy += 7) for (let xx = b.u + 3; xx < b.u + b.w - 3; xx += 5) {
       const v = b.l[i++ % 60];
       if (m.win && v < m.winP) { c.fillStyle = m.win; c.fillRect(xx, yy, 2, 3); }
       else if (!m.win && v < .5) { c.fillStyle = "rgba(255,255,255,.18)"; c.fillRect(xx, yy, 2, 3); }
     }
   });
   c.restore();
-  c.fillStyle = "rgba(255,255,255,.06)"; for (let u = 20; u < MW * 32; u += 64) { c.beginPath(); c.moveTo(u, 16); c.lineTo(u + 30, 122); c.lineTo(u + 40, 122); c.lineTo(u + 10, 16); c.fill(); }
-  c.fillStyle = "#22252a"; for (let u = 6; u <= MW * 32 - 4; u += 64) c.fillRect(u - 1.5, 16, 3, 106);
-  c.fillRect(6, 14, MW * 32 - 12, 3); c.fillRect(6, 120, MW * 32 - 12, 3);
-  c.fillStyle = "#2f3236"; c.fillRect(0, 0, MW * 32, 6); c.fillRect(0, WALL - 5, MW * 32, 5);
+  c.fillStyle = "rgba(255,255,255,.06)"; for (let u = 20; u < L; u += 64) { c.beginPath(); c.moveTo(u, 16); c.lineTo(u + 30, 122); c.lineTo(u + 40, 122); c.lineTo(u + 10, 16); c.fill(); }
+  c.fillStyle = "#22252a"; for (let u = 6; u <= L - 4; u += 64) c.fillRect(u - 1.5, 16, 3, 106);
+  c.fillRect(6, 14, L - 12, 3); c.fillRect(6, 120, L - 12, 3);
+  // lift
+  const u0 = f.lift[0] * 32, u1 = f.lift[1] * 32;
+  c.fillStyle = "#3a3d42"; c.fillRect(u0 - 6, 0, u1 - u0 + 12, 104);
+  c.fillStyle = "#b9bec4"; c.fillRect(u0, 0, (u1 - u0) / 2 - 1, 92); c.fillRect(u0 + (u1 - u0) / 2 + 1, 0, (u1 - u0) / 2 - 1, 92);
+  c.fillStyle = "#11161c"; c.fillRect(u0 + (u1 - u0) / 2 - 10, 96, 20, 7);
+  c.fillStyle = "#2f3236"; c.fillRect(0, 0, L, 6); c.fillRect(0, WALL - 5, L, 5);
   c.restore();
-  // dinding kiri: panel kayu walnut dengan papan nama
+  c.save(); c.setTransform(k, k * .5, 0, k, k * (OX + u0 + (u1 - u0) / 2 - 6), k * (OY + (u0 + (u1 - u0) / 2 - 6) / 2 - 97));
+  c.fillStyle = "#ff8a3c"; c.font = '700 7px "JetBrains Mono", monospace'; c.fillText("▲ " + f.liftNo, 0, 0); c.restore();
+  // dinding kiri
   c.save(); c.setTransform(k, -k * .5, 0, k, k * (OX - MH * 32), k * (OY + MH * 16));
-  c.fillStyle = "#3a281d"; c.fillRect(0, -WALL, MH * 32, WALL);
+  c.fillStyle = f.id === 2 ? "#2a1c14" : "#3a281d"; c.fillRect(0, -WALL, MH * 32, WALL);
   c.fillStyle = "rgba(255,255,255,.045)"; for (let u = 0; u < MH * 32; u += 11) c.fillRect(u, -WALL, 1, WALL);
-  c.fillStyle = "#c9a45c"; c.font = '700 27px "Pixelify Sans", monospace'; c.fillText("CDA LAB", 30, -76);
-  c.font = '600 8.5px "Plus Jakarta Sans", sans-serif'; c.fillText("CRITICAL DISCOURSE ANALYSIS", 31, -60);
-  c.fillRect(31, -55, 124, 1.4);
+  c.fillStyle = "#c9a45c"; c.font = `700 ${f.id === 2 ? 20 : 27}px "Pixelify Sans", monospace`; c.fillText(f.logo[0], f.logoU, -76);
+  c.font = '600 8.5px "Plus Jakarta Sans", sans-serif'; c.fillText(f.logo[1], f.logoU + 1, -60);
+  c.fillRect(f.logoU + 1, -55, 124, 1.4);
+  f.wallText(c);
   c.fillStyle = "#24180f"; c.fillRect(0, -6, MH * 32, 6); c.fillRect(0, -WALL, MH * 32, 5);
   c.restore();
   c.strokeStyle = "#1d1f22"; c.lineWidth = 3; c.beginPath(); const p0 = iso(0, 0, 0), p1 = iso(0, 0, WALL); c.moveTo(p0[0], p0[1]); c.lineTo(p1[0], p1[1]); c.stroke();
 }
 
-// ---------- Perabot ----------
-const FURN = [];
-const own = {};
-DESKS.forEach((d, i) => FURN.push({ key: d.x + d.y + 1.5, draw: t => drawDesk(d, i, t) }));
-function drawDesk(d, i, t) {
-  const { x, y } = d, c = own[i], on = c && c.status === "bekerja" && c.seated;
-  box(ctx, x + .1, y + .15, .08, .7, 0, 24, "#2a2b2f"); box(ctx, x + 1.82, y + .15, .08, .7, 0, 24, "#2a2b2f");
-  const exec = AGEN[i] && AGEN[i].id === "reviewer-q1";
-  box(ctx, x + .05, y + .1, 1.9, .8, 24, 4, exec ? "#1d1e22" : "#5c3c29");
-  if (exec) box(ctx, x + .05, y + .86, 1.9, .04, 22, 2, "#c9a45c");
-  for (const mx of [x + .22, x + 1.08]) {
-    box(ctx, mx + .3, y + .26, .1, .08, 28, 7, "#1e1f23");
-    const yy = y + .32, z0 = 34, w = .7, h = 22;
-    poly(ctx, [iso(mx, yy, z0), iso(mx + w, yy, z0), iso(mx + w, yy, z0 + h), iso(mx, yy, z0 + h)], "#15161a");
-    poly(ctx, [iso(mx + .04, yy, z0 + 2), iso(mx + w - .04, yy, z0 + 2), iso(mx + w - .04, yy, z0 + h - 2), iso(mx + .04, yy, z0 + h - 2)], on ? "#16507a" : (c && c.seated ? "#1d2a36" : "#121820"));
-    if (on) {
-      ctx.strokeStyle = "#8fdcff"; ctx.lineWidth = 1.1;
-      for (let j = 0; j < 4; j++) {
-        const len = .12 + .42 * Math.abs(Math.sin(t * 1.4 + j * 1.9 + mx));
-        const a = iso(mx + .09, yy, z0 + h - 5 - j * 4), b = iso(mx + .09 + len, yy, z0 + h - 5 - j * 4);
-        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
-      }
-    }
-  }
-  poly(ctx, [iso(x + .68, y + .55, 28), iso(x + 1.32, y + .55, 28), iso(x + 1.32, y + .76, 28), iso(x + .68, y + .76, 28)], "#2b2e35");
-  box(ctx, x + 1.66, y + .52, .12, .12, 28, 6, "#ece6da");
-  box(ctx, x + .12, y + .5, .3, .22, 28, 2, "#f3f0ea");
-}
-DESKS.forEach((d, i) => { const s = { x: d.x + 1, y: d.y + 1.4 }; FURN.push({ key: s.x + s.y + .05, draw: () => drawChair(s) }); });
-function drawChair(s) {
-  box(ctx, s.x - .04, s.y - .04, .08, .08, 0, 10, "#4a4d52");
-  box(ctx, s.x - .28, s.y - .26, .56, .5, 10, 4, "#20242a");
-  box(ctx, s.x - .3, s.y + .2, .6, .1, 12, 7, "#1b1f24");
-}
-FURN.push({ key: 2.8, draw: () => {
-  box(ctx, .02, 1, .6, 3, 0, 112, "#4a3326");
-  for (const z of [6, 32, 58, 84]) {
-    let yy = 1.08, i = 0;
-    while (yy < 3.88) {
-      const w = .07 + ((i * 37 + z) % 5) * .012, h = 17 + ((i * 13 + z) % 6);
-      const top = Math.min(yy + w, 3.92);
-      poly(ctx, [iso(.62, yy, z), iso(.62, top, z), iso(.62, top, z + h), iso(.62, yy, z + h)], BOOKS[(i * 7 + z) % BOOKS.length]);
-      yy += w + .01; i++;
-    }
-    poly(ctx, [iso(.62, 1, z - 2), iso(.62, 4, z - 2), iso(.62, 4, z), iso(.62, 1, z)], "#2c1e15");
-  }
-}});
-FURN.push({ key: 10.5, draw: t => {
-  box(ctx, 10, .1, 3, .82, 0, 36, "#26292e");
-  box(ctx, 10, .06, 3, .9, 36, 3, "#ece8e0");
-  box(ctx, 10.3, .18, .55, .42, 39, 18, "#b9bdc3");
-  box(ctx, 10.38, .52, .1, .1, 46, 2, "#202226");
-  box(ctx, 11.6, .4, .1, .1, 39, 5, "#f4f1ea"); box(ctx, 11.8, .45, .1, .1, 39, 5, "#f4f1ea");
-  box(ctx, 12.3, .2, .45, .35, 39, 10, "#3b2a20");
-  for (let j = 0; j < 3; j++) {
-    const p = (t * .5 + j / 3) % 1, [sx, sy] = iso(10.55, .4, 60 + p * 22);
-    ctx.fillStyle = `rgba(255,255,255,${(1 - p) * .35})`; ctx.beginPath(); ctx.arc(sx + Math.sin(t * 2 + j) * 3, sy, 2 + p * 3, 0, 7); ctx.fill();
-  }
-}});
-FURN.push({ key: 11.15, draw: () => {
-  box(ctx, 1.6, 8.3, 1.8, .65, 0, 3, "#1c1e22");
-  box(ctx, 1.55, 8.25, 1.9, .75, 10, 2, "#9fb4bd");
-  box(ctx, 2.3, 8.5, .14, .14, 12, 6, "#c9a45c");
-  box(ctx, 1.8, 8.45, .35, .25, 12, 2, "#e8e2d6");
-}});
-FURN.push({ key: 13, draw: () => {
-  box(ctx, 1, 10.12, 3, .82, 0, 12, "#1f5551");
-  box(ctx, 1, 10.7, 3, .26, 12, 16, "#1b4a46");
-  box(ctx, .9, 10.12, .14, .84, 0, 20, "#1b4a46"); box(ctx, 3.96, 10.12, .14, .84, 0, 20, "#1b4a46");
-  box(ctx, 1.3, 10.55, .4, .15, 12, 10, "#c9a45c");
-}});
-FURN.push({ key: 20.5, draw: () => {
-  box(ctx, 11.3, 8.8, .4, .3, 0, 22, "#2a2b2f");
-  box(ctx, 10, 8.15, 3, 1.7, 22, 3, "#f1eee8");
-  box(ctx, 10.4, 8.4, .3, .22, 25, 1, "#ffffff"); box(ctx, 12.1, 9.2, .3, .22, 25, 1, "#ffffff");
-  box(ctx, 11.4, 8.9, .12, .12, 25, 5, "#3b2a20");
-}});
-for (const [x, y] of PLANTS) FURN.push({ key: x + y + 1, draw: t => {
-  box(ctx, x + .3, y + .3, .4, .4, 0, 16, "#e9e5dc");
-  const [sx, sy] = iso(x + .5, y + .5, 16), sw = Math.sin(t * .8 + x) * .8;
-  for (const [dx, dy, r, col] of [[-6, -10, 8, "#2f6b3a"], [6, -12, 8, "#3a7d45"], [0, -20, 9, "#4b9152"], [-3, -28, 7, "#3a7d45"], [4, -30, 6, "#5aa260"]]) {
-    ctx.fillStyle = col; ctx.beginPath(); ctx.arc(sx + dx + sw * (-dy / 20), sy + dy, r, 0, 7); ctx.fill();
-  }
-}});
-
 // ---------- Karakter ----------
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const SPEED = 1.7;
 const rand = (a, b) => a + Math.random() * (b - a);
-const chars = AGEN.map((a, i) => {
-  const d = DESKS[i];
-  const c = { ...a, i, seat: { x: d.x + 1, y: d.y + 1.4 }, seatTile: [d.x + 1, d.y + 1], x: d.x + 1, y: d.y + 1.4,
-    path: [], onArrive: null, mode: "desk", until: performance.now() + rand(1500, 7000), poi: null, pose: "sit", face: "up", flip: false,
-    walking: false, seated: true, status: "menunggu", tugas: "", say: "", sayUntil: 0, bb: null, headY: 0 };
-  own[i] = c; return c;
+const chars = AGEN.map(a => {
+  const c = Object.assign({}, a, { path: [], onArrive: null, mode: "desk", until: performance.now() + rand(1500, 7000), poi: null,
+    pose: "sit", face: a.boss ? "down" : "up", flip: false, walking: false, seated: true, status: a.boss ? "boss" : "menunggu", tugas: a.boss ? "Peneliti utama. Membaca dan mengoreksi draf artikel." : "", say: "", sayUntil: 0, bb: null, headY: 0 });
+  if (a.boss) { c.seat = a.seat || { x: a.seatAt[0], y: a.seatAt[1] }; c.seatTile = a.seatTile; }
+  else { const d = AGEN.find(x => x.id === a.id); c.seat = d.seat; c.seatTile = d.seatTile; }
+  c.x = c.seat.x; c.y = c.seat.y;
+  return c;
 });
+// deskFor menyimpan kursi di objek AGEN; samakan referensi status ke objek karakter
+for (const f of Object.values(F)) for (const it of f.furn) it.f = f;
+const byId = Object.fromEntries(chars.map(c => [c.id, c]));
+for (const a of AGEN) { if (a !== byId[a.id]) Object.defineProperty(a, "status", { get: () => byId[a.id].status }), Object.defineProperty(a, "seated", { get: () => byId[a.id].seated }); }
 let selected = null;
 
 function goTo(c, tile, final, then) {
-  const sx = Math.min(MW - 1, Math.max(0, Math.floor(c.x))), sy = Math.min(MH - 1, Math.max(0, Math.floor(c.y)));
-  const p = bfs(sx, sy, tile[0], tile[1]) || [tile];
+  const f = F[c.floor];
+  const sx = Math.min(f.MW - 1, Math.max(0, Math.floor(c.x))), sy = Math.min(f.MH - 1, Math.max(0, Math.floor(c.y)));
+  const p = bfs(f, sx, sy, tile[0], tile[1]) || [tile];
   c.path = p.slice(1).map(([x, y]) => ({ x: x + .5, y: y + .5 }));
   if (final) c.path.push(final);
   c.onArrive = then; c.pose = "stand"; c.seated = false;
@@ -377,42 +578,37 @@ function goTo(c, tile, final, then) {
 }
 function say(c, text, ms, now) { c.say = text; c.sayUntil = now + ms; }
 function release(c) { if (c.poi) { c.poi.by = null; c.poi = null; } }
-function sitAtDesk(c, now, linger) {
-  goTo(c, c.seatTile, c.seat, t => { c.pose = "sit"; c.face = "up"; c.flip = false; c.seated = true; c.until = t + linger; });
-}
+function sitAtDesk(c, linger) { goTo(c, c.seatTile, c.seat, t => { c.pose = "sit"; c.face = c.boss ? "down" : "up"; c.flip = false; c.seated = true; c.until = t + linger; }); }
 function decide(c, now) {
-  if (c.status === "bekerja") {
-    if (c.mode !== "work") { release(c); c.mode = "work"; c.until = Infinity; sitAtDesk(c, now, Infinity); }
-    return;
-  }
+  const f = F[c.floor];
+  if (c.status === "bekerja") { if (c.mode !== "work") { release(c); c.mode = "work"; c.until = Infinity; sitAtDesk(c, Infinity); } return; }
   if (c.status === "rapat") {
     if (c.mode !== "meet") {
       release(c); c.mode = "meet"; c.until = Infinity;
-      const seats = POI.filter(p => p.id.startsWith("rapat"));
+      const seats = f.poi.filter(p => p.id.startsWith("rapat"));
       const p = seats.find(p => !p.by || p.by.status !== "rapat") || seats[0];
       if (p.by && p.by !== c) { const o = p.by; o.path = []; o.onArrive = null; o.poi = null; o.until = 0; o.mode = "idle"; }
       p.by = c; c.poi = p;
-      goTo(c, p.at, { x: p.x, y: p.y }, () => { c.pose = "stand"; c.face = p.face; c.flip = !!p.flip; });
+      goTo(c, p.at, { x: p.x, y: p.y }, () => { c.pose = p.pose || "stand"; c.face = p.face; c.flip = !!p.flip; });
     }
     return;
   }
   if (c.mode === "meet") { c.mode = "desk"; c.until = now + rand(2000, 5000); return; }
   if (c.mode === "work") { c.mode = "desk"; c.until = now + rand(4000, 8000); return; }
   if (now < c.until) return;
-  release(c);
-  c.until = Infinity;
-  if (RM) { c.mode = "desk"; if (!c.seated) sitAtDesk(c, now, 1e12); else c.until = now + 1e12; return; }
-  const meeting = chars.some(x => x.status === "rapat");
-  const free = POI.filter(p => !p.by && !(meeting && p.id.startsWith("rapat")));
+  release(c); c.until = Infinity;
+  if (RM) { c.mode = "desk"; if (!c.seated) sitAtDesk(c, 1e12); else c.until = now + 1e12; return; }
+  const meeting = chars.some(x => x.floor === c.floor && x.status === "rapat");
+  const free = f.poi.filter(p => !p.by && !(meeting && p.id.startsWith("rapat")));
   const liked = free.filter(p => c.suka.includes(p.id));
-  const r = Math.random();
-  if (r < .28 || !free.length) { c.mode = "desk"; sitAtDesk(c, now, rand(8000, 16000)); return; }
-  const p = (r < .7 && liked.length ? liked : free)[Math.floor(Math.random() * (r < .7 && liked.length ? liked : free).length)];
+  const r = Math.random(), deskP = c.boss ? .4 : .28;
+  if (r < deskP || !free.length) { c.mode = "desk"; sitAtDesk(c, rand(8000, 16000)); if (c.boss && Math.random() < .5) say(c, "Cek progres tim", 3500, now); return; }
+  const pool = r < .75 && liked.length ? liked : free, p = pool[Math.floor(Math.random() * pool.length)];
   p.by = c; c.poi = p; c.mode = "poi";
   goTo(c, p.at, { x: p.x, y: p.y }, t => {
     c.pose = p.pose || "stand"; c.face = p.face; c.flip = !!p.flip;
     c.until = t + rand(p.dur[0], p.dur[1]) * 1000;
-    if (Math.random() < .7) say(c, p.say, 3500, t);
+    if (Math.random() < .75) say(c, p.say, 3500, t);
   });
 }
 function step(c, dt, now) {
@@ -420,7 +616,7 @@ function step(c, dt, now) {
     const p = c.path[0], dx = p.x - c.x, dy = p.y - c.y, d = Math.hypot(dx, dy), s = SPEED * dt;
     const sxv = dx - dy, syv = dx + dy;
     if (Math.abs(sxv) + Math.abs(syv) > .001) { c.face = syv < 0 ? "up" : "down"; c.flip = sxv < 0; }
-    if (d <= s) { c.x = p.x; c.y = p.y; c.path.shift(); if (!c.path.length) { c.walking = false; const f = c.onArrive; c.onArrive = null; f && f(now); } }
+    if (d <= s) { c.x = p.x; c.y = p.y; c.path.shift(); if (!c.path.length) { c.walking = false; const fn = c.onArrive; c.onArrive = null; fn && fn(now); } }
     else { c.x += dx / d * s; c.y += dy / d * s; c.walking = true; }
     return;
   }
@@ -432,33 +628,34 @@ function drawChar(c, t) {
   const [fx, fy] = iso(c.x, c.y, 0), sx = Math.round(fx), sy = Math.round(fy);
   const sit = c.pose === "sit" || c.pose === "sofa", back = c.face === "up";
   const working = c.status === "bekerja" && c.seated;
-  const SC = 1.3;
+  const gaming = c.poi && c.poi.game && !c.walking && !c.path.length;
+  const SC = c.boss ? 1.42 : 1.3;
   ctx.save(); ctx.translate(sx, sy); ctx.scale(SC, SC);
   if (selected === c) { ctx.strokeStyle = "#d7b46a"; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.ellipse(0, 0, 13, 6, 0, 0, 7); ctx.stroke(); }
   ctx.fillStyle = "rgba(0,0,0,.25)"; ctx.beginPath(); ctx.ellipse(0, 0, 9, 3.5, 0, 0, 7); ctx.fill();
   if (c.flip) ctx.scale(-1, 1);
   const f = c.walking ? Math.floor(t * 8) % 2 : 0;
   const R = (x, y, w, h, col) => { ctx.fillStyle = col; ctx.fillRect(x, y, w, h); };
-  const PANTS = "#262a34", SHOE = "#121316", sleeve = shade(c.baju, -.22);
+  const PANTS = c.boss ? "#141518" : "#262a34", SHOE = "#121316", sleeve = shade(c.baju, -.22);
   let top;
   if (!sit) {
     R(-5, -12, 4, 10 - (f ? 2 : 0), PANTS); R(1, -12, 4, 10 - (f ? 0 : 2) * (c.walking ? 1 : 0), PANTS);
     R(-5, -2 - (f ? 2 : 0), 4, 2, SHOE); R(1, -2 - (c.walking && !f ? 2 : 0), 4, 2, SHOE);
     top = -12 + (c.walking && f ? -1 : 0);
-  } else {
-    top = c.pose === "sofa" ? -7 : -9;
-    R(-5, top, 10, 3, PANTS);
-  }
-  const bob = working ? (Math.floor(t * 3) % 2 ? -.5 : 0) : 0;
-  top += bob;
+  } else { top = c.pose === "sofa" ? -7 : -9; R(-5, top, 10, 3, PANTS); }
+  top += working ? (Math.floor(t * 3) % 2 ? -.5 : 0) : 0;
   R(-6, top - 13, 12, 14, c.baju); R(-6, top - 13, 12, 2, shade(c.baju, .14));
-  if (!back) { R(-1, top - 11, 2, 9, shade(c.baju, -.1)); }
+  if (!back) {
+    if (c.boss) { R(-2, top - 13, 4, 3, "#f2f2f2"); R(-1, top - 11, 2, 8, "#c9a45c"); }
+    else R(-1, top - 11, 2, 9, shade(c.baju, -.1));
+  }
   if (working && back) { const a = Math.floor(t * 9) % 2; R(-8, top - 12, 3, 7 + a, sleeve); R(5, top - 12, 3, 8 - a, sleeve); }
+  else if (gaming) { const a = Math.floor(t * 6) % 2; R(-8, top - 11, 3, 7, sleeve); R(5, top - 11, 3, 7, sleeve); R(-5 + a, top - 5, 10, 3, "#1b1b1f"); }
   else {
     const sw = c.walking ? (f ? 1.5 : -1.5) : 0;
     R(-8, top - 12 + sw, 3, 10, sleeve); R(5, top - 12 - sw, 3, 10, sleeve);
     R(-8, top - 2 + sw, 3, 2, c.kulit); R(5, top - 2 - sw, 3, 2, c.kulit);
-    if (c.poi && c.poi.id.startsWith("kopi") && !c.walking) { R(6, top - 5, 3, 3, "#f4f1ea"); }
+    if (c.poi && /kopi|bar/.test(c.poi.id) && !c.walking) R(6, top - 5, 3, 3, "#f4f1ea");
   }
   R(-2, top - 15, 4, 2, c.kulit);
   const hy = top - 25;
@@ -468,36 +665,36 @@ function drawChar(c, t) {
     if (c.panjang) R(-5, hy + 8, 10, 6, c.rambut);
   } else {
     R(-5, hy - 1, 10, 4, c.rambut); R(-6, hy, 2, c.panjang ? 12 : 6, c.rambut); R(4, hy, 2, c.panjang ? 12 : 4, c.rambut);
-    R(-2, hy + 5, 1.5, 1.5, "#1b1b1b"); R(2, hy + 5, 1.5, 1.5, "#1b1b1b"); R(-1, hy + 8, 3, 1, shade(c.kulit, -.3));
+    if (c.boss) R(-4, hy + 4, 8, 2.2, "#0b0b0b");
+    else { R(-2, hy + 5, 1.5, 1.5, "#1b1b1b"); R(2, hy + 5, 1.5, 1.5, "#1b1b1b"); }
+    if (c.kacamata) { ctx.strokeStyle = "#2a2a2a"; ctx.lineWidth = .8; ctx.strokeRect(-3.5, hy + 4.2, 3, 2.4); ctx.strokeRect(.8, hy + 4.2, 3, 2.4); }
+    R(-1, hy + 8, 3, 1, shade(c.kulit, -.3));
   }
   ctx.restore();
   c.headY = sy + hy * SC; c.bb = { x: sx - 14, y: sy + hy * SC - 5, w: 28, h: -hy * SC + 8 };
 }
 
-const LAMPS = [[4, 3.5], [7, 3.5], [10, 3.5], [13, 3.5], [13, 6.5], [16, 3.5], [4, 6.5], [7, 6.5], [10, 6.5], [2.5, 9.2], [11.5, 9]];
-function drawLamps() {
-  for (const [x, y] of LAMPS) {
+function drawLamps(f) {
+  for (const [x, y] of f.lamps) {
     const [sx, sy] = iso(x, y, 150);
-    ctx.strokeStyle = "rgba(20,20,22,.7)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(sx, Math.max(0, sy - 120)); ctx.lineTo(sx, sy); ctx.stroke();
-    ctx.fillStyle = "#b8923f"; ctx.beginPath(); ctx.moveTo(sx - 9, sy + 7); ctx.lineTo(sx + 9, sy + 7); ctx.lineTo(sx + 4, sy); ctx.lineTo(sx - 4, sy); ctx.closePath(); ctx.fill();
+    line3([sx, Math.max(0, sy - 120)], [sx, sy], "rgba(20,20,22,.7)", 1);
+    ctx.fillStyle = f.id === 2 ? "#d4b062" : "#b8923f";
+    ctx.beginPath(); ctx.moveTo(sx - (f.id === 2 ? 13 : 9), sy + 7); ctx.lineTo(sx + (f.id === 2 ? 13 : 9), sy + 7); ctx.lineTo(sx + 4, sy); ctx.lineTo(sx - 4, sy); ctx.closePath(); ctx.fill();
     ctx.fillStyle = "#fff2cf"; ctx.fillRect(sx - 3, sy + 7, 6, 2);
   }
 }
-function drawGlows(m) {
+function glow(x, y, z, r, rgb, a) {
+  const [sx, sy] = iso(x, y, z), g = ctx.createRadialGradient(sx, sy, 2, sx, sy, r);
+  g.addColorStop(0, `rgba(${rgb},${a})`); g.addColorStop(1, `rgba(${rgb},0)`);
+  ctx.fillStyle = g; ctx.fillRect(sx - r, sy - r, r * 2, r * 2);
+}
+function drawGlows(f, m) {
   ctx.globalCompositeOperation = "lighter";
-  for (const [x, y] of LAMPS) {
-    const [sx, sy] = iso(x, y, 30), g = ctx.createRadialGradient(sx, sy, 2, sx, sy, 80);
-    g.addColorStop(0, `rgba(255,196,120,${.30 * m.glow})`); g.addColorStop(1, "rgba(255,196,120,0)");
-    ctx.fillStyle = g; ctx.fillRect(sx - 80, sy - 80, 160, 160);
-  }
-  for (const c of chars) if (c.status === "bekerja" && c.seated) {
-    const d = DESKS[c.i], [sx, sy] = iso(d.x + 1, d.y + .4, 45), g = ctx.createRadialGradient(sx, sy, 2, sx, sy, 46);
-    g.addColorStop(0, `rgba(90,180,255,${.35 * Math.max(.4, m.glow)})`); g.addColorStop(1, "rgba(90,180,255,0)");
-    ctx.fillStyle = g; ctx.fillRect(sx - 46, sy - 46, 92, 92);
-  }
+  for (const [x, y] of f.lamps) glow(x, y, 30, 80, "255,196,120", .30 * m.glow);
+  for (const g of f.glows) glow(g[0], g[1], g[2], g[3], g[4], .28 * Math.max(.45, m.glow));
+  for (const c of chars) if (c.floor === f.id && c.status === "bekerja" && c.seated && c.desk) glow(c.desk[0] + 1, c.desk[1] + .4, 45, 46, "90,180,255", .35 * Math.max(.4, m.glow));
   ctx.globalCompositeOperation = "source-over";
 }
-
 function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
 function wrap(text, maxW, maxLines) {
   const words = text.split(/\s+/), lines = []; let cur = "";
@@ -507,15 +704,16 @@ function wrap(text, maxW, maxLines) {
   return lines;
 }
 function drawOverlay(t, now) {
-  const ts = Math.min(1.8, Math.max(1, LW / cssW));
-  const order = [...chars].sort((a, b) => (a.x + a.y) - (b.x + b.y));
+  const ts = Math.min(1.9, Math.max(1, LW / cssW));
+  const order = chars.filter(c => c.floor === cur.id).sort((a, b) => (a.x + a.y) - (b.x + b.y));
   for (const c of order) {
     const sx = Math.round(iso(c.x, c.y)[0]);
+    const name = c.boss ? "Fathur · Big Boss" : c.nama;
     ctx.font = `500 ${10 * ts}px "Pixelify Sans", monospace`;
-    const nw = ctx.measureText(c.nama).width + 16 * ts, ny = c.headY - 15 * ts;
-    ctx.fillStyle = "rgba(14,18,23,.78)"; rr(sx - nw / 2, ny, nw, 12 * ts, 4 * ts); ctx.fill();
-    ctx.fillStyle = STC[c.status]; ctx.beginPath(); ctx.arc(sx - nw / 2 + 6 * ts, ny + 6 * ts, 2.6 * ts, 0, 7); ctx.fill();
-    ctx.fillStyle = "#eef2f5"; ctx.textBaseline = "middle"; ctx.fillText(c.nama, sx - nw / 2 + 11 * ts, ny + 6.5 * ts);
+    const nw = ctx.measureText(name).width + 16 * ts, ny = c.headY - 15 * ts;
+    ctx.fillStyle = c.boss ? "rgba(201,164,92,.95)" : "rgba(14,18,23,.78)"; rr(sx - nw / 2, ny, nw, 12 * ts, 4 * ts); ctx.fill();
+    ctx.fillStyle = c.boss ? "#141414" : STC[c.status]; ctx.beginPath(); ctx.arc(sx - nw / 2 + 6 * ts, ny + 6 * ts, 2.6 * ts, 0, 7); ctx.fill();
+    ctx.fillStyle = c.boss ? "#141414" : "#eef2f5"; ctx.textBaseline = "middle"; ctx.fillText(name, sx - nw / 2 + 11 * ts, ny + 6.5 * ts);
     let text = "", dots = false;
     if (c.status === "bekerja") { text = c.tugas || "Mengerjakan tugas"; dots = c.seated; }
     else if (c.status === "rapat") { text = c.tugas || "Rapat"; dots = !c.walking && !c.path.length; }
@@ -526,7 +724,7 @@ function drawOverlay(t, now) {
     const lines = wrap(text, 130 * ts, 2), lh = 12.5 * ts;
     const tw = Math.max(...lines.map(l => ctx.measureText(l).width)) + (dots ? 18 * ts : 0);
     const bw = tw + 14 * ts, bh = lines.length * lh + 8 * ts;
-    let bx = Math.max(4, Math.min(LW - bw - 4, sx - bw / 2)); const by = ny - 6 * ts - bh;
+    const bx = Math.max(4, Math.min(LW - bw - 4, sx - bw / 2)), by = ny - 6 * ts - bh;
     ctx.fillStyle = "rgba(0,0,0,.25)"; rr(bx + 1, by + 2, bw, bh, 6 * ts); ctx.fill();
     ctx.fillStyle = c.status === "selesai" && now < c.sayUntil ? "#e7f7ee" : "#ffffff"; rr(bx, by, bw, bh, 6 * ts); ctx.fill();
     ctx.beginPath(); ctx.moveTo(sx - 4 * ts, by + bh); ctx.lineTo(sx + 4 * ts, by + bh); ctx.lineTo(sx, by + bh + 5 * ts); ctx.fill();
@@ -540,36 +738,48 @@ function drawOverlay(t, now) {
 }
 
 let last = performance.now();
-function frame(nowT) {
-  const now = nowT, t = now / 1000, dt = Math.min(.05, (now - last) / 1000); last = now;
+function frame(now) {
+  const t = now / 1000, dt = Math.min(.05, (now - last) / 1000); last = now;
   for (const c of chars) step(c, dt, now);
-  const m = MOODS[mood];
+  const m = MOODS[mood], f = cur;
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(bg, 0, 0);
   ctx.setTransform(k, 0, 0, k, 0, 0);
-  const items = FURN.slice();
-  for (const c of chars) items.push({ key: c.x + c.y, draw: tt => drawChar(c, tt) });
+  const items = f.furn.slice();
+  for (const c of chars) if (c.floor === f.id) items.push({ key: c.x + c.y, draw: tt => drawChar(c, tt) });
   items.sort((a, b) => a.key - b.key);
   for (const it of items) it.draw(t);
-  drawLamps();
+  if (f.neon) f.neon();
+  drawLamps(f);
   if (m.tint) { ctx.fillStyle = m.tint; ctx.fillRect(0, 0, LW, LH); }
-  drawGlows(m);
+  drawGlows(f, m);
   drawOverlay(t, now);
   requestAnimationFrame(frame);
 }
 
+const scene = document.getElementById("scene");
 function resize() {
   const r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
-  cssW = r.width || 800;
+  cssW = r.width || LW;
   cv.width = Math.round(cssW * dpr); cv.height = Math.round(cssW * dpr * LH / LW);
   k = cv.width / LW; drawBG();
 }
+function showFloor(f) {
+  cur = f; setGeom(f);
+  scene.style.aspectRatio = `${LW} / ${LH}`;
+  document.getElementById("flabel").textContent = f.label;
+  document.querySelectorAll(".floors button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.floor === String(f.id))));
+  try { localStorage.setItem("kantor-lantai", String(f.id)); } catch (e) {}
+  if (selected && selected.floor !== f.id) select(null);
+  resize();
+}
 new ResizeObserver(resize).observe(cv);
-resize();
+showFloor(cur);
 if (document.fonts) document.fonts.ready.then(drawBG);
-setInterval(() => { const m = moodNow(); if (m !== mood) { mood = m; drawBG(); } }, 60000);
+setInterval(() => { const mm = moodNow(); if (mm !== mood) { mood = mm; drawBG(); } }, 60000);
 requestAnimationFrame(frame);
 
 // ---------- Kontrol dan kartu ----------
+document.querySelectorAll(".floors button").forEach(b => b.addEventListener("click", () => showFloor(F[b.dataset.floor])));
 document.querySelectorAll(".seg button").forEach(b => {
   if (b.dataset.mode === modePref) document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
   b.addEventListener("click", () => {
@@ -579,11 +789,12 @@ document.querySelectorAll(".seg button").forEach(b => {
   });
 });
 const roster = document.getElementById("roster"), rbtn = {};
-for (const c of chars) {
+for (const c of [byId.fathur, ...chars.filter(c => !c.boss)]) {
   const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", "false");
-  b.innerHTML = '<i class="dot d-menunggu"></i><strong></strong><span class="r"></span>';
-  b.querySelector("strong").textContent = c.nama; b.querySelector(".r").textContent = c.peran;
-  b.addEventListener("click", () => select(selected === c ? null : c));
+  if (c.boss) b.className = "boss";
+  b.innerHTML = '<i class="dot"></i><strong></strong><span class="r"></span>';
+  b.querySelector("strong").textContent = c.boss ? "★ Fathur" : c.nama;
+  b.addEventListener("click", () => { if (cur.id !== c.floor) showFloor(F[c.floor]); select(selected === c ? null : c); });
   roster.appendChild(b); rbtn[c.id] = b;
 }
 function select(c) { selected = c; renderCard(); for (const x of chars) rbtn[x.id].setAttribute("aria-pressed", String(x === c)); }
@@ -591,8 +802,8 @@ function renderCard() {
   const card = document.getElementById("card");
   if (!selected) { card.hidden = true; return; }
   const c = selected; card.hidden = false;
-  document.getElementById("cName").textContent = c.nama;
-  document.getElementById("cRole").textContent = c.peran + " · agen " + c.id;
+  document.getElementById("cName").textContent = c.boss ? "Fathur" : c.nama;
+  document.getElementById("cRole").textContent = c.boss ? "Big Boss · peneliti utama · Lantai 2" : `${c.peran} · agen ${c.id} · Lantai ${c.floor}`;
   document.getElementById("cDot").className = "dot d-" + c.status;
   const st = document.getElementById("cSt"); st.textContent = LABEL[c.status]; st.style.color = STC[c.status];
   document.getElementById("cTask").textContent = c.tugas || "Belum ada tugas.";
@@ -601,12 +812,22 @@ document.getElementById("cClose").addEventListener("click", () => select(null));
 cv.addEventListener("click", e => {
   const r = cv.getBoundingClientRect(), x = (e.clientX - r.left) / r.width * LW, y = (e.clientY - r.top) / r.height * LH;
   let hit = null;
-  for (const c of chars) { const b = c.bb; if (b && x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) hit = c; }
+  for (const c of chars) { if (c.floor !== cur.id) continue; const b = c.bb; if (b && x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) hit = c; }
   select(hit && hit !== selected ? hit : null);
 });
 function renderCounts() {
-  const n = { bekerja: 0, rapat: 0, selesai: 0, menunggu: 0 };
-  for (const c of chars) { n[c.status]++; rbtn[c.id].querySelector(".dot").className = "dot d-" + c.status; rbtn[c.id].querySelector(".r").textContent = c.status === "bekerja" || c.status === "rapat" ? (c.tugas || c.peran) : c.peran; }
+  const n = { bekerja: 0, rapat: 0, selesai: 0, menunggu: 0 }, fl = { 1: { n: 0, w: 0 }, 2: { n: 0, w: 0 } };
+  for (const c of chars) {
+    fl[c.floor].n++;
+    const b = rbtn[c.id];
+    b.querySelector(".dot").className = "dot d-" + c.status;
+    b.querySelector(".r").textContent = c.boss ? "Big Boss · Lantai 2" : (c.status === "bekerja" || c.status === "rapat" ? (c.tugas || c.peran) : `${c.peran} · L${c.floor}`);
+    if (c.boss) continue;
+    n[c.status]++;
+    if (c.status === "bekerja" || c.status === "rapat") fl[c.floor].w++;
+  }
+  document.getElementById("f1info").textContent = `${fl[1].n} agen · ${fl[1].w} sedang bekerja · perpustakaan, ruang game`;
+  document.getElementById("f2info").textContent = `Big Boss + reviewer · ${fl[2].w} sedang bekerja`;
   const el = document.getElementById("counts"); el.replaceChildren();
   for (const s of ["bekerja", "rapat", "selesai", "menunggu"]) {
     const sp = document.createElement("span"); sp.innerHTML = `<i class="dot d-${s}"></i> `;
@@ -618,7 +839,8 @@ renderCounts();
 function applyStatus(map) {
   const now = performance.now();
   for (const c of chars) {
-    const s = map[c.id] || {}, st = LABEL[s.status] ? s.status : "menunggu", tugas = typeof s.tugas === "string" ? s.tugas : "";
+    if (c.boss) continue;
+    const s = map[c.id] || {}, st = ["bekerja", "rapat", "selesai", "menunggu"].includes(s.status) ? s.status : "menunggu", tugas = typeof s.tugas === "string" ? s.tugas : "";
     if (st !== c.status) {
       if (st === "bekerja" || st === "rapat") { c.path = []; c.onArrive = null; release(c); c.mode = "idle"; }
       if (st === "selesai" && (c.status === "bekerja" || c.status === "rapat")) say(c, "Selesai: " + (tugas || "tugas"), 9000, now);
@@ -647,10 +869,7 @@ function renderLog(docs) {
   if (!db) { liveTxt.textContent = "Tampilan contoh (status langsung hanya di claude.ai)"; return; }
   live.classList.add("on"); liveTxt.textContent = "Tersambung langsung";
   const lost = () => { live.classList.remove("on"); liveTxt.textContent = "Sambungan terputus. Muat ulang halaman."; };
-  db.collection("agen").onSnapshot(snap => {
-    const map = {}; for (const d of snap.docs) map[d.id] = d.data() || {};
-    applyStatus(map);
-  }, lost);
+  db.collection("agen").onSnapshot(snap => { const map = {}; for (const d of snap.docs) map[d.id] = d.data() || {}; applyStatus(map); }, lost);
   db.collection("log").orderBy("waktu", "desc").limit(30).onSnapshot(snap => renderLog(snap.docs), lost);
 })();
 </script>
