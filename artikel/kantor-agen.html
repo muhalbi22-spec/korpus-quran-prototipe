@@ -48,7 +48,7 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 4vw
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 .seg button:focus-visible, .roster button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-.scene { position: relative; border-radius: 14px; overflow: hidden; background: var(--stage); aspect-ratio: 800 / 575; max-width: 100%;
+.scene { position: relative; border-radius: 14px; overflow: hidden; background: var(--stage); aspect-ratio: 928 / 630; max-width: 100%;
   box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 12px 30px -18px rgba(0,0,0,.5); }
 .scene canvas { display: block; width: 100%; height: 100%; cursor: pointer; }
 .hint { position: absolute; left: 12px; bottom: 10px; margin: 0; font-size: 12px; color: #c9d2d9; background: rgba(10,14,18,.55); padding: 3px 9px; border-radius: 6px; pointer-events: none; }
@@ -83,7 +83,7 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
   <header>
     <div>
       <h1>Kantor Agen CDA</h1>
-      <p class="sub">Delapan agen penulisan artikel <em>crypto legitimation discourse</em>. Saat Claude memberi tugas, agen kembali ke mejanya dan mulai bekerja. Di sela tugas mereka ngopi, membaca, atau rehat.</p>
+      <p class="sub">Sembilan agen penulisan artikel <em>crypto legitimation discourse</em>. Saat Claude memberi tugas, agen kembali ke mejanya dan mulai bekerja. Di sela tugas mereka ngopi, membaca, atau rehat.</p>
     </div>
     <div class="live" id="live"><i></i><span id="liveTxt">Menyambung…</span></div>
   </header>
@@ -99,7 +99,7 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
   </div>
 
   <div class="scene" id="scene">
-    <canvas id="cv" role="img" aria-label="Kantor isometrik berisi delapan agen AI"></canvas>
+    <canvas id="cv" role="img" aria-label="Kantor isometrik berisi sembilan agen AI"></canvas>
     <p class="hint">Ketuk karakter untuk melihat tugasnya</p>
     <div class="card" id="card" hidden>
       <h3><i class="dot" id="cDot"></i><span id="cName"></span></h3>
@@ -131,12 +131,13 @@ const AGEN = [
   { id: "pemilih-jurnal",  nama: "Juna",  peran: "Pemilih jurnal",   rambut: "#0f0f0f", baju: "#23706f", kulit: "#e6b38a", panjang: false, suka: ["jendela2", "rapat3", "kopi2"] },
   { id: "pengumpul-data", nama: "Dara", peran: "Pengumpul data", rambut: "#1c120b", baju: "#8a5a2b", kulit: "#c98f60", panjang: true, suka: ["rak1", "kopi2", "jendela2"] },
   { id: "pemeriksa-metadata", nama: "Meta", peran: "Pemeriksa metadata", rambut: "#3a2214", baju: "#4a5a6e", kulit: "#d39a6a", panjang: true, suka: ["rak2", "kopi1", "jendela1"] },
+  { id: "reviewer-q1", nama: "Prof. Hana", peran: "Reviewer Q1", rambut: "#8d8d8d", baju: "#1c2740", kulit: "#e0b089", panjang: false, suka: ["rak1", "jendela1", "rapat2"] },
 ];
 const LABEL = { bekerja: "Bekerja", rapat: "Rapat", selesai: "Selesai", menunggu: "Menunggu tugas" };
 const STC = { bekerja: "#f2b234", rapat: "#b48ae6", selesai: "#4cc684", menunggu: "#9aa6b0" };
 
 // ---------- Geometri isometrik ----------
-const TW = 64, TH = 32, MW = 14, MH = 11, WALL = 130, OX = MH * TW / 2, OY = 150, LW = 800, LH = 575;
+const TW = 64, TH = 32, MW = 17, MH = 12, WALL = 130, OX = MH * TW / 2, OY = 150, LW = 928, LH = 630;
 const iso = (x, y, z = 0) => [OX + (x - y) * TW / 2, OY + (x + y) * TH / 2 - z];
 function shade(hex, f) {
   const n = parseInt(hex.slice(1), 16), ch = [n >> 16, (n >> 8) & 255, n & 255];
@@ -152,7 +153,7 @@ function box(ctx, x, y, w, d, z, h, col) {
 }
 
 // ---------- Tata ruang ----------
-const DESKS = [{ x: 3, y: 3 }, { x: 6, y: 3 }, { x: 9, y: 3 }, { x: 3, y: 6 }, { x: 6, y: 6 }, { x: 9, y: 6 }, { x: 12, y: 6 }, { x: 12, y: 3 }];
+const DESKS = [{ x: 3, y: 3 }, { x: 6, y: 3 }, { x: 9, y: 3 }, { x: 3, y: 6 }, { x: 6, y: 6 }, { x: 9, y: 6 }, { x: 12, y: 6 }, { x: 12, y: 3 }, { x: 15, y: 3 }];
 const POI = [
   { id: "kopi1",    at: [10, 1], x: 10.6, y: 1.35, face: "up",   say: "Ambil kopi dulu",      dur: [5, 9] },
   { id: "kopi2",    at: [12, 1], x: 12.2, y: 1.35, face: "up",   say: "Espresso satu",        dur: [5, 9] },
@@ -173,7 +174,7 @@ for (let y = 1; y <= 3; y++) block(0, y);                 // rak buku
 for (let x = 10; x <= 12; x++) block(x, 0);               // bar kopi
 for (let x = 1; x <= 3; x++) { block(x, 10); block(x, 8); } // sofa, meja tamu
 for (let x = 10; x <= 12; x++) { block(x, 8); block(x, 9); } // meja rapat
-const PLANTS = [[0, 6], [13, 5], [4, 0], [13, 10], [0, 0]];
+const PLANTS = [[0, 6], [13, 5], [4, 0], [13, 10], [0, 0], [16, 0], [16, 11], [16, 6]];
 for (const [x, y] of PLANTS) block(x, y);
 
 function bfs(sx, sy, tx, ty) {
@@ -223,7 +224,7 @@ function drawBG() {
   c.fillStyle = st; c.fillRect(0, 0, LW, LH);
   // lantai: kayu di area kerja, marmer di sekelilingnya
   for (let y = 0; y < MH; y++) for (let x = 0; x < MW; x++) {
-    const wood = x >= 2 && x <= 11 && y >= 2 && y <= 7;
+    const wood = x >= 2 && x <= 16 && y >= 2 && y <= 7;
     const col = wood ? ((x + y) % 2 ? "#946440" : "#9e6c46") : ((x + y) % 2 ? "#e4dfd5" : "#ede9e1");
     poly(c, [iso(x, y), iso(x + 1, y), iso(x + 1, y + 1), iso(x, y + 1)], col);
     if (wood) { c.strokeStyle = "rgba(0,0,0,.08)"; c.lineWidth = 1; c.beginPath(); const a = iso(x, y + .5), b = iso(x + 1, y + .5); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); }
@@ -275,7 +276,9 @@ DESKS.forEach((d, i) => FURN.push({ key: d.x + d.y + 1.5, draw: t => drawDesk(d,
 function drawDesk(d, i, t) {
   const { x, y } = d, c = own[i], on = c && c.status === "bekerja" && c.seated;
   box(ctx, x + .1, y + .15, .08, .7, 0, 24, "#2a2b2f"); box(ctx, x + 1.82, y + .15, .08, .7, 0, 24, "#2a2b2f");
-  box(ctx, x + .05, y + .1, 1.9, .8, 24, 4, "#5c3c29");
+  const exec = AGEN[i] && AGEN[i].id === "reviewer-q1";
+  box(ctx, x + .05, y + .1, 1.9, .8, 24, 4, exec ? "#1d1e22" : "#5c3c29");
+  if (exec) box(ctx, x + .05, y + .86, 1.9, .04, 22, 2, "#c9a45c");
   for (const mx of [x + .22, x + 1.08]) {
     box(ctx, mx + .3, y + .26, .1, .08, 28, 7, "#1e1f23");
     const yy = y + .32, z0 = 34, w = .7, h = 22;
@@ -471,7 +474,7 @@ function drawChar(c, t) {
   c.headY = sy + hy * SC; c.bb = { x: sx - 14, y: sy + hy * SC - 5, w: 28, h: -hy * SC + 8 };
 }
 
-const LAMPS = [[4, 3.5], [7, 3.5], [10, 3.5], [13, 3.5], [13, 6.5], [4, 6.5], [7, 6.5], [10, 6.5], [2.5, 9.2], [11.5, 9]];
+const LAMPS = [[4, 3.5], [7, 3.5], [10, 3.5], [13, 3.5], [13, 6.5], [16, 3.5], [4, 6.5], [7, 6.5], [10, 6.5], [2.5, 9.2], [11.5, 9]];
 function drawLamps() {
   for (const [x, y] of LAMPS) {
     const [sx, sy] = iso(x, y, 150);
@@ -504,7 +507,7 @@ function wrap(text, maxW, maxLines) {
   return lines;
 }
 function drawOverlay(t, now) {
-  const ts = Math.min(1.8, Math.max(1, 800 / cssW));
+  const ts = Math.min(1.8, Math.max(1, LW / cssW));
   const order = [...chars].sort((a, b) => (a.x + a.y) - (b.x + b.y));
   for (const c of order) {
     const sx = Math.round(iso(c.x, c.y)[0]);

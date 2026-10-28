@@ -1,6 +1,6 @@
 # Ruang kerja artikel CDA
 
-Folder ini dipakai bersama oleh delapan agen di `.claude/agents/`.
+Folder ini dipakai bersama oleh sembilan agen di `.claude/agents/`.
 
 | Agen | Fokus |
 |---|---|
@@ -12,6 +12,7 @@ Folder ini dipakai bersama oleh delapan agen di `.claude/agents/`.
 | `pemilih-jurnal` | Membandingkan dan memeringkat jurnal sasaran (kuartil, cakupan, APC, lama review) |
 | `pemeriksa-metadata` | Mengaudit dan melengkapi metadata korpus, mendaftar data yang masih dibutuhkan |
 | `pengumpul-data` | Mengambil data yang kurang dari sumber terbuka dan mengusulkan kode lanjutan untuk diverifikasi peneliti |
+| `reviewer-q1` | Mereview hasil kerja agen lain dengan standar reviewer Scopus Q1 dan menugaskan revisi |
 
 Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus ditangani.
 
