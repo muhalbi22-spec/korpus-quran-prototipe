@@ -83,7 +83,7 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
   <header>
     <div>
       <h1>Kantor Agen CDA</h1>
-      <p class="sub">Tujuh agen penulisan artikel <em>crypto legitimation discourse</em>. Saat Claude memberi tugas, agen kembali ke mejanya dan mulai bekerja. Di sela tugas mereka ngopi, membaca, atau rehat.</p>
+      <p class="sub">Delapan agen penulisan artikel <em>crypto legitimation discourse</em>. Saat Claude memberi tugas, agen kembali ke mejanya dan mulai bekerja. Di sela tugas mereka ngopi, membaca, atau rehat.</p>
     </div>
     <div class="live" id="live"><i></i><span id="liveTxt">Menyambung…</span></div>
   </header>
@@ -99,7 +99,7 @@ ol.log .what { min-width: 0; overflow-wrap: anywhere; }
   </div>
 
   <div class="scene" id="scene">
-    <canvas id="cv" role="img" aria-label="Kantor isometrik berisi tujuh agen AI"></canvas>
+    <canvas id="cv" role="img" aria-label="Kantor isometrik berisi delapan agen AI"></canvas>
     <p class="hint">Ketuk karakter untuk melihat tugasnya</p>
     <div class="card" id="card" hidden>
       <h3><i class="dot" id="cDot"></i><span id="cName"></span></h3>
@@ -129,6 +129,7 @@ const AGEN = [
   { id: "penyunting-q1",   nama: "Sinta", peran: "Penyunting Q1",    rambut: "#24160d", baju: "#6d3f80", kulit: "#d9a274", panjang: true,  suka: ["sofa2", "kopi1", "jendela1"] },
   { id: "referensi",       nama: "Rafa",  peran: "Referensi",        rambut: "#3d2718", baju: "#b8892a", kulit: "#b57b4f", panjang: false, suka: ["rak1", "rak2", "rapat2"] },
   { id: "pemilih-jurnal",  nama: "Juna",  peran: "Pemilih jurnal",   rambut: "#0f0f0f", baju: "#23706f", kulit: "#e6b38a", panjang: false, suka: ["jendela2", "rapat3", "kopi2"] },
+  { id: "pengumpul-data", nama: "Dara", peran: "Pengumpul data", rambut: "#1c120b", baju: "#8a5a2b", kulit: "#c98f60", panjang: true, suka: ["rak1", "kopi2", "jendela2"] },
   { id: "pemeriksa-metadata", nama: "Meta", peran: "Pemeriksa metadata", rambut: "#3a2214", baju: "#4a5a6e", kulit: "#d39a6a", panjang: true, suka: ["rak2", "kopi1", "jendela1"] },
 ];
 const LABEL = { bekerja: "Bekerja", rapat: "Rapat", selesai: "Selesai", menunggu: "Menunggu tugas" };
@@ -151,7 +152,7 @@ function box(ctx, x, y, w, d, z, h, col) {
 }
 
 // ---------- Tata ruang ----------
-const DESKS = [{ x: 3, y: 3 }, { x: 6, y: 3 }, { x: 9, y: 3 }, { x: 3, y: 6 }, { x: 6, y: 6 }, { x: 9, y: 6 }, { x: 12, y: 3 }];
+const DESKS = [{ x: 3, y: 3 }, { x: 6, y: 3 }, { x: 9, y: 3 }, { x: 3, y: 6 }, { x: 6, y: 6 }, { x: 9, y: 6 }, { x: 12, y: 6 }, { x: 12, y: 3 }];
 const POI = [
   { id: "kopi1",    at: [10, 1], x: 10.6, y: 1.35, face: "up",   say: "Ambil kopi dulu",      dur: [5, 9] },
   { id: "kopi2",    at: [12, 1], x: 12.2, y: 1.35, face: "up",   say: "Espresso satu",        dur: [5, 9] },
@@ -470,7 +471,7 @@ function drawChar(c, t) {
   c.headY = sy + hy * SC; c.bb = { x: sx - 14, y: sy + hy * SC - 5, w: 28, h: -hy * SC + 8 };
 }
 
-const LAMPS = [[4, 3.5], [7, 3.5], [10, 3.5], [13, 3.5], [4, 6.5], [7, 6.5], [10, 6.5], [2.5, 9.2], [11.5, 9]];
+const LAMPS = [[4, 3.5], [7, 3.5], [10, 3.5], [13, 3.5], [13, 6.5], [4, 6.5], [7, 6.5], [10, 6.5], [2.5, 9.2], [11.5, 9]];
 function drawLamps() {
   for (const [x, y] of LAMPS) {
     const [sx, sy] = iso(x, y, 150);

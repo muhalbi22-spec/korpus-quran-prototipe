@@ -1,6 +1,6 @@
 # Ruang kerja artikel CDA
 
-Folder ini dipakai bersama oleh tujuh agen di `.claude/agents/`.
+Folder ini dipakai bersama oleh delapan agen di `.claude/agents/`.
 
 | Agen | Fokus |
 |---|---|
@@ -11,6 +11,7 @@ Folder ini dipakai bersama oleh tujuh agen di `.claude/agents/`.
 | `referensi` | Verifikasi sumber, daftar pustaka, BibTeX, daftar isi/kerangka |
 | `pemilih-jurnal` | Membandingkan dan memeringkat jurnal sasaran (kuartil, cakupan, APC, lama review) |
 | `pemeriksa-metadata` | Mengaudit dan melengkapi metadata korpus, mendaftar data yang masih dibutuhkan |
+| `pengumpul-data` | Mengambil data yang kurang dari sumber terbuka dan mengusulkan kode lanjutan untuk diverifikasi peneliti |
 
 Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus ditangani.
 
