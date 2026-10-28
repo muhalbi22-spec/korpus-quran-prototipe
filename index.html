@@ -126,6 +126,7 @@ ul.plain li{margin-bottom:4px}
 @media(max-width:480px){.hit{grid-template-columns:auto 1fr}.hit .hmain{grid-column:1 / -1}}
 .ex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 14px;font-size:.9rem;color:var(--ink2)}
 .rcount{margin:0 0 10px;color:var(--ink2);font-size:.92rem}
+mark.kw{background:var(--hl);color:inherit;border-radius:4px;padding:0 3px;box-shadow:0 0 0 1px var(--rafa)}
 .card.plan{border-left-color:var(--tree)}
 .badge.plan{background:#E8EEFB;border-color:#B8C7EE;color:#1F3A7A}
 ol.plain{margin:4px 0 12px;padding-left:22px}
@@ -1243,7 +1244,7 @@ const cur=()=>SURAHS[state.s].verses[state.v-1];
 const arabNum=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 const totalWords=VERSES.reduce((a,v)=>a+v.words.length,0);
 function kasusLabel(w){return w.mabni?('Mabnī, di posisi '+POSISI[w.kasus]):KASUS[w.kasus].n;}
-function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({s:v.si,sn:v.sn,v:v.n,w:i,ar:w.ar,lat:w.lat});}));return r;}
+function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({s:v.si,sn:v.sn,v:v.n,w:i,ar:w.ar,lat:w.lat,gloss:w.gloss});}));return r;}
 
 /* ---------- Komponen ---------- */
 function surahChips(){
@@ -1337,28 +1338,61 @@ function tree(){
 }
 
 /* ---------- Tab: Akar kata ---------- */
+// Pencarian akar: tulisan Latin (r-ḥ-m, rhm, ʿ-l-q, alq) atau Arab (رحم, ر ح م), dengan atau tanpa harakat.
+const rootLat=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[\u02BE\u02BF\u2018\u2019'`]/g,'a').replace(/[\s\-.,;:()“”"]/g,'');
+const rootAr=s=>stripAr(s).replace(/\u0649/g,'\u064A').replace(/[\s\u200c\u200d]/g,'');
+function rootQuery(raw){
+  const q=String(raw||'').trim();
+  if(!q)return null;
+  return hasArabic(q)?{ar:true,q:rootAr(q)}:{ar:false,q:rootLat(q)};
+}
+// Skor kecocokan: 3 = akar persis, 2 = bagian dari akar, 1 = cocok pada makna atau bentuk di teks, 0 = tidak cocok.
+function rootScore(k,rq){
+  const r=ROOTS[k],occ=occurrences(k);
+  if(!rq.q)return 0;
+  if(rq.ar){
+    const ra=rootAr(r.ar);
+    if(ra===rq.q)return 3;
+    if(ra.includes(rq.q))return 2;
+    return occ.some(o=>rootAr(o.ar).includes(rq.q))?1:0;
+  }
+  const rl=rootLat(r.lat);
+  if(rl===rq.q)return 3;
+  if(rl.includes(rq.q))return 2;
+  const f=[r.makna].concat(occ.map(o=>o.lat),occ.map(o=>o.gloss));
+  return f.some(t=>rootLat(t).includes(rq.q))?1:0;
+}
+function kwicRow(o){
+  const v=SURAHS[o.s].verses[o.v-1];
+  const toks=v.ar.split(/\s+/);
+  const ar=toks.length===v.words.length?toks.map((t,i)=>i===o.w?`<mark class="kw">${t}</mark>`:t).join(' '):v.ar;
+  return `<button class="hit ay" data-goto="${o.s}:${o.v}:${o.w}"><span class="hv">QS ${o.sn}:${o.v}</span><span class="hmain">${esc(o.lat)}, ${esc(o.gloss)}</span><span class="har" lang="ar">${ar}</span><span class="hmain" style="grid-column:1 / -1"><span class="muted">${esc(v.tr)}</span></span></button>`;
+}
 function rootEntry(k){
   const r=ROOTS[k],occ=occurrences(k);
+  const nForm=new Set(occ.map(o=>rootAr(o.ar))).size;
   return `<article class="entry ${state.focusRoot===k?'hl':''}" id="root-${k}">
-    <div class="rhead"><span class="rt" lang="ar">${r.ar}</span><div><strong>${esc(r.lat)}</strong><br><span class="muted">${esc(r.makna)}</span></div></div>
+    <div class="rhead"><span class="rt" lang="ar">${r.ar}</span><div><strong>${esc(r.lat)}</strong><br><span class="muted">${esc(r.makna)}</span><br><span class="muted">${occ.length} kemunculan, ${nForm} bentuk berbeda</span></div></div>
     ${r.cat?`<p class="note">${esc(r.cat)}</p>`:''}
     <div class="forms"><span class="muted">Bentuk dalam teks:</span>
       ${occ.map(o=>`<button class="formbtn" data-goto="${o.s}:${o.v}:${o.w}"><span lang="ar">${o.ar}</span> <small>${esc(o.lat)}, QS ${o.sn}:${o.v}</small></button>`).join('')}
-    </div></article>`;
+    </div>
+    <details class="textlist"><summary>Konkordansi: ${occ.length} kutipan ayat</summary>${occ.map(kwicRow).join('')}</details></article>`;
 }
 function akarList(){
-  const q=state.q.trim().toLowerCase();
-  const keys=Object.keys(ROOTS).filter(k=>{
-    if(!q)return true;
-    const r=ROOTS[k];
-    const forms=occurrences(k).map(o=>o.lat).join(' ');
-    return (r.lat+' '+r.ar+' '+r.makna+' '+forms).toLowerCase().includes(q);
-  });
-  return keys.length?keys.map(rootEntry).join(''):'<p class="empty">Tidak ada akar yang cocok. Coba kata kunci lain, misalnya “nama”, “jalan”, atau “r-ḥ-m”.</p>';
+  const rq=rootQuery(state.q);
+  let keys=Object.keys(ROOTS);
+  let info='';
+  if(rq){
+    const sc={};keys.forEach(k=>sc[k]=rootScore(k,rq));
+    keys=keys.filter(k=>sc[k]>0).sort((a,b)=>sc[b]-sc[a]);
+    info=`<p class="rcount">${keys.length} dari ${Object.keys(ROOTS).length} akar cocok</p>`;
+  }
+  return info+(keys.length?keys.map(rootEntry).join(''):'<p class="empty">Tidak ada akar yang cocok. Coba tulis dengan huruf Arab (misalnya “رحم”), tanpa tanda khusus (misalnya “rhm”), atau pakai makna seperti “nama” atau “jalan”.</p>');
 }
 function akar(){
-  return `<p class="note">Kamus berbasis akar: setiap akar memuat makna dasar dan semua bentuknya dalam teks. Ketuk sebuah bentuk untuk membuka kata itu pada tab Baca.</p>
-    <input id="q" class="search" type="search" placeholder="Cari akar, makna, atau bentuk" value="${esc(state.q)}" aria-label="Cari akar kata">
+  return `<p class="note">Kamus berbasis akar: setiap akar memuat makna dasar, jumlah kemunculan, semua bentuknya dalam teks, dan konkordansi ayatnya. Ketuk sebuah bentuk atau kutipan untuk membukanya pada tab Baca.</p>
+    <input id="q" class="search" type="search" placeholder="Cari akar (r-ḥ-m, rhm, رحم), makna, atau bentuk" value="${esc(state.q)}" aria-label="Cari akar kata">
     <div id="rootlist">${akarList()}</div>`;
 }
 
@@ -1420,10 +1454,11 @@ function runSearch(raw){
       const f=[];let snip=null;
       if(ar){
         if(has(w.ar))f.push('teks Arab');
+        if(w.root&&rootAr(q).length>=2&&rootScore(w.root,{ar:true,q:rootAr(q)})>=2)f.push('akar');
       }else{
         if(has(w.lat))f.push('transliterasi');
         if(has(w.gloss))f.push('makna');
-        if(w.root){const r=ROOTS[w.root];if(has(r.lat)||has(r.makna)||has(r.cat))f.push('akar');}
+        if(w.root){const r=ROOTS[w.root];if(has(r.lat)||has(r.makna)||has(r.cat)||(rootLat(q).length>=3&&rootScore(w.root,{ar:false,q:rootLat(q)})>=2))f.push('akar');}
         const seg=w.segs.find(s=>has(s[1]+' '+s[2]+' '+s[3]));
         if(seg){f.push('i‘rāb');snip=seg;}
       }
@@ -1698,7 +1733,7 @@ function pedoman(){
    <div class="tw"><table><thead><tr><th>Lapisan</th><th>Status saat ini</th></tr></thead><tbody>
     <tr><td>Anotasi i‘rāb per kata</td><td>Tersedia untuk seluruh kata, berstatus draf kerja.</td></tr>
     <tr><td>Treebank sintaksis</td><td>Tersedia pada tingkat kata untuk ${VERSES.length} ayat, berstatus draf kerja.</td></tr>
-    <tr><td>Kamus akar kata</td><td>${nRoots} entri ringkas dengan tautan ke setiap bentuknya.</td></tr>
+    <tr><td>Kamus akar kata</td><td>${nRoots} entri dengan jumlah kemunculan, tautan ke setiap bentuknya, dan konkordansi ayat. Pencarian menerima tulisan Latin (r-ḥ-m, rhm) maupun Arab (رحم).</td></tr>
     <tr><td>Terjemahan paralel</td><td>Terjemahan Kemenag untuk seluruh ayat purwarupa, termasuk Al-‘Alaq; NU Online untuk seluruh ayat purwarupa (dengan penanda kesamaan teks per ayat), serta terjemahan kerja peneliti. Kolom penerbit menunggu izin data.</td></tr>
     <tr><td>Makna kontekstual</td><td>${DIS.length} contoh entri dan satu templat. Rujukan Tafsir Al-Mishbah sudah diisi untuk entri ar-raḥmān ar-raḥīm dan ad-dīn; entri lain belum.</td></tr>
     <tr><td>Peta sisipan</td><td>Terjemahan Kemenag untuk ${VERSES.filter(v=>SELARAS[`${v.si}:${v.n}`]).length} ayat diselaraskan dengan kata Arab; ${sisStat(VERSES).sisipan} sisipan dalam kurung terdeteksi otomatis dan diklasifikasi (draf peneliti).</td></tr>
