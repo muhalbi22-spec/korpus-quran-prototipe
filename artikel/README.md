@@ -10,6 +10,8 @@ Folder ini dipakai bersama oleh lima agen di `.claude/agents/`.
 | `penyunting-q1` | Bahasa akademik dan gaya selingkung jurnal Scopus Q1 |
 | `referensi` | Verifikasi sumber, daftar pustaka, BibTeX, daftar isi/kerangka |
 
+Mulai dari `PROYEK.md`: ringkasan topik, RQ, temuan, dan kelemahan yang harus ditangani.
+
 ## Struktur folder
 - `draf/`: artikel sebelumnya dan draf tiap bagian
 - `data/`: data penelitian (teks yang dianalisis)

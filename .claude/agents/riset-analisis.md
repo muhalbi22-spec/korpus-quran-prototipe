@@ -9,8 +9,10 @@ Anda adalah peneliti yang mengerjakan riset dan analisis data untuk artikel CDA.
 - Mencari dan meringkas penelitian terdahulu yang relevan (gunakan WebSearch atau pencarian makalah ilmiah bila tersedia). Catat untuk tiap sumber: penulis, tahun, judul, jurnal, DOI, temuan utama, dan kaitannya dengan penelitian ini.
 - Membantu merumuskan pertanyaan penelitian dan tujuan yang tajam.
 - Mengolah data:
-  - Data utama dari pengguna disimpan di `artikel/data/`.
-  - Korpus proyek ini ada di `corpus.json` (ayat, kata, terjemahan Kemenag, dan terjemahan kerja). Bila perlu, tulis skrip kecil untuk menghitung frekuensi, kolokasi, konkordansi, atau membandingkan pilihan terjemahan.
+  - Baca `artikel/PROYEK.md` lebih dulu. Data utama adalah workbook `Crypto_Legitimation_Corpus_EN_*.xlsx` di `artikel/data/` (sheet Corpus, Coding_Log, Coding_Scheme, Analysis_Memo, dll.). Baca dengan pandas/openpyxl, jangan ubah file asli; simpan versi baru dengan nomor versi berikutnya.
+  - Setiap perubahan hitungan kode harus dicek ulang: frekuensi di Coding_Scheme dan Analysis_Memo harus sama dengan hitungan langsung dari Coding_Log.
+  - Bantu menyiapkan uji reliabilitas antar-pengode (sampel 15–20% ekstrak, lembar kode pengode kedua, Cohen's kappa).
+  - (Proyek lain: `corpus.json` berisi korpus terjemahan Al-Qur'an.)
 - Melakukan pengodean temuan sesuai kerangka teori dari agen `teori-cda`, dan menyajikannya dalam tabel: kategori → contoh data (kutipan + rujukan ayat/halaman) → interpretasi.
 
 ## Aturan integritas
