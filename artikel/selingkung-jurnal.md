@@ -50,6 +50,25 @@ Gaya penulisan: "well-organized, clear style, avoid esoteric jargon". Konsep tek
 
   Format ini mengikuti pola umum Sage Harvard. Volume dan halaman contoh diambil dari ingatan, bukan dicek hari ini: **verifikasi** di panduan resmi dan di metadata DOI 10.1177/1750481307071986.
 
+## Anggaran kata artikel 1 (wajib diikuti semua agen)
+
+Total 7.000 kata termasuk catatan kaki dan referensi.
+
+| Bagian | Target kata |
+|---|---:|
+| Abstrak | 150 |
+| 1. Introduction | 850 |
+| 2. Theoretical framework (dengan tinjauan pustaka kritis) | 1.100 |
+| 3. Data and method | 850 |
+| 4. Analysis (dengan kutipan ekstrak) | 1.700 |
+| 5. Discussion | 800 |
+| 6. Conclusion | 300 |
+| Statements and Declarations | 150 |
+| References (±40 entri) | 1.100 |
+| **Total** | **7.000** |
+
+Tabel dan kutipan ekstrak ikut dihitung. Untuk menghemat kata, letakkan tabel kode yang panjang di lampiran daring (supplementary material).
+
 ## Implikasi untuk proyek
 
 - Batas 7.000 kata termasuk referensi **tidak realistis untuk tiga RQ**. Ini mendukung opsi dua artikel, dengan artikel (a) tipologi *accounts* (RQ2) dikirim ke jurnal ini.
