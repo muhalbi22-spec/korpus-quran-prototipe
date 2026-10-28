@@ -1,0 +1,126 @@
+{
+ "taqwa": {
+  "n": 17,
+  "thesis_formal": 11,
+  "revised_default": 11,
+  "families": {
+   "SI": {
+    "fear": 2,
+    "righteousness/right": 11,
+    "piety/devotion": 4
+   },
+   "PI": {
+    "restraint/protection": 4,
+    "piety/devotion": 5,
+    "duty": 4,
+    "righteousness/right": 3,
+    "fear": 1
+   },
+   "YA": {
+    "righteousness/right": 7,
+    "piety/devotion": 8,
+    "restraint/protection": 2
+   },
+   "AR": {
+    "fear": 15,
+    "piety/devotion": 2
+   },
+   "HK": {
+    "retention+gloss": 5,
+    "piety/devotion": 9,
+    "righteousness/right": 2,
+    "fear": 1
+   }
+  },
+  "gloss_variants": [
+   "(the) piety",
+   "and [the] piety",
+   "and piety",
+   "the piety",
+   "to [the] piety",
+   "to be feared"
+  ]
+ },
+ "rahmat": {
+  "n": 114,
+  "thesis_formal": 108,
+  "revised_default": 114,
+  "families": {
+   "SI": {
+    "mercy": 114
+   },
+   "PI": {
+    "mercy": 113,
+    "zero": 1
+   },
+   "YA": {
+    "mercy": 106,
+    "grace": 8
+   },
+   "AR": {
+    "mercy": 113,
+    "compassion": 1
+   },
+   "HK": {
+    "mercy": 114
+   }
+  },
+  "gloss_variants": []
+ },
+ "kafir": {
+  "n": 27,
+  "thesis_formal": 26,
+  "revised_default": 26,
+  "families": {
+   "SI": {
+    "verbal": 1,
+    "abstract noun": 1,
+    "agentive noun (disbeliever)": 24,
+    "agricultural": 1
+   },
+   "PI": {
+    "verbal": 1,
+    "agentive noun (disbeliever)": 23,
+    "abstract noun": 2,
+    "agricultural": 1
+   },
+   "YA": {
+    "verbal": 6,
+    "abstract noun": 2,
+    "agentive noun (unbeliever/rejecter)": 18,
+    "agricultural": 1
+   },
+   "AR": {
+    "verbal": 6,
+    "agentive noun (unbeliever/rejecter)": 21
+   },
+   "HK": {
+    "verbal": 1,
+    "agentive noun (disbeliever)": 24,
+    "agricultural": 1,
+    "retention+gloss": 1
+   }
+  },
+  "gloss_variants": [
+   "the tillers"
+  ]
+ },
+ "kafir_extension": {
+  "n": 131,
+  "default": 128,
+  "variants": [
+   [
+    "2:254:19",
+    "And the deniers"
+   ],
+   [
+    "26:19:7",
+    "the ungrateful"
+   ],
+   [
+    "46:6:9",
+    "deniers"
+   ]
+  ]
+ }
+}
