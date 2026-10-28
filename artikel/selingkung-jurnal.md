@@ -28,7 +28,7 @@ Pedoman tidak mewajibkan IMRaD. Editor menekankan kriteria berikut, yang sebaikn
 1. **Judul**: ringkas, deskriptif, tidak ambigu.
 2. **Abstrak** (150 kata, tidak terstruktur) dan **kata kunci** (5–10).
 3. **Pendahuluan**: masalah sosial-politik dan celah penelitian.
-4. **Bagian teori yang menonjol dan tinjauan pustaka kritis.** Pedoman meminta "a prominent theory section and a critical literature review" (van Leeuwen, Reyes, van Dijk, Scott & Lyman).
+4. **Bagian teori yang menonjol dan tinjauan pustaka kritis.** Pedoman meminta "a prominent theory section and a critical literature review" (Van Leeuwen, Reyes, Van Dijk, Scott & Lyman).
 5. **Data dan metode**: korpus. Jurnal lebih menyukai "a sizeable corpus of interesting texts or talk". Jelaskan sampling, pengodean, reliabilitas antar-pengode, dan penerjemahan.
 6. **Analisis**: rinci, sistematis, berbasis teori, dengan **beberapa kutipan ekstrak**.
 7. **Diskusi**: analisis sosial dan politik yang **eksplisit dan berbasis teori**, mengintegrasikan analisis wacana dan analisis sosial.
@@ -45,7 +45,7 @@ Gaya penulisan: "well-organized, clear style, avoid esoteric jargon". Konsep tek
 
 ## Contoh format Sage Harvard (pola umum, cek di panduan resmi)
 
-- Dalam teks: (van Leeuwen, 2007), (Reyes, 2011: 785), (Scott and Lyman, 1968).
+- Dalam teks: (Van Leeuwen, 2007), (Reyes, 2011: 785), (Scott and Lyman, 1968).
 - Daftar pustaka (artikel jurnal): `Van Leeuwen T (2007) Legitimation in discourse and communication. Discourse & Communication 1(1): 91–112.`
 
   Format ini mengikuti pola umum Sage Harvard. Volume dan halaman contoh diambil dari ingatan, bukan dicek hari ini: **verifikasi** di panduan resmi dan di metadata DOI 10.1177/1750481307071986.
