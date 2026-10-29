@@ -1,0 +1,1013 @@
+{
+ "diterapkan": [
+  {
+   "who": "fathur",
+   "lokasi": "111:2:2",
+   "aspek": "kasus",
+   "tingkat": "galat",
+   "alasan": "ʿanhu (huruf jarr + ḍamīr) ditulis kasus 'mabni', mabni=false. Konvensi korpus untuk kata huruf jarr + ḍamīr adalah kasus = posisi ḍamīr (jarr) dan mabni = true (bandingkan fīhi QS 2:2, ʿalayhim QS 1:7, serta lakum/wa-liya/ʿalayhim pada kelompok B). Segmen sudah benar menyebut ḍamīr di posisi jarr; yang salah hanya penanda tingkat kata."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "111:2:2",
+   "aspek": "mabni",
+   "tingkat": "galat",
+   "alasan": "Pasangan temuan kasus di atas: ḍamīr muttaṣil mabnī dengan maḥall jarr, jadi mabni harus true."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "112:4:2",
+   "aspek": "kasus",
+   "tingkat": "galat",
+   "alasan": "lahū (huruf jarr + ḍamīr) ditulis kasus 'mabni', mabni=false. Konvensi korpus untuk kata huruf jarr + ḍamīr adalah kasus = posisi ḍamīr (jarr) dan mabni = true (bandingkan fīhi QS 2:2, ʿalayhim QS 1:7, serta lakum/wa-liya/ʿalayhim pada kelompok B). Segmen sudah benar menyebut ḍamīr di posisi jarr; yang salah hanya penanda tingkat kata."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "112:4:2",
+   "aspek": "mabni",
+   "tingkat": "galat",
+   "alasan": "Pasangan temuan kasus di atas: ḍamīr muttaṣil mabnī dengan maḥall jarr, jadi mabni harus true."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "106:2:1",
+   "aspek": "segs",
+   "tingkat": "peringatan",
+   "alasan": "Pandangan “atau ẓarf” untuk riḥlata tidak lazim dalam kitab iʿrāb yang umum dirujuk (yang tercatat: mafʿūl bih bagi maṣdar īlāf, atau manṣūb oleh fiʿil yang dihapus) dan tampaknya ditulis dari ingatan. Hapus sampai ada rujukan."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "109:5",
+   "aspek": "tr",
+   "tingkat": "peringatan",
+   "alasan": "Ayat 3 dan 5 lafaznya sama, tetapi tr ayat 5 (“tidak akan”) tidak cocok dengan ayat 4 (“tidak pernah”) ataupun dengan pandangan pembedaan waktu yang dicatat pada ʿābidūna (ayat 4–5 untuk masa lampau). NU juga memakai “tidak pernah (pula)”. Usulan menyelaraskan tr dengan ayat 4."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "111:5",
+   "aspek": "edges",
+   "tingkat": "peringatan",
+   "alasan": "Arah edge khabar muqaddam berbeda dari konvensi korpus. Pada QS 2:7 (data awal) dan QS 109:6 (kelompok B), mubtadaʾ muʾakhkhar bergantung pada jar-majrūr khabar dengan label “mubtadaʾ”, dan jar-majrūr itu menjadi kepala kalimat. Di sini justru fī→ḥabl berlabel “khabar”. Usulan: samakan arahnya; edge ḥāl ke ayat 4 pindah ke fī."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "105:1:3",
+   "aspek": "segs",
+   "tingkat": "peringatan",
+   "alasan": "Segmen tara menyebut ruʾyah qalbiyyah (mengetahui), yang menuntut dua objek. Karena itu kalimat istifhām yang di-taʿlīq menempati posisi kedua objek (sadda masadd al-mafʿūlayn), bukan satu objek (al-mafʿūl)."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "113:1",
+   "aspek": "tr",
+   "tingkat": "saran",
+   "alasan": "“Tuhan (yang membelah) fajar” memberi rabb makna “yang membelah”, padahal rabb bermakna pemilik/pemelihara; makna “membelah” ada pada kata falaq sendiri. Usulan sisipan yang lebih setia pada iḍāfah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "113:3:0",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: ayat 3–5 menyebut kejahatan khusus sesudah kejahatan umum mā khalaq (dhikr al-khāṣṣ baʿd al-ʿāmm), dan frasa wa-min sharri diulang (tikrār) untuk penegasan. Hal ini penting untuk penerjemahan pengulangan “dan dari kejahatan”."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "112:2:1",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: mubtadaʾ dan khabar sama-sama maʿrifah (Allāhu aṣ-ṣamad), sehingga kalimatnya bermakna pembatasan (qaṣr): hanya Dia aṣ-ṣamad. Ini menjelaskan pilihan terjemahan “tempat bergantung (segala sesuatu)”."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "112:4:3",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: khabar kufuwan dan lahū didahulukan dari isim aḥadun. Gejala taqdīm ini perlu disebut karena memberi tekanan pada penafian kesetaraan dengan-Nya."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "111:3:3",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Istilah “jinās” untuk lahab (nyala api) dan kunyah Abū Lahab masih bisa diperdebatkan, karena salah satu unsurnya nama diri. Lebih aman ditulis sebagai keserasian lafaz dan makna, sebagian menyebutnya jinās."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "108:2:1",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: iltifāt dari ḍamīr mutakallim “Kami” (innā aʿṭaynāka) ke isim ẓāhir li-rabbika. Gejala ini relevan bagi penerjemah karena kata gantinya berubah dari “Kami” ke “Tuhanmu”."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "105:5:1",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: ka-ʿaṣfin maʾkūl adalah tasybīh (mursal mujmal: ada adat tasybīh, wajh syabah tidak disebut). Gejala ini belum dicatat."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "106:2:3",
+   "aspek": "lat",
+   "tingkat": "saran",
+   "alasan": "Konvensi transliterasi wa + alif-lām syamsiyyah pada data awal: wa-n-nāsi, wa-lladhīna (dengan tanda hubung). “waṣ-ṣayfi” mengikuti gaya lain."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "akar:man",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Asal kata māʿūn diperselisihkan. Selain m-ʿ-n (maʿn, sesuatu yang sedikit), sebagian ahli bahasa mengaitkannya dengan ʿ-w-n (maʿūnah, pertolongan). Catat alternatif ini dan serahkan verifikasinya ke leksikograf-akar."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:4:1",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Ṣarf: yunbadhu adalah muḍāriʿ majhūl bentuk I (mujarrad) dari nabadha (nubidha–yunbadhu, pola yufʿalu); nūn pertama adalah fāʾ fiʿil akar n-b-dh, bukan nūn tambahan bentuk VII. Bentuk VII (inbadha–yanbadhu) intransitif dan tidak dipasifkan dengan nāʾib fāʿil pribadi. Catatan bahwa QAC \"tanpa menyebut bentuk turunannya\" menyesatkan: QAC benar karena ini bentuk I. Kasus mabnī (nūn tawkīd langsung bersambung) sudah benar."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:2:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Naḥw: naʿt harus sesuai dengan manʿūt dalam taʿrīf dan tankīr. Alladhī maʿrifah, sedangkan kulli humazatin nakirah (kull yang disandarkan kepada nakirah tetap nakirah), sehingga alladhī tidak dapat menjadi naʿt bagi humazatin. Yang sah: badal dari kulli (badal tidak disyaratkan sesuai dalam taʿrīf), atau qaṭʿ: naṣab ʿalā adh-dhamm / rafaʿ sebagai khabar mubtadaʾ yang dihapus. Kasus (majrūr, mabnī) tetap."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:2",
+   "aspek": "edges",
+   "tingkat": "galat",
+   "alasan": "Mengikuti perbaikan 104:2:0: kepala lintas ayat alladhī adalah kulli (badal), bukan naʿt bagi humazatin."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "102:5:2",
+   "aspek": "gloss",
+   "tingkat": "peringatan",
+   "alasan": "Taʿlamūna di sini fiʿil syarat bagi law (pengandaian yang tidak terjadi), bukan berita masa depan; \"akan\" bertentangan dengan analisis dan dengan tr ayat (\"Sekiranya kalian mengetahui\"). Gloss 102:3 dan 102:4 boleh tetap karena didahului sawfa."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:6",
+   "aspek": "edges",
+   "tingkat": "peringatan",
+   "alasan": "Naḥw: man adalah mubtadaʾ yang khabar-nya jumlah fa-huwa fī ʿīshatin (ay. 7, sudah ditautkan oleh edge 101:7 [0,-1]). Edge [1,0,\"mubtadaʾ\"] membaca man sebagai mubtadaʾ bagi ammā, padahal ammā huruf tanpa maḥall. Sesuai konvensi korpus untuk huruf (sawfa→fiʿil, thumma→fiʿil), ammā ditautkan ke kata yang dimasukinya."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:8",
+   "aspek": "edges",
+   "tingkat": "peringatan",
+   "alasan": "Sama dengan 101:6: man bukan mubtadaʾ bagi ammā; khabar-nya fa-ummuhu hāwiyatun (ay. 9). Hubungan ʿaṭf dengan ayat 6 dipindah ke man sebagai inti jumlah ammā."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:5:0",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Konsistensi: wa-mā adrāka pada QS 97:2 yang sudah ada di korpus memilih wāw ʿaṭf (alternatif istiʾnāf); kelompok C memilih sebaliknya. Keduanya sah, tetapi rumus yang sama sebaiknya satu pilihan di seluruh korpus."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:3:0",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Konsistensi: wa-mā adrāka pada QS 97:2 yang sudah ada di korpus memilih wāw ʿaṭf (alternatif istiʾnāf); kelompok C memilih sebaliknya. Keduanya sah, tetapi rumus yang sama sebaiknya satu pilihan di seluruh korpus."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:10:0",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Konsistensi: wa-mā adrāka pada QS 97:2 yang sudah ada di korpus memilih wāw ʿaṭf (alternatif istiʾnāf); kelompok C memilih sebaliknya. Keduanya sah, tetapi rumus yang sama sebaiknya satu pilihan di seluruh korpus."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "102:8:2",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Konsistensi dengan yawmaʾidhin di 99:4, 99:6, 100:11: kelas segmen yawma di sana \"Isim (ẓarf)\" dan dicatat alternatif bahwa yawma mabnī atas fatḥah karena disandarkan pada idh (mabnī). Alternatif itu belum tercatat di sini."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:8:1",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Rumusan \"bermutaʿalliq pada muʾṣadatun yang didahulukan\" keliru arah: yang didahulukan adalah jar-majrūr, bukan muʾṣadatun."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:4:3",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: tasybīh 101:4 belum disebut sebagai gejala balāghah; penting bagi penerjemah agar perbandingan tidak diganti tafsiran."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:5:2",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: pasangan tasybīh kedua (101:5) sejajar dengan 101:4."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "103:1:0",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: qasam sudah dianalisis secara naḥw, tetapi fungsinya bagi terjemahan belum disebut: jawāb al-qasam (ay. 2) dikuatkan tiga penegas, yang menjelaskan \"sesungguhnya ... benar-benar\" dalam terjemahan."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:1:3",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Balāghah: pasangan humazah–lumazah (pola dan bunyi sama, beda huruf pertama) adalah jinās sekaligus menguatkan ritme; berguna untuk menjelaskan pilihan padanan berirama \"pengumpat lagi pencela\"."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "104:3",
+   "aspek": "tr",
+   "tingkat": "saran",
+   "alasan": "Keterangan segmen akhlada sendiri menyatakan māḍī di sini untuk hal yang diyakini pasti terjadi (bermakna yukhliduhu); \"telah mengekalkannya\" terlalu harfiah dan janggal. Kemenag/NU: \"dapat mengekalkannya\"."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "101:10:3",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Qirāʾah ditulis dari ingatan. Keenam klaim (jammaʿa, yaḥsabu/yaḥsibu, muʾṣadah/mūṣadah, ʿumud, la-turawunna, hāʾ hiyah) sesuai dengan pengetahuan peninjau tentang at-Taysīr/an-Nashr, tetapi tetap wajib dicocokkan dengan sumber tertulis sebelum rilis. Semua catatan lain hanya menyebut qurrāʾ tujuh (mis. jammaʿa tanpa Abū Jaʿfar dan Rawḥ; yaḥsabu tanpa Abū Jaʿfar), sedangkan di sini Yaʿqūb (qurrāʾ sepuluh) ikut disebut; cakupan sebaiknya dinyatakan."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:1",
+   "aspek": "edges",
+   "tingkat": "saran",
+   "alasan": "Keterangan memilih ḍabḥan sebagai mafʿūl muṭlaq bagi fiʿil yang dihapus (yaḍbaḥna) yang jumlahnya menjadi ḥāl dari al-ʿādiyāt, tetapi edge menggantungkannya langsung pada al-ʿādiyāt dengan label polos \"mafʿūl muṭlaq\", yang lebih cocok dengan alternatif maknawi. Label diperjelas agar edge sesuai pilihan."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:4",
+   "aspek": "tr",
+   "tingkat": "saran",
+   "alasan": "Keterangan bihī memilih bāʾ ẓarfiyyah (\"pada waktu itu\", ḍamīr merujuk pada ṣubḥan), sedangkan tr \"dengan itu\" mengikuti makna sababiyyah. Samakan tr dengan pilihan analisis (atau ubah pilihan menjadi sababiyyah)."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:5",
+   "aspek": "tr",
+   "tingkat": "saran",
+   "alasan": "Sama dengan 100:4: pilihan bihī adalah ẓarfiyyah, tetapi tr memakai \"dengan itu\"."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:9",
+   "aspek": "edges",
+   "tingkat": "peringatan",
+   "alasan": "Keterangan idhā (benar, sejalan dengan az-Zamakhsharī dan para muʿrib) menyatakan idhā TIDAK bermutaʿalliq pada yaʿlamu, tetapi edge [2,1] menggantungkannya pada yaʿlamu. Kepala yang dimaksud (objek/jawāb yang dihapus, ditunjukkan ay. 11) tidak ada di ayat ini, jadi kepala -1 dengan label penjelas."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:8:4",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Gejala muqābalah 99:7–8 penting untuk penerjemahan tetapi belum disebut. Usulan ini sekaligus menyalin ulang huruf Arab segmen dari w.ar agar urutan kode syaddah/harakat sama dengan Tanzil (lihat temuan mekanis)."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:2",
+   "aspek": "edges",
+   "tingkat": "saran",
+   "alasan": "Keterangan (benar) menyebut kalimat mā laylatu al-qadr menempati objek kedua DAN ketiga adrā secara taʿlīq; label edge \"mafʿūl bih 2\" kurang lengkap."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:3:0",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Tikrār laylat al-qadr baru disinggung di 97:2; catatan pada kemunculan ketiga membantu penerjemah mempertahankan pengulangan (tidak menggantinya dengan \"malam itu\")."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:4:6",
+   "aspek": "segs",
+   "tingkat": "peringatan",
+   "alasan": "Frasa \"menurut qirāʾah waqf\" keliru istilah: yang dimaksud adalah perbedaan tempat waqf (ibtidāʾ dengan min kulli amrin salāmun), bukan suatu qirāʾah. Diperlunak tanpa menambah nama. Usulan ini sekaligus menyalin ulang huruf Arab segmen dari w.ar agar urutan kode syaddah/harakat sama dengan Tanzil (lihat temuan mekanis)."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:1:7",
+   "aspek": "segs",
+   "tingkat": "peringatan",
+   "alasan": "Keberadaan bacaan rafaʿ wal-mushrikūna ditulis tanpa sumber dan tanpa status (mutawātir/syādhdh). Sepuluh qirāʾah membaca jarr; bila bacaan itu ada, ia syādhdh. Diperlunak dan ditandai untuk verifikasi."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:4:5",
+   "aspek": "segs",
+   "tingkat": "peringatan",
+   "alasan": "Klaim tentang QAC tidak sesuai berkas pembanding: qac_E.txt menandai illā pada 98:4 dan 98:5 sebagai CERT (حرف تحقيق), bukan restriksi."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:5:3",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Pendapat lām bermakna an setelah amara/arāda memang masyhur dinisbatkan kepada al-Farrāʾ, tetapi tanpa rujukan halaman sebaiknya ditulis \"dinisbatkan kepada\"."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:6:15",
+   "aspek": "segs",
+   "tingkat": "saran",
+   "alasan": "Gejala muqābalah 98:6–7 penting untuk penerjemahan tetapi belum disebut. Usulan ini sekaligus menyalin ulang huruf Arab segmen dari w.ar agar urutan kode syaddah/harakat sama dengan Tanzil (lihat temuan mekanis)."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8:4",
+   "aspek": "segs",
+   "tingkat": "peringatan",
+   "alasan": "Alasan \"karena ditanwīn, iḍāfah-nya tidak menjadikan jannāt maʿrifah\" tidak tepat: yang menentukan adalah status ʿadn (maṣdar nakirah atau ʿalam), bukan tanwīnnya. Kalimat diganti dengan penjelasan yang sejalan dengan keterangan tajrī."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8",
+   "aspek": "edges",
+   "tingkat": "saran",
+   "alasan": "Menyesuaikan label edge khālidīna dengan pilihan baru (ʿāmil dihapus); kepala tetap jazāʾuhum sebagai pemilik ḍamīr ṣāḥib al-ḥāl."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "akar:sdr",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Akar yaṣduru (99:6) benar ṣ-d-r, tetapi entri ROOTS hanya memuat \"dada\". Tambahkan makna verbal ṣadara agar kemunculan 99:6 terjelaskan."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "akar:mlk",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "al-malāʾikah (97:4) dimasukkan ke m-l-k mengikuti QAC (dicatat di segmen), tetapi entri ROOTS m-l-k tidak menyebut malak/malāʾikah maupun perselisihan asal katanya."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "akar:khyr",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "AKAR_BARU kelompok D dan E memuat entri khyr yang berbeda; versi E menghilangkan \"khayr juga = harta\" yang dibutuhkan 100:8. Pakai satu entri (versi D, sama dengan ROOTS sekarang)."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:6:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:6:2",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:7:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:8:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:8:1",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:10:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:10:3",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:11:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:11:1",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "100:11:4",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:4:1",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:5:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:5:1",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:6:2",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:6:4",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:7:3",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "99:8:3",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:1:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:3:3",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:4:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:4:2",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:4:5",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "97:4:7",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:1:11",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:4:9",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:4:10",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:5:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:5:7",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:5:10",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:5:12",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:5:15",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:6:11",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:7:4",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:7:8",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8:0",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8:2",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8:10",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8:20",
+   "aspek": "segs",
+   "tingkat": "galat",
+   "alasan": "Mekanis: huruf Arab segmen ternormalisasi NFC (harakat ditaruh sebelum syaddah, atau alif + maddah digabung menjadi satu kode), sehingga gabungan segmen tidak sama kode demi kode dengan w.ar/Tanzil (pencocokan string dan pemotongan segmen bisa gagal). Kelompok A–C tidak mengalaminya. Usulan menyalin ulang Arab segmen dari w.ar; isi lain tidak berubah."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:wyl",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: wayl pada QS 104:1 dan 107:4 (kelompok B, C)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:mwl",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: māl pada QS 104:2, 104:3, 111:2 (kelompok A, C)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:kthr",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: at-takāthur (QS 102:1, saling memperbanyak) dan al-kawthar (QS 108:1, pola fawʿal: yang sangat banyak)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:jma",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: fiʿil jamaʿa (QS 104:2) dan nomina jamʿ “kumpulan (musuh)” (QS 100:5)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:thql",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: thaqulat (QS 101:6), athqāl “beban berat” (QS 99:2), mithqāl “seberat” (QS 99:7–8)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:aml",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: fiʿil ʿamila (QS 98:7, 99:7–8, 103:3) dan aʿmāl (QS 99:6)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:alf",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: īlāf (QS 106:1–2, maṣdar bentuk IV) dan alf “seribu” (QS 97:3)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:kll",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: kull “setiap” (QS 97:4, 104:1); makna “lelah” dipertahankan sebagai makna fiʿil kalla."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:tla",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: maṭlaʿ “terbit” (QS 97:5, waktu terbit) dan taṭṭaliʿu “naik sampai” (QS 104:7, bentuk VIII)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:nwr",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: nār pada QS 98:6, 101:11, 104:6, 111:3; semua kelompok sepakat menempatkan nār di bawah n-w-r."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:slh",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: aṣ-ṣāliḥāt pada QS 98:7 dan 103:3 (kelompok C, E)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:rdw",
+   "aspek": "akar",
+   "tingkat": "galat",
+   "alasan": "Akar yang sama tercatat dengan dua kunci: rdw (ر ض و, QS 101:7 rāḍiyah) dan rdy (ر ض ي, QS 98:8 raḍiya, raḍū). Yāʾ pada raḍiya berasal dari wāw (bandingkan riḍwān, marḍāt). Kunci ganda memecah simpul di Graf akar dan hitungan kemunculan. Usul: satukan di rdw, hapus rdy."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "98:8:12",
+   "aspek": "root",
+   "tingkat": "galat",
+   "alasan": "raḍiya: akar r-ḍ-w tercatat ganda; pindahkan ke kunci rdw (lihat akar:rdw)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "98:8:15",
+   "aspek": "root",
+   "tingkat": "galat",
+   "alasan": "raḍū: akar r-ḍ-w tercatat ganda; pindahkan ke kunci rdw (lihat akar:rdw)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:sly",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "ṣ-l-y (sayaṣlā, QS 111:3: masuk dan merasakan panas api) dan ṣ-l-w (ṣalli, muṣallīn, ṣalāh: salat) dibedakan dengan benar sebagai dua akar. Perlu catatan agar tidak disangka duplikat."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:slw",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Lihat akar:sly. Tambahkan catatan pembeda."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "108:2:0",
+   "aspek": "root",
+   "tingkat": "saran",
+   "alasan": "fa-ṣalli: fiʿil amr ṣallā (bentuk II) dari ṣ-l-w; benar."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "111:3:0",
+   "aspek": "root",
+   "tingkat": "saran",
+   "alasan": "sa-yaṣlā: dari ṣaliya–yaṣlā (masuk ke api, merasakan panasnya), akar ṣ-l-y; benar."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "106:1:1",
+   "aspek": "root",
+   "tingkat": "peringatan",
+   "alasan": "qurayshin: nama diri, tetapi berasal dari akar Arab q-r-sh (taqarrush: berkumpul, berusaha mencari nafkah; atau qirsh: ikan hiu). Usul memberi akar q-r-sh dengan catatan."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:kfa",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Kufuwan (QS 112:4) ditulis dan dibaca dengan wāw dalam riwayat Ḥafṣ, sehingga perlu catatan bahwa akarnya tetap k-f-ʾ."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:frsh",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Transliterasi “farāsy” tidak konsisten dengan konvensi (sh, bukan sy); “berterbangan” sebaiknya “beterbangan”."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:flq",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Makna falaq pada QS 113:1 diperselisihkan dalam tafsir (subuh menurut mayoritas; ada pula yang memaknainya seluruh makhluk yang “dibelah” dari ketiadaan). Perlu catatan."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:fad",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Makna akar hanya “hati (fuʾād)”. Ar-Rāghib (Mufradāt) mengaitkan fuʾād dengan tafaʾʾud “menyala, berkobar”, relevan untuk QS 104:7 (api yang naik sampai ke hati). Usul menambahkan makna dasar; verifikasi di kamus."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:ind",
+   "aspek": "akar",
+   "tingkat": "saran",
+   "alasan": "Makna “sisi, dekat” hanya mencakup ẓarf ʿinda; akar yang sama juga melahirkan ʿanada/ʿanīd (membangkang, menyimpang)."
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:qrsh",
+   "aspek": "akar",
+   "tingkat": "peringatan",
+   "alasan": "Akar baru yang diperlukan bila 106:1:1 (Quraysh) diberi akar."
+  }
+ ],
+ "dilewati": [
+  {
+   "who": "fathur",
+   "lokasi": "97:5:2",
+   "aspek": "segs",
+   "keputusan": "diperselisihkan",
+   "tingkat": "saran",
+   "alasan": "Taʿalluq ḥattā pada tanazzalu adalah alternatif yang lazim disebut muʿrib; sebaiknya dicatat. Usulan ini sekaligus menyalin ulang huruf Arab segmen dari w.ar agar urutan kode syaddah/harakat sama dengan Tanzil (lihat temuan mekanis).",
+   "usulan": [
+    [
+     "حَتَّىٰ",
+     "ḥattā",
+     "Huruf jarr",
+     "Huruf jarr yang menunjukkan batas akhir (intihāʾ al-ghāyah), mabnī atas sukūn. Pilihan di sini: jar-majrūr bermutaʿalliq pada salāmun (maṣdar yang beramal seperti fiʿil). Alternatif: bermutaʿalliq pada tanazzalu (ay. 4), yakni para malaikat turun hingga terbit fajar."
+    ]
+   ]
+  },
+  {
+   "who": "fathur",
+   "lokasi": "98:8:9",
+   "aspek": "segs",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Pilihan ʿāmil = maṣdar jazāʾ bermasalah: khālidīna datang sesudah khabar jannātu ʿadnin dan naʿt-nya, sehingga maṣdar terpisah dari maʿmūl-nya oleh unsur asing (khabar), hal yang umumnya ditolak naḥwiyyūn. Taqdīr fiʿil yang dihapus (yang sudah dicatat sebagai alternatif) lebih kuat; urutan pilihan dibalik. ʿInda tidak terkena masalah ini karena mendahului khabar.",
+   "usulan": [
+    [
+     "خَٰلِدِينَ",
+     "khālidīna",
+     "Isim (isim fāʿil)",
+     "Ḥāl muqaddarah, manṣūb, tanda naṣab yāʾ karena jamak mudzakkar sālim. Pilihan di sini: ʿāmil-nya fiʿil yang dihapus, taqdīr “yadkhulūnahā khālidīna” (mereka memasukinya dalam keadaan kekal), dengan ṣāḥib al-ḥāl ḍamīr hum. Menjadikan maṣdar jazāʾ sebagai ʿāmil dinilai lemah oleh sebagian muʿrib karena memisahkan maṣdar dari maʿmūl-nya dengan khabar (jannātu ʿadnin)."
+    ]
+   ]
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:rdy",
+   "aspek": "akar",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Duplikat akar rdw (lihat temuan akar:rdw). Hapus entri ini setelah 98:8:12 dan 98:8:15 dipindahkan ke rdw.",
+   "usulan": null
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:mlk",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Al-malāʾikah (QS 97:4) dicatat di bawah m-l-k. Asal kata malak diperselisihkan: sebagian ahli bahasa menurunkannya dari ʾ-l-k atau l-ʾ-k (alūkah, maʾlakah = risalah, pesan; malʾak lalu malak), sebagian lain dari m-l-k (kekuasaan). Penempatan di m-l-k boleh dipertahankan (seperti korpus rujukan), tetapi perlu catatan, sebab makna “memiliki, berkuasa” tidak menjelaskan kata itu.",
+   "usulan": {
+    "ar": "م ل ك",
+    "lat": "m-l-k",
+    "makna": "memiliki, berkuasa; malik = raja; malak (jamak malāʾikah) = malaikat",
+    "cat": "Al-Fātiḥah ayat 4 dibaca māliki (Ḥafṣ ʿan ʿĀṣim), “pemilik”, sedangkan An-Nās ayat 2 dibaca malik, “raja”. Bacaan lain pada Al-Fātiḥah ayat 4 adalah malik. Asal kata malak (malāʾikah, QS 97:4) diperselisihkan: dari ʾ-l-k atau l-ʾ-k (alūkah = risalah) dengan pembalikan huruf, atau dari m-l-k. Prototipe menempatkannya di m-l-k dan menandainya untuk verifikasi."
+   }
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "97:4:1",
+   "aspek": "root",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "al-malāʾikah: akar diperselisihkan (ʾ-l-k / l-ʾ-k / m-l-k). Pertahankan mlk dengan catatan pada akar (lihat akar:mlk), atau buat akar terpisah bila ahli memilih ʾ-l-k.",
+   "usulan": "mlk"
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "111:3:2",
+   "aspek": "root",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "peringatan",
+   "alasan": "dhāta (bentuk muʾannath dari dhū “yang memiliki”): kata ini selalu disandarkan (lāzim al-iḍāfah) dan akarnya diperselisihkan (dh-w atau dh-w-y). Root null dapat dipertahankan, sejajar dengan kata isyarat dan isim mawṣūl yang juga null; bila diisi, perlu akar baru dan keputusan ahli.",
+   "usulan": null
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "98:6:9",
+   "aspek": "root",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "jahannam: asal kata diperselisihkan (kata serapan, dibandingkan dengan Ibrani gē-hinnōm, atau Arab asli). Usul memberi akar empat huruf j-h-n-m dengan catatan, agar kata ini muncul di tab Akar; root null juga dapat dipertahankan.",
+   "usulan": "jhnm"
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:jhnm",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Akar baru yang diperlukan bila 98:6:9 (jahannam) diberi akar.",
+   "usulan": {
+    "ar": "ج ه ن م",
+    "lat": "j-h-n-m",
+    "makna": "Jahanam, neraka",
+    "cat": "Asal-usul diperselisihkan: kata serapan (muʿarrab; dibandingkan dengan Ibrani gē-hinnōm) atau Arab asli (dikaitkan dengan sumur yang sangat dalam). Ism ʿalam, mamnūʿ min aṣ-ṣarf. Perlu verifikasi ahli."
+   }
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "105:4:3",
+   "aspek": "root",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "sijjīl: banyak ahli bahasa menganggapnya kata serapan dari bahasa Persia (sang + gil, batu dan tanah liat); sebagian mengaitkannya dengan s-j-l. Usul s-j-l dengan catatan, atau pertahankan null.",
+   "usulan": "sjl"
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:sjl",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Akar baru yang diperlukan bila 105:4:3 (sijjīl) diberi akar.",
+   "usulan": {
+    "ar": "س ج ل",
+    "lat": "s-j-l",
+    "makna": "menuangkan (air); sijill = catatan, lembaran tertulis; sijjīl = batu dari tanah yang dibakar",
+    "cat": "Asal sijjīl diperselisihkan: kata serapan dari Persia (sang + gil) atau dari s-j-l. Prototipe menandainya untuk verifikasi."
+   }
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "105:3:3",
+   "aspek": "root",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "peringatan",
+   "alasan": "abābīl: jamak tanpa bentuk tunggal yang dipakai (sebagian ahli menyebut ibbawl atau ibbīl sebagai tunggalnya). Root null dapat dipertahankan; bila mengikuti korpus rujukan yang memberi akar, perlu diperiksa dulu akarnya (jangan diisi tanpa verifikasi).",
+   "usulan": null
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:qrsh",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Akar baru yang diperlukan bila 106:1:1 (Quraysh) diberi akar.",
+   "usulan": {
+    "ar": "ق ر ش",
+    "lat": "q-r-sh",
+    "makna": "mengumpulkan dari berbagai tempat; berusaha mencari nafkah (taqarrasha); qirsh = ikan hiu",
+    "cat": "Asal nama Quraisy diperselisihkan: dari taqarrush (berkumpul atau berniaga) atau dari qirsh (hiu). Quraysh adalah ism ʿalam berpola tashghīr."
+   }
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:ahd",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Aḥad dicatat di ʾ-ḥ-d (seperti korpus rujukan), tetapi banyak ahli bahasa menyebut hamzahnya berasal dari wāw (waḥad, akar w-ḥ-d). Perlu catatan perbedaan pendapat.",
+   "usulan": {
+    "ar": "أ ح د",
+    "lat": "ʾ-ḥ-d",
+    "makna": "satu, esa; aḥad = Yang Maha Esa; seorang pun (dalam kalimat negatif)",
+    "cat": "Hamzah pada aḥad menurut banyak ahli bahasa berasal dari wāw (w-ḥ-d, waḥīd, wāḥid); prototipe mengikuti korpus rujukan di ʾ-ḥ-d. Aḥad pada QS 112:1 (sifat Allah) dan 112:4 (dalam kalimat negatif) berbeda pemakaian."
+   }
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:asd",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Muʾṣadah (QS 104:8, bacaan Ḥafṣ dengan hamzah) dapat diturunkan dari āṣada (ʾ-ṣ-d) atau awṣada (w-ṣ-d); sebagian qāriʾ membacanya mūṣadah tanpa hamzah. Perlu catatan.",
+   "usulan": {
+    "ar": "أ ص د",
+    "lat": "ʾ-ṣ-d",
+    "makna": "menutup rapat (pintu); muʾṣadah = yang ditutup rapat",
+    "cat": "Diperselisihkan antara ʾ-ṣ-d (āṣada) dan w-ṣ-d (awṣada), dua dialek untuk makna yang sama. Ḥafṣ ʿan ʿĀṣim membaca muʾṣadah dengan hamzah; sebagian qāriʾ lain membacanya tanpa hamzah."
+   }
+  },
+  {
+   "who": "leksikograf-akar",
+   "lokasi": "akar:man",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Makna akar hanya berisi glosa kata māʿūn, belum makna dasar akarnya; asal māʿūn juga diperselisihkan (m-ʿ-n atau ʿ-w-n, maʿūnah = bantuan). Perlu verifikasi di kamus.",
+   "usulan": {
+    "ar": "م ع ن",
+    "lat": "m-ʿ-n",
+    "makna": "sedikit, ringan, mudah (maʿn); māʿūn = barang keperluan yang biasa dipinjamkan, bantuan",
+    "cat": "Asal māʿūn diperselisihkan: dari m-ʿ-n (sesuatu yang sedikit atau mudah) atau dari ʿ-w-n (maʿūnah = pertolongan). Tafsir juga berbeda: barang keperluan sehari-hari, bantuan, atau zakat. Perlu verifikasi di Lisān al-ʿArab."
+   }
+  }
+ ],
+ "bentrok": [
+  {
+   "k": "akar:khyr|akar",
+   "lama": "fathur",
+   "baru": "leksikograf-akar"
+  },
+  {
+   "k": "akar:sdr|akar",
+   "lama": "fathur",
+   "baru": "leksikograf-akar"
+  },
+  {
+   "k": "98:8:12|root",
+   "lama": "leksikograf-akar",
+   "baru": "pengawas-qac"
+  },
+  {
+   "k": "98:8:15|root",
+   "lama": "leksikograf-akar",
+   "baru": "pengawas-qac"
+  }
+ ],
+ "ditarik": [
+  "akar:qrsh"
+ ]
+}
