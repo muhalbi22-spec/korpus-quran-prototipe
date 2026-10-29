@@ -121,15 +121,28 @@ export async function updateStatus(id: string, status: Status): Promise<void> {
 }
 
 /* ---------- demo data (used only when no API key is configured) ---------- */
-const [M, S, K] = AGENTS;
+const [FATHUR, M, S, K, LARAS, RANIA, NADIA, RAKA, SARI, BIMA, DIMAS, AYU, YOGA, FITRI, HANA, AMANDA] = AGENTS;
+let n = 0;
+const t = (task: string, status: Status, assignee: string, agent: string): Task => ({ id: `demo-${++n}`, task, status, assignee, agent });
 const demo: Task[] = [
-  { id: 'demo-1', task: 'Susun roadmap Q1 2027', status: 'Dikerjakan', assignee: 'Fathur', agent: M },
-  { id: 'demo-2', task: 'Review anggaran tim', status: 'Backlog', assignee: 'Fathur', agent: M },
-  { id: 'demo-3', task: 'Rapat mingguan semua agen', status: 'Selesai', assignee: 'Tim', agent: M },
-  { id: 'demo-4', task: 'Desain ulang halaman beranda', status: 'Review', assignee: 'Sari', agent: S },
-  { id: 'demo-5', task: 'Ikon set untuk dashboard', status: 'Dikerjakan', assignee: 'Sari', agent: S },
-  { id: 'demo-6', task: 'Moodboard kantor virtual', status: 'Backlog', assignee: 'Sari', agent: S },
-  { id: 'demo-7', task: 'Integrasi Notion API', status: 'Dikerjakan', assignee: 'Kevin', agent: K },
-  { id: 'demo-8', task: 'Perbaiki collision tangga', status: 'Review', assignee: 'Kevin', agent: K },
-  { id: 'demo-9', task: 'Setup CI/CD', status: 'Selesai', assignee: 'Kevin', agent: K },
+  t('Putuskan jurnal target: Hikma (Q1)', 'Selesai', 'Fathur', FATHUR),
+  t('Setujui perluasan 5 terjemahan', 'Review', 'Fathur', FATHUR),
+  t('Rapat koordinasi mingguan', 'Dikerjakan', 'Agen M', M),
+  t('Desain ulang halaman beranda', 'Review', 'Agen S', S),
+  t('Moodboard kantor virtual', 'Backlog', 'Agen S', S),
+  t('Integrasi Notion API', 'Dikerjakan', 'Agen K', K),
+  t('Perbaiki collision tangga', 'Selesai', 'Agen K', K),
+  t('Urutan pengiriman: Hikma → New Voices/Cadernos', 'Selesai', 'Laras', LARAS),
+  t('Telaah pakar naskah revisi', 'Selesai', 'Rania', RANIA),
+  t('Cek ulang kutipan tafsir 9:123', 'Review', 'Rania', RANIA),
+  t('Cek jendela pengiriman Hikma 2027', 'Backlog', 'Nadia', NADIA),
+  t('Verifikasi kuartil Perspectives di SCImago', 'Dikerjakan', 'Raka', RAKA),
+  t('Cocokkan 158 token dengan QAC', 'Selesai', 'Sari', SARI),
+  t('Periksa glos raḥmat 17:24', 'Selesai', 'Bima', BIMA),
+  t('Rapikan abstrak EN + ES', 'Dikerjakan', 'Dimas', DIMAS),
+  t('Cek DOI semua referensi', 'Review', 'Ayu', AYU),
+  t('Tabel 1–4 sesuai templat', 'Dikerjakan', 'Yoga', YOGA),
+  t('Siapkan versi anonim', 'Selesai', 'Fitri', FITRI),
+  t('Katalog buku Nord & Izutsu', 'Backlog', 'Hana', HANA),
+  t('Cek kesehatan rutin tim', 'Dikerjakan', 'dr. Amanda', AMANDA),
 ];

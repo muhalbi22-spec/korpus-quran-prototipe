@@ -53,10 +53,12 @@ function Visual({ f }: { f: Furniture }) {
           <Chair x={0} z={d / 2 + 0.55} />
         </>
       );
-    case 'bossDesk':
+    case 'bossDesk': {
+      const gold = f.variant === 'gold';
       return (
         <>
-          <Box s={[w, 0.08, d]} p={[0, h - 0.04, 0]} c="#5a3a26" />
+          <Box s={[w, 0.08, d]} p={[0, h - 0.04, 0]} c={gold ? '#3b2418' : '#5a3a26'} />
+          {gold && <Box s={[w + 0.02, 0.03, d + 0.02]} p={[0, h - 0.09, 0]} c="#c9a14a" />}
           <Box s={[w - 0.1, h - 0.08, 0.08]} p={[0, (h - 0.08) / 2, -d / 2 + 0.06]} c="#4a2f1f" />
           <Box s={[0.08, h - 0.08, d - 0.1]} p={[-w / 2 + 0.06, (h - 0.08) / 2, 0]} c="#4a2f1f" />
           <Box s={[0.08, h - 0.08, d - 0.1]} p={[w / 2 - 0.06, (h - 0.08) / 2, 0]} c="#4a2f1f" />
@@ -67,9 +69,11 @@ function Visual({ f }: { f: Furniture }) {
             </group>
           ))}
           <Box s={[0.5, 0.1, 0.06]} p={[0, h + 0.05, d / 2 - 0.12]} c="#f2c14e" />
-          <Chair x={0} z={d / 2 + 0.6} color="#3b2418" />
+          {gold && <mesh position={[0.95, h + 0.17, -0.1]} castShadow><cylinderGeometry args={[0.07, 0.1, 0.34, 8]} /><M c="#e0b444" metalness={0.8} roughness={0.2} /></mesh>}
+          <Chair x={0} z={d / 2 + 0.6} color={gold ? '#7c2d2d' : '#3b2418'} />
         </>
       );
+    }
     case 'counter':
       return (
         <>
@@ -188,6 +192,74 @@ function Visual({ f }: { f: Furniture }) {
           <Box s={[0.03, 0.16, d + 0.1]} p={[0, h + 0.08, 0]} c="#e5e7eb" />
           <Legs w={w} d={d} h={h - 0.06} c="#1f2937" />
           <mesh position={[0.6, h + 0.25, 0.2]}><sphereGeometry args={[0.04, 8, 6]} /><M c="#ffffff" /></mesh>
+        </>
+      );
+    case 'reception':
+      return (
+        <>
+          <Box s={[w, h - 0.06, d]} p={[0, (h - 0.06) / 2, 0]} c="#1f3f3b" />
+          <Box s={[w + 0.06, 0.06, d + 0.1]} p={[0, h - 0.03, 0]} c="#f1ece3" />
+          <Box s={[w + 0.02, 0.06, 0.02]} p={[0, 0.7, d / 2 + 0.01]} c="#c9a14a" />
+          <Box s={[0.5, 0.32, 0.04]} p={[0.6, h + 0.2, -0.15]} c="#1d2229" />
+          <mesh position={[-0.9, h + 0.15, 0]}><cylinderGeometry args={[0.1, 0.08, 0.25, 10]} /><M c="#e9e4da" /></mesh>
+          <mesh position={[-0.9, h + 0.4, 0]}><icosahedronGeometry args={[0.18, 0]} /><M c="#e879a6" flatShading /></mesh>
+          <Chair x={0} z={-d / 2 - 0.55} rot={Math.PI} color="#1f3f3b" />
+        </>
+      );
+    case 'bed':
+      return (
+        <>
+          <Box s={[w, 0.45, d]} p={[0, 0.3, 0]} c="#cbd5e1" />
+          <Box s={[w - 0.05, 0.12, d - 0.05]} p={[0, 0.58, 0]} c="#ffffff" />
+          <Box s={[w - 0.2, 0.1, 0.4]} p={[0, 0.68, -d / 2 + 0.3]} c="#bae6fd" />
+          <Legs w={w} d={d} h={0.1} c="#64748b" />
+        </>
+      );
+    case 'cabinet':
+      return (
+        <>
+          <Box s={[w, h, d]} p={[0, h / 2, 0]} c="#f4f6f8" />
+          {[0.5, 1.0, 1.5].map(y => <Box key={y} cast={false} s={[0.02, 0.02, d - 0.1]} p={[-w / 2 - 0.01, y, 0]} c="#94a3b8" />)}
+          <Box s={[0.02, 0.3, 0.3]} p={[-w / 2 - 0.01, 1.55, 0]} c="#dc2626" />
+          <Box s={[0.02, 0.1, 0.3]} p={[-w / 2 - 0.02, 1.55, 0]} c="#ffffff" />
+          <Box s={[0.02, 0.3, 0.1]} p={[-w / 2 - 0.02, 1.55, 0]} c="#ffffff" />
+        </>
+      );
+    case 'partition':
+      return (
+        <>
+          <Box s={[w, h, d]} p={[0, h / 2, 0]} c="#e7dfd1" />
+          <Box s={[w + 0.02, 0.05, d + 0.02]} p={[0, h + 0.02, 0]} c="#c9a14a" />
+        </>
+      );
+    case 'mihrab':
+      return (
+        <>
+          <Box s={[w + 0.4, 3.0, 0.12]} p={[0, 1.5, -0.08]} c="#e9e1cf" />
+          <Box s={[w - 0.4, 2.0, 0.1]} p={[0, 1.0, 0.0]} c="#1e5a3f" />
+          <mesh position={[0, 2.0, 0.0]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[(w - 0.4) / 2, (w - 0.4) / 2, 0.1, 24, 1, false, Math.PI / 2, Math.PI]} /><M c="#1e5a3f" /></mesh>
+          <Box s={[w - 0.2, 0.06, 0.16]} p={[0, 0.03, 0.06]} c="#c9a14a" />
+        </>
+      );
+    case 'wudu':
+      return (
+        <>
+          <Box s={[w, h - 0.08, d]} p={[0, (h - 0.08) / 2, 0]} c="#cbd5e1" />
+          {[-1, 0, 1].map(i => (
+            <group key={i}>
+              <Box s={[w - 0.05, 0.08, 0.7]} p={[0, h - 0.04, i * 1.05]} c="#f8fafc" />
+              <Box s={[w - 0.15, 0.02, 0.5]} p={[-0.02, h + 0.01, i * 1.05]} c="#7dd3fc" />
+              <Box s={[0.05, 0.3, 0.05]} p={[w / 2 - 0.08, h + 0.15, i * 1.05]} c="#c9a14a" />
+            </group>
+          ))}
+          <Box s={[0.05, 1.4, d]} p={[w / 2 - 0.02, h + 0.7, 0]} c="#bfdbe1" />
+        </>
+      );
+    case 'shoeRack':
+      return (
+        <>
+          <Box s={[w, h, d]} p={[0, h / 2, 0]} c="#6b4a33" />
+          {[-0.45, -0.15, 0.15, 0.45].map((x, i) => <Box key={x} cast={false} s={[0.22, 0.08, 0.3]} p={[x, h + 0.04, 0]} c={['#1f2937', '#7c2d12', '#334155', '#78350f'][i]} />)}
         </>
       );
   }

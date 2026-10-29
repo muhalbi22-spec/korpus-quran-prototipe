@@ -1,4 +1,4 @@
-import { BOUNDS, FURNITURE } from '@/scene/layout';
+import { BOUNDS, FURNITURE, LINKS, floorY } from '@/scene/layout';
 
 /** Grid A* on one floor. Furniture footprints are inflated so NPCs keep clear of colliders. */
 const CELL = 0.5;
@@ -89,5 +89,28 @@ export function findPath(floor: number, from: [number, number], to: [number, num
     if (!next || Math.sign(cur[0] - prev[0]) !== Math.sign(next[0] - cur[0]) || Math.sign(cur[1] - prev[1]) !== Math.sign(next[1] - cur[1])) out.push(cur);
   }
   out.push(to);
+  return out;
+}
+
+export type Waypoint = [number, number, number]; // x, y, z
+
+/** Route between any two points in the building, using the outdoor ramps between floors. */
+export function route(fromFloor: number, from: [number, number], toFloor: number, to: [number, number]): Waypoint[] {
+  const flat = (f: number, pts: [number, number][]) => pts.map(([x, z]) => [x, floorY(f), z] as Waypoint);
+  if (fromFloor === toFloor) return flat(fromFloor, findPath(fromFloor, from, to));
+  const out: Waypoint[] = [];
+  let f = fromFloor, cur = from;
+  while (f !== toFloor) {
+    const up = toFloor > f;
+    const link = LINKS[up ? f : f - 1];
+    const exit = up ? link.exit : link.entry;
+    const entry = up ? link.entry : link.exit;
+    const outside = up ? link.outside : [...link.outside].reverse();
+    out.push(...flat(f, findPath(f, cur, exit)), ...outside);
+    f += up ? 1 : -1;
+    out.push([entry[0], floorY(f), entry[1]]);
+    cur = entry;
+  }
+  out.push(...flat(f, findPath(f, cur, to)));
   return out;
 }

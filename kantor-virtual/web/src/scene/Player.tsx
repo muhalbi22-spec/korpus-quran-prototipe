@@ -96,7 +96,9 @@ export function Player() {
     if (input.interact) {
       input.interact = false;
       const target = probe(pos);
-      if (target?.npc) openDialog(target.npc as AgentName);
+      const busy = target?.npc ? npcRegistry.get(target.npc as AgentName)?.status : undefined;
+      if (target?.npc && (busy === 'Salat' || busy === 'Wudu')) showToast(`${target.npc.split(' - ')[0]} sedang ${busy === 'Wudu' ? 'berwudu' : 'salat'}. Tunggu sebentar ya 🙏`);
+      else if (target?.npc) openDialog(target.npc as AgentName);
       else if (target?.interact?.kind === 'desk') { openPanel(target.interact.agent); showToast(`${target.interact.label}: membuka papan tugas`); }
       else if (target?.interact?.kind === 'object') showToast(`${target.interact.label}: ${target.interact.message}`);
       else showToast('Tidak ada yang bisa diajak interaksi di depanmu.');
@@ -117,7 +119,7 @@ export function Player() {
       d = Math.atan2(Math.sin(d), Math.cos(d));
       r.rotation.y += d * Math.min(1, dt * 12);
       phase.current += dt * (moving ? 10 : 0);
-      avatar.current.animate(phase.current, moving);
+      avatar.current.animate(phase.current, moving ? 'walk' : 'stand');
     }
 
     // --- isometric follow camera ---
