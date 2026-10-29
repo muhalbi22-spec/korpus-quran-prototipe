@@ -1,0 +1,15 @@
+{
+  "name": "kantor-virtual",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["web", "api"],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"npm run dev -w api\" \"npm run dev -w web\"",
+    "build": "npm run build -w web && npm run build -w api",
+    "start": "npm run start -w api",
+    "typecheck": "npm run typecheck -w web && npm run typecheck -w api"
+  },
+  "devDependencies": {
+    "concurrently": "9.0.1"
+  }
+}
