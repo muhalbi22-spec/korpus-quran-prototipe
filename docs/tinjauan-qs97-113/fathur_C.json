@@ -1,0 +1,369 @@
+{
+ "peninjau": "fathur",
+ "cakupan": "QS 104 Al-Humazah, 103 Al-ʿAṣr, 102 At-Takāṡur, 101 Al-Qāriʿah (kelompok C)",
+ "temuan": [
+  {
+   "lokasi": "104:4:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Ṣarf: yunbadhu adalah muḍāriʿ majhūl bentuk I (mujarrad) dari nabadha (nubidha–yunbadhu, pola yufʿalu); nūn pertama adalah fāʾ fiʿil akar n-b-dh, bukan nūn tambahan bentuk VII. Bentuk VII (inbadha–yanbadhu) intransitif dan tidak dipasifkan dengan nāʾib fāʿil pribadi. Catatan bahwa QAC \"tanpa menyebut bentuk turunannya\" menyesatkan: QAC benar karena ini bentuk I. Kasus mabnī (nūn tawkīd langsung bersambung) sudah benar.",
+   "usulan": [
+    [
+     "لَ",
+     "la",
+     "Lām jawāb al-qasam",
+     "Lām jawaban sumpah yang dihapus (taqdīr: wallāhi), mabnī atas fatḥah. Kalimat ini jawāb al-qasam, tidak memiliki posisi iʿrāb."
+    ],
+    [
+     "يُنۢبَذَ",
+     "yunbadha",
+     "Fiʿil muḍāriʿ majhūl",
+     "Fiʿil muḍāriʿ mabnī lil-majhūl (pasif) bentuk I (mujarrad) dari nabadha (melempar): nubidha–yunbadhu, pola yufʿalu; nūn pertama adalah fāʾ fiʿil (akar n-b-dh), bukan nūn bentuk VII. Mabnī atas fatḥah karena bersambung langsung dengan nūn tawkīd. Nāʾib fāʿil: ḍamīr mustatir, taqdīr “huwa” (si pengumpat). Mīm kecil di atas nūn menandakan iqlāb (nūn sākinah sebelum bāʾ dibaca mīm)."
+    ],
+    [
+     "نَّ",
+     "nna",
+     "Nūn tawkīd",
+     "Nūn tawkīd thaqīlah (nūn penegas berat), huruf mabnī atas fatḥah, tidak memiliki posisi iʿrāb."
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:2:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Naḥw: naʿt harus sesuai dengan manʿūt dalam taʿrīf dan tankīr. Alladhī maʿrifah, sedangkan kulli humazatin nakirah (kull yang disandarkan kepada nakirah tetap nakirah), sehingga alladhī tidak dapat menjadi naʿt bagi humazatin. Yang sah: badal dari kulli (badal tidak disyaratkan sesuai dalam taʿrīf), atau qaṭʿ: naṣab ʿalā adh-dhamm / rafaʿ sebagai khabar mubtadaʾ yang dihapus. Kasus (majrūr, mabnī) tetap.",
+   "usulan": [
+    [
+     "ٱلَّذِى",
+     "alladhī",
+     "Isim mawṣūl",
+     "Isim mawṣūl, mabnī atas sukūn. Pilihan di sini: di posisi jarr sebagai badal bagi kulli pada ayat 1 (badal boleh berbeda dalam taʿrīf dan tankīr). Ia tidak dapat menjadi naʿt bagi humazatin karena alladhī maʿrifah, sedangkan kulli humazatin nakirah. Alternatif (qaṭʿ): di posisi naṣab untuk mencela (ʿalā adh-dhamm, taqdīr: adhummu), atau di posisi rafaʿ sebagai khabar bagi mubtadaʾ yang dihapus (huwa). Kalimat jamaʿa sesudahnya adalah ṣilah, tidak memiliki posisi iʿrāb."
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Mengikuti perbaikan 104:2:0: kepala lintas ayat alladhī adalah kulli (badal), bukan naʿt bagi humazatin.",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal bagi kulli, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     1,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:5:2",
+   "aspek": "gloss",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Taʿlamūna di sini fiʿil syarat bagi law (pengandaian yang tidak terjadi), bukan berita masa depan; \"akan\" bertentangan dengan analisis dan dengan tr ayat (\"Sekiranya kalian mengetahui\"). Gloss 102:3 dan 102:4 boleh tetap karena didahului sawfa.",
+   "usulan": "kalian mengetahui"
+  },
+  {
+   "lokasi": "101:6",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Naḥw: man adalah mubtadaʾ yang khabar-nya jumlah fa-huwa fī ʿīshatin (ay. 7, sudah ditautkan oleh edge 101:7 [0,-1]). Edge [1,0,\"mubtadaʾ\"] membaca man sebagai mubtadaʾ bagi ammā, padahal ammā huruf tanpa maḥall. Sesuai konvensi korpus untuk huruf (sawfa→fiʿil, thumma→fiʿil), ammā ditautkan ke kata yang dimasukinya.",
+   "usulan": [
+    [
+     0,
+     1,
+     "ḥarf syarṭ wa tafṣīl"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "fāʿil"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:8",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Sama dengan 101:6: man bukan mubtadaʾ bagi ammā; khabar-nya fa-ummuhu hāwiyatun (ay. 9). Hubungan ʿaṭf dengan ayat 6 dipindah ke man sebagai inti jumlah ammā.",
+   "usulan": [
+    [
+     0,
+     1,
+     "ḥarf syarṭ wa tafṣīl"
+    ],
+    [
+     1,
+     -1,
+     "jumlah maʿṭūfah pada ay. 6"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "fāʿil"
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:5:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Konsistensi: wa-mā adrāka pada QS 97:2 yang sudah ada di korpus memilih wāw ʿaṭf (alternatif istiʾnāf); kelompok C memilih sebaliknya. Keduanya sah, tetapi rumus yang sama sebaiknya satu pilihan di seluruh korpus.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī atas fatḥah (QAC juga menandainya ʿaṭf). Ada yang menilainya wāw istiʾnāf."
+    ],
+    [
+     "مَآ",
+     "mā",
+     "Isim istifhām",
+     "Isim istifhām, mabnī atas sukūn; di posisi rafaʿ sebagai mubtadaʾ. Pertanyaan ini bukan meminta jawaban, melainkan untuk mengagungkan dan menakutkan (taʿẓīm wa tahwīl). Kalimat sesudahnya adalah khabar-nya."
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:3:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Konsistensi: wa-mā adrāka pada QS 97:2 yang sudah ada di korpus memilih wāw ʿaṭf (alternatif istiʾnāf); kelompok C memilih sebaliknya. Keduanya sah, tetapi rumus yang sama sebaiknya satu pilihan di seluruh korpus.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī atas fatḥah (QAC juga menandainya ʿaṭf). Ada yang menilainya wāw istiʾnāf."
+    ],
+    [
+     "مَآ",
+     "mā",
+     "Isim istifhām",
+     "Isim istifhām, mabnī atas sukūn; di posisi rafaʿ sebagai mubtadaʾ. Pertanyaan ini bukan meminta jawaban, melainkan untuk mengagungkan dan menakutkan (taʿẓīm wa tahwīl). Kalimat sesudahnya adalah khabar-nya."
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:10:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Konsistensi: wa-mā adrāka pada QS 97:2 yang sudah ada di korpus memilih wāw ʿaṭf (alternatif istiʾnāf); kelompok C memilih sebaliknya. Keduanya sah, tetapi rumus yang sama sebaiknya satu pilihan di seluruh korpus.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī atas fatḥah (QAC juga menandainya ʿaṭf). Ada yang menilainya wāw istiʾnāf."
+    ],
+    [
+     "مَآ",
+     "mā",
+     "Isim istifhām",
+     "Isim istifhām, mabnī atas sukūn; di posisi rafaʿ sebagai mubtadaʾ. Pertanyaan ini bukan meminta jawaban, melainkan untuk mengagungkan dan menakutkan (taʿẓīm wa tahwīl). Kalimat sesudahnya adalah khabar-nya."
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:8:2",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Konsistensi dengan yawmaʾidhin di 99:4, 99:6, 100:11: kelas segmen yawma di sana \"Isim (ẓarf)\" dan dicatat alternatif bahwa yawma mabnī atas fatḥah karena disandarkan pada idh (mabnī). Alternatif itu belum tercatat di sini.",
+   "usulan": [
+    [
+     "يَوْمَ",
+     "yawma",
+     "Isim (ẓarf)",
+     "Ẓarf zamān, manṣūb, tanda naṣab fatḥah (ada pandangan: mabnī atas fatḥah karena disandarkan pada idh yang mabnī); bermutaʿalliq pada tusʾalunna; sekaligus muḍāf."
+    ],
+    [
+     "ئِذٍ",
+     "idhin",
+     "Isim (ẓarf)",
+     "Idh: isim ẓarf mabnī atas sukūn, di posisi jarr sebagai muḍāf ilayh; dikasrahkan karena bertemu sukūn tanwīn. Tanwīnnya tanwīn ʿiwaḍ yang menggantikan kalimat yang dihapus (taqdīr: yawma idh tarawnahā, hari ketika kalian melihatnya). QAC menandai keseluruhannya sebagai satu ẓarf zamān."
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:8:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Rumusan \"bermutaʿalliq pada muʾṣadatun yang didahulukan\" keliru arah: yang didahulukan adalah jar-majrūr, bukan muʾṣadatun.",
+   "usulan": [
+    [
+     "عَلَيْ",
+     "ʿalay",
+     "Huruf jarr",
+     "Huruf jarr ʿalā; alifnya berubah menjadi yāʾ karena bersambung dengan ḍamīr, mabnī atas sukūn. Jar-majrūr bermutaʿalliq pada muʾṣadatun dan didahulukan atasnya (taqdīm) untuk memberi tekanan pada “atas mereka”."
+    ],
+    [
+     "هِم",
+     "him",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil (mereka, laki-laki), mabnī atas sukūn; di posisi jarr."
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:4:3",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: tasybīh 101:4 belum disebut sebagai gejala balāghah; penting bagi penerjemah agar perbandingan tidak diganti tafsiran.",
+   "usulan": [
+    [
+     "كَ",
+     "ka",
+     "Huruf jarr",
+     "Kāf tashbīh, huruf jarr, mabnī atas fatḥah. Jar-majrūr bermutaʿalliq pada sesuatu yang dihapus dan berposisi naṣab sebagai khabar yakūnu. Alternatif: kāf sebagai isim bermakna mithl yang menjadi khabar. Balāghah: tasybīh mursal mujmal (alat tasybīh disebut, segi keserupaan tidak disebut); manusia diserupakan dengan laron dalam banyaknya, berserakan, lemah, dan bingung tak tentu arah."
+    ],
+    [
+     "ٱلْ",
+     "l-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf)."
+    ],
+    [
+     "فَرَاشِ",
+     "farāshi",
+     "Isim",
+     "Isim majrūr oleh kāf, tanda jarr kasrah. Al-farāsh: serangga kecil yang berterbangan menuju api (laron, ngengat); isim jins jamʿī."
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:5:2",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: pasangan tasybīh kedua (101:5) sejajar dengan 101:4.",
+   "usulan": [
+    [
+     "كَ",
+     "ka",
+     "Huruf jarr",
+     "Kāf tashbīh, huruf jarr, mabnī atas fatḥah. Jar-majrūr bermutaʿalliq pada sesuatu yang dihapus dan berposisi naṣab sebagai khabar takūnu. Alternatif: kāf isim bermakna mithl. Balāghah: tasybīh mursal mujmal seperti pada ayat 4; gunung yang kokoh diserupakan dengan bulu yang dihambur-hamburkan dalam ringan dan tercerai-berainya."
+    ],
+    [
+     "ٱلْ",
+     "l-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf)."
+    ],
+    [
+     "عِهْنِ",
+     "ʿihni",
+     "Isim",
+     "Isim majrūr oleh kāf, tanda jarr kasrah. Al-ʿihn: bulu domba (wol), ada yang mengkhususkannya pada wol yang diwarnai."
+    ]
+   ]
+  },
+  {
+   "lokasi": "103:1:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: qasam sudah dianalisis secara naḥw, tetapi fungsinya bagi terjemahan belum disebut: jawāb al-qasam (ay. 2) dikuatkan tiga penegas, yang menjelaskan \"sesungguhnya ... benar-benar\" dalam terjemahan.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf jarr",
+     "Wāw al-qasam (wāw sumpah), huruf jarr, mabnī atas fatḥah. Jar-majrūr bermutaʿalliq pada fiʿil sumpah yang dihapus (taqdīr: uqsimu, Aku bersumpah). Jawāb al-qasam-nya adalah ayat 2."
+    ],
+    [
+     "ٱلْ",
+     "l-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf)."
+    ],
+    [
+     "عَصْرِ",
+     "ʿaṣri",
+     "Isim",
+     "Muqsam bih, majrūr oleh wāw al-qasam, tanda jarr kasrah. Al-ʿaṣr ditafsirkan sebagai masa atau zaman, waktu petang (ʿaṣr), atau salat Asar. Balāghah: sumpah dengan masa mengagungkan muqsam bih dan menarik perhatian pada jawāb-nya, yang dikuatkan tiga penegas: qasam, inna, dan lām muzaḥlaqah."
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:1:3",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: pasangan humazah–lumazah (pola dan bunyi sama, beda huruf pertama) adalah jinās sekaligus menguatkan ritme; berguna untuk menjelaskan pilihan padanan berirama \"pengumpat lagi pencela\".",
+   "usulan": [
+    [
+     "لُّمَزَةٍ",
+     "lumazatin",
+     "Isim (ṣifah, pola fuʿalah)",
+     "Naʿt bagi humazatin, majrūr, tanda jarr kasrah (tanwīn); pola mubālaghah seperti humazah. Lumazah: orang yang mencela, menurut sebagian ulama di hadapan orangnya atau dengan isyarat mata. QAC menandainya sebagai nomina (N) saja; di sini ia dibaca sebagai ṣifah yang mengikuti humazah. Balāghah: humazah dan lumazah berpola sama dan hanya berbeda pada huruf pertama (jinās), sehingga celaan terasa berirama dan menekan."
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:3",
+   "aspek": "tr",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Keterangan segmen akhlada sendiri menyatakan māḍī di sini untuk hal yang diyakini pasti terjadi (bermakna yukhliduhu); \"telah mengekalkannya\" terlalu harfiah dan janggal. Kemenag/NU: \"dapat mengekalkannya\".",
+   "usulan": "Ia mengira bahwa hartanya akan mengekalkannya."
+  },
+  {
+   "lokasi": "101:10:3",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Qirāʾah ditulis dari ingatan. Keenam klaim (jammaʿa, yaḥsabu/yaḥsibu, muʾṣadah/mūṣadah, ʿumud, la-turawunna, hāʾ hiyah) sesuai dengan pengetahuan peninjau tentang at-Taysīr/an-Nashr, tetapi tetap wajib dicocokkan dengan sumber tertulis sebelum rilis. Semua catatan lain hanya menyebut qurrāʾ tujuh (mis. jammaʿa tanpa Abū Jaʿfar dan Rawḥ; yaḥsabu tanpa Abū Jaʿfar), sedangkan di sini Yaʿqūb (qurrāʾ sepuluh) ikut disebut; cakupan sebaiknya dinyatakan.",
+   "usulan": [
+    [
+     "هِيَ",
+     "hiya",
+     "Ḍamīr munfaṣil",
+     "Ḍamīr munfaṣil (ia, perempuan, kembali kepada hāwiyah), mabnī atas fatḥah; di posisi rafaʿ sebagai khabar bagi mā."
+    ],
+    [
+     "هْ",
+     "h",
+     "Hāʾ as-sakt",
+     "Hāʾ as-sakt (hāʾ untuk berhenti), huruf mabnī atas sukūn, tidak memiliki posisi iʿrāb; ditambahkan untuk menjaga harakat yāʾ saat waqaf. Di antara qurrāʾ tujuh, Ḥamzah membuangnya saat disambung (demikian pula Yaʿqūb dari qurrāʾ sepuluh). QAC menandai hiyah sebagai satu ḍamīr; di sini hāʾ dipisah sebagai segmen sendiri."
+    ]
+   ]
+  }
+ ],
+ "ringkasan": "Mutu kelompok C baik: iʿrāb sangat lengkap, alternatif tercatat, dan butir sulit sudah benar: la-tarawunna/la-tarawunnahā/la-tusʾalunna marfūʿ dengan nūn rafaʿ dibuang karena tawālī al-amthāl (nūn tawkīd tidak langsung bersambung karena dipisah wāw jamāʿah, nyata atau terbuang), la-yunbadhanna mabnī atas fatḥah, lām muzaḥlaqah 103:2, istithnāʾ muttaṣil tāmm mūjab 103:3, man mawṣūlah dengan alternatif syarṭiyyah 101:6/8, hāʾ as-sakt 101:10, takāthur bentuk VI, dan jawāb law yang dihapus 102:5. Galat nyata: yunbadhu dinilai bentuk VII (seharusnya bentuk I majhūl) dan alladhī 104:2 dijadikan naʿt bagi nakirah. Selebihnya edges ammā–man, satu gloss, konsistensi dengan 97:2 dan yawmaʾidhin korpus, serta tambahan balāghah. Penilaian: diterima setelah perbaikan; perbaikan oleh anotator-irab. Tetap draf, belum divalidasi ahli."
+}

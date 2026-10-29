@@ -1,0 +1,260 @@
+{
+ "peninjau": "fathur",
+ "cakupan": "QS 113, 112, 111, 110, 108 (kelompok A); QS 109, 107, 106, 105 (kelompok B)",
+ "temuan": [
+  {
+   "lokasi": "111:2:2",
+   "aspek": "kasus",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "ʿanhu (huruf jarr + ḍamīr) ditulis kasus 'mabni', mabni=false. Konvensi korpus untuk kata huruf jarr + ḍamīr adalah kasus = posisi ḍamīr (jarr) dan mabni = true (bandingkan fīhi QS 2:2, ʿalayhim QS 1:7, serta lakum/wa-liya/ʿalayhim pada kelompok B). Segmen sudah benar menyebut ḍamīr di posisi jarr; yang salah hanya penanda tingkat kata.",
+   "usulan": "majrur"
+  },
+  {
+   "lokasi": "111:2:2",
+   "aspek": "mabni",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Pasangan temuan kasus di atas: ḍamīr muttaṣil mabnī dengan maḥall jarr, jadi mabni harus true.",
+   "usulan": true
+  },
+  {
+   "lokasi": "112:4:2",
+   "aspek": "kasus",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "lahū (huruf jarr + ḍamīr) ditulis kasus 'mabni', mabni=false. Konvensi korpus untuk kata huruf jarr + ḍamīr adalah kasus = posisi ḍamīr (jarr) dan mabni = true (bandingkan fīhi QS 2:2, ʿalayhim QS 1:7, serta lakum/wa-liya/ʿalayhim pada kelompok B). Segmen sudah benar menyebut ḍamīr di posisi jarr; yang salah hanya penanda tingkat kata.",
+   "usulan": "majrur"
+  },
+  {
+   "lokasi": "112:4:2",
+   "aspek": "mabni",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Pasangan temuan kasus di atas: ḍamīr muttaṣil mabnī dengan maḥall jarr, jadi mabni harus true.",
+   "usulan": true
+  },
+  {
+   "lokasi": "106:2:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Pandangan “atau ẓarf” untuk riḥlata tidak lazim dalam kitab iʿrāb yang umum dirujuk (yang tercatat: mafʿūl bih bagi maṣdar īlāf, atau manṣūb oleh fiʿil yang dihapus) dan tampaknya ditulis dari ingatan. Hapus sampai ada rujukan.",
+   "usulan": [
+    [
+     "رِحْلَةَ",
+     "riḥlata",
+     "Isim",
+     "Mafʿūl bih bagi maṣdar īlāfi, manṣūb, tanda naṣab fatḥah; sekaligus muḍāf. Bentuk tunggal bermakna jenis (dua perjalanan). Ada pandangan lain: manṣūb oleh fiʿil yang dihapus (taqdīr: yarḥalūna riḥlata)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "109:5",
+   "aspek": "tr",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Ayat 3 dan 5 lafaznya sama, tetapi tr ayat 5 (“tidak akan”) tidak cocok dengan ayat 4 (“tidak pernah”) ataupun dengan pandangan pembedaan waktu yang dicatat pada ʿābidūna (ayat 4–5 untuk masa lampau). NU juga memakai “tidak pernah (pula)”. Usulan menyelaraskan tr dengan ayat 4.",
+   "usulan": "dan kalian tidak pernah (pula) menjadi penyembah apa yang aku sembah."
+  },
+  {
+   "lokasi": "111:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Arah edge khabar muqaddam berbeda dari konvensi korpus. Pada QS 2:7 (data awal) dan QS 109:6 (kelompok B), mubtadaʾ muʾakhkhar bergantung pada jar-majrūr khabar dengan label “mubtadaʾ”, dan jar-majrūr itu menjadi kepala kalimat. Di sini justru fī→ḥabl berlabel “khabar”. Usulan: samakan arahnya; edge ḥāl ke ayat 4 pindah ke fī.",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ḥāl dari imraʾatuhu, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     0,
+     "mubtadaʾ"
+    ],
+    [
+     3,
+     2,
+     "naʿt"
+    ],
+    [
+     4,
+     3,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "105:1:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Segmen tara menyebut ruʾyah qalbiyyah (mengetahui), yang menuntut dua objek. Karena itu kalimat istifhām yang di-taʿlīq menempati posisi kedua objek (sadda masadd al-mafʿūlayn), bukan satu objek (al-mafʿūl).",
+   "usulan": [
+    [
+     "فَعَلَ",
+     "faʿala",
+     "Fiʿil māḍī",
+     "Fiʿil māḍī mabnī atas fatḥah. Kalimat kayfa faʿala rabbuka berposisi naṣab, menempati posisi kedua objek tara (sadda masadd al-mafʿūlayn), karena ruʾyah di sini qalbiyyah."
+    ]
+   ]
+  },
+  {
+   "lokasi": "113:1",
+   "aspek": "tr",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "“Tuhan (yang membelah) fajar” memberi rabb makna “yang membelah”, padahal rabb bermakna pemilik/pemelihara; makna “membelah” ada pada kata falaq sendiri. Usulan sisipan yang lebih setia pada iḍāfah.",
+   "usulan": "Katakanlah, “Aku berlindung kepada Tuhan (penguasa) fajar (subuh),"
+  },
+  {
+   "lokasi": "113:3:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: ayat 3–5 menyebut kejahatan khusus sesudah kejahatan umum mā khalaq (dhikr al-khāṣṣ baʿd al-ʿāmm), dan frasa wa-min sharri diulang (tikrār) untuk penegasan. Hal ini penting untuk penerjemahan pengulangan “dan dari kejahatan”.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf sambung (ʿaṭf), mabnī; menghubungkan jar-majrūr ini dengan min sharri pada ayat 2. Balāghah: ayat 3–5 menyebut kejahatan-kejahatan khusus sesudah kejahatan umum mā khalaq (dhikr al-khāṣṣ baʿd al-ʿāmm), dan pengulangan wa-min sharri menegaskannya."
+    ],
+    [
+     "مِن",
+     "min",
+     "Huruf jarr",
+     "Huruf jarr, mabnī atas sukūn. Melalui ʿaṭf, jar-majrūr ini juga bermutaʿalliq pada aʿūdhu (ayat 1)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "112:2:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: mubtadaʾ dan khabar sama-sama maʿrifah (Allāhu aṣ-ṣamad), sehingga kalimatnya bermakna pembatasan (qaṣr): hanya Dia aṣ-ṣamad. Ini menjelaskan pilihan terjemahan “tempat bergantung (segala sesuatu)”.",
+   "usulan": [
+    [
+     "ٱل",
+     "aṣ-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf); lām melebur ke huruf berikutnya (idgām syamsiyyah)."
+    ],
+    [
+     "صَّمَدُ",
+     "ṣamadu",
+     "Isim (ṣifah)",
+     "Khabar bagi Allāhu, marfūʿ, tanda rafaʿ ḍammah. Aṣ-ṣamad dimaknai Tuan yang dituju dalam segala kebutuhan; ada pula yang memaknainya Yang tidak berongga (tidak makan dan minum). Ada pandangan lain: naʿt bagi Allāhu, sedangkan khabar-nya kalimat lam yalid. Balāghah: karena mubtadaʾ dan khabar sama-sama maʿrifah, kalimat ini mengandung qaṣr: hanya Allah aṣ-ṣamad."
+    ]
+   ]
+  },
+  {
+   "lokasi": "112:4:3",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: khabar kufuwan dan lahū didahulukan dari isim aḥadun. Gejala taqdīm ini perlu disebut karena memberi tekanan pada penafian kesetaraan dengan-Nya.",
+   "usulan": [
+    [
+     "كُفُوًا",
+     "kufuwan",
+     "Isim",
+     "Khabar yakun yang didahulukan, manṣūb, tanda naṣab fatḥah (tanwīn). Ḥafṣ membacanya dengan wāw (kufuwan) sebagai ganti hamzah (kufuʾan). Ada pandangan lain: ḥāl, bila lahu menjadi khabar. Pendahuluan lahū dan kufuwan atas aḥad menonjolkan penafian kesetaraan dengan-Nya (taqdīm untuk ihtimām) dan menjaga fāṣilah."
+    ]
+   ]
+  },
+  {
+   "lokasi": "111:3:3",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Istilah “jinās” untuk lahab (nyala api) dan kunyah Abū Lahab masih bisa diperdebatkan, karena salah satu unsurnya nama diri. Lebih aman ditulis sebagai keserasian lafaz dan makna, sebagian menyebutnya jinās.",
+   "usulan": [
+    [
+     "لَهَبٍ",
+     "lahabin",
+     "Isim",
+     "Muḍāf ilayh bagi dhāta, majrūr, tanda jarr kasrah (tanwīn). Ada keserasian lafaz dan makna dengan kunyah Abū Lahab pada ayat 1 (sebagian menyebutnya jinās)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "108:2:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: iltifāt dari ḍamīr mutakallim “Kami” (innā aʿṭaynāka) ke isim ẓāhir li-rabbika. Gejala ini relevan bagi penerjemah karena kata gantinya berubah dari “Kami” ke “Tuhanmu”.",
+   "usulan": [
+    [
+     "لِ",
+     "li",
+     "Huruf jarr",
+     "Huruf jarr, mabnī atas kasrah, bermakna untuk/karena (ikhlas). Jar-majrūr bermutaʿalliq pada ṣalli. Balāghah: iltifāt dari “Kami” (ayat 1) ke “Tuhanmu”, yang menegaskan bahwa salat itu hanya untuk Rabb yang memberi nikmat."
+    ],
+    [
+     "رَبِّ",
+     "rabbi",
+     "Isim",
+     "Isim majrūr oleh huruf jarr li, tanda jarr kasrah; sekaligus muḍāf."
+    ],
+    [
+     "كَ",
+     "ka",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil (engkau, laki-laki), mabnī atas fatḥah; di posisi jarr sebagai muḍāf ilayh."
+    ]
+   ]
+  },
+  {
+   "lokasi": "105:5:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: ka-ʿaṣfin maʾkūl adalah tasybīh (mursal mujmal: ada adat tasybīh, wajh syabah tidak disebut). Gejala ini belum dicatat.",
+   "usulan": [
+    [
+     "كَ",
+     "ka",
+     "Huruf jarr",
+     "Kāf tasybīh (penyerupaan), huruf jarr, mabnī. Jar-majrūr bermutaʿalliq pada yang dihapus dan menempati posisi mafʿūl bih kedua bagi jaʿala. Ada pandangan lain: kāf adalah isim bermakna mithl (seperti), mabnī, di posisi naṣab sebagai mafʿūl bih kedua. Balāghah: tasybīh mursal mujmal; kehancuran pasukan diserupakan dengan daun kering yang dimakan ulat, tanpa menyebut segi keserupaannya."
+    ],
+    [
+     "عَصْفٍ",
+     "ʿaṣfin",
+     "Isim",
+     "Isim majrūr oleh kāf, tanda jarr kasrah (tanwīn). ʿAṣf: daun dan batang tanaman (jerami) yang kering."
+    ]
+   ]
+  },
+  {
+   "lokasi": "106:2:3",
+   "aspek": "lat",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Konvensi transliterasi wa + alif-lām syamsiyyah pada data awal: wa-n-nāsi, wa-lladhīna (dengan tanda hubung). “waṣ-ṣayfi” mengikuti gaya lain.",
+   "usulan": "wa-ṣ-ṣayfi"
+  },
+  {
+   "lokasi": "akar:man",
+   "aspek": "akar",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Asal kata māʿūn diperselisihkan. Selain m-ʿ-n (maʿn, sesuatu yang sedikit), sebagian ahli bahasa mengaitkannya dengan ʿ-w-n (maʿūnah, pertolongan). Catat alternatif ini dan serahkan verifikasinya ke leksikograf-akar.",
+   "usulan": {
+    "ar": "م ع ن",
+    "lat": "m-ʿ-n",
+    "makna": "māʿūn = barang keperluan yang biasa dipinjamkan, bantuan; (diperselisihkan) zakat",
+    "cat": "Asal kata diperselisihkan: dari m-ʿ-n (maʿn, sesuatu yang sedikit) atau dari ʿ-w-n (maʿūnah, pertolongan). Perlu diverifikasi."
+   }
+  }
+ ],
+ "ringkasan": "Kelompok A dan B secara keilmuan kuat: i‘rāb, maḥall kata mabnī, ta‘alluq, ḍamīr mustatir, dan alternatif pendapat tercatat rapi; klaim qirāʾah (ḥammālata, kufuwan, dīni) dan nama tokoh sudah diperiksa dan benar. Galat nyata hanya pada penanda kasus/mabni untuk huruf jarr + ḍamīr di kelompok A (111:2:2, 112:4:2). Sisanya peringatan konsistensi (arah edge khabar muqaddam 111:5, tr 109:5), presisi naḥw (105:1), satu klaim yang perlu dihapus (106:2 ẓarf), dan saran balāghah. Penilaian: A diterima setelah perbaikan; B diterima setelah perbaikan kecil. Keputusan ini draf ilmiah, menunggu validasi ahli manusia."
+}
