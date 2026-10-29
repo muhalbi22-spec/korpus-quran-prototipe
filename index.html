@@ -183,7 +183,7 @@ footer p{margin:0 0 6px}
 .graf-svg .gn{cursor:pointer;outline:none}
 .graf-svg .gn circle{stroke:var(--surface);stroke-width:2}
 .graf-svg .gn.multi circle{stroke:var(--ink);stroke-width:2.2}
-.graf-svg .gn text{font:600 12px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.graf-svg .gn text{font:17px var(--arab);direction:rtl;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
 .graf-svg .gn:focus-visible{outline:none}
 .graf-svg .gn:focus-visible circle,.graf-svg .gn.sel circle{stroke:var(--ink);stroke-width:3.5}
 .graf-svg.focus .gn:not(.sel):not(.nb),.graf-svg.focus .ge:not(.on){opacity:.15}
@@ -1471,7 +1471,7 @@ function grafSvg(g){
   g.E.forEach(e=>{const p=g.nodes[e.a],q=g.nodes[e.b],on=sel&&(e.a===sel||e.b===sel);
     s+=`<line class="ge${on?' on':''}" x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${q.x.toFixed(1)}" y2="${q.y.toFixed(1)}" stroke-width="${(1.2+1.6*(e.vs.length-1)).toFixed(1)}"/>`;});
   g.N.slice().sort((a,b)=>b.r-a.r).forEach(p=>{const r=ROOTS[p.k],cls=(Object.keys(p.su).length>1?' multi':'')+(p.k===sel?' sel':sel&&g.nodes[sel].nb.has(p.k)?' nb':'');
-    s+=`<g class="gn${cls}" data-gr="${p.k}" tabindex="0" role="button" aria-pressed="${p.k===sel}" aria-label="Akar ${esc(r.lat)}, ${p.n} kemunculan, ${p.nb.size} akar tetangga"><circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}" style="fill:${GRAF_WARNA[p.dom]}"/><text x="${p.x.toFixed(1)}" y="${(p.y+p.r+12).toFixed(1)}" text-anchor="middle">${esc(r.lat)}</text></g>`;});
+    s+=`<g class="gn${cls}" data-gr="${p.k}" tabindex="0" role="button" aria-pressed="${p.k===sel}" aria-label="Akar ${r.ar}, ${p.n} kemunculan, ${p.nb.size} akar tetangga"><circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}" style="fill:${GRAF_WARNA[p.dom]}"/><text x="${p.x.toFixed(1)}" y="${(p.y+p.r+19).toFixed(1)}" text-anchor="middle" lang="ar">${r.ar}</text></g>`;});
   return s+'</svg>';
 }
 function grafSide(g){
@@ -1479,19 +1479,19 @@ function grafSide(g){
   if(!p){
     const top=g.N.slice().sort((a,b)=>b.nb.size-a.nb.size||b.n-a.n).slice(0,6);
     return `<div class="graf-side"><h3 style="margin-top:0">Ringkasan</h3><p>${g.N.length} akar, ${g.E.length} hubungan kemunculan bersama.</p>
-      <p class="muted">Akar dengan tetangga terbanyak:</p><div class="forms">${top.map(x=>`<button class="formbtn" data-gr="${x.k}"><span lang="ar">${ROOTS[x.k].ar}</span> <small>${esc(ROOTS[x.k].lat)}, ${x.nb.size} tetangga</small></button>`).join('')}</div>
+      <p class="muted">Akar dengan tetangga terbanyak:</p><div class="forms">${top.map(x=>`<button class="formbtn" data-gr="${x.k}"><span lang="ar" dir="rtl">${ROOTS[x.k].ar}</span> <small dir="ltr">${x.nb.size} tetangga</small></button>`).join('')}</div>
       <p class="note" style="margin-top:10px">Ketuk sebuah simpul untuk menyorot tetangganya.</p></div>`;
   }
   const r=ROOTS[p.k],nb=[...p.nb].map(k=>g.E.find(e=>(e.a===p.k&&e.b===k)||(e.b===p.k&&e.a===k))).sort((a,b)=>b.vs.length-a.vs.length);
   const lain=e=>e.a===p.k?e.b:e.a;
-  return `<div class="graf-side"><div class="rhead"><span class="rt" lang="ar">${r.ar}</span><div><strong>${esc(r.lat)}</strong><br><span class="muted">${esc(r.makna)}</span><br><span class="muted">${p.n} kemunculan dalam ${p.vs.length} ayat, ${Object.keys(p.su).map(si=>esc(SURAHS[si].nama)).join(', ')}</span></div></div>
+  return `<div class="graf-side"><div class="rhead"><span class="rt" lang="ar">${r.ar}</span><div><span class="muted">${esc(r.makna)}</span><br><span class="muted">${p.n} kemunculan dalam ${p.vs.length} ayat, ${Object.keys(p.su).map(si=>esc(SURAHS[si].nama)).join(', ')}</span></div></div>
     <div class="actions"><button class="btn" data-root="${p.k}">Buka di Akar kata</button> <button class="btn" data-gr="">Lepas sorotan</button></div>
     <h3>Tetangga (${nb.length})</h3>
-    ${nb.length?`<div class="forms">${nb.map(e=>`<button class="formbtn" data-gr="${lain(e)}"><span lang="ar">${ROOTS[lain(e)].ar}</span> <small>${esc(ROOTS[lain(e)].lat)}, ${e.vs.length} ayat: ${e.vs.map(v=>'QS '+v.sn+':'+v.n).join(', ')}</small></button>`).join('')}</div>`:'<p class="muted">Akar ini tidak muncul bersama akar lain dalam satu ayat.</p>'}
-    <h3>Ayat</h3><div class="forms">${p.vs.map(v=>`<button class="formbtn" data-goto="${v.si}:${v.n}:${Math.max(0,v.words.findIndex(w=>w.root===p.k))}"><small>QS ${v.sn}:${v.n}</small></button>`).join('')}</div></div>`;
+    ${nb.length?`<div class="forms">${nb.map(e=>`<button class="formbtn" data-gr="${lain(e)}"><span lang="ar" dir="rtl">${ROOTS[lain(e)].ar}</span> <small dir="ltr">${e.vs.length} ayat: ${e.vs.map(v=>'QS '+v.sn+':'+v.n).join(', ')}</small></button>`).join('')}</div>`:'<p class="muted">Akar ini tidak muncul bersama akar lain dalam satu ayat.</p>'}
+    <h3>Ayat</h3><div class="forms">${p.vs.map(v=>`<button class="formbtn" data-goto="${v.si}:${v.n}:${Math.max(0,v.words.findIndex(w=>w.root===p.k))}"><small dir="ltr">QS ${v.sn}:${v.n}</small></button>`).join('')}</div></div>`;
 }
 function grafList(g){
-  return g.E.slice().sort((a,b)=>b.vs.length-a.vs.length||ROOTS[a.a].lat.localeCompare(ROOTS[b.a].lat)).map(e=>`<li>${esc(ROOTS[e.a].lat)} dan ${esc(ROOTS[e.b].lat)}: ${e.vs.map(v=>'QS '+v.sn+':'+v.n).join(', ')}</li>`).join('');
+  return g.E.slice().sort((a,b)=>b.vs.length-a.vs.length||ROOTS[a.a].ar.localeCompare(ROOTS[b.a].ar,'ar')).map(e=>`<li><span lang="ar" dir="rtl">${ROOTS[e.a].ar}</span> dan <span lang="ar" dir="rtl">${ROOTS[e.b].ar}</span>: ${e.vs.map(v=>'QS '+v.sn+':'+v.n).join(', ')}</li>`).join('');
 }
 function graf(){
   const g=grafData(state.gs);
