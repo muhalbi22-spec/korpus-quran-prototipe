@@ -52,7 +52,7 @@ export default function App() {
   const prayer = useOffice(s => s.prayer);
   const { openPanel, callPrayer, simMin } = useOffice();
   return (
-    <main className="relative h-dvh w-full overflow-hidden bg-background">
+    <main className="relative h-full w-full overflow-hidden bg-background">
       <Canvas shadows dpr={[1, 2]} className="!touch-none" gl={{ antialias: true }}>
         <Scene />
       </Canvas>

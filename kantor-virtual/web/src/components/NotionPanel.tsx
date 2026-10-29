@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input, NativeSelect } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { AGENT_LIST, type AgentName } from '@/scene/layout';
-import { STATUSES, useNotion, type Status, type Task } from '@/hooks/useNotion';
+import { STANDALONE, STATUSES, useNotion, type Status, type Task } from '@/hooks/useNotion';
 import { useOffice } from '@/state/store';
 import { cn } from '@/lib/utils';
 
@@ -39,7 +39,7 @@ export function NotionPanel() {
               Papan Tugas {agent ? `· ${short(agent)}` : '· Semua Agen'}
               {demo && <Badge className="bg-amber-400/15 text-amber-300">Mode demo</Badge>}
             </DrawerTitle>
-            <DrawerDescription>{demo ? 'NOTION_API_KEY belum diatur. Data contoh disimpan sementara di server.' : 'Tersambung ke database Notion.'}</DrawerDescription>
+            <DrawerDescription>{STANDALONE ? 'Versi tablet tanpa server: data contoh, perubahan tersimpan di browser ini saja.' : demo ? 'NOTION_API_KEY belum diatur. Data contoh disimpan sementara di server.' : 'Tersambung ke database Notion.'}</DrawerDescription>
           </div>
           <div className="flex gap-2">
             <Button variant="glass" size="icon" aria-label="Muat ulang" onClick={() => void refresh()}>{loading ? <Loader2 className="animate-spin" /> : <RefreshCw />}</Button>

@@ -21,6 +21,7 @@
     --ring: 168 76% 52%;
     --radius: 0.9rem;
   }
+  html { color-scheme: dark; }
   html, body, #root { height: 100%; }
   body {
     @apply bg-background text-foreground font-sans antialiased;

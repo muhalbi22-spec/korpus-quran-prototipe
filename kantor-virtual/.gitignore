@@ -5,3 +5,4 @@ api/public/app
 .env
 .env.local
 *.tsbuildinfo
+web/dist-standalone

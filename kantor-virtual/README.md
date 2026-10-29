@@ -130,6 +130,10 @@ npm start       # one server: http://localhost:3001 (web at "/", API at "/api/no
 
 If the frontend is hosted on a different domain from the API, set `VITE_API_BASE=https://api-domain` when running `npm run build -w web`, and `ALLOWED_ORIGIN=https://web-domain` in `api/.env.local`.
 
+### Tablet version without a server
+
+`npm run build:standalone -w web` builds `web/dist-standalone/`, a version that needs no Next.js server. The task board runs in demo mode, and changes are saved only in that browser (localStorage). This version was bundled into one HTML page and published as an Artifact, so it can be opened directly from a tablet. It does not connect to Notion; for Notion, run the full version (`npm run dev` / `npm start`).
+
 ### Test mode
 
 Open the app with `?debug` (for example `http://localhost:5173/app/?debug`) to get `window.__kv`:
