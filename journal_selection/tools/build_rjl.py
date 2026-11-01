@@ -179,7 +179,7 @@ if variant == "named":
     p.add_run("Universitas Negeri Yogyakarta, Yogyakarta, Indonesia")
     para("muhamadalbie.2024@student.uny.ac.id (corresponding author); achfauzi.2024@student.uny.ac.id",
          align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
-    para("ORCID: Muhammad Albie Fathurrahman https://orcid.org/0009-0001-6575-9363; Ach Fauzi [AUTHOR: add ORCID iD or delete]",
+    para("ORCID: Muhammad Albie Fathurrahman https://orcid.org/0009-0001-6575-9363; Ach Fauzi https://orcid.org/0009-0008-6395-4350",
          align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
 else:
     para("[Author details removed for blind review]", align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
