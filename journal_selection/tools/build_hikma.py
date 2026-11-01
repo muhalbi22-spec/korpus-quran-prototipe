@@ -127,7 +127,7 @@ para(meta["TITLE_EN"], "Heading 1")
 para(meta["TITLE_ES"], "Heading 1")
 if variant == "named":
     para("Muhammad Albie Fathurrahman", "Autor")
-    para("muhamadalbie.2024@student.uny.ac.id", "Email y Universidad")
+    para("muhammadalbie.2024@student.uny.ac.id", "Email y Universidad")
     para("Universitas Negeri Yogyakarta, Indonesia", "Email y Universidad")
 else:
     para("Author", "Autor")

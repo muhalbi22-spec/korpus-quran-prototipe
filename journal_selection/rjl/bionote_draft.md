@@ -5,7 +5,7 @@ Items in [square brackets] are not known to the editor and must be completed or 
 ## Muhammad Albie Fathurrahman (corresponding author)
 
 Muhammad Albie Fathurrahman holds a [degree, e.g. M.A. in Applied Linguistics/English Education — check] from Universitas Negeri Yogyakarta, Indonesia, where he completed his Master's thesis in 2025 on the English translation of theological terms in the Qur'an. He is [position] in the [department], Universitas Negeri Yogyakarta, Indonesia. His research interests include [research interests, e.g. corpus-based translation studies, the translation of sacred texts and Qur'anic semantics — check]. He is the corresponding author of this article.
-E-mail: muhamadalbie.2024@student.uny.ac.id
+E-mail: muhammadalbie.2024@student.uny.ac.id
 
 ## Ach Fauzi
 

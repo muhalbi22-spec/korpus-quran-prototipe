@@ -21,7 +21,7 @@ Yours sincerely,
 [signature]
 Muhammad Albie Fathurrahman (corresponding author)
 Universitas Negeri Yogyakarta, Indonesia
-muhamadalbie.2024@student.uny.ac.id
+muhammadalbie.2024@student.uny.ac.id
 
 [signature]
 Ach Fauzi
