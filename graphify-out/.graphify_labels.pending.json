@@ -1,6 +1,8 @@
 {
+  "2": "sisipan() tab",
   "5": "esc",
   "7": "buat-corpus.js",
+  "8": "labOut",
   "9": "Perbandingan anotasi QS 97–113 dengan Quranic Arabic Corpus (QAC)",
   "10": "Tinjauan QS 97–113",
   "11": "CLAUDE.md",
@@ -14,5 +16,7 @@
   "19": "penjaga-keamanan.md",
   "20": "penyelaras-terjemahan.md",
   "21": "perancang-ux.md",
-  "22": "validator-data.md"
+  "22": "validator-data.md",
+  "23": "Tinjauan Fathur: markah SELARAS QS 97–113 (105 ayat)",
+  "24": "desainer-islami.md"
 }
