@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#EDF1F5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0E1621" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1422" media="(prefers-color-scheme: dark)">
 <title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: Al-Fātiḥah, Al-Baqarah 1–6, Al-‘Alaq, dan Al-Qadr sampai An-Nās</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,6 +268,154 @@ footer p{margin:0 0 6px}
 @media (prefers-color-scheme: dark){
   :root{--hl:rgba(134,169,255,.24);--s-ruj:#1F2D4D;--s-taf:#47213A;--s-str:#26364B;--s-bel:#3D3112}
 }
+
+/* ==== Gaya Islami: palet mushaf, ornamen geometris, tata letak fitur ==== */
+:root{
+  color-scheme:light;
+  /* palet mushaf dan masjid */
+  --hijau:#1E5A48; --hijau-ink:#174A3B; --malam:#13213D; --emas:#B08D3E; --emas-ink:#755A1E; --krem:#F4EFE3;
+  --paper:var(--krem); --surface:#FFFDF8; --soft:#F7F1E3; --line:#DDD2BA; --ink:#1B2A41; --ink2:#4B5868;
+  --frame:#CDB57A; --frame2:#E9DDBF; --tab-on:#1E5A48; --tab-on-ink:#FBF7EC;
+  --shadow:0 1px 2px rgba(60,45,15,.06),0 10px 26px -18px rgba(60,45,15,.32);
+  --star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5 15.1 5.4 20 4 18.6 8.9 22.5 12 18.6 15.1 20 20 15.1 18.6 12 22.5 8.9 18.6 4 20 5.4 15.1 1.5 12 5.4 8.9 4 4 8.9 5.4Z'/%3E%3C/svg%3E");
+  --star-o:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.3'%3E%3Crect x='5' y='5' width='14' height='14'/%3E%3Crect x='5' y='5' width='14' height='14' transform='rotate(45 12 12)'/%3E%3Ccircle cx='12' cy='12' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
+  --band:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14' viewBox='0 0 36 14'%3E%3Cg fill='none' stroke='%23000' stroke-width='1'%3E%3Cpath d='M0 7H10.5M25.5 7H36M0 .5H36M0 13.5H36'/%3E%3Crect x='13.5' y='2.5' width='9' height='9'/%3E%3Crect x='13.5' y='2.5' width='9' height='9' transform='rotate(45 18 7)'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --hijau:#5DB596; --hijau-ink:#8FD3BA; --malam:#0B1427; --emas:#C9A85C; --emas-ink:#D9BC74; --krem:#0C1422;
+    --paper:#0C1422; --surface:#132032; --soft:#1A293D; --line:#2C3D52; --ink:#E6ECF3; --ink2:#A3B2C4;
+    --frame:#6F5C30; --frame2:#3A3420; --tab-on:#1F5A49; --tab-on-ink:#F4EEDC;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.75);
+  }
+}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{padding-top:14px}
+select:focus-visible,[role="option"]:focus-visible{outline:3px solid var(--rafa);outline-offset:2px}
+
+/* ---- Kepala halaman: lebih ringkas, bingkai emas, pita girih ---- */
+:root{--mh-dome:#1C4740;--mh-cut:#0E2723}
+@media (prefers-color-scheme: dark){:root{--mh-dome:#183E38;--mh-cut:#0A1D1A}}
+.masthead{padding:18px 18px 0;border-radius:18px;border:1px solid rgba(201,168,92,.35);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.11' stroke-width='1'%3E%3Crect x='22' y='22' width='20' height='20'/%3E%3Crect x='22' y='22' width='20' height='20' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 10 10 0M54 0 64 10M64 54 54 64M10 64 0 54M32 18V0M32 46V64M18 32H0M46 32H64'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(120% 90% at 50% 0%,#1A3159 0%,#12223F 55%,#0F2A2A 100%)}
+@media (prefers-color-scheme: dark){
+  .masthead{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.10' stroke-width='1'%3E%3Crect x='22' y='22' width='20' height='20'/%3E%3Crect x='22' y='22' width='20' height='20' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 10 10 0M54 0 64 10M64 54 54 64M10 64 0 54M32 18V0M32 46V64M18 32H0M46 32H64'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(120% 90% at 50% 0%,#132646 0%,#0C1A33 55%,#0B2020 100%);border-color:rgba(201,168,92,.28)}
+}
+.masthead::before{content:"";position:absolute;inset:7px;border:1px solid rgba(212,168,75,.32);border-radius:13px;pointer-events:none}
+.callig{font-size:clamp(2rem,5.4vw,2.9rem);line-height:1.35}
+.masthead h1{font-size:clamp(1.3rem,3.4vw,1.75rem);margin:0 0 6px}
+.masthead .sub{font-size:.95rem;line-height:1.5;max-width:78ch;margin:0 auto 10px}
+.masthead .badge{font-size:.8rem;padding:2px 10px}
+.mh-sky{height:64px;margin-top:6px}
+.mh-band{position:relative;height:14px;margin:0 -18px;background:#C9A85C;opacity:.55;-webkit-mask:var(--band) repeat-x center/36px 14px;mask:var(--band) repeat-x center/36px 14px}
+@media (max-width:560px){
+  .masthead{padding:14px 14px 0}
+  .callig{font-size:2rem}
+  .masthead .sub{font-size:.86rem}
+  .mh-sky{display:none}
+  .mh-band{margin:12px -14px 0}
+}
+
+/* ---- Navigasi tab berkelompok ---- */
+.tabs{top:0;margin:12px -16px 18px;padding:6px 16px 7px;gap:0;align-items:stretch;border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tabs .tg{display:flex;flex-direction:column;gap:1px;flex:0 0 auto}
+.tabs .tg-l{font-size:.68rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--emas-ink);padding:0 10px;line-height:1.5}
+.tabs .tg-b{display:flex;gap:2px}
+.tabs .tg-sep{flex:0 0 14px;align-self:center;height:14px;margin:12px 6px 0;background:var(--emas);opacity:.75;-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
+.tabs button{padding:8px 11px;min-height:40px;border-radius:9px;border-bottom:0;font-size:.93rem;color:var(--ink2);transition:background-color .15s,color .15s}
+.tabs button:hover{background:var(--soft);color:var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--tab-on);color:var(--tab-on-ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--emas)}
+@media (min-width:1100px){.tabs{justify-content:center}}
+
+/* ---- Pemilih surah dan ayat ---- */
+.pilih{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px;margin:0 0 16px;box-shadow:var(--shadow);position:relative}
+.pilih::before{content:"";position:absolute;top:-1px;left:22px;right:22px;height:2px;background:linear-gradient(90deg,transparent,var(--emas) 20%,var(--emas) 80%,transparent);opacity:.55;border-radius:2px}
+.pk{display:flex;flex-direction:column;gap:5px;min-width:0}
+.pk-l{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--emas-ink)}
+.pk-surah{flex:1 1 300px;max-width:460px}
+.pk-gs{flex:1 1 260px;max-width:420px}
+.pk-ref{margin:0 0 0 auto;align-self:center;font-family:var(--serif);font-weight:600;color:var(--hijau-ink);font-size:1.05rem;white-space:nowrap}
+.sp{position:relative}
+.sp-in{width:100%;height:46px;padding:0 128px 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font:inherit;font-weight:600;color:var(--ink);text-overflow:ellipsis}
+.sp-in::placeholder{color:var(--ink2);font-weight:400}
+.sp-in:focus{outline:3px solid var(--rafa);outline-offset:1px;background:var(--surface)}
+.sp-ar{position:absolute;right:46px;top:50%;transform:translateY(-50%);font-family:var(--arab);font-size:1.45rem;line-height:1;color:var(--hijau);pointer-events:none;max-width:80px;overflow:hidden;white-space:nowrap}
+.sp-tog{position:absolute;right:4px;top:4px;width:38px;height:38px;border:0;border-radius:8px;background:transparent;cursor:pointer;color:var(--ink2)}
+.sp-tog span{display:block;width:9px;height:9px;margin:-4px auto 0;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .15s}
+.sp.open .sp-tog span{transform:rotate(-135deg);margin-top:4px}
+.sp-tog:hover{background:var(--line)}
+.sp-list{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);max-height:min(380px,58vh);overflow:auto;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--frame);border-radius:12px;box-shadow:0 18px 40px -16px rgba(20,20,10,.4)}
+.sp-list li[data-s]{display:grid;grid-template-columns:2.4rem 1fr auto;align-items:center;gap:10px;min-height:44px;padding:4px 10px;border-radius:8px;cursor:pointer}
+.sp-list li[hidden]{display:none}
+.sp-list li.act{background:var(--soft);box-shadow:inset 0 0 0 1.5px var(--rafa)}
+.sp-list li[aria-selected="true"] .sp-nm{color:var(--hijau-ink);font-weight:700}
+.sp-no{display:grid;place-items:center;width:2.1rem;height:2.1rem;font-size:.74rem;font-weight:600;color:var(--emas-ink);position:relative}
+.sp-no::before{content:"";position:absolute;inset:0;background:var(--emas);opacity:.5;-webkit-mask:var(--star-o) center/contain no-repeat;mask:var(--star-o) center/contain no-repeat}
+.sp-list li[aria-selected="true"] .sp-no::before{opacity:1}
+.sp-nm{font-weight:600;line-height:1.25;min-width:0}
+.sp-nm small{display:block;font-weight:400;font-size:.78rem;color:var(--ink2)}
+.sp-oar{font-family:var(--arab);font-size:1.45rem;line-height:1.3;color:var(--ink)}
+.sp-none{padding:10px 12px;color:var(--ink2)}
+.vnav{display:flex;align-items:center;gap:6px}
+.vbtn{display:inline-flex;align-items:center;gap:6px;height:46px;min-width:46px;justify-content:center;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.vbtn span[aria-hidden]{font-size:1.4rem;line-height:1;margin-top:-3px}
+.vbtn:hover:not([disabled]){border-color:var(--hijau);color:var(--hijau-ink)}
+.vbtn[disabled]{opacity:.4;cursor:default}
+.vsel{height:46px;min-width:76px;padding:0 34px 0 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-weight:600;color:var(--ink);background-color:var(--soft);cursor:pointer;
+  -webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+.vsel.wide{width:100%}
+.vof{color:var(--ink2);font-size:.92rem;white-space:nowrap}
+@media (max-width:560px){
+  .pilih{padding:10px 12px 12px;gap:10px}
+  .pk-surah,.pk-ayat{flex:1 1 100%;max-width:none}
+  .vnav{width:100%}
+  .vnav .vsel{flex:1 1 auto}
+  .vtx{display:none}
+  .pk-ref{display:none}
+}
+
+/* ---- Pemisah dan judul berornamen ---- */
+#view h3{display:flex;align-items:center;gap:8px}
+#view h3::before{content:"";flex:0 0 13px;height:13px;background:var(--emas);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
+.legend{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-bottom:14px}
+footer{position:relative;border-top:0;padding-top:26px;margin-top:34px}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:14px;
+  background:linear-gradient(var(--frame),var(--frame)) left center/calc(50% - 22px) 1px no-repeat,linear-gradient(var(--frame),var(--frame)) right center/calc(50% - 22px) 1px no-repeat}
+footer::after{content:"";position:absolute;top:-2px;left:50%;width:18px;height:18px;margin-left:-9px;background:var(--emas);-webkit-mask:var(--star-o) center/contain no-repeat;mask:var(--star-o) center/contain no-repeat}
+
+/* ---- Bingkai ayat bergaya mushaf ---- */
+.reader{position:relative;border:1px solid var(--frame);border-radius:16px;padding:28px 22px 22px;
+  box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px var(--frame2),var(--shadow)}
+.reader::before,.reader::after{content:"";position:absolute;top:11px;width:14px;height:14px;background:var(--emas);opacity:.7;-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
+.reader::before{left:11px}.reader::after{right:11px}
+.ayah-end{color:var(--hijau)}
+.word[aria-pressed="true"]{border-color:var(--frame);background:var(--soft);box-shadow:inset 0 0 0 1px var(--frame)}
+.terj{border-top:1px solid var(--frame2);padding-top:12px}
+.pblock{border-radius:14px;box-shadow:var(--shadow);position:relative}
+.pblock .parab{border-bottom:1px solid var(--frame2);padding-bottom:6px}
+.detail,.entry,.graf-side,.sis-sum,.labres,.scroll{border-radius:14px}
+.detail{box-shadow:var(--shadow);border-top:3px solid var(--c,var(--frame))}
+.entry,.card,.sis-sum{box-shadow:var(--shadow)}
+.card{border-left-color:var(--emas)}
+.card.plan{border-left-color:var(--tree)}
+.badge{background:var(--surface)}
+.btn{border-color:var(--hijau);color:var(--hijau-ink);border-radius:9px;min-height:40px;font-weight:600}
+.btn:hover:not([disabled]){background:var(--hijau);color:var(--tab-on-ink)}
+.chip{border-radius:9px}
+.chip[aria-pressed="true"]{background:var(--tab-on);border-color:var(--tab-on);color:var(--tab-on-ink)}
+.search{border-radius:10px;background:var(--surface)}
+th{background:var(--soft)}
+@media (max-width:560px){
+  .reader{padding:26px 10px 16px}
+  .reader::before,.reader::after{top:9px;width:11px;height:11px}
+  .reader::before{left:9px}.reader::after{right:9px}
+}
+.word .bar{height:auto;background:none;border-radius:0;overflow:visible}
+@media (max-width:560px){.masthead .sub{display:none}.masthead h1{margin-bottom:8px}.masthead .status{gap:6px}}
+@media (prefers-reduced-motion: reduce){.tabs button,.sp-tog span{transition:none}}
 </style>
 </head>
 <body>
@@ -302,6 +450,7 @@ footer p{margin:0 0 6px}
         <path d="M246 140 L246 128 Q250 121 254 128 L254 140 Z"/><path d="M746 140 L746 128 Q750 121 754 128 L754 140 Z"/>
       </g>
     </svg>
+    <div class="mh-band" aria-hidden="true"></div>
   </header>
   <nav class="tabs" role="tablist" id="tabs" aria-label="Lapisan korpus"></nav>
   <main id="view" role="tabpanel"></main>
@@ -3501,13 +3650,73 @@ function kasusLabel(w){return w.mabni?('Mabnī, di posisi '+POSISI[w.kasus]):KAS
 function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({s:v.si,sn:v.sn,v:v.n,w:i,ar:w.ar,lat:w.lat,gloss:w.gloss});}));return r;}
 
 /* ---------- Komponen ---------- */
-function surahChips(){
-  return '<div class="ayat" role="group" aria-label="Pilih surah"><span class="lbl">Surah</span>'+
-    SURAH_URUT.map(i=>{const S=SURAHS[i];return `<button class="chip wide" data-s="${i}" aria-pressed="${i===state.s}">${esc(S.label||S.nama)}</button>`;}).join('')+'</div>';
+// Pemilih surah ringkas: combobox dengan pencarian nama atau nomor (urut mushaf), bukan deretan tombol.
+function surahNama(i){const S=SURAHS[i];return S.label||S.nama;}
+function surahPick(){
+  const S=SURAHS[state.s];
+  return `<div class="pk pk-surah"><label class="pk-l" for="sp-in">Surah</label>
+    <div class="sp" id="sp">
+      <input id="sp-in" class="sp-in" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sp-list" autocomplete="off" spellcheck="false" placeholder="Ketik nama atau nomor surah" value="${esc(S.no+'. '+surahNama(state.s))}" data-cur="${esc(S.no+'. '+surahNama(state.s))}" aria-describedby="sp-hint">
+      <span class="sp-ar" lang="ar" dir="rtl" aria-hidden="true">${S.ar}</span>
+      <button type="button" class="sp-tog" data-sptog tabindex="-1" aria-label="Tampilkan daftar surah"><span aria-hidden="true"></span></button>
+      <ul class="sp-list" id="sp-list" role="listbox" aria-label="Daftar surah" hidden>${SURAH_URUT.map(i=>{const T=SURAHS[i];
+        return `<li role="option" id="sp-o-${i}" data-s="${i}" data-cari="${esc(T.no+' '+surahNama(i)+' '+T.nama)}" data-ar="${esc(T.ar)}" aria-selected="${i===state.s}"><span class="sp-no">${T.no}</span><span class="sp-nm">${esc(surahNama(i))}<small>${T.verses.length} ayat</small></span><span class="sp-oar" lang="ar" dir="rtl">${T.ar}</span></li>`;}).join('')}
+        <li class="sp-none" role="presentation" hidden>Surah tidak ditemukan dalam korpus ini.</li></ul>
+    </div><span id="sp-hint" class="sr">Ketik untuk menyaring, panah atas dan bawah untuk memilih, Enter untuk membuka surah.</span></div>`;
 }
-function ayatChips(){
-  return surahChips()+'<div class="ayat" role="group" aria-label="Pilih ayat"><span class="lbl">Ayat</span>'+
-    SURAHS[state.s].verses.map(v=>`<button class="chip" data-v="${v.n}" aria-pressed="${v.n===state.v}">${v.n}</button>`).join('')+'</div>';
+function ayatPick(){
+  const vs=SURAHS[state.s].verses,n=vs.length,i=vs.findIndex(v=>v.n===state.v);
+  const prev=i>0?vs[i-1].n:null,next=i<n-1?vs[i+1].n:null;
+  return `<div class="pk pk-ayat"><label class="pk-l" for="v-sel">Ayat</label>
+    <div class="vnav">
+      <button type="button" class="vbtn" id="v-prev" ${prev!==null?`data-v="${prev}"`:'disabled'} aria-label="Ayat sebelumnya"><span aria-hidden="true">‹</span><span class="vtx">Sebelumnya</span></button>
+      <select id="v-sel" class="vsel">${vs.map(v=>`<option value="${v.n}"${v.n===state.v?' selected':''}>${v.n}</option>`).join('')}</select>
+      <span class="vof">dari ${vs[n-1].n}</span>
+      <button type="button" class="vbtn" id="v-next" ${next!==null?`data-v="${next}"`:'disabled'} aria-label="Ayat berikutnya"><span class="vtx">Berikutnya</span><span aria-hidden="true">›</span></button>
+    </div></div>`;
+}
+function surahChips(){return `<div class="pilih" role="group" aria-label="Pilih surah">${surahPick()}</div>`;}
+function ayatChips(){return `<div class="pilih" role="group" aria-label="Pilih surah dan ayat">${surahPick()}${ayatPick()}<p class="pk-ref" aria-live="polite">QS ${SURAHS[state.s].no}:${state.v}</p></div>`;}
+// Perilaku combobox surah (daftar disaring di DOM tanpa render ulang, agar fokus ketikan tidak hilang).
+const spNorm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[ʾʿ‘’'`\-\s.]/g,'');
+function spEls(){const box=document.getElementById('sp');return box?{box,inp:document.getElementById('sp-in'),list:document.getElementById('sp-list')}:null;}
+function spOpen(on){
+  const e=spEls();if(!e)return;
+  e.list.hidden=!on;e.inp.setAttribute('aria-expanded',on?'true':'false');e.box.classList.toggle('open',on);
+  if(on){const sel=e.list.querySelector('li[aria-selected="true"]:not([hidden])')||e.list.querySelector('li[data-s]:not([hidden])');spAct(sel);}
+  else{e.inp.removeAttribute('aria-activedescendant');e.list.querySelectorAll('li.act').forEach(x=>x.classList.remove('act'));}
+}
+function spAct(li){
+  const e=spEls();if(!e)return;
+  e.list.querySelectorAll('li.act').forEach(x=>x.classList.remove('act'));
+  if(li){li.classList.add('act');e.inp.setAttribute('aria-activedescendant',li.id);li.scrollIntoView({block:'nearest'});}
+  else e.inp.removeAttribute('aria-activedescendant');
+}
+function spFilter(raw){
+  const e=spEls();if(!e)return;
+  const q=String(raw||'').trim(),qn=spNorm(q),qa=stripAr(q).replace(/\s/g,''),num=/^\d+$/.test(q);
+  // Penanda aktif jatuh pada kecocokan terbaik: nomor atau nama persis, lalu awalan nama, lalu kecocokan sebagian.
+  let first=null,best=-1;
+  e.list.querySelectorAll('li[data-s]').forEach(li=>{
+    const no=li.dataset.cari.split(' ')[0],nm=spNorm(SURAHS[+li.dataset.s].nama),core=nm.replace(/^a[lnrstdz]/,'');
+    const ok=!q||(num?no.startsWith(q):(spNorm(li.dataset.cari).includes(qn)||(qa&&stripAr(li.dataset.ar).includes(qa))));
+    li.hidden=!ok;if(!ok)return;
+    const sc=!q?0:num?(no===q?3:1):(nm===qn||core===qn?3:nm.startsWith(qn)||core.startsWith(qn)?2:1);
+    if(sc>best){best=sc;first=li;}
+  });
+  e.list.querySelector('.sp-none').hidden=!!first;
+  spOpen(true);spAct(q?first:(e.list.querySelector('li[aria-selected="true"]')||first));
+}
+function spMove(d){
+  const e=spEls();if(!e)return;
+  const items=[...e.list.querySelectorAll('li[data-s]:not([hidden])')];if(!items.length)return;
+  const k=items.findIndex(x=>x.classList.contains('act'));
+  spAct(items[d===Infinity?items.length-1:d===-Infinity?0:Math.max(0,Math.min(items.length-1,(k<0?(d>0?-1:items.length):k)+d))]);
+}
+function spPick(si){
+  spOpen(false);
+  if(si===state.s){const e=spEls();if(e)e.inp.value=e.inp.dataset.cur;return;}
+  state.s=si;state.v=1;state.w=0;renderView();
 }
 function legend(){
   return `<div class="legend" aria-label="Keterangan warna">
@@ -3730,7 +3939,7 @@ function graf(){
   const g=grafData(state.gs);
   if(!g.nodes[state.gr])state.gr=null;
   return `<p class="note">Graf kemunculan bersama: setiap simpul adalah akar kata, dan dua akar dihubungkan bila muncul dalam ayat yang sama. Ukuran simpul menunjukkan jumlah kemunculan, tebal garis menunjukkan jumlah ayat bersama, dan warna menunjukkan surah tempat akar paling sering muncul.</p>
-    <div class="ayat" role="group" aria-label="Pilih cakupan graf"><span class="lbl">Cakupan</span><button class="chip wide" data-gs="-1" aria-pressed="${state.gs<0}">Semua surah</button>${SURAH_URUT.map(i=>`<button class="chip wide" data-gs="${i}" aria-pressed="${state.gs===i}">${esc(SURAHS[i].label||SURAHS[i].nama)}</button>`).join('')}</div>
+    <div class="pilih"><div class="pk pk-gs"><label class="pk-l" for="gs-sel">Cakupan graf</label><select id="gs-sel" class="vsel wide"><option value="-1"${state.gs<0?' selected':''}>Semua surah (${SURAHS.length})</option>${SURAH_URUT.map(i=>`<option value="${i}"${state.gs===i?' selected':''}>${SURAHS[i].no}. ${esc(SURAHS[i].label||SURAHS[i].nama)}</option>`).join('')}</select></div></div>
     <div class="graf-leg" aria-label="Keterangan warna">${SURAHS.map((S,i)=>`<span style="--c:${GRAF_WARNA[i]}"><i></i>${esc(S.label||S.nama)}</span>`).join('')}<span><i class="ring"></i>muncul di lebih dari satu surah</span></div>
     <div class="graf-grid"><div class="scroll" id="graf-box">${grafSvg(g)}</div><div id="graf-side">${grafSide(g)}</div></div>
     <details class="textlist"><summary>Daftar hubungan sebagai teks (${g.E.length})</summary><ul>${grafList(g)||'<li>Tidak ada hubungan.</li>'}</ul></details>`;
@@ -4145,8 +4354,13 @@ function renderStatus(){
      <span class="badge">${Object.keys(ROOTS).length} akar kata</span>
      <span class="badge warn">Draf kerja: belum divalidasi ahli</span>`;
 }
+// Tab dikelompokkan menurut kegunaan; semua fitur tetap ada.
+const TAB_GRUP=[['Baca',['baca','para','makna']],['Analisis',['tree','akar','graf','sisipan']],['Riset dan lab',['cari','lab','ai','pedoman']]];
 function renderTabs(){
-  document.getElementById('tabs').innerHTML=TABS.map(t=>(t[0]==='cari'?'<span class="tabsep" aria-hidden="true"></span>':'')+`<button role="tab" data-tab="${t[0]}" aria-selected="${t[0]===state.tab}">${t[1]}</button>`).join('');
+  const nm=Object.fromEntries(TABS);
+  document.getElementById('tabs').innerHTML=TAB_GRUP.map(([g,ks],gi)=>(gi?'<span class="tg-sep" aria-hidden="true"></span>':'')+
+    `<div class="tg" role="none"><span class="tg-l" aria-hidden="true">${esc(g)}</span><div class="tg-b" role="none">${ks.map(k=>`<button role="tab" data-tab="${k}" aria-selected="${k===state.tab}" tabindex="${k===state.tab?0:-1}" title="Kelompok ${esc(g)}">${nm[k]}</button>`).join('')}</div></div>`).join('');
+  const on=document.querySelector('#tabs [aria-selected="true"]');if(on&&on.scrollIntoView&&window.innerWidth<980)on.scrollIntoView({block:'nearest',inline:'center'});
 }
 /* ---------- Peta sisipan penerjemah ---------- */
 // Markah penyelarasan terjemahan Kemenag dengan kata Arab (indeks kata dimulai dari 0):
@@ -4399,7 +4613,9 @@ function sisipan(){
 
 function renderView(){
   const fn={baca,tree,akar,cari,para,sisipan,makna,graf,lab,ai,pedoman}[state.tab];
+  const ae=document.activeElement,keep=ae&&ae.id&&['v-prev','v-next','v-sel','sp-in','gs-sel'].includes(ae.id)?ae.id:null;
   document.getElementById('view').innerHTML=fn();
+  if(keep){let el=document.getElementById(keep);if(el&&el.disabled)el=document.getElementById('v-sel');if(el)el.focus({preventScroll:true});}
   renderTabs();
   const target=state.tab==='akar'&&state.focusRoot?document.getElementById('root-'+state.focusRoot):
                state.tab==='makna'&&state.focusDis?document.getElementById('dis-'+state.focusDis):null;
@@ -4409,6 +4625,10 @@ function renderView(){
 
 /* ---------- Event ---------- */
 document.addEventListener('click',function(e){
+  const sp=document.getElementById('sp');if(sp&&!sp.contains(e.target))spOpen(false);
+  if(e.target.closest('[data-sptog]')){const x=spEls();if(x){const open=x.list.hidden;if(open)spFilter('');else spOpen(false);x.inp.focus();if(open)x.inp.select();}return;}
+  if(e.target.id==='sp-in'){const x=spEls();if(x&&x.list.hidden){spFilter('');x.inp.select();}return;}
+  const opt=e.target.closest('#sp-list li[data-s]');if(opt){spPick(+opt.dataset.s);return;}
   const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear]');
   if(!t)return;
   if(t.dataset.gr!==undefined){grafPilih(t.dataset.gr===state.gr?'':t.dataset.gr);return;}
@@ -4438,12 +4658,20 @@ document.addEventListener('input',function(e){
   if(e.target&&e.target.id==='lab-padanan'){state.lab.form.padanan=e.target.value;return;}
   if(e.target&&e.target.id==='cq'){state.cq=e.target.value;if(state.cmode==='kw')document.getElementById('cresults').innerHTML=cariResults();}
   if(e.target&&e.target.id==='q'){state.q=e.target.value;document.getElementById('rootlist').innerHTML=akarList();}
+  if(e.target&&e.target.id==='sp-in'){spFilter(e.target.value);}
+});
+document.addEventListener('mousedown',function(e){if(e.target.closest&&e.target.closest('#sp-list,[data-sptog]'))e.preventDefault();});
+document.addEventListener('focusout',function(e){
+  const sp=document.getElementById('sp');
+  if(sp&&e.target&&e.target.id==='sp-in'&&!(e.relatedTarget&&sp.contains(e.relatedTarget))){spOpen(false);e.target.value=e.target.dataset.cur;}
 });
 
 document.addEventListener('change',function(e){
   const t=e.target;if(!t)return;
   if(t.dataset&&t.dataset.ahli){const r=state.lab.rows.find(x=>x.id===t.dataset.ahli);if(r){r.ahli=t.value;paintLab();}return;}
   if(t.id==='lab-prefill'&&t.value){labPrefill(t.value);}
+  if(t.id==='v-sel'){state.v=+t.value;state.w=0;renderView();return;}
+  if(t.id==='gs-sel'){state.gs=+t.value;state.gr=null;renderView();return;}
 });
 document.addEventListener('toggle',function(e){
   const t=e.target;if(!t||t.id!=='lab-prompt'||!t.open||state.lab.prompt)return;
@@ -4453,6 +4681,20 @@ document.addEventListener('toggle',function(e){
   }).catch(()=>put('Prompt hanya dapat dimuat pada situs di Cloudflare.'));
 },true);
 document.addEventListener('keydown',function(e){
+  if(e.target&&e.target.id==='sp-in'){
+    const x=spEls(),open=x&&!x.list.hidden;
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!open){spFilter('');e.target.select();}else spMove(e.key==='ArrowDown'?1:-1);return;}
+    if(open&&(e.key==='Home'||e.key==='End')&&e.ctrlKey){e.preventDefault();spMove(e.key==='End'?Infinity:-Infinity);return;}
+    if(e.key==='Enter'){e.preventDefault();const a=x&&x.list.querySelector('li.act:not([hidden])');if(open&&a)spPick(+a.dataset.s);else if(!open){spFilter('');e.target.select();}return;}
+    if(e.key==='Escape'&&open){e.preventDefault();spOpen(false);e.target.value=e.target.dataset.cur;e.target.select();return;}
+    if(e.key==='Tab'&&open){spOpen(false);e.target.value=e.target.dataset.cur;}
+    return;
+  }
+  if(e.target&&e.target.getAttribute&&e.target.getAttribute('role')==='tab'&&(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End')){
+    const tabs=[...document.querySelectorAll('#tabs [role="tab"]')],k=tabs.indexOf(e.target);
+    const n=e.key==='Home'?0:e.key==='End'?tabs.length-1:(k+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+    e.preventDefault();state.tab=tabs[n].dataset.tab;renderView();const nb=document.querySelector(`#tabs [data-tab="${state.tab}"]`);if(nb)nb.focus();return;
+  }
   if(e.key==='Enter'&&e.target&&e.target.id==='cq'&&state.cmode==='sem'){e.preventDefault();semSearch(e.target.value);}
   if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.classList&&e.target.classList.contains('gn')){e.preventDefault();grafPilih(e.target.dataset.gr===state.gr?'':e.target.dataset.gr);}
   if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.dataset&&e.target.dataset.sw){e.preventDefault();sisPilih(e.target.dataset.sw);}
