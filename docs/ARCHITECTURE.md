@@ -20,7 +20,7 @@ Browser ── GET / ──────────────► Cloudflare Wo
 ## Data sources
 | Data | Source | Notes |
 |---|---|---|
-| Arabic text | Tanzil Uthmani (Ḥafṣ ʿan ʿĀṣim) | QS 97–113 byte-identical; 38 older verses NFC-normalized (see audit) |
+| Arabic text | Tanzil Uthmani 1.1 (Ḥafṣ ʿan ʿĀṣim), CC BY 3.0 | 110 of 143 verses byte-identical; 32 older verses NFC-normalized and QS 2:4 uses a different hamza code point (see `docs/audit-2026-11/data.md`, roadmap 0.1) |
 | Kemenag translation | quran.kemenag.go.id (QS 1, 2:1–6, 96, 114); Juz ‘Amma Isyarat Metode Tilawah, LPMQ 2023 (QS 97–113) | Quoted verbatim with footnotes |
 | NU Online translation | quran.nu.or.id | All 143 verses |
 | Tafsir summaries | Tafsir Al-Mishbah (sample, Al-Fātiḥah) | Summaries, not quotations |
