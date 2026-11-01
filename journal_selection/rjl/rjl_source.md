@@ -335,7 +335,6 @@ Author contributions: Muhammad Albie Fathurrahman: conceptualisation, data colle
 
 Abdelkarim, Majda B. A. & Ali A. M. Alhaj. 2023. Probing the meaning loss in the translation of Arabic Qur'ānic connotative words into English: A linguistic semantic perspective. *Theory and Practice in Language Studies* 13 (10). 2644–2651. DOI: 10.17507/tpls.1310.23
 
-Abdul-Raof, Hussein. 2013. *Qur'an Translation: Discourse, Texture and Exegesis*. Routledge. First published 2001. DOI: 10.4324/9780203036990
 
 Abdul-Raof, Hussein. 2023. *Qur'anic Semantics: Corpus and Lexical Behavior*. LINCOM.
 

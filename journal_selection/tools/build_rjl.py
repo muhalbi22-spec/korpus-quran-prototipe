@@ -38,6 +38,8 @@ subs = {
 subs.update({"{{AI_STATEMENT}}": AI_STATEMENT, "{{HASSANEIN_INTRO}}": "", "{{HASSANEIN_REF}}": ""})
 for k, v in subs.items():
     text = text.replace(k, v)
+if variant == "anon":  # names would reveal the authors to reviewers
+    text = re.sub(r"(?m)^Author contributions:.*$", "Author contributions: [removed for blind review]", text)
 
 d = docx.Document()
 for s in d.sections:
@@ -242,8 +244,14 @@ if bionote_path and variant == "named":
     para("Bionote", "Heading 1")
     for ln in open(bionote_path, encoding="utf-8").read().split("\n"):
         s = ln.strip()
-        if s and not s.startswith("#") and not s.lower().startswith("word count"):
-            para(s, indent=Cm(0))
+        if not s or s.startswith("# ") or s.lower().startswith(("word count", "items in")):
+            continue
+        if s.startswith("## "):
+            para(s[3:], indent=Cm(0), bold=True, keep=True); continue
+        para(s, indent=Cm(0))
 
+d.core_properties.author = "Muhammad Albie Fathurrahman" if variant == "named" else ""
+d.core_properties.last_modified_by = ""
+d.core_properties.title = "Between gloss and faith"
 d.save(out)
 print("saved", out)
