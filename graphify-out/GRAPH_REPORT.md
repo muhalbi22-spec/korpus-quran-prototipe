@@ -1,7 +1,7 @@
 # Graph Report - korpus-quran-prototipe  (2026-11-01)
 
 ## Corpus Check
-- 13 files · ~22,213 words
+- 13 files · ~22,281 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .jsonc 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f18a458a`
+- Built from commit: `21c8044d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -119,7 +119,7 @@ Cohesion: 0.50
 Nodes (3): Aturan independensi (wajib), Format jawaban, Tugas
 
 ## Knowledge Gaps
-- **8 isolated node(s):** `TABS`, `grafCache`, `KEMENAG_SUMBER`, `NU_SUMBER`, `LAB_NAMA (SEA-LION v4, Gemma 4)` (+3 more)
+- **8 isolated node(s):** `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `grafCache`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)` (+3 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 46 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -128,7 +128,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `esc()` connect `Terjemahan paralel Kemenag NU` to `renderView`, `Peta sisipan dan graf akar`, `Kamus dan pencarian akar`, `I‘rāb dan treebank`, `Makna kontekstual dan tafsir`?**
   _High betweenness centrality (0.141) - this node is a cross-community bridge._
-- **What connects `TABS`, `grafCache`, `KEMENAG_SUMBER` to the rest of the system?**
+- **What connects `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `grafCache` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `renderView` be split into smaller, more focused modules?**
   _Cohesion score 0.09243697478991597 - nodes in this community are weakly interconnected._

@@ -8,6 +8,7 @@ Subperintah:
   gabung  <A_family|B_gloss>                 -> gabung kode_<sheet>.*.jsonl + terapkan review -> kode_<sheet>.jsonl
   impor   <lembar.xlsx> <kode_A.jsonl> <kode_B.jsonl> <keluaran.xlsx>
                                              -> isi kolom kode_Anda + catatan, tambah sheet Log_AI
+                                             (tambahkan --polos: tanpa sheet Log_AI dan tanpa nama pengode)
 
 Format baris kode (JSONL), satu objek per baris:
   {"no": 1, "lokasi": "3:91:6", "kode": "abstract noun", "catatan": "...",
@@ -167,7 +168,7 @@ def validasi(kode_path, sheet):
     return 0 if not masalah else 2
 
 
-def impor(xlsx, kode_a, kode_b, keluaran):
+def impor(xlsx, kode_a, kode_b, keluaran, polos=False):
     op = _openpyxl()
     wb = op.load_workbook(xlsx)
     ringkas = {}
@@ -187,6 +188,17 @@ def impor(xlsx, kode_a, kode_b, keluaran):
         ringkas[sheet] = (isi, sum(1 for k in kode.values() if k.get("review") == "eskalasi"))
     if "Log_AI" in wb.sheetnames:
         del wb["Log_AI"]
+    if polos:  # tanpa sheet log dan tanpa nama pengode pada judul Petunjuk
+        ws = wb["Petunjuk"]
+        for row in ws.iter_rows():
+            for c in row:
+                if isinstance(c.value, str) and "pengode kedua:" in c.value:
+                    c.value = re.sub(r"\s*\(pengode kedua:[^)]*\)", "", c.value)
+        wb.properties.creator = None
+        wb.properties.lastModifiedBy = None
+        wb.save(keluaran)
+        print(f"Tersimpan (polos): {keluaran} {ringkas}")
+        return
     log = wb.create_sheet("Log_AI")
     log.append(["Pengodean dibantu tim agen AI (pengode, peneliti QAC, ahli linguistik, peninjau)"])
     log.append(["Tanggal", date.today().isoformat()])
@@ -237,8 +249,8 @@ def main(a):
         dasar(a[2])
     elif a[1] == "validasi" and len(a) == 4:
         return validasi(a[2], a[3])
-    elif a[1] == "impor" and len(a) == 6:
-        impor(*a[2:])
+    elif a[1] == "impor" and len(a) in (6, 7):
+        impor(*a[2:6], polos=(len(a) == 7 and a[6] == "--polos"))
     else:
         print(__doc__)
         return 1
