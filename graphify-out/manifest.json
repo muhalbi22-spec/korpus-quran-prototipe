@@ -1,8 +1,8 @@
 {
   "corpus.json": {
-    "mtime": 1793276904.9527256,
-    "seen": 1793276971.6111436,
-    "ast_hash": "e1187610ba15f61d87e9c28b1ccd5ed8",
+    "mtime": 1793532732.1290743,
+    "seen": 1793532761.186949,
+    "ast_hash": "d746f8bcb5e49f0ae1b612399924e17d",
     "semantic_hash": ""
   },
   "worker.js": {
@@ -12,9 +12,9 @@
     "semantic_hash": "741f8b307a0d4b52d2cbf4a4410b5da8"
   },
   "index.html": {
-    "mtime": 1793276904.8527257,
-    "seen": 1793276971.6112018,
-    "ast_hash": "dcd26b663d3071234deb6976ca69704a",
+    "mtime": 1793532746.6938548,
+    "seen": 1793532761.1869934,
+    "ast_hash": "ef304d823307d984f256ea3d3b101a09",
     "semantic_hash": ""
   },
   ".claude/settings.json": {
