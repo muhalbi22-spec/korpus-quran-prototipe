@@ -3,3 +3,6 @@ graphify-out/cache/
 graphify-out/cost.json
 graphify-out/.graphify_python
 graphify-out/.graphify_root
+
+# Salinan kerja sementara agen (git worktree)
+.claude/worktrees/
