@@ -1,3 +1,19 @@
+# Indonesian Quranic Corpus
+
+Academic research platform for Quranic corpus linguistics with Indonesian translations. Production: https://korpus-quran-prototipe.muhalbi22.workers.dev/ (deployed from `main`).
+
+- Architecture: `docs/ARCHITECTURE.md`. Roadmap: `docs/ROADMAP.md`.
+- AI employee organization: `docs/organization/AGENTS.md` (8 core agents in `.claude/agents/` plus 11 specialist helpers). The main session acts as Chief AI Officer and follows `docs/organization/WORKFLOW.md`; subagents cannot launch other subagents.
+- Use the minimum set of agents for a task; run them in parallel only when they do not touch the same files.
+
+## Integrity rules (always)
+1. Quranic Arabic text comes only from Tanzil Uthmani (Ḥafṣ ʿan ʿĀṣim). Never type, correct, or normalize it by hand; editing tools may normalize Arabic to NFC, so write Arabic only through scripts that copy bytes from the source.
+2. Never invent Quranic data, translations, tafsir, references, DOIs, or scholarly claims.
+3. AI output is a draft; keep the site's "draf, belum divalidasi ahli" status until human experts validate. Distinguish machine suggestions from human-verified annotations.
+4. Never expose secrets (`LAB_KEY`, Cloudflare tokens).
+5. Do not remove existing functionality without the owner's approval.
+6. Before merging: data integrity checks, `node tools/buat-corpus.js --cek`, Playwright smoke test of all tabs, `graphify update .`.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
