@@ -4,7 +4,8 @@ Sample: every taqwā cell (17 tokens x 5 translations = 85), every kāfir noun c
 and 60 raḥmat cells (all 23 flagged/exception cells' verses are not marked; random seed fixed),
 plus the default/variant gloss code for all 158 tokens. Codes are hidden from the coder.
 """
-import csv, random
+import csv, re, random
+PREFIX = re.compile(r"^(verb|abstract|agricultural|paraphrase|retention): ")
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.worksheet.datavalidation import DataValidation
@@ -75,7 +76,7 @@ dvs = {t: DataValidation(type="list", formula1='"' + ",".join(f) + '"', allow_bl
 for dv in dvs.values():
     a.add_data_validation(dv)
 for n, (r, t) in enumerate(cells, 1):
-    shown = r[t]
+    shown = PREFIX.sub("", r[t])  # labels like "verb:" would reveal the first coder's category
     if r["term"] == "rahmat":  # the data hold only a screening note for most raḥmat cells: the coder reads the verse
         shown = "[baca terjemahan ayat di QAC dan temukan padanan kata raḥmat]"
     a.append([n, r["token_id"], r["term"], TR_NAME[t], shown, "", ""])

@@ -21,7 +21,7 @@ AI_STATEMENT = (
     "the manuscript yourselves. RJL asks which AI tools were used and for what purpose. Suggested wording, only if "
     "it matches what actually happened: \"In preparing this article, the authors used Claude (Anthropic), a generative "
     "AI system, to check the dataset against the Quranic Arabic Corpus, to extract and tabulate translation renderings, "
-    "and to draft and revise parts of the text. The authors rewrote the text, verified the data, the exegetical sources "
+    "as a blind second coder for the reliability check reported in Section 3.5, and to draft and revise parts of the text. The authors rewrote the text, verified the data, the exegetical sources "
     "and the references, and take full responsibility for the content.\" Do not keep any claim of verification that "
     "you have not carried out.]"
 )
@@ -33,7 +33,7 @@ SELFREF = ("Fathurrahman, Muhammad Albie. 2025. *Analisis terjemahan istilah teo
 text = open(src, encoding="utf-8").read()
 subs = {
     "named": {"{{SELFCITE}}": "Fathurrahman 2025", "{{SELFCITE_NARR}}": "Fathurrahman (2025)", "{{SELFREF}}": SELFREF},
-    "anon": {"{{SELFCITE}}": "Author 2025", "{{SELFCITE_NARR}}": "Author (2025)", "{{SELFREF}}": ""},
+    "anon": {"{{SELFCITE}}": "Author 2025", "{{SELFCITE_NARR}}": "Author (2025)", "{{SELFREF}}": "Author. 2025. [Details removed for blind review]."},
 }[variant]
 subs.update({"{{AI_STATEMENT}}": AI_STATEMENT, "{{HASSANEIN_INTRO}}": "", "{{HASSANEIN_REF}}": ""})
 for k, v in subs.items():

@@ -1,7 +1,7 @@
 @@TITLE_EN Between gloss and faith: Interlinear glossing, sentence-level translation and the semantic narrowing of *taqwā*, *raḥmat* and *kāfir* in the Quranic Arabic Corpus
 @@AUTHOR
-@@ABSTRACT_EN Corpus-based studies of Qur'an translation often treat the English shown in annotated resources as "the translation" of a term, although such resources contain functionally different textual layers. This article aims to locate semantic narrowing layer by layer, drawing on Nida's gloss translation, Nord's documentary translation, Toury's translational norms, Baker's typology of lexical meaning and Izutsu's distinction between basic and relational meaning. The material comprises every token of three lemmas in the Quranic Arabic Corpus (QAC), *taqwā* (17), *raḥmat* (114) and *kāfir* (27), plus 131 participial tokens of the *kāfir* pattern. For each token, the QAC's interlinear English gloss is compared with five sentence-level translations displayed on the QAC: Sahih International, Pickthall, Yusuf Ali, Arberry and al-Hilali and Khan. Results show that the gloss follows a source-oriented concordance norm: it gives one default English lexeme to each lemma and departs from it only when the immediate co-text makes the default incompatible or a collocate has already claimed it. Because the gloss is based on three of the translations, its agreement with them is partly built in. Comparison with Arberry, who is independent of the gloss, shows that the defaults for *raḥmat* and *kāfir* are widely shared, whereas *taqwā* is anchored in five distinct components of meaning. Three loci of narrowing emerge: a genre norm of interlinear glossing, the absence of a stable English equivalent, and relational and contextual meanings that no single lexical choice can carry. The article concludes by proposing layered glossing and selective retention with annotation as remedies.
-@@KEYWORDS_EN Concordance norms, Corpus-based research, Documentary translation, Exegesis, Sacred texts
+@@ABSTRACT_EN Corpus-based studies of Qur'an translation often treat the English shown in annotated resources as "the translation" of a term, although such resources contain functionally different textual layers. This article aims to locate semantic narrowing layer by layer, drawing on Nida's gloss translation, Nord's documentary translation, Toury's translational norms, Baker's typology of lexical meaning and Izutsu's distinction between basic and relational meaning. The material comprises every token of three lemmas in the Quranic Arabic Corpus (QAC), *taqwā* (17), *raḥmat* (114) and *kāfir* (27), plus 131 participial tokens of the *kāfir* pattern. Each token's interlinear English gloss is compared with five sentence-level translations on the QAC: Sahih International, Pickthall, Yusuf Ali, Arberry and al-Hilali and Khan. Results show that the gloss follows a source-oriented concordance norm: it gives one default English lexeme to each lemma and departs from it only when the immediate co-text makes the default incompatible or a collocate has already claimed it. Because the gloss is based on three of the translations, its agreement with them is partly built in. Comparison with Arberry, independent of the gloss, shows that the defaults for *raḥmat* and *kāfir* are widely shared, whereas *taqwā* is anchored in five distinct components of meaning. Three loci of narrowing emerge: a genre norm of interlinear glossing, the absence of a stable English equivalent, and relational and contextual meanings that no single lexical choice can carry. The article proposes layered glossing and selective retention with annotation as remedies.
+@@KEYWORDS_EN Concordance norms, Corpus-based research, Documentary translation, Exegesis, Qur'an translation, Sacred texts
 
 ## 1. Introduction
 
@@ -11,11 +11,11 @@ Choosing an English word for a key term of the Qur'an is never a neutral substit
 - *raḥmat* (رحمة), commonly "mercy", whose root also yields the divine names *al-Raḥmān* and *al-Raḥīm*;
 - *kāfir* (كافر), commonly "disbeliever", which organises the Qur'an's most consequential doctrinal and social distinction.
 
-Research on such terms has grown rapidly. Studies document semantic loss when Qur'anic lexis is rendered literally (Abdelkarim & Alhaj 2023, Al-Awd 2024). They catalogue the polysemy, ellipsis and culturally bound terminology that make the Qur'an resist full equivalence (Almjlad 2025). They trace how translators' theological and ideological positions surface in lexical choices (Erebih & Almanna 2026, Gunawan 2022, Suaidi & Arifin 2021). Work on near-synonyms (Zitouni et al. 2023), on individual *sūrahs* (Alhamshary 2025, ElHajAhmed & El Halabi 2022) and on the interfaith reception of key terms, including *taqwā* (Aldeeb 2026), shows that single renderings shape how readers understand the text. Research in translation studies journals has also examined how features of Qur'anic syntax are handled in English (Elimam 2009). Machine translation and large language models now add another source of English equivalents, one that tends to neutralise lexical distinctions in favour of statistically frequent English words (Shehab 2026).
+Research on such terms has grown rapidly. Studies document semantic loss when Qur'anic lexis is rendered literally (Abdelkarim & Alhaj 2023, Al-Awd 2024). They catalogue the polysemy, ellipsis and culturally bound terminology that make the Qur'an resist full equivalence (Almjlad 2025). They trace how translators' theological and ideological positions surface in lexical choices (Erebih & Almanna 2026, Gunawan 2022, Suaidi & Arifin 2021). Work on near-synonyms (Zitouni, Zemni & Abdul-Ghafour 2023), on individual *sūrahs* (Alhamshary 2025, ElHajAhmed & El Halabi 2022) and on the interfaith reception of key terms, including *taqwā* (Aldeeb 2026), shows that single renderings shape how readers understand the text. Research in translation studies journals has also examined how features of Qur'anic syntax are handled in English (Elimam 2009). Machine translation and large language models now add another source of English equivalents, one that tends to neutralise lexical distinctions in favour of statistically frequent English words (Shehab 2026).
 
 Two limitations recur in this literature. The first is that most studies analyse hand-picked verses or a single *sūrah*, so little is known about how a term is rendered across its full distribution. The second is that studies rarely ask what kind of text supplies the English equivalent. A word-by-word interlinear gloss, a sentence-level translation and a machine output serve different purposes, and treating them as interchangeable sources of "the translation" of a term obscures where meaning is lost.
 
-The Quranic Arabic Corpus (QAC) is a productive place to address both problems (Dukes & Habash 2010, Dukes et al. 2013). For every word of the Qur'an it provides morphological annotation, a lemma, a root and an English word-by-word gloss, and it displays seven complete English translations for each verse. A researcher can therefore retrieve the full distribution of a lemma and compare, token by token, how a documentary gloss and several sentence-level translations render it. The corpus documentation states that the word-by-word English "is not a new translation of the text" and is "based on standard and accepted sources" (Quranic Arabic Corpus n.d.-a, "How accurate is English translation in the Quranic Arabic Corpus?" section). Studies that quote one of these layers while coding another, including the analysis in which the present dataset was first compiled ({{SELFCITE}}), conflate two different documents.
+The Quranic Arabic Corpus (QAC) is a productive place to address both problems (Dukes & Habash 2010, Dukes, Atwell & Habash 2013). For every word of the Qur'an it provides morphological annotation, a lemma, a root and an English word-by-word gloss, and it displays seven complete English translations for each verse. A researcher can therefore retrieve the full distribution of a lemma and compare, token by token, how a documentary gloss and several sentence-level translations render it. The corpus documentation states that the word-by-word English "is not a new translation of the text" and is "based on standard and accepted sources" (Quranic Arabic Corpus n.d.-a, "How accurate is English translation in the Quranic Arabic Corpus?" section). Studies that quote one of these layers while coding another, including the analysis in which the present dataset was first compiled ({{SELFCITE}}), conflate two different documents.
 
 The article asks three questions:
 
@@ -33,7 +33,7 @@ Nida and Taber (1969/1982: 12) define translating as "reproducing in the recepto
 
 First, equivalence is not a property that waits to be discovered between languages. Snell-Hornby (1988: 22) described it as presenting "an illusion of symmetry between languages", and Pym (2023) shows that equivalence is better understood as a relation that translations construct in particular directions and for particular purposes. To classify a single English word as "formal" or "dynamic" therefore requires an explicit statement of what is held constant.
 
-Second, Nida himself located a kind of translation at the far end of formal correspondence, the "gloss translation", in which the translator "attempts to reproduce as literally and meaningfully as possible the form and content of the original" so that the reader can "identify himself as fully as possible with a person in the source-language context" (Nida 1964: 159). An interlinear gloss is an extreme form of this orientation. Nida and Taber (1969/1982) famously gave contextual consistency priority over verbal consistency, that is, word-for-word concordance. An interlinear gloss deliberately reverses that priority, because its users need to recognise the same source word wherever it occurs. Linguistic glossing conventions are built on the same principle of consistent, retraceable correspondence between object-language units and their glosses (Comrie et al. 2008, Lehmann 2004).
+Second, Nida himself located a kind of translation at the far end of formal correspondence, the "gloss translation", in which the translator "attempts to reproduce as literally and meaningfully as possible the form and content of the original" so that the reader can "identify himself as fully as possible with a person in the source-language context" (Nida 1964: 159). An interlinear gloss is an extreme form of this orientation. Nida and Taber (1969/1982) famously gave contextual consistency priority over verbal consistency, that is, word-for-word concordance. An interlinear gloss deliberately reverses that priority, because its users need to recognise the same source word wherever it occurs. Linguistic glossing conventions are built on the same principle of consistent, retraceable correspondence between object-language units and their glosses (Comrie, Haspelmath & Bickel 2008, Lehmann 2004).
 
 Descriptive Translation Studies offers better tools for describing such regularities. Toury (2012) treats translational behaviour as governed by norms, which are regularities reflecting what a community regards as appropriate for a given kind of translation. His initial norm distinguishes adherence to the source (adequacy) from adherence to target conventions (acceptability). Toury also formulates two probabilistic laws: a law of growing standardisation, by which source-text relations tend to be replaced by habitual options of the target repertoire, and a law of interference, by which features of the source tend to be carried into the target, with tolerance of interference tending to grow with the prestige of the source. A one-gloss-per-lemma policy is not a case of target-oriented standardisation. It is a source-oriented concordance norm, an extreme case of adequacy, and a sacred source text glossed for learners is a context in which such interference is expected to be tolerated.
 
@@ -69,7 +69,7 @@ Corpus-based translation studies arose from the argument that regularities of tr
 
 ### 3.1. The Quranic Arabic Corpus and its layers
 
-The QAC was developed at the University of Leeds and is maintained by the quran.com team. It annotates each of the 77,429 words of the Qur'an for part of speech, morphology, lemma and root. The morphological annotation was reviewed in stages by two annotators, and its accuracy is estimated at about 99 per cent (Dukes et al. 2013, Quranic Arabic Corpus n.d.-a). Four layers are kept apart in this study:
+The QAC was developed at the University of Leeds and is maintained by the quran.com team. It annotates each of the 77,429 words of the Qur'an for part of speech, morphology, lemma and root. The morphological annotation was reviewed in stages by two annotators, and its accuracy is estimated at about 99 per cent (Dukes, Atwell & Habash 2013, Quranic Arabic Corpus n.d.-a). Four layers are kept apart in this study:
 
 - the Arabic text, based on the Tanzil project;
 - the morphological annotation, from which lemma concordances are generated;
@@ -114,7 +114,7 @@ Only the words rendering the target term were recorded, never full verses, in ke
 
 ### 3.5. Exegetical reading and reliability
 
-Selected tokens were read against classical sources in Arabic: the lexicon of al-Rāghib al-Iṣfahānī (1992) and the commentaries of al-Ṭabarī (n.d.), al-Qurṭubī (n.d.) and Ibn Kathīr (n.d.), the last three consulted through quran.com. Their readings are reported as positions transmitted in named works, with the plurality of reports noted where it exists, not as the single correct meaning of a verse. Transliteration follows standard conventions: macrons for long vowels, subscript dots for emphatic consonants, and ʿ and ʾ for *ʿayn* and *hamza*. Coding was carried out by a single coder. To make it checkable, the full token table is released as supplementary data, with QAC locations, glosses, original and revised codes, and the five renderings.
+Selected tokens were read against classical sources in Arabic: the lexicon of al-Rāghib al-Iṣfahānī (1992) and the commentaries of al-Ṭabarī (n.d.), al-Qurṭubī (n.d.) and Ibn Kathīr (n.d.), the last three consulted through quran.com. Their readings are reported as positions transmitted in named works, with the plurality of reports noted where it exists, not as the single correct meaning of a verse. Transliteration follows standard conventions: macrons for long vowels, subscript dots for emphatic consonants, and ʿ and ʾ for *ʿayn* and *hamza*. Coding was carried out by the first author. A blind second coding was then performed with an AI system (Claude, Anthropic), which received only the coding sheet and the codebook and located the *raḥmat* renderings in the verse translations itself. It covered 280 translation cells (all cells for *taqwā* and *kāfir* and 60 *raḥmat* cells, including every cell with a non-default rendering) and the gloss code of all 158 tokens. Agreement was 100% (Cohen's κ = 1.00) for both sets; the result is the same when 25 *kāfir* cells whose rendering field carried a category label are excluded (n = 255). Because the categories are defined by explicit lexical criteria, this shows that the codebook was applied consistently and that the renderings were correctly located, not that interpretive judgements were independently replicated. To make the coding checkable, the full token table is released as supplementary data, with QAC locations, glosses, original and revised codes, and the five renderings.
 
 ## 4. Results
 
@@ -307,7 +307,7 @@ This article has re-examined 158 tokens of *taqwā*, *raḥmat* and *kāfir* in 
 The findings should be read within clear limits:
 
 - **Scope.** The study covers three lemmas and five translations, those displayed on the QAC. Other translations, such as Abdel Haleem's, may pattern differently.
-- **Coding.** Coding was carried out by a single coder. For *raḥmat*, the five translations were screened automatically and only the flagged cells were read in full.
+- **Coding.** Coding was carried out by one human coder and checked by a blind AI second coder rather than a second human coder. For *raḥmat*, the five translations were screened automatically and only the flagged cells were read in full.
 - **Exegesis.** The exegetical readings are selective and attributed to named works rather than presented as definitive.
 - **Readers.** The study does not test how actual readers interpret these renderings. Reader-response research on verses such as 9:123 would be needed to show whether the risks discussed here materialise.
 
@@ -315,7 +315,7 @@ Within these limits, the methodological point is general: corpus-based research 
 
 ## Data availability
 
-The supplementary files contain the token-level coding table for the 158 tokens (QAC location, transliteration, gloss, original and revised codes, and the rendering and lexical family in five translations), the 131 participial tokens of the *kāfir* pattern, and the summary counts. QAC data are used for non-commercial research with attribution under the corpus's stated terms (https://corpus.quran.com). Renderings from the translations are limited to the words translating the target term. In line with the journal's policy on reproducible materials for research using AI tools, the token-level coding tables (the corpus inventory and the codebook) are provided as supplementary files.
+Supplementary File 1 (a spreadsheet) contains a codebook and the token-level coding table for the 158 tokens (QAC location, transliteration, gloss, original and revised codes, and the rendering and lexical family in five translations), the 131 participial tokens of the *kāfir* pattern, and the summary counts. QAC data are used for non-commercial research with attribution under the corpus's stated terms (https://corpus.quran.com). Renderings from the translations are limited to the words translating the target term. It is provided in line with the journal's policy on reproducible materials for research using AI tools.
 
 ## Ethics Statement
 
@@ -329,14 +329,13 @@ Not applicable. The study analyses publicly available texts and involved no huma
 
 The authors declare no conflict of interest. [AUTHOR: state funding sources for the research and for publication, or write 'This research received no specific funding.']
 
-Author contributions: Muhammad Albie Fathurrahman: conceptualisation, data collection and coding, analysis, writing of the original draft and revision. Ach Fauzi: contribution to the conceptualisation, verification of the data and results, review of the manuscript. Both authors approved the final version.
+Author contributions: Muhammad Albie Fathurrahman: conceptualisation, data collection and coding, analysis, writing of the original draft and revision. Ach Fauzi: contribution of ideas to the study and re-checking of the research results. Both authors read and approved the final manuscript.
 
 ## References
 
 Abdelkarim, Majda B. A. & Ali A. M. Alhaj. 2023. Probing the meaning loss in the translation of Arabic Qur'ānic connotative words into English: A linguistic semantic perspective. *Theory and Practice in Language Studies* 13 (10). 2644–2651. DOI: 10.17507/tpls.1310.23
 
-
-Abdul-Raof, Hussein. 2023. *Qur'anic Semantics: Corpus and Lexical Behavior*. LINCOM.
+Abdul-Raof, Hussein. 2023. *Qur'anic Semantics: Corpus and Lexical Behavior*. Munich: LINCOM.
 
 Al-Awd, Mubarak. 2024. Some defective aspects of lexis translation in the Holy Quran into English. *International Journal of Linguistics, Literature and Translation* 7 (5). 96–109. DOI: 10.32996/ijllt.2024.7.5.12
 
@@ -344,27 +343,27 @@ Aldeeb, Najlaa. 2026. From polemics to peacebuilding: Tracing interfaith ideolog
 
 Alhamshary, Yousreya Ahmed. 2025. Semantic challenges in translating the Qur'an: A comparative analysis of four English translations of Surat Yusuf. *Crossroads: Pharos International Journal of Languages and Translation* 2 (1). DOI: 10.21608/cpijlt.2025.460077
 
-Al-Hilali, M. T. & M. M. Khan (trans.). n.d. *The Noble Qur'an*. King Fahd Complex. https://corpus.quran.com/translation.jsp (accessed 28 October 2026).
+Al-Hilali, M. T. & M. M. Khan (trans.). n.d. *The Noble Qur'an*. Madinah: King Fahd Complex for the Printing of the Holy Qur'an. https://corpus.quran.com/translation.jsp (accessed 28 October 2026).
 
 Almjlad, Sultan Samah A. 2025. Semantic untranslatability in Quranic discourse: Challenges and contextual remedies in English translation. *Cogent Arts & Humanities* 12 (1). 2542336. DOI: 10.1080/23311983.2025.2542336
 
 Al-Qurṭubī. n.d. *Al-jāmiʿ li-aḥkām al-Qurʾān* [Tafsīr al-Qurṭubī]. Quran.com. https://quran.com/2:2/tafsirs/ar-tafseer-al-qurtubi (accessed 28 October 2026).
 
-Al-Rāghib al-Iṣfahānī. 1992. *Mufradāt alfāẓ al-Qurʾān*. Ṣ. ʿA. Dāwūdī (ed.). Dār al-Qalam.
+Al-Rāghib al-Iṣfahānī. 1992. *Mufradāt alfāẓ al-Qurʾān*. Ṣ. ʿA. Dāwūdī (ed.). Damascus: Dār al-Qalam.
 
 Al-Ṭabarī. n.d. *Jāmiʿ al-bayān ʿan taʾwīl āy al-Qurʾān* [Tafsīr al-Ṭabarī]. Quran.com. https://quran.com/9:123/tafsirs/ar-tafsir-al-tabari (accessed 28 October 2026).
 
-Arberry, A. J. 1955. *The Koran Interpreted*. George Allen & Unwin.
+Arberry, A. J. 1955. *The Koran Interpreted*. London: George Allen & Unwin.
 
-Baker, Mona. 1993. Corpus linguistics and translation studies: Implications and applications. In Mona Baker, G. Francis & E. Tognini-Bonelli (eds.), *Text and Technology: In Honour of John Sinclair*, 233–250. John Benjamins.
+Baker, Mona. 1993. Corpus linguistics and translation studies: Implications and applications. In Mona Baker, G. Francis & E. Tognini-Bonelli (eds.), *Text and Technology: In Honour of John Sinclair*, 233–250. Amsterdam/Philadelphia: John Benjamins.
 
-Baker, Mona. 2018. *In Other Words: A Coursebook on Translation*, 3rd edn. Routledge.
+Baker, Mona. 2018. *In Other Words: A Coursebook on Translation*, 3rd edn. London/New York: Routledge.
 
-Comrie, B., M. Haspelmath & B. Bickel. 2008. *The Leipzig Glossing Rules: Conventions for Interlinear Morpheme-by-Morpheme Glosses*. Max Planck Institute for Evolutionary Anthropology. https://www.eva.mpg.de/lingua/resources/glossing-rules.php
+Comrie, Bernard, Martin Haspelmath & Balthasar Bickel. 2008. *The Leipzig Glossing Rules: Conventions for Interlinear Morpheme-by-Morpheme Glosses*. Leipzig: Max Planck Institute for Evolutionary Anthropology. https://www.eva.mpg.de/lingua/resources/glossing-rules.php (accessed 1 November 2026).
 
 Dukes, Kais, Eric Atwell & Nizar Habash. 2013. Supervised collaboration for syntactic annotation of Quranic Arabic. *Language Resources and Evaluation* 47 (1). 33–62. DOI: 10.1007/s10579-011-9167-7
 
-Dukes, Kais & Nizar Habash. 2010. Morphological annotation of Quranic Arabic. In *Proceedings of the Seventh International Conference on Language Resources and Evaluation (LREC'10)*. European Language Resources Association.
+Dukes, Kais & Nizar Habash. 2010. Morphological annotation of Quranic Arabic. In *Proceedings of the Seventh International Conference on Language Resources and Evaluation (LREC'10)*. Valletta: European Language Resources Association.
 
 ElHajAhmed, M. S. & H. N. El Halabi. 2022. Impact of semantic loss in the Holy Quran with reference to Yusuf Ali's and Pickthall's translations of Al-Nur Surah. *Islamic University Journal for Humanities Research* 30 (2). DOI: 10.33976/IUGJHR.30.2/2022/14
 
@@ -376,35 +375,35 @@ Erebih, Mohamed & Ali Almanna. 2026. Ideological horizons in English translation
 
 Gunawan, Fahmi. 2022. The ideology of translators in Quranic translation: Lessons learned from Indonesia. *Cogent Arts & Humanities* 9 (1). 2088438. DOI: 10.1080/23311983.2022.2088438
 
-Hizbullah, Nur & Abdul Mutaali. 2019. Quranic corpus models for corpus-based studies. In *Proceedings of the Eleventh Conference on Applied Linguistics (CONAPLIN 2018)*. Atlantis Press. DOI: 10.2991/conaplin-18.2019.163
+Hizbullah, Nur & Abdul Mutaali. 2019. Quranic corpus models for corpus-based studies. In *Proceedings of the Eleventh Conference on Applied Linguistics (CONAPLIN 2018)*. Paris: Atlantis Press. DOI: 10.2991/conaplin-18.2019.163
 
 Ibn Kathīr. n.d. *Tafsīr al-Qurʾān al-ʿaẓīm*. Quran.com. https://quran.com/9:123/tafsirs/ar-tafsir-ibn-kathir (accessed 28 October 2026).
 
-Izutsu, Toshihiko. 2002a. *God and Man in the Qur'an: Semantics of the Qur'anic Weltanschauung*. Islamic Book Trust. First published 1964.
+Izutsu, Toshihiko. 2002a. *God and Man in the Qur'an: Semantics of the Qur'anic Weltanschauung*. Kuala Lumpur: Islamic Book Trust. First published 1964.
 
-Izutsu, Toshihiko. 2002b. *Ethico-Religious Concepts in the Qur'ān*. McGill-Queen's University Press. First published 1966.
+Izutsu, Toshihiko. 2002b. *Ethico-Religious Concepts in the Qur'ān*. Montreal: McGill-Queen's University Press. First published 1966.
 
-Kementerian Agama RI. 2019. *Al-Qur'an dan Terjemahannya: Edisi Penyempurnaan 2019*. Lajnah Pentashihan Mushaf Al-Qur'an.
+Kementerian Agama RI. 2019. *Al-Qur'an dan Terjemahannya: Edisi Penyempurnaan 2019*. Jakarta: Lajnah Pentashihan Mushaf Al-Qur'an.
 
-Laviosa, Sara. 2002. *Corpus-Based Translation Studies: Theory, Findings, Applications*. Rodopi.
+Laviosa, Sara. 2002. *Corpus-Based Translation Studies: Theory, Findings, Applications*. Amsterdam: Rodopi.
 
-Lehmann, Christian. 2004. Interlinear morphemic glossing. In G. Booij, C. Lehmann, J. Mugdan & S. Skopeteas (eds.), *Morphologie/Morphology: An International Handbook on Inflection and Word-Formation*, vol. 2, 1834–1857. De Gruyter. DOI: 10.1515/9783110172782.2.20.1834
+Lehmann, Christian. 2004. Interlinear morphemic glossing. In G. Booij, C. Lehmann, J. Mugdan & S. Skopeteas (eds.), *Morphologie/Morphology: An International Handbook on Inflection and Word-Formation*, vol. 2, 1834–1857. Berlin/New York: De Gruyter. DOI: 10.1515/9783110172782.2.20.1834
 
 Naudé, Jacobus A. 2020. Translations of sacred texts and the shaping, reshaping and circulation of religious knowledge in monotheistic religions with written traditions: A South African perspective. *Journal for Semitics* 29 (1). DOI: 10.25159/2663-6573/8005
 
-Nida, Eugene A. 1964. *Toward a Science of Translating*. E. J. Brill.
+Nida, Eugene A. 1964. *Toward a Science of Translating*. Leiden: E. J. Brill.
 
-Nida, Eugene A. & Charles R. Taber. 1969/1982. *The Theory and Practice of Translation*. E. J. Brill. First published 1969; edition used 1982.
+Nida, Eugene A. & Charles R. Taber. 1969/1982. *The Theory and Practice of Translation*. Leiden: E. J. Brill. First published 1969; edition used 1982.
 
-Nord, Christiane. 2018. *Translating as a Purposeful Activity: Functionalist Approaches Explained*, 2nd edn. Routledge.
+Nord, Christiane. 2018. *Translating as a Purposeful Activity: Functionalist Approaches Explained*, 2nd edn. London/New York: Routledge.
 
 Oxford Learner's Dictionaries. n.d.-a. Mercy. https://www.oxfordlearnersdictionaries.com/definition/english/mercy (accessed 28 October 2026).
 
 Oxford Learner's Dictionaries. n.d.-b. Righteousness. https://www.oxfordlearnersdictionaries.com/definition/english/righteousness (accessed 28 October 2026).
 
-Pickthall, M. 1930. *The Meaning of the Glorious Koran*. Alfred A. Knopf.
+Pickthall, M. 1930. *The Meaning of the Glorious Koran*. New York: Alfred A. Knopf.
 
-Pym, Anthony. 2023. *Exploring Translation Theories*, 3rd edn. Routledge.
+Pym, Anthony. 2023. *Exploring Translation Theories*, 3rd edn. London/New York: Routledge.
 
 Quranic Arabic Corpus. n.d.-a. Frequently asked questions. https://corpus.quran.com/faq.jsp (accessed 28 October 2026).
 
@@ -412,18 +411,18 @@ Quranic Arabic Corpus. n.d.-b. Quran dictionary. https://corpus.quran.com/qurand
 
 Quranic Arabic Corpus. n.d.-c. Translation. https://corpus.quran.com/translation.jsp (accessed 28 October 2026).
 
-Sahih International. 1997. *The Qur'an: Arabic Text with Corresponding English Meanings*. Abul-Qasim Publishing House.
+Sahih International. 1997. *The Qur'an: Arabic Text with Corresponding English Meanings*. Jeddah: Abul-Qasim Publishing House.
 
 Shehab, Ekrema. 2026. A shallow echo: Artificial intelligence and the semantic flattening of the Qur'an. *Learned Publishing* 39 (3). e2063. DOI: 10.1002/leap.2063
 
-Snell-Hornby, Mary. 1988. *Translation Studies: An Integrated Approach*. John Benjamins.
+Snell-Hornby, Mary. 1988. *Translation Studies: An Integrated Approach*. Amsterdam/Philadelphia: John Benjamins.
 
 Suaidi, Afif & Moh Nur Arifin. 2021. Ideological tendencies in the six English Qur'an translation on QS. Ar-Rum 41. *Jurnal Studi Ilmu-ilmu Al-Qur'an dan Hadis* 22 (2). 279–300. DOI: 10.14421/qh.2021.2202-01
 
-Toury, Gideon. 2012. *Descriptive Translation Studies – and Beyond*, rev. edn. John Benjamins.
+Toury, Gideon. 2012. *Descriptive Translation Studies – and Beyond*, rev. edn. Amsterdam/Philadelphia: John Benjamins.
 
-Venuti, Lawrence. 2018. *The Translator's Invisibility: A History of Translation*, 3rd edn. Routledge.
+Venuti, Lawrence. 2018. *The Translator's Invisibility: A History of Translation*, 3rd edn. London/New York: Routledge.
 
-Yusuf Ali, A. 1934. *The Holy Qur-an: Text, Translation and Commentary*. Shaikh Muhammad Ashraf.
+Yusuf Ali, A. 1934. *The Holy Qur-an: Text, Translation and Commentary*. Lahore: Shaikh Muhammad Ashraf.
 
 Zitouni, Mimouna, Bahia Zemni & Abdul-Qader Khaleel Abdul-Ghafour. 2023. A semantic review of Qur'ānic near-synonyms, English and French translations. *Journal of Intercultural Communication* 23 (1). 82–91. DOI: 10.36923/jicc.v23i1.106

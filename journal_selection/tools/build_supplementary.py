@@ -1,5 +1,6 @@
 """Supplementary_File_1 (xlsx): codebook + corpus inventory + token coding, for RJL's reproducibility requirement."""
-import csv, json, sys
+import csv, re, json, sys
+PREFIX = re.compile(r"^(verb|abstract|agricultural|paraphrase|retention): ")
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font
 
@@ -38,7 +39,7 @@ for name, path in (("S1_tokens_158", "data/token_coding_158.csv"), ("S2_kafir_ex
     s = wb.create_sheet(name)
     with open(path, encoding="utf-8") as f:
         for i, r in enumerate(csv.reader(f)):
-            s.append(r)
+            s.append([PREFIX.sub("", v) for v in r])
             if i == 0:
                 for c in s[1]: c.font = Font(bold=True)
     s.freeze_panes = "B2"
