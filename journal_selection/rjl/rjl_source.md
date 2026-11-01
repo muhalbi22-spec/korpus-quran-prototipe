@@ -315,7 +315,7 @@ Within these limits, the methodological point is general: corpus-based research 
 
 ## Data availability
 
-Supplementary File 1 (a spreadsheet) contains a codebook and the token-level coding table for the 158 tokens (QAC location, transliteration, gloss, original and revised codes, and the rendering and lexical family in five translations), the 131 participial tokens of the *kāfir* pattern, and the summary counts. QAC data are used for non-commercial research with attribution under the corpus's stated terms (https://corpus.quran.com). Renderings from the translations are limited to the words translating the target term. It is provided in line with the journal's policy on reproducible materials for research using AI tools.
+Supplementary File 1 (a spreadsheet) contains a codebook and the token-level coding table for the 158 tokens (QAC location, transliteration, gloss, original and revised codes, and the rendering and lexical family in five translations), the 131 participial tokens of the *kāfir* pattern, the summary counts, and the codes of both coders and of the AI check used for the reliability analysis in Section 3.5. QAC data are used for non-commercial research with attribution under the corpus's stated terms (https://corpus.quran.com). Renderings from the translations are limited to the words translating the target term. It is provided in line with the journal's policy on reproducible materials for research using AI tools.
 
 ## Ethics Statement
 

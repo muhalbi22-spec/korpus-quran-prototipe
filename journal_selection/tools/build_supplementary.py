@@ -53,5 +53,48 @@ for term, v in summ.items():
             for fam, n in fams.items():
                 s.append([term, tr, fam, n])
     s.append([])
+# ---- S4: reliability (first coder, second coder, AI check), only if the coder files exist ----
+import os
+fam_key, gl_key = "rjl/second_coder/_answer_key_DO_NOT_SHARE_family.csv", "rjl/second_coder/_answer_key_DO_NOT_SHARE_gloss.csv"
+c2, ai = "rjl/second_coder/Hasil_Ach_Fauzi.xlsx", "rjl/second_coder/AI_second_coder_results.xlsx"
+if all(os.path.exists(f) for f in (fam_key, gl_key, c2, ai)):
+    from openpyxl import load_workbook
+    def codes(path, sheet, col):
+        return {r[0]: (str(r[col]).strip() if r[col] else "") for r in load_workbook(path)[sheet].iter_rows(min_row=2, values_only=True) if r[0]}
+    s4 = wb.create_sheet("S4_reliability")
+    s4.append(["Second coding for the reliability check (Section 3.5). Coder 1 = first author; Coder 2 = second author, coding blind; "
+               "AI check = blind coding with Claude (Anthropic). Agreement and Cohen's kappa are given at the bottom."])
+    s4["A1"].font = Font(bold=True)
+    s4.append([])
+    s4.append(["set", "no", "token_id", "term", "translation", "rendering / gloss", "coder_1", "coder_2", "AI_check"])
+    for c in s4[3]: c.font = Font(bold=True)
+    f2, fa = codes(c2, "A_family", 5), codes(ai, "A_family", 5)
+    pairs = {"A": [], "B": []}
+    for r in csv.DictReader(open(fam_key, encoding="utf-8")):
+        n = int(r["no"]); rend = PREFIX.sub("", r["rendering"])
+        if r["term"] == "rahmat" and "count-screened" in rend: rend = "(located by each coder in the verse translation)"
+        s4.append(["A_family", n, r["token_id"], r["term"], r["translation"], rend, r["code_coder1"], f2[n], fa[n]])
+        pairs["A"].append((r["code_coder1"], f2[n], fa[n]))
+    g2, ga = codes(c2, "B_gloss", 4), codes(ai, "B_gloss", 4)
+    for r in csv.DictReader(open(gl_key, encoding="utf-8")):
+        n = int(r["no"])
+        s4.append(["B_gloss", n, r["token_id"], "", "QAC gloss", r["qac_gloss"], r["code_coder1"], g2[n], ga[n]])
+        pairs["B"].append((r["code_coder1"], g2[n], ga[n]))
+    def kappa(pp):
+        import collections
+        n = len(pp); po = sum(a == b for a, b in pp) / n
+        x, y = collections.Counter(a for a, _ in pp), collections.Counter(b for _, b in pp)
+        pe = sum(x[k] * y[k] for k in set(x) | set(y)) / n / n
+        return po, (po - pe) / (1 - pe) if pe < 1 else 1.0
+    s4.append([])
+    s4.append(["summary", "set", "n", "agreement coder 1 vs coder 2", "Cohen's kappa", "agreement coder 1 vs AI check", "Cohen's kappa"])
+    for c in s4[s4.max_row]: c.font = Font(bold=True)
+    for k, pp in pairs.items():
+        a2, k2 = kappa([(p[0], p[1]) for p in pp]); aa, ka = kappa([(p[0], p[2]) for p in pp])
+        s4.append(["summary", "A_family (lexical family)" if k == "A" else "B_gloss (default/variant)", len(pp), f"{a2:.1%}", round(k2, 2), f"{aa:.1%}", round(ka, 2)])
+    for col, w in zip("ABCDEFGHI", (10, 6, 12, 8, 18, 50, 30, 30, 30)):
+        s4.column_dimensions[col].width = w
+    s4.freeze_panes = "A4"
+    ws.append(["Sheet S4_reliability", "Codes of the first coder, the second coder (blind) and the AI check for the 280 translation cells and 158 glosses, with agreement and Cohen's kappa"])
 wb.save(out)
 print("saved", out)
