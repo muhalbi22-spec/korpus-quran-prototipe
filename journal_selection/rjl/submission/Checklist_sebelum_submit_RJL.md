@@ -38,4 +38,4 @@ Situs jurnal: https://journals.rudn.ru/linguistics · Submit: https://journals.r
 ## Catatan
 
 - Kalau naskah dibuka lalu disimpan ulang di Word, nama Anda bisa masuk lagi ke metadata file versi anonim. Sebelum mengunggah versi anonim, buka File → Info → Inspect Document dan hapus properti penulis.
-- Reliabilitas: pengode kedua adalah AI yang bekerja tanpa melihat kode Anda. Kesepakatan 100% (κ = 1,00). Naskah menjelaskan bahwa angka ini menunjukkan codebook diterapkan konsisten, bukan bukti kesepakatan tafsir. Kalau reviewer meminta pengode kedua manusia, Ach Fauzi bisa mengerjakan `second_coder/Lembar_Pengodean_Ach_Fauzi.xlsx`.
+- Reliabilitas: Ach Fauzi menjadi pengode kedua (kesepakatan 100%, κ = 1,00); AI dipakai sebagai cek tambahan dan harus disebut di pernyataan AI. Simpan file kerja Ach Fauzi (`second_coder/Hasil_Ach_Fauzi.xlsx`) kalau editor memintanya.

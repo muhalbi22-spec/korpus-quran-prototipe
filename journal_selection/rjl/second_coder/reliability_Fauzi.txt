@@ -1,0 +1,5 @@
+A_family: n=280 (missing 0), agreement=100.0%, Cohen's kappa=1.00
+   taqwa: n=85, agreement=100.0%, kappa=1.00
+   rahmat: n=60, agreement=100.0%, kappa=1.00
+   kafir: n=135, agreement=100.0%, kappa=1.00
+B_gloss: n=158 (missing 0), agreement=100.0%, Cohen's kappa=1.00

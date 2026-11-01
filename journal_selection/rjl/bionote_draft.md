@@ -9,5 +9,5 @@ E-mail: muhamadalbie.2024@student.uny.ac.id
 
 ## Ach Fauzi
 
-Ach Fauzi holds a [degree and field — check] from [institution — check]. Fauzi is [position, e.g. postgraduate student or lecturer — check] in the [department], Faculty of [faculty — check], Universitas Negeri Yogyakarta, Indonesia. Fauzi's research interests include [research interests — check]. For the present article, Fauzi contributed ideas to the study and re-checked the research results. [Optional: one further sentence on relevant teaching, projects or publications — check.]
+Ach Fauzi holds a [degree and field — check] from [institution — check]. Fauzi is [position, e.g. postgraduate student or lecturer — check] in the [department], Faculty of [faculty — check], Universitas Negeri Yogyakarta, Indonesia. Fauzi's research interests include [research interests — check]. For the present article, Fauzi contributed ideas to the study, carried out the independent second coding, and re-checked the research results. [Optional: one further sentence on relevant teaching, projects or publications — check.]
 E-mail: achfauzi.2024@student.uny.ac.id

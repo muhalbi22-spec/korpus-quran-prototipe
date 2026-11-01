@@ -21,7 +21,7 @@ AI_STATEMENT = (
     "the manuscript yourselves. RJL asks which AI tools were used and for what purpose. Suggested wording, only if "
     "it matches what actually happened: \"In preparing this article, the authors used Claude (Anthropic), a generative "
     "AI system, to check the dataset against the Quranic Arabic Corpus, to extract and tabulate translation renderings, "
-    "as a blind second coder for the reliability check reported in Section 3.5, and to draft and revise parts of the text. The authors rewrote the text, verified the data, the exegetical sources "
+    "as an additional blind coder alongside the human second coder (Section 3.5), and to draft and revise parts of the text. The authors rewrote the text, verified the data, the exegetical sources "
     "and the references, and take full responsibility for the content.\" Do not keep any claim of verification that "
     "you have not carried out.]"
 )
