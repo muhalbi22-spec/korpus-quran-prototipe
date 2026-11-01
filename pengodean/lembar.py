@@ -194,8 +194,8 @@ def impor(xlsx, kode_a, kode_b, keluaran, polos=False):
             for c in row:
                 if isinstance(c.value, str) and "pengode kedua:" in c.value:
                     c.value = re.sub(r"\s*\(pengode kedua:[^)]*\)", "", c.value)
-        wb.properties.creator = None
-        wb.properties.lastModifiedBy = None
+        wb.properties.creator = ""
+        wb.properties.lastModifiedBy = ""
         wb.save(keluaran)
         print(f"Tersimpan (polos): {keluaran} {ringkas}")
         return
