@@ -17,13 +17,14 @@ src, out, variant = sys.argv[1:4]
 bionote_path = sys.argv[4] if len(sys.argv) > 4 else None
 
 AI_STATEMENT = (
-    "[AUTHOR: replace this paragraph with an accurate statement after you have rewritten and verified "
-    "the manuscript yourselves. RJL asks which AI tools were used and for what purpose. Suggested wording, only if "
-    "it matches what actually happened: \"In preparing this article, the authors used Claude (Anthropic), a generative "
-    "AI system, to check the dataset against the Quranic Arabic Corpus, to extract and tabulate translation renderings, "
-    "as an additional blind coder alongside the human second coder (Section 3.5), and to draft and revise parts of the text. The authors rewrote the text, verified the data, the exegetical sources "
-    "and the references, and take full responsibility for the content.\" Do not keep any claim of verification that "
-    "you have not carried out.]"
+    "The authors used Claude (Anthropic), a large language model, during the preparation of this article. "
+    "It was used to (1) check the token-level dataset against the Quranic Arabic Corpus and locate the renderings "
+    "of the target terms in the five English translations; (2) carry out an additional blind coding of the coding "
+    "sheet, reported in Section 3.5 alongside the independent coding by the second author; (3) suggest revisions to "
+    "the structure, wording and argumentation of the manuscript and draft parts of the text; and (4) adapt the "
+    "manuscript, citations and references to the journal's style. All data, quotations and references were checked "
+    "against their original sources. The authors reviewed and edited all AI-assisted text and take full "
+    "responsibility for the content of the article."
 )
 SELFREF = ("Fathurrahman, Muhammad Albie. 2025. *Analisis terjemahan istilah teologis pada Al-Qur'an ke dalam bahasa "
            "Inggris: Studi korpus terhadap kata taqwā, raḥmat, kāfir, 'adzāb dan rizq* [An analysis of the English "
@@ -178,7 +179,7 @@ if variant == "named":
     p.add_run("Universitas Negeri Yogyakarta, Yogyakarta, Indonesia")
     para("muhamadalbie.2024@student.uny.ac.id (corresponding author); achfauzi.2024@student.uny.ac.id",
          align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
-    para("ORCID: Muhammad Albie Fathurrahman [AUTHOR: add ORCID iD]; Ach Fauzi [AUTHOR: add ORCID iD]",
+    para("ORCID: Muhammad Albie Fathurrahman https://orcid.org/0009-0001-6575-9363; Ach Fauzi [AUTHOR: add ORCID iD or delete]",
          align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
 else:
     para("[Author details removed for blind review]", align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
