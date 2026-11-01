@@ -7,3 +7,4 @@ graphify-out/.graphify_root
 # Data kerja pengodean (lembar peneliti, cache QAC, hasil kode) - jangan di-commit
 pengodean/kerja/
 *.xlsx
+__pycache__/
