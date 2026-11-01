@@ -18,11 +18,11 @@ bionote_path = sys.argv[4] if len(sys.argv) > 4 else None
 
 AI_STATEMENT = (
     "[AUTHOR: replace this paragraph with an accurate statement after you have rewritten and verified "
-    "the manuscript yourself. RJL asks which AI tools were used and for what purpose. Suggested wording, only if "
-    "it matches what actually happened: \"In preparing this article, the author used Claude (Anthropic), a generative "
+    "the manuscript yourselves. RJL asks which AI tools were used and for what purpose. Suggested wording, only if "
+    "it matches what actually happened: \"In preparing this article, the authors used Claude (Anthropic), a generative "
     "AI system, to check the dataset against the Quranic Arabic Corpus, to extract and tabulate translation renderings, "
-    "and to draft and revise parts of the text. The author rewrote the text, verified the data, the exegetical sources "
-    "and the references, and takes full responsibility for the content.\" Do not keep any claim of verification that "
+    "and to draft and revise parts of the text. The authors rewrote the text, verified the data, the exegetical sources "
+    "and the references, and take full responsibility for the content.\" Do not keep any claim of verification that "
     "you have not carried out.]"
 )
 SELFREF = ("Fathurrahman, Muhammad Albie. 2025. *Analisis terjemahan istilah teologis pada Al-Qur'an ke dalam bahasa "
@@ -165,14 +165,19 @@ para(meta["TITLE_EN"], "Title")
 if variant == "named":
     p = d.add_paragraph(style="Normal"); p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.first_line_indent = Cm(0)
-    r = p.add_run("Muhammad Albie Fathurrahman"); r.bold = True
-    sup = p.add_run("1"); sup.font.superscript = True
+    for k, name in enumerate(("Muhammad Albie Fathurrahman", "Ach Fauzi")):
+        if k:
+            p.add_run(", ").bold = True
+        r = p.add_run(name); r.bold = True
+        sup = p.add_run("1"); sup.font.superscript = True
     p = d.add_paragraph(style="Normal"); p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.first_line_indent = Cm(0)
     sup = p.add_run("1"); sup.font.superscript = True
     p.add_run("Universitas Negeri Yogyakarta, Yogyakarta, Indonesia")
-    para("muhamadalbie.2024@student.uny.ac.id", align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
-    para("ORCID: [AUTHOR: add your ORCID iD]", align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
+    para("muhamadalbie.2024@student.uny.ac.id (corresponding author); achfauzi.2024@student.uny.ac.id",
+         align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
+    para("ORCID: Muhammad Albie Fathurrahman [AUTHOR: add ORCID iD]; Ach Fauzi [AUTHOR: add ORCID iD]",
+         align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
 else:
     para("[Author details removed for blind review]", align=WD_ALIGN_PARAGRAPH.CENTER, indent=Cm(0))
 
