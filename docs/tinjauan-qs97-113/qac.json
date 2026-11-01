@@ -1,0 +1,23 @@
+{
+  "peninjau": "pengawas-qac",
+  "cakupan": "QS 97–113 (105 ayat, 492 kata), dibanding QAC wordbyword",
+  "temuan": [
+    {
+      "lokasi": "98:8:12",
+      "aspek": "root",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "peringatan",
+      "alasan": "raḍiya (رَضِيَ) diberi akar baru 'rdy' (ر ض ي) dari AKAR_BARU, padahal ROOTS sudah memuat 'rdw' (ر ض و) yang dipakai untuk rāḍiyatin (QS 101:7). Satu akar leksikal menjadi dua kunci sehingga pencarian akar terpecah. QAC (corpus.quran.com, 98:8:13) juga mencatat akar rDw. Lām fiʿil yāʾ pada raḍiya adalah ganti wāw karena kasrah sebelumnya (riḍwān, marḍāh menunjukkan wāw).",
+      "usulan": "rdw"
+    },
+    {
+      "lokasi": "98:8:15",
+      "aspek": "root",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "peringatan",
+      "alasan": "wa-raḍū (وَرَضُوا۟): sama dengan 98:8:12; QAC 98:8:16 akar rDw. Seragamkan ke 'rdw', lalu kunci 'rdy' di AKAR_BARU tidak terpakai dan dapat dihapus oleh leksikograf-akar.",
+      "usulan": "rdw"
+    }
+  ],
+  "ringkasan": "Kesesuaian dengan QAC sangat tinggi: segmentasi 98.6% cocok (identik atau beda notasi), kelas kata 97.1%, kasus/mood 328/329 identik dan sisanya beda notasi (yā-ayyuhā), akar 317/324. Satu-satunya kemungkinan galat adalah duplikasi akar rdy/rdw pada QS 98:8. Perbedaan lain beda analisis yang sudah berdalil (yawmaʾidhin, dīni, la-tarawunna, al-mughīrāt, muʾṣadah, abābīl, sijjīl, man syarṭiyyah/mawṣūlah). Relasi treebank tidak dibandingkan."
+}

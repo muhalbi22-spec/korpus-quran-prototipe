@@ -1,0 +1,459 @@
+{
+  "peninjau": "leksikograf-akar",
+  "cakupan": "QS 97–113: 161 akar baru di ROOTS, penugasan akar pada kata, duplikasi kunci",
+  "temuan": [
+    {
+      "lokasi": "akar:wyl",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: wayl pada QS 104:1 dan 107:4 (kelompok B, C).",
+      "usulan": {
+        "ar": "و ي ل",
+        "lat": "w-y-l",
+        "makna": "celaka, kebinasaan; wayl = celakalah (seruan ancaman)",
+        "cat": "Wayl tidak memiliki fiʿil yang dipakai; dalam sebagian riwayat tafsir juga disebut nama lembah di Jahanam (riwayat ini perlu dicek kekuatannya)."
+      }
+    },
+    {
+      "lokasi": "akar:mwl",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: māl pada QS 104:2, 104:3, 111:2 (kelompok A, C).",
+      "usulan": {
+        "ar": "م و ل",
+        "lat": "m-w-l",
+        "makna": "harta, kekayaan; māl = segala yang dimiliki",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:kthr",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: at-takāthur (QS 102:1, saling memperbanyak) dan al-kawthar (QS 108:1, pola fawʿal: yang sangat banyak).",
+      "usulan": {
+        "ar": "ك ث ر",
+        "lat": "k-th-r",
+        "makna": "banyak; memperbanyak (takāthur = saling berlomba memperbanyak); kawthar = kebaikan yang sangat banyak",
+        "cat": "Makna al-Kawthar pada QS 108:1 diperselisihkan dalam tafsir (sungai di surga atau kebaikan yang melimpah); makna akarnya “banyak”."
+      }
+    },
+    {
+      "lokasi": "akar:jma",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: fiʿil jamaʿa (QS 104:2) dan nomina jamʿ “kumpulan (musuh)” (QS 100:5).",
+      "usulan": {
+        "ar": "ج م ع",
+        "lat": "j-m-ʿ",
+        "makna": "mengumpulkan, menghimpun; jamʿ = kumpulan, rombongan",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:thql",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: thaqulat (QS 101:6), athqāl “beban berat” (QS 99:2), mithqāl “seberat” (QS 99:7–8).",
+      "usulan": {
+        "ar": "ث ق ل",
+        "lat": "th-q-l",
+        "makna": "berat; athqāl (jamak thiql) = beban berat; mithqāl = ukuran berat, seberat",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:aml",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: fiʿil ʿamila (QS 98:7, 99:7–8, 103:3) dan aʿmāl (QS 99:6).",
+      "usulan": {
+        "ar": "ع م ل",
+        "lat": "ʿ-m-l",
+        "makna": "berbuat, bekerja; ʿamal (jamak aʿmāl) = perbuatan, amal",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:alf",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: īlāf (QS 106:1–2, maṣdar bentuk IV) dan alf “seribu” (QS 97:3).",
+      "usulan": {
+        "ar": "أ ل ف",
+        "lat": "ʾ-l-f",
+        "makna": "akrab, terbiasa, jinak; īlāf = membiasakan, menjalin keakraban; alf = seribu",
+        "cat": "Alf “seribu” dan alifa “akrab” dicatat kamus di bawah huruf akar yang sama; hubungan maknanya tidak jelas, sehingga keduanya dapat dipandang homonim."
+      }
+    },
+    {
+      "lokasi": "akar:kll",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: kull “setiap” (QS 97:4, 104:1); makna “lelah” dipertahankan sebagai makna fiʿil kalla.",
+      "usulan": {
+        "ar": "ك ل ل",
+        "lat": "k-l-l",
+        "makna": "kull = setiap, seluruh; kalla = lelah, payah",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:tla",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: maṭlaʿ “terbit” (QS 97:5, waktu terbit) dan taṭṭaliʿu “naik sampai” (QS 104:7, bentuk VIII).",
+      "usulan": {
+        "ar": "ط ل ع",
+        "lat": "ṭ-l-ʿ",
+        "makna": "terbit, muncul; maṭlaʿ = waktu atau tempat terbit; iṭṭalaʿa = naik sampai, menjangkau, mengetahui",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:nwr",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: nār pada QS 98:6, 101:11, 104:6, 111:3; semua kelompok sepakat menempatkan nār di bawah n-w-r.",
+      "usulan": {
+        "ar": "ن و ر",
+        "lat": "n-w-r",
+        "makna": "cahaya, bersinar; nār = api",
+        "cat": "Alif pada nār berasal dari wāw (bandingkan bentuk tashghīr nuwayrah), sehingga nār dan nūr satu akar."
+      }
+    },
+    {
+      "lokasi": "akar:slh",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: aṣ-ṣāliḥāt pada QS 98:7 dan 103:3 (kelompok C, E).",
+      "usulan": {
+        "ar": "ص ل ح",
+        "lat": "ṣ-l-ḥ",
+        "makna": "baik, layak, patut; ṣāliḥ (jamak muʾannath ṣāliḥāt) = yang baik, saleh; amal saleh",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:khyr",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Rumusan berbeda antarkelompok saat penggabungan; ini rumusan gabungan yang mencakup pemakaian di semua kelompok: khayr “kebaikan” (QS 99:7), khayr sebagai isim tafḍīl “lebih baik/sebaik-baik” (QS 97:3, 98:7), dan khayr “harta” (QS 100:8).",
+      "usulan": {
+        "ar": "خ ي ر",
+        "lat": "kh-y-r",
+        "makna": "baik, kebaikan; khayr = lebih baik, sebaik-baik (isim tafḍīl); memilih; khayr juga = harta",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:rdw",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "galat",
+      "alasan": "Akar yang sama tercatat dengan dua kunci: rdw (ر ض و, QS 101:7 rāḍiyah) dan rdy (ر ض ي, QS 98:8 raḍiya, raḍū). Yāʾ pada raḍiya berasal dari wāw (bandingkan riḍwān, marḍāt). Kunci ganda memecah simpul di Graf akar dan hitungan kemunculan. Usul: satukan di rdw, hapus rdy.",
+      "usulan": {
+        "ar": "ر ض و",
+        "lat": "r-ḍ-w",
+        "makna": "rida, rela, senang hati; rāḍiyah = yang diridai, menyenangkan",
+        "cat": "Lām fiʿil aslinya wāw (riḍwān); sebagian kamus menempatkan entri ini di bawah ر ض ي. Prototipe memakai satu kunci saja."
+      }
+    },
+    {
+      "lokasi": "akar:rdy",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "galat",
+      "alasan": "Duplikat akar rdw (lihat temuan akar:rdw). Hapus entri ini setelah 98:8:12 dan 98:8:15 dipindahkan ke rdw.",
+      "usulan": null
+    },
+    {
+      "lokasi": "98:8:12",
+      "aspek": "root",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "galat",
+      "alasan": "raḍiya: akar r-ḍ-w tercatat ganda; pindahkan ke kunci rdw (lihat akar:rdw).",
+      "usulan": "rdw"
+    },
+    {
+      "lokasi": "98:8:15",
+      "aspek": "root",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "galat",
+      "alasan": "raḍū: akar r-ḍ-w tercatat ganda; pindahkan ke kunci rdw (lihat akar:rdw).",
+      "usulan": "rdw"
+    },
+    {
+      "lokasi": "akar:sdr",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "peringatan",
+      "alasan": "Makna “dada” terlalu sempit: yaṣduru (QS 99:6) adalah fiʿil ṣadara “keluar, kembali (dari tempat minum), berangkat”. Penugasan akar pada kata sudah benar; yang perlu diperluas makna akarnya.",
+      "usulan": {
+        "ar": "ص د ر",
+        "lat": "ṣ-d-r",
+        "makna": "dada (ṣadr); bagian depan, permulaan; ṣadara = keluar, kembali dari tempat air, berangkat",
+        "cat": "Ṣudūr adalah jamak taksir dari ṣadr (“dada”). Yaṣduru (QS 99:6) adalah fiʿil muḍāriʿ dari ṣadara, lawan warada (datang ke tempat air)."
+      }
+    },
+    {
+      "lokasi": "akar:mlk",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Al-malāʾikah (QS 97:4) dicatat di bawah m-l-k. Asal kata malak diperselisihkan: sebagian ahli bahasa menurunkannya dari ʾ-l-k atau l-ʾ-k (alūkah, maʾlakah = risalah, pesan; malʾak lalu malak), sebagian lain dari m-l-k (kekuasaan). Penempatan di m-l-k boleh dipertahankan (seperti korpus rujukan), tetapi perlu catatan, sebab makna “memiliki, berkuasa” tidak menjelaskan kata itu.",
+      "usulan": {
+        "ar": "م ل ك",
+        "lat": "m-l-k",
+        "makna": "memiliki, berkuasa; malik = raja; malak (jamak malāʾikah) = malaikat",
+        "cat": "Al-Fātiḥah ayat 4 dibaca māliki (Ḥafṣ ʿan ʿĀṣim), “pemilik”, sedangkan An-Nās ayat 2 dibaca malik, “raja”. Bacaan lain pada Al-Fātiḥah ayat 4 adalah malik. Asal kata malak (malāʾikah, QS 97:4) diperselisihkan: dari ʾ-l-k atau l-ʾ-k (alūkah = risalah) dengan pembalikan huruf, atau dari m-l-k. Prototipe menempatkannya di m-l-k dan menandainya untuk verifikasi."
+      }
+    },
+    {
+      "lokasi": "97:4:1",
+      "aspek": "root",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "al-malāʾikah: akar diperselisihkan (ʾ-l-k / l-ʾ-k / m-l-k). Pertahankan mlk dengan catatan pada akar (lihat akar:mlk), atau buat akar terpisah bila ahli memilih ʾ-l-k.",
+      "usulan": "mlk"
+    },
+    {
+      "lokasi": "akar:sly",
+      "aspek": "akar",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "ṣ-l-y (sayaṣlā, QS 111:3: masuk dan merasakan panas api) dan ṣ-l-w (ṣalli, muṣallīn, ṣalāh: salat) dibedakan dengan benar sebagai dua akar. Perlu catatan agar tidak disangka duplikat.",
+      "usulan": {
+        "ar": "ص ل ي",
+        "lat": "ṣ-l-y",
+        "makna": "membakar; masuk dan merasakan panas api",
+        "cat": "Dibedakan dari ṣ-l-w (salat, doa). Sebagian ahli bahasa mengaitkan keduanya, tetapi kamus memisahkan ṣalā–yaṣlā (terbakar) dari ṣallā–yuṣallī (salat)."
+      }
+    },
+    {
+      "lokasi": "akar:slw",
+      "aspek": "akar",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "Lihat akar:sly. Tambahkan catatan pembeda.",
+      "usulan": {
+        "ar": "ص ل و",
+        "lat": "ṣ-l-w",
+        "makna": "salat; doa",
+        "cat": "Dalam rasm Utsmani ditulis dengan wāw dan alif kecil: ٱلصَّلَوٰة. Dibedakan dari ṣ-l-y (ṣaliya = terbakar, QS 111:3)."
+      }
+    },
+    {
+      "lokasi": "108:2:0",
+      "aspek": "root",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "fa-ṣalli: fiʿil amr ṣallā (bentuk II) dari ṣ-l-w; benar.",
+      "usulan": "slw"
+    },
+    {
+      "lokasi": "111:3:0",
+      "aspek": "root",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "sa-yaṣlā: dari ṣaliya–yaṣlā (masuk ke api, merasakan panasnya), akar ṣ-l-y; benar.",
+      "usulan": "sly"
+    },
+    {
+      "lokasi": "111:3:2",
+      "aspek": "root",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "peringatan",
+      "alasan": "dhāta (bentuk muʾannath dari dhū “yang memiliki”): kata ini selalu disandarkan (lāzim al-iḍāfah) dan akarnya diperselisihkan (dh-w atau dh-w-y). Root null dapat dipertahankan, sejajar dengan kata isyarat dan isim mawṣūl yang juga null; bila diisi, perlu akar baru dan keputusan ahli.",
+      "usulan": null
+    },
+    {
+      "lokasi": "98:6:9",
+      "aspek": "root",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "jahannam: asal kata diperselisihkan (kata serapan, dibandingkan dengan Ibrani gē-hinnōm, atau Arab asli). Usul memberi akar empat huruf j-h-n-m dengan catatan, agar kata ini muncul di tab Akar; root null juga dapat dipertahankan.",
+      "usulan": "jhnm"
+    },
+    {
+      "lokasi": "akar:jhnm",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Akar baru yang diperlukan bila 98:6:9 (jahannam) diberi akar.",
+      "usulan": {
+        "ar": "ج ه ن م",
+        "lat": "j-h-n-m",
+        "makna": "Jahanam, neraka",
+        "cat": "Asal-usul diperselisihkan: kata serapan (muʿarrab; dibandingkan dengan Ibrani gē-hinnōm) atau Arab asli (dikaitkan dengan sumur yang sangat dalam). Ism ʿalam, mamnūʿ min aṣ-ṣarf. Perlu verifikasi ahli."
+      }
+    },
+    {
+      "lokasi": "105:4:3",
+      "aspek": "root",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "sijjīl: banyak ahli bahasa menganggapnya kata serapan dari bahasa Persia (sang + gil, batu dan tanah liat); sebagian mengaitkannya dengan s-j-l. Usul s-j-l dengan catatan, atau pertahankan null.",
+      "usulan": "sjl"
+    },
+    {
+      "lokasi": "akar:sjl",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Akar baru yang diperlukan bila 105:4:3 (sijjīl) diberi akar.",
+      "usulan": {
+        "ar": "س ج ل",
+        "lat": "s-j-l",
+        "makna": "menuangkan (air); sijill = catatan, lembaran tertulis; sijjīl = batu dari tanah yang dibakar",
+        "cat": "Asal sijjīl diperselisihkan: kata serapan dari Persia (sang + gil) atau dari s-j-l. Prototipe menandainya untuk verifikasi."
+      }
+    },
+    {
+      "lokasi": "105:3:3",
+      "aspek": "root",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "peringatan",
+      "alasan": "abābīl: jamak tanpa bentuk tunggal yang dipakai (sebagian ahli menyebut ibbawl atau ibbīl sebagai tunggalnya). Root null dapat dipertahankan; bila mengikuti korpus rujukan yang memberi akar, perlu diperiksa dulu akarnya (jangan diisi tanpa verifikasi).",
+      "usulan": null
+    },
+    {
+      "lokasi": "106:1:1",
+      "aspek": "root",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "peringatan",
+      "alasan": "qurayshin: nama diri, tetapi berasal dari akar Arab q-r-sh (taqarrush: berkumpul, berusaha mencari nafkah; atau qirsh: ikan hiu). Usul memberi akar q-r-sh dengan catatan.",
+      "usulan": "qrsh"
+    },
+    {
+      "lokasi": "akar:qrsh",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Akar baru yang diperlukan bila 106:1:1 (Quraysh) diberi akar.",
+      "usulan": {
+        "ar": "ق ر ش",
+        "lat": "q-r-sh",
+        "makna": "mengumpulkan dari berbagai tempat; berusaha mencari nafkah (taqarrasha); qirsh = ikan hiu",
+        "cat": "Asal nama Quraisy diperselisihkan: dari taqarrush (berkumpul atau berniaga) atau dari qirsh (hiu). Quraysh adalah ism ʿalam berpola tashghīr."
+      }
+    },
+    {
+      "lokasi": "akar:ahd",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Aḥad dicatat di ʾ-ḥ-d (seperti korpus rujukan), tetapi banyak ahli bahasa menyebut hamzahnya berasal dari wāw (waḥad, akar w-ḥ-d). Perlu catatan perbedaan pendapat.",
+      "usulan": {
+        "ar": "أ ح د",
+        "lat": "ʾ-ḥ-d",
+        "makna": "satu, esa; aḥad = Yang Maha Esa; seorang pun (dalam kalimat negatif)",
+        "cat": "Hamzah pada aḥad menurut banyak ahli bahasa berasal dari wāw (w-ḥ-d, waḥīd, wāḥid); prototipe mengikuti korpus rujukan di ʾ-ḥ-d. Aḥad pada QS 112:1 (sifat Allah) dan 112:4 (dalam kalimat negatif) berbeda pemakaian."
+      }
+    },
+    {
+      "lokasi": "akar:asd",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Muʾṣadah (QS 104:8, bacaan Ḥafṣ dengan hamzah) dapat diturunkan dari āṣada (ʾ-ṣ-d) atau awṣada (w-ṣ-d); sebagian qāriʾ membacanya mūṣadah tanpa hamzah. Perlu catatan.",
+      "usulan": {
+        "ar": "أ ص د",
+        "lat": "ʾ-ṣ-d",
+        "makna": "menutup rapat (pintu); muʾṣadah = yang ditutup rapat",
+        "cat": "Diperselisihkan antara ʾ-ṣ-d (āṣada) dan w-ṣ-d (awṣada), dua dialek untuk makna yang sama. Ḥafṣ ʿan ʿĀṣim membaca muʾṣadah dengan hamzah; sebagian qāriʾ lain membacanya tanpa hamzah."
+      }
+    },
+    {
+      "lokasi": "akar:man",
+      "aspek": "akar",
+      "keputusan": "diperselisihkan",
+      "tingkat": "peringatan",
+      "alasan": "Makna akar hanya berisi glosa kata māʿūn, belum makna dasar akarnya; asal māʿūn juga diperselisihkan (m-ʿ-n atau ʿ-w-n, maʿūnah = bantuan). Perlu verifikasi di kamus.",
+      "usulan": {
+        "ar": "م ع ن",
+        "lat": "m-ʿ-n",
+        "makna": "sedikit, ringan, mudah (maʿn); māʿūn = barang keperluan yang biasa dipinjamkan, bantuan",
+        "cat": "Asal māʿūn diperselisihkan: dari m-ʿ-n (sesuatu yang sedikit atau mudah) atau dari ʿ-w-n (maʿūnah = pertolongan). Tafsir juga berbeda: barang keperluan sehari-hari, bantuan, atau zakat. Perlu verifikasi di Lisān al-ʿArab."
+      }
+    },
+    {
+      "lokasi": "akar:kfa",
+      "aspek": "akar",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "Kufuwan (QS 112:4) ditulis dan dibaca dengan wāw dalam riwayat Ḥafṣ, sehingga perlu catatan bahwa akarnya tetap k-f-ʾ.",
+      "usulan": {
+        "ar": "ك ف أ",
+        "lat": "k-f-ʾ",
+        "makna": "setara, sebanding; kufuʾ = yang setara",
+        "cat": "Ḥafṣ ʿan ʿĀṣim membaca kufuwan (hamzah diganti wāw); bacaan lain kufuʾan atau kufʾan. Akarnya tetap k-f-ʾ."
+      }
+    },
+    {
+      "lokasi": "akar:frsh",
+      "aspek": "akar",
+      "keputusan": "perlu perbaikan",
+      "tingkat": "saran",
+      "alasan": "Transliterasi “farāsy” tidak konsisten dengan konvensi (sh, bukan sy); “berterbangan” sebaiknya “beterbangan”.",
+      "usulan": {
+        "ar": "ف ر ش",
+        "lat": "f-r-sh",
+        "makna": "menghamparkan; farāsh = laron, serangga yang beterbangan",
+        "cat": ""
+      }
+    },
+    {
+      "lokasi": "akar:flq",
+      "aspek": "akar",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "Makna falaq pada QS 113:1 diperselisihkan dalam tafsir (subuh menurut mayoritas; ada pula yang memaknainya seluruh makhluk yang “dibelah” dari ketiadaan). Perlu catatan.",
+      "usulan": {
+        "ar": "ف ل ق",
+        "lat": "f-l-q",
+        "makna": "membelah; falaq = subuh, fajar",
+        "cat": "Makna al-falaq pada QS 113:1 diperselisihkan: subuh (pendapat mayoritas) atau segala makhluk yang diciptakan. Makna dasar akarnya “membelah”."
+      }
+    },
+    {
+      "lokasi": "akar:fad",
+      "aspek": "akar",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "Makna akar hanya “hati (fuʾād)”. Ar-Rāghib (Mufradāt) mengaitkan fuʾād dengan tafaʾʾud “menyala, berkobar”, relevan untuk QS 104:7 (api yang naik sampai ke hati). Usul menambahkan makna dasar; verifikasi di kamus.",
+      "usulan": {
+        "ar": "ف أ د",
+        "lat": "f-ʾ-d",
+        "makna": "membakar, memanggang (faʾada); fuʾād (jamak afʾidah) = hati",
+        "cat": "Fuʾād dibedakan dari qalb; sebagian ahli bahasa mengaitkannya dengan tafaʾʾud (menyala). Perlu verifikasi."
+      }
+    },
+    {
+      "lokasi": "akar:ind",
+      "aspek": "akar",
+      "keputusan": "diterima dengan catatan",
+      "tingkat": "saran",
+      "alasan": "Makna “sisi, dekat” hanya mencakup ẓarf ʿinda; akar yang sama juga melahirkan ʿanada/ʿanīd (membangkang, menyimpang).",
+      "usulan": {
+        "ar": "ع ن د",
+        "lat": "ʿ-n-d",
+        "makna": "sisi, dekat (ʿinda = di sisi); ʿanada = menyimpang, membangkang",
+        "cat": "ʿInda adalah ẓarf makān atau zamān yang selalu disandarkan."
+      }
+    }
+  ],
+  "ringkasan": "Mutu akar baru umumnya baik: huruf Arab dipisah spasi dan transliterasi konsisten dengan entri lama (pemeriksaan otomatis huruf ke transliterasi tidak menemukan selisih). Masalah utama: (1) akar r-ḍ-w tercatat ganda sebagai rdw dan rdy; (2) dua belas akar gabungan perlu rumusan yang mencakup semua pemakaian; (3) sdr terlalu sempit untuk yaṣduru; (4) beberapa akar yang asal-usulnya diperselisihkan (aḥad, muʾṣadah, māʿūn, malāʾikah) belum diberi catatan; (5) jahannam, sijjīl, Quraysh dapat diberi akar dengan catatan, sedangkan dhāta dan abābīl lebih aman tetap null. Pasangan gh-y-r/gh-w-r, ʿ-w-n/ʿ-y-n, ṣ-l-w/ṣ-l-y, dan n-ḥ-r/n-h-r (nhr/nahr) adalah akar berbeda, bukan duplikat. Semua usulan adalah draf untuk validator-data dan ahli."
+}
