@@ -1,7 +1,7 @@
-# Graph Report - agent-a71090a9025c6e611  (2026-11-05)
+# Graph Report - agent-a7becd4de89d849bb  (2026-11-05)
 
 ## Corpus Check
-- 29 files · ~81,331 words
+- 29 files · ~83,928 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .jsonc 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2fa83fd5`
+- Built from commit: `a71965ee`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -117,7 +117,7 @@ Cohesion: 0.25
 Nodes (7): 1. Token, 2. Huruf, 3. Aturan teks Arab, 4. Komponen, 5. Responsif dan aksesibilitas, 6. Keputusan terbuka (pemilik), Sistem desain
 
 ## Knowledge Gaps
-- **8 isolated node(s):** `TABS`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)`, `grafCache`, `KEMENAG_SUMBER` (+3 more)
+- **8 isolated node(s):** `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `KEMENAG_SUMBER`, `NU_SUMBER`, `UNA() -una suffix segment helper` (+3 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 74 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -126,7 +126,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `esc()` connect `esc` to `Tab UI dan event`, `Peta sisipan dan graf akar`, `Kamus dan pencarian akar`, `I‘rāb dan treebank`, `DIS (contextual meaning entries)`?**
   _High betweenness centrality (0.144) - this node is a cross-community bridge._
-- **What connects `TABS`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)` to the rest of the system?**
+- **What connects `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `KEMENAG_SUMBER` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Tab UI dan event` be split into smaller, more focused modules?**
   _Cohesion score 0.09243697478991597 - nodes in this community are weakly interconnected._

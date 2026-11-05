@@ -36,6 +36,8 @@
   --s-ruj:#E2EAFB; --s-taf:#FADFEA; --s-str:#E9EDF2; --s-bel:#FFF1CC;
   /* Graf akar: kelompok surah (bukan warna kasus) */
   --g1:#A8873A; --g2:#6B5B95; --g3:#2C7A8C;
+  /* Treebank: kelompok kelas kata (bukan warna kasus) */
+  --tb-nomina:#3E4C63; --tb-verba:#2A7A2E; --tb-ajektiva:#7A3E9D; --tb-nama-diri:#0B7285; --tb-pronomina:#94560F; --tb-partikel:#B42318;
   /* Lencana rencana dan label Lab */
   --plan-bg:#E8EEFB; --plan-line:#B8C7EE; --plan-ink:#1F3A7A;
   --lab-din-bg:#E3F4EC; --lab-din-ink:#11573F; --lab-tp-bg:#EEF0F3; --lab-tp-ink:#4A5A70;
@@ -73,6 +75,7 @@
     --rafa:#86A9FF; --nashb:#55C9A1; --jarr:#E68FC0; --mabni:#A5B3C4; --jazm:#EBA662; --tree:#93A9F6;
     --s-ruj:#1F2D4D; --s-taf:#47213A; --s-str:#26364B; --s-bel:#3D3112;
     --g1:#CDAE66; --g2:#B3A5D6; --g3:#6CC3D1;
+    --tb-nomina:#C3CEDD; --tb-verba:#86D28F; --tb-ajektiva:#D2A8F0; --tb-nama-diri:#6FD3E3; --tb-pronomina:#EDB874; --tb-partikel:#FF9B8F;
     --plan-bg:#1D2A47; --plan-line:#34497C; --plan-ink:#C3D2FF;
     --lab-din-bg:#123326; --lab-din-ink:#9EE7C6; --lab-tp-bg:#223246; --lab-tp-ink:#AFBDCD;
     --fn:#FF9B90; --code-bg:#0A0F0C; --code-ink:#ECE7DA;
@@ -247,6 +250,61 @@ pre{background:var(--code-bg);color:var(--code-ink);border-radius:var(--r-md);pa
 .tree-hint{display:none;font-size:var(--fs-xs);color:var(--ink2);margin:0 0 6px}
 details.textlist{margin-top:12px}
 details.textlist ul{margin:8px 0 0;padding-left:20px}
+/* Treebank gaya QAC: warna kelompok kelas kata (--tb-*), bukan warna kasus */
+.tb-note{background:var(--warnbg);color:var(--warnink);border:1px solid var(--warnline);border-radius:var(--r-md);padding:var(--s3) var(--s4);font-size:var(--fs-sm);line-height:1.6;margin:var(--s3) 0}
+.tb-leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:var(--fs-xs);color:var(--ink2);margin:0 0 var(--s3);line-height:1.6}
+.tb-lg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.tb-lg b{color:var(--ink);font-weight:600}
+.tb-lt{font-weight:700}
+.tb-box{padding:8px 4px}
+.tb-svg{display:block;margin:0 auto}
+.tb-ref{font:12px var(--sans);fill:var(--ink2);font-variant-numeric:tabular-nums}
+.tb-lat{font:italic 13px var(--sans);fill:var(--brand-text)}
+.tb-gl{font:13px var(--sans);fill:var(--ink)}
+.tb-ar{font-family:var(--arab-quran);font-size:30px}
+.tb-tag{font:600 12px var(--sans)}
+.tb-lab{font-family:var(--arab-ui);font-size:15px;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.tb-id{font:11px var(--sans);fill:var(--ink2);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.tb-cat{font-style:italic}
+.tbn{cursor:pointer}
+.tb-bg{fill:transparent}
+.tbn:hover .tb-bg{fill:var(--soft)}
+.tbn.sel .tb-bg{fill:var(--brand-tint);stroke:var(--brand-line);stroke-width:1}
+.tb-tabwrap{margin-top:var(--s4);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.tb-tab{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+.tb-tab caption{text-align:left;padding:var(--s3) var(--s4);color:var(--ink2);font-size:var(--fs-xs)}
+.tb-tab th{background:var(--soft);color:var(--ink);font-weight:650;padding:8px var(--s4);border-bottom:1px solid var(--line-strong)}
+.tb-tab th:first-child{text-align:center}.tb-tab th:nth-child(2){text-align:center}.tb-tab th:last-child{text-align:right}
+.tb-tab td{padding:var(--s3) var(--s4);border-bottom:1px dashed var(--line);vertical-align:middle}
+.tb-tab tbody tr{cursor:pointer}
+.tb-tab tbody tr:hover{background:var(--soft)}
+.tb-tab tbody tr.sel{background:var(--brand-tint)}
+.tb-c1{text-align:center;width:24%}
+.tb-c1>*{display:block}
+.tb-pick{margin:0 auto;background:none;border:1px solid transparent;border-radius:var(--r-sm);padding:4px 8px;min-height:32px;font:inherit;font-size:var(--fs-xs);color:var(--ink2);font-variant-numeric:tabular-nums;cursor:pointer}
+.tb-pick:hover{border-color:var(--line-strong)}
+.tb-pick[aria-pressed="true"]{border-color:var(--brand-line);color:var(--brand-text);font-weight:600}
+.tb-rlat{font-style:italic;color:var(--brand-text)}
+.tb-rgl{color:var(--ink)}
+.tb-c2{text-align:center;width:22%}
+.tb-word{display:block;font-family:var(--arab-quran);font-size:2rem;line-height:2.2}
+.tb-tags{display:flex;justify-content:center;gap:10px;font-weight:700;font-size:var(--fs-xs)}
+.tb-t{color:var(--c);display:inline-flex;flex-direction:column;align-items:center}
+.tb-t::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c);margin-bottom:2px}
+.tb-c3{text-align:right}
+.tb-segs{list-style:none;margin:0;padding:0;line-height:1.7}
+.tb-segs i{color:var(--ink2)}
+.tb-ring{margin:6px 0 0;font-family:var(--arab-ui);font-size:1.15rem;line-height:1.6;color:var(--gold-ink);font-weight:600}
+details.tb-lama{margin-top:var(--s4)}
+details.tb-lama>summary{color:var(--ink2);font-size:var(--fs-sm);cursor:pointer;margin-bottom:8px}
+@media (max-width:560px){
+  .tb-tab thead{display:none}
+  .tb-tab,.tb-tab tbody,.tb-tab caption{display:block}
+  .tb-tab tbody tr{display:grid;grid-template-columns:1fr auto;border-bottom:1px dashed var(--line)}
+  .tb-tab td{display:block;width:auto;border:0;padding:var(--s2) var(--s3)}
+  .tb-c1{text-align:left}.tb-c1 .tb-pick{margin:0}
+  .tb-c3{grid-column:1 / -1;padding-top:0}
+}
 
 /* ---------- Akar kata dan konkordansi ---------- */
 .search{width:100%;max-width:440px;min-height:44px;padding:10px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);font:inherit;background:var(--surface);color:var(--ink);margin-bottom:var(--s3)}
@@ -3825,18 +3883,161 @@ function svgTree(v){
   });
   return s+'</svg>';
 }
-function tree(){
+function treeLama(){
   const v=cur();
   const list=v.edges.map(e=>{
     const dep=v.words[e[0]].lat;
     const head=e[1]>=0?v.words[e[1]].lat:'(kata di luar ayat ini)';
     return `<li>${esc(dep)} bergantung pada ${esc(head)}: ${esc(e[2])}</li>`;
   }).join('');
-  return ayatChips()+
-   `<p class="note">Panah menunjuk dari kata kepala ke kata yang bergantung padanya. Panah tegak menandakan kata kepalanya berada di ayat lain atau dihapus (taqdīr). Arah baca dari kanan ke kiri.</p>
-    ${provStrip(['teks','tree'],v)}<p class="tree-hint" aria-hidden="true">Diagram dibaca dari kanan. Geser ke kiri untuk kata berikutnya.</p><div class="scroll" id="tree-box">${svgTree(v)}</div>
+  return `<p class="note">Panah menunjuk dari kata kepala ke kata yang bergantung padanya. Panah tegak menandakan kata kepalanya berada di ayat lain atau dihapus (taqdīr). Arah baca dari kanan ke kiri.</p>
+    ${provStrip(['teks','tree'],v)}<p class="tree-hint" aria-hidden="true">Diagram dibaca dari kanan. Geser ke kiri untuk kata berikutnya.</p><div class="scroll" id="tree-box-lama">${svgTree(v)}</div>
     <details class="textlist"><summary>Daftar relasi sebagai teks</summary><ul>${list||'<li>Tidak ada relasi antarkata pada ayat ini.</li>'}</ul></details>
     <p class="note" style="margin-top:12px">Treebank purwarupa memakai dependensi tingkat kata. Penandaan tingkat segmen (misalnya ḍamīr muttaṣil sebagai dependen tersendiri) tercatat pada tab Baca dan i‘rāb.</p>`;
+}
+
+// Peta label Treebank gaya QAC (draf, belum divalidasi ahli). Disisipkan skrip dari peta-label.json; jangan disunting tangan.
+const TB_LABEL={"status":"draf, belum divalidasi ahli","kelas":{"Huruf jarr":{"tag":"P","nama":"preposisi (ḥarf jarr)","ar":"حرف جر","grup":"partikel"},"Isim":{"tag":"N","nama":"nomina (isim)","ar":"اسم","grup":"nomina"},"Isim (lafẓ al-jalālah)":{"tag":"NP","nama":"nama diri: lafẓ al-jalālah","ar":"لفظ الجلالة","grup":"nama-diri"},"Awalan definit":{"tag":"DET","nama":"penentu alif-lām (taʿrīf)","ar":"أل التعريف","grup":"partikel"},"Isim (ṣifah)":{"tag":"ADJ","nama":"ajektiva (ṣifah)","ar":"صفة","grup":"ajektiva","muannath":true},"Isim (isim fāʿil)":{"tag":"N","nama":"nomina pelaku (isim fāʿil)","ar":"اسم فاعل","grup":"nomina"},"Ḍamīr munfaṣil":{"tag":"PRON","nama":"pronomina bebas (ḍamīr munfaṣil)","ar":"ضمير منفصل","grup":"pronomina"},"Huruf khiṭāb":{"tag":"PRT","nama":"huruf sapaan (ḥarf khiṭāb)","ar":"حرف خطاب","grup":"partikel"},"Fiʿil muḍāriʿ":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ)","ar":"فعل مضارع","grup":"verba"},"Huruf ʿaṭf":{"tag":"CONJ","nama":"konjungsi (ḥarf ʿaṭf)","ar":"حرف عطف","grup":"partikel"},"Fiʿil muḍāriʿ (bentuk X)":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ), bentuk X","ar":"فعل مضارع","grup":"verba","bentuk":"X"},"Fiʿil amr":{"tag":"V","nama":"verba perintah (fiʿil amr)","ar":"فعل أمر","grup":"verba"},"Ḍamīr muttaṣil":{"tag":"PRON","nama":"pronomina terikat (ḍamīr muttaṣil)","ar":"ضمير متصل","grup":"pronomina"},"Isim (isim fāʿil, bentuk X)":{"tag":"N","nama":"nomina pelaku (isim fāʿil), bentuk X","ar":"اسم فاعل","grup":"nomina","bentuk":"X"},"Isim mawṣūl":{"tag":"REL","nama":"nomina relatif (isim mawṣūl)","ar":"اسم موصول","grup":"pronomina"},"Fiʿil māḍī (bentuk IV)":{"tag":"V","nama":"verba lampau (fiʿil māḍī), bentuk IV","ar":"فعل ماض","grup":"verba","bentuk":"IV"},"Isim (isim mafʿūl)":{"tag":"N","nama":"nomina penderita (isim mafʿūl)","ar":"اسم مفعول","grup":"nomina"},"Huruf zāʾid":{"tag":"PRT","nama":"partikel tambahan (ḥarf zāʾid)","ar":"حرف زائد","grup":"partikel"},"Huruf muqaṭṭaʿah":{"tag":"INIS","nama":"huruf terputus-putus (ḥurūf muqaṭṭaʿah)","ar":"حروف مقطعة","grup":"partikel"},"Isim isyārah":{"tag":"DEM","nama":"demonstrativa (isim isyārah)","ar":"اسم إشارة","grup":"pronomina"},"Lām buʿd":{"tag":"PRT","nama":"lām penanda jauh (lām buʿd)","ar":"لام البعد","grup":"partikel"},"Huruf nafy":{"tag":"NEG","nama":"negasi (ḥarf nafy)","ar":"حرف نفي","grup":"partikel"},"Isim (maṣdar)":{"tag":"N","nama":"nomina verbal (maṣdar)","ar":"مصدر","grup":"nomina"},"Isim (isim fāʿil, bentuk VIII)":{"tag":"N","nama":"nomina pelaku (isim fāʿil), bentuk VIII","ar":"اسم فاعل","grup":"nomina","bentuk":"VIII"},"Fiʿil muḍāriʿ (bentuk IV)":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ), bentuk IV","ar":"فعل مضارع","grup":"verba","bentuk":"IV"},"Ḍamīr muttaṣil dan nūn":{"tag":"PRON","nama":"pronomina terikat + nūn penanda rafaʿ","ar":"ضمير متصل ونون الرفع","grup":"pronomina"},"Fiʿil māḍī":{"tag":"V","nama":"verba lampau (fiʿil māḍī)","ar":"فعل ماض","grup":"verba"},"Fiʿil māḍī majhūl (bentuk IV)":{"tag":"V","nama":"verba lampau pasif (fiʿil māḍī majhūl), bentuk IV","ar":"فعل ماض مبني للمجهول","grup":"verba","bentuk":"IV"},"Isim (ẓarf)":{"tag":"KET","nama":"keterangan waktu/tempat (isim ẓarf)","ar":"ظرف","grup":"nomina"},"Ḍamīr faṣl":{"tag":"PRON","nama":"pronomina pemisah (ḍamīr faṣl)","ar":"ضمير فصل","grup":"pronomina"},"Isim (isim fāʿil, bentuk IV)":{"tag":"N","nama":"nomina pelaku (isim fāʿil), bentuk IV","ar":"اسم فاعل","grup":"nomina","bentuk":"IV"},"Huruf taukīd":{"tag":"TEG","nama":"penegas (ḥarf tawkīd)","ar":"حرف توكيد","grup":"partikel"},"Hamzah taswiyah":{"tag":"PRT","nama":"hamzah penyamaan (hamzah taswiyah)","ar":"همزة التسوية","grup":"partikel"},"Huruf jazm":{"tag":"NEG","nama":"partikel penjazm (ḥarf jazm)","ar":"حرف جزم","grup":"partikel"},"Isim (ṣifah, pola faʿʿāl)":{"tag":"ADJ","nama":"ajektiva intensif (ṣifah, pola faʿʿāl)","ar":"صيغة مبالغة","grup":"ajektiva","muannath":true},"Isim (jamak taksir)":{"tag":"N","nama":"nomina, jamak taksir","ar":"اسم (جمع تكسير)","grup":"nomina"},"Wāw ḥāliyyah":{"tag":"PRT","nama":"wāw keadaan (wāw ḥāliyyah)","ar":"واو الحال","grup":"partikel"},"Isim tafḍīl":{"tag":"ADJ","nama":"ajektiva superlatif/komparatif (isim tafḍīl)","ar":"اسم تفضيل","grup":"ajektiva"},"Ḥarf nafy, jazm, dan qalb":{"tag":"NEG","nama":"negasi penjazm (lam: nafy, jazm, qalb)","ar":"حرف نفي وجزم وقلب","grup":"partikel"},"Ḥarf radʿ":{"tag":"PRT","nama":"partikel penolakan/hardikan (ḥarf radʿ)","ar":"حرف ردع وزجر","grup":"partikel"},"Ḥarf tawkīd wa naṣb":{"tag":"TEG","nama":"penegas penaṣab (inna dan saudaranya)","ar":"حرف توكيد ونصب","grup":"partikel"},"Lām muzaḥlaqah":{"tag":"TEG","nama":"lām penegas (lām muzaḥlaqah)","ar":"اللام المزحلقة","grup":"partikel"},"Ḥarf maṣdarī":{"tag":"SUB","nama":"partikel maṣdar (ḥarf maṣdarī)","ar":"حرف مصدري","grup":"partikel"},"Hamzah istifhām":{"tag":"TNY","nama":"hamzah tanya (hamzah istifhām)","ar":"همزة الاستفهام","grup":"partikel"},"Ẓarf zamān":{"tag":"T","nama":"keterangan waktu (ẓarf zamān)","ar":"ظرف زمان","grup":"nomina"},"Ḥarf syarṭ":{"tag":"SYR","nama":"partikel syarat (ḥarf syarṭ)","ar":"حرف شرط","grup":"partikel"},"Fiʿil māḍī nāqiṣ":{"tag":"V","nama":"verba lampau tak lengkap (fiʿil māḍī nāqiṣ)","ar":"فعل ماض ناقص","grup":"verba"},"Ḥarf ʿaṭf":{"tag":"CONJ","nama":"konjungsi (ḥarf ʿaṭf)","ar":"حرف عطف","grup":"partikel"},"Huruf jarr zāʾidah":{"tag":"P","nama":"preposisi tambahan (ḥarf jarr zāʾid)","ar":"حرف جر زائد","grup":"partikel"},"Lām muwaṭṭiʾah":{"tag":"PRT","nama":"lām pengantar sumpah (lām muwaṭṭiʾah)","ar":"اللام الموطئة للقسم","grup":"partikel"},"Lām jawāb al-qasam":{"tag":"TEG","nama":"lām jawaban sumpah","ar":"لام جواب القسم","grup":"partikel"},"Fiʿil muḍāriʿ + nūn tawkīd":{"tag":"V","nama":"verba kini + nūn penegas (satu segmen)","ar":"فعل مضارع ونون التوكيد","grup":"verba"},"Isim fāʿil":{"tag":"N","nama":"nomina pelaku (isim fāʿil)","ar":"اسم فاعل","grup":"nomina"},"Ḥarf istiʾnāf":{"tag":"PRT","nama":"partikel permulaan kalimat baru (ḥarf istiʾnāf)","ar":"حرف استئناف","grup":"partikel"},"Lām amr":{"tag":"PRT","nama":"lām perintah (lām amr)","ar":"لام الأمر","grup":"partikel"},"Ḥarf istiqbāl":{"tag":"AKAN","nama":"penanda masa depan (ḥarf istiqbāl)","ar":"حرف استقبال","grup":"partikel"},"Lā nāhiyah":{"tag":"PRT","nama":"lā larangan (lā nāhiyah)","ar":"لا الناهية","grup":"partikel"},"Fiʿil muḍāriʿ majhūl":{"tag":"V","nama":"verba kini pasif (fiʿil muḍāriʿ majhūl)","ar":"فعل مضارع مبني للمجهول","grup":"verba"},"Fiʿil muḍāriʿ nāqiṣ":{"tag":"V","nama":"verba kini tak lengkap (fiʿil muḍāriʿ nāqiṣ)","ar":"فعل مضارع ناقص","grup":"verba"},"Fāʾ rābiṭah":{"tag":"PRT","nama":"fāʾ penghubung jawaban syarat (fāʾ rābiṭah)","ar":"الفاء الرابطة","grup":"partikel"},"Fāʾ sababiyyah":{"tag":"PRT","nama":"fāʾ sebab-akibat (fāʾ sababiyyah)","ar":"فاء السببية","grup":"partikel"},"Huruf nidāʾ":{"tag":"SERU","nama":"partikel seru/panggil (ḥarf nidāʾ)","ar":"حرف نداء","grup":"partikel"},"Ḥarf tanbīh":{"tag":"SERU","nama":"partikel penarik perhatian (ḥarf tanbīh)","ar":"حرف تنبيه","grup":"partikel"},"Fiʿil muḍāriʿ (bentuk II)":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ), bentuk II","ar":"فعل مضارع","grup":"verba","bentuk":"II"},"Isim (isim fāʿil, bentuk II)":{"tag":"N","nama":"nomina pelaku (isim fāʿil), bentuk II","ar":"اسم فاعل","grup":"nomina","bentuk":"II"},"Fiʿil muḍāriʿ (bentuk III)":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ), bentuk III","ar":"فعل مضارع","grup":"verba","bentuk":"III"},"Isim (maṣdar, bentuk IV)":{"tag":"N","nama":"nomina verbal (maṣdar), bentuk IV","ar":"مصدر","grup":"nomina","bentuk":"IV"},"Isim (ʿalam)":{"tag":"NP","nama":"nama diri (isim ʿalam)","ar":"اسم علم","grup":"nama-diri"},"Isim istifhām":{"tag":"TNY","nama":"nomina tanya (isim istifhām)","ar":"اسم استفهام","grup":"nomina"},"Isim (maṣdar, bentuk II)":{"tag":"N","nama":"nomina verbal (maṣdar), bentuk II","ar":"مصدر","grup":"nomina","bentuk":"II"},"Isim (ṣifah, pola fuʿalah)":{"tag":"ADJ","nama":"ajektiva intensif (ṣifah, pola fuʿalah)","ar":"صيغة مبالغة","grup":"ajektiva","muannath":true},"Fiʿil māḍī (bentuk II)":{"tag":"V","nama":"verba lampau (fiʿil māḍī), bentuk II","ar":"فعل ماض","grup":"verba","bentuk":"II"},"Nūn tawkīd":{"tag":"TEG","nama":"nūn penegas (nūn tawkīd)","ar":"نون التوكيد","grup":"partikel"},"Isim (isim mafʿūl, bentuk IV)":{"tag":"N","nama":"nomina penderita (isim mafʿūl), bentuk IV","ar":"اسم مفعول","grup":"nomina","bentuk":"IV"},"Fiʿil muḍāriʿ (bentuk VIII)":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ), bentuk VIII","ar":"فعل مضارع","grup":"verba","bentuk":"VIII"},"Isim (jamak)":{"tag":"N","nama":"nomina, jamak/isim jamak","ar":"اسم (جمع)","grup":"nomina"},"Isim (isim mafʿūl, bentuk II)":{"tag":"N","nama":"nomina penderita (isim mafʿūl), bentuk II","ar":"اسم مفعول","grup":"nomina","bentuk":"II"},"Ḥarf istithnāʾ":{"tag":"KECU","nama":"partikel pengecualian (ḥarf istithnāʾ)","ar":"حرف استثناء","grup":"partikel"},"Fiʿil māḍī (bentuk VI)":{"tag":"V","nama":"verba lampau (fiʿil māḍī), bentuk VI","ar":"فعل ماض","grup":"verba","bentuk":"VI"},"Ḥarf ibtidāʾ":{"tag":"PRT","nama":"partikel permulaan (ḥarf ibtidāʾ)","ar":"حرف ابتداء","grup":"partikel"},"Ḥarf syarṭ wa tafṣīl":{"tag":"SYR","nama":"partikel syarat dan perincian (ammā)","ar":"حرف شرط وتفصيل","grup":"partikel"},"Huruf taʾnīth":{"tag":"PRT","nama":"tāʾ penanda feminin (tāʾ taʾnīth)","ar":"تاء التأنيث","grup":"partikel"},"Hāʾ as-sakt":{"tag":"PRT","nama":"hāʾ jeda (hāʾ as-sakt)","ar":"هاء السكت","grup":"partikel"},"Fiʿil māḍī majhūl":{"tag":"V","nama":"verba lampau pasif (fiʿil māḍī majhūl)","ar":"فعل ماض مبني للمجهول","grup":"verba"},"Fiʿil māḍī majhūl (bentuk II)":{"tag":"V","nama":"verba lampau pasif (fiʿil māḍī majhūl), bentuk II","ar":"فعل ماض مبني للمجهول","grup":"verba","bentuk":"II"},"Lām taʿlīl":{"tag":"P","nama":"lām alasan (lām taʿlīl), ḥarf jarr","ar":"لام التعليل","grup":"partikel"},"Fiʿil muḍāriʿ majhūl (bentuk IV)":{"tag":"V","nama":"verba kini pasif (fiʿil muḍāriʿ majhūl), bentuk IV","ar":"فعل مضارع مبني للمجهول","grup":"verba","bentuk":"IV"},"Isim syarṭ":{"tag":"SYR","nama":"nomina syarat (isim syarṭ)","ar":"اسم شرط","grup":"nomina"},"Fiʿil muḍāriʿ (bentuk V)":{"tag":"V","nama":"verba kini/mendatang (fiʿil muḍāriʿ), bentuk V","ar":"فعل مضارع","grup":"verba","bentuk":"V"},"Isim (isim fāʿil, bentuk VII)":{"tag":"N","nama":"nomina pelaku (isim fāʿil), bentuk VII","ar":"اسم فاعل","grup":"nomina","bentuk":"VII"},"Fiʿil māḍī (bentuk V)":{"tag":"V","nama":"verba lampau (fiʿil māḍī), bentuk V","ar":"فعل ماض","grup":"verba","bentuk":"V"},"Ḥarf ḥaṣr":{"tag":"KECU","nama":"partikel pembatas (adāt ḥaṣr)","ar":"أداة حصر","grup":"partikel"}},"relasi":{"muḍāf ilayh":{"dasar":"muḍāf ilayh","ar":"مضاف إليه","id":"penyandaran"},"naʿt":{"dasar":"naʿt","ar":"نعت","id":"sifat"},"khabar":{"dasar":"khabar","ar":"خبر","id":"predikat"},"naʿt, ay. 2":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"ay. 2"},"naʿt kedua, ay. 2":{"dasar":"naʿt kedua","ar":"نعت ثان","id":"sifat kedua","catatan":"ay. 2"},"naʿt bagi Allāh, ay. 2":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi Allāh, ay. 2"},"mafʿūl bih":{"dasar":"mafʿūl bih","ar":"مفعول به","id":"objek"},"ʿaṭf jumlah":{"dasar":"ʿaṭf jumlah","ar":"جملة معطوفة","id":"kalimat yang dirangkai"},"mafʿūl bih 2":{"dasar":"mafʿūl bih 2","ar":"مفعول به ثان","id":"objek kedua"},"badal dari aṣ-ṣirāṭ, ay. 6":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"dari aṣ-ṣirāṭ, ay. 6"},"ṣilah":{"dasar":"ṣilah","ar":"صلة الموصول","id":"klausa relatif (ṣilah)"},"jar-majrūr":{"dasar":"jar-majrūr","ar":"جار ومجرور","id":"frasa preposisi (bermutaʿalliq)"},"maʿṭūf":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai"},"ʿaṭf":{"dasar":"ʿaṭf","ar":"حرف عطف","id":"konjungsi (penghubung)"},"badal":{"dasar":"badal","ar":"بدل","id":"pengganti"},"khabar (jumlah)":{"dasar":"khabar (jumlah)","ar":"خبر (جملة)","id":"predikat (berupa kalimat)"},"isim lā":{"dasar":"isim lā","ar":"اسم لا النافية للجنس","id":"subjek lā penafian jenis"},"khabar lā":{"dasar":"khabar lā","ar":"خبر لا النافية للجنس","id":"predikat lā penafian jenis"},"khabar, mubtadaʾ dihapus":{"dasar":"khabar","ar":"خبر لمبتدأ محذوف","id":"predikat (subjeknya dihapus)","catatan":"mubtadaʾ dihapus"},"naʿt bagi al-muttaqīn, ay. 2":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi al-muttaqīn, ay. 2"},"maʿṭūf pada alladhīna, ay. 3":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada alladhīna, ay. 3"},"majrūr":{"dasar":"majrūr","ar":"مجرور","id":"objek preposisi"},"ḍamīr faṣl":{"dasar":"ḍamīr faṣl","ar":"ضمير فصل","id":"pronomina pemisah"},"isim inna":{"dasar":"isim inna","ar":"اسم إنّ","id":"subjek inna"},"khabar inna":{"dasar":"khabar inna","ar":"خبر إنّ","id":"predikat inna"},"mubtadaʾ":{"dasar":"mubtadaʾ","ar":"مبتدأ","id":"subjek"},"ḥarf jazm":{"dasar":"ḥarf jazm","ar":"حرف جزم","id":"partikel penjazm"},"khabar kedua":{"dasar":"khabar kedua","ar":"خبر ثان","id":"predikat kedua"},"nafy":{"dasar":"nafy","ar":"نفي","id":"penafian"},"maqūl al-qawl":{"dasar":"maqūl al-qawl","ar":"مقول القول","id":"isi ucapan"},"naʿt bagi rabbi, ay. 1":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi rabbi, ay. 1"},"ʿaṭf bayān bagi rabbi, ay. 1":{"dasar":"ʿaṭf bayān","ar":"عطف بيان","id":"penjelas (ʿaṭf bayān)","catatan":"bagi rabbi, ay. 1"},"jar-majrūr bagi aʿūdhu, ay. 1":{"dasar":"jar-majrūr","ar":"جار ومجرور","id":"frasa preposisi (bermutaʿalliq)","catatan":"bagi aʿūdhu, ay. 1"},"naʿt bagi al-khannās, ay. 4":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi al-khannās, ay. 4"},"jar-majrūr bagi yuwaswisu, ay. 5":{"dasar":"jar-majrūr","ar":"جار ومجرور","id":"frasa preposisi (bermutaʿalliq)","catatan":"bagi yuwaswisu, ay. 5"},"badal bagi khalaqa, ay. 1":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"bagi khalaqa, ay. 1"},"ḥāl":{"dasar":"ḥāl","ar":"حال","id":"keterangan keadaan"},"naʿt bagi al-akram, ay. 3":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi al-akram, ay. 3"},"badal bagi ʿallama, ay. 4":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"bagi ʿallama, ay. 4"},"taʿlīl bagi yaṭghā, ay. 6":{"dasar":"taʿlīl","ar":"تعليل","id":"alasan","catatan":"bagi yaṭghā, ay. 6"},"mafʿūl bih bagi yanhā, ay. 9":{"dasar":"mafʿūl bih","ar":"مفعول به","id":"objek","catatan":"bagi yanhā, ay. 9"},"ẓarf bagi yanhā, ay. 9":{"dasar":"ẓarf","ar":"ظرف (مفعول فيه)","id":"keterangan waktu/tempat","catatan":"bagi yanhā, ay. 9"},"syarṭ":{"dasar":"syarṭ","ar":"شرط","id":"syarat"},"fiʿil syarat":{"dasar":"fiʿil syarat","ar":"فعل الشرط","id":"verba syarat"},"khabar kāna":{"dasar":"khabar kāna","ar":"خبر كان","id":"predikat kāna"},"maʿṭūf pada kāna, ay. 11":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada kāna, ay. 11"},"mafʿūl bih 2 bagi araʾayta, ay. 9":{"dasar":"mafʿūl bih 2","ar":"مفعول به ثان","id":"objek kedua","catatan":"bagi araʾayta, ay. 9"},"isim anna":{"dasar":"isim anna","ar":"اسم أنّ","id":"subjek anna"},"khabar anna":{"dasar":"khabar anna","ar":"خبر أنّ","id":"predikat anna"},"jawāb qasam":{"dasar":"jawāb qasam","ar":"جواب القسم","id":"jawaban sumpah"},"badal bagi an-nāṣiyah, ay. 15":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"bagi an-nāṣiyah, ay. 15"},"maʿṭūf pada min sharri, ay. 2":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada min sharri, ay. 2"},"ẓarf":{"dasar":"ẓarf","ar":"ظرف (مفعول فيه)","id":"keterangan waktu/tempat"},"muḍāf ilayh (jumlah)":{"dasar":"muḍāf ilayh (jumlah)","ar":"مضاف إليه (جملة)","id":"penyandaran (berupa kalimat)"},"ʿaṭf jumlah pada lam yalid, ay. 3":{"dasar":"ʿaṭf jumlah","ar":"جملة معطوفة","id":"kalimat yang dirangkai","catatan":"pada lam yalid, ay. 3"},"isim kāna":{"dasar":"isim kāna","ar":"اسم كان","id":"subjek kāna"},"fāʿil":{"dasar":"fāʿil","ar":"فاعل","id":"pelaku"},"maʿṭūf pada fāʿil sayaṣlā, ay. 3":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada fāʿil sayaṣlā, ay. 3"},"naṣb ʿalā adh-dhamm":{"dasar":"naṣb ʿalā adh-dhamm","ar":"منصوب على الذم","id":"manṣūb sebagai celaan"},"ḥāl dari imraʾatuhu, ay. 4":{"dasar":"ḥāl","ar":"حال","id":"keterangan keadaan","catatan":"dari imraʾatuhu, ay. 4"},"syarṭ; jawābnya fa-sabbiḥ, ay. 3":{"dasar":"syarṭ","ar":"شرط","id":"syarat","catatan":"jawābnya fa-sabbiḥ, ay. 3"},"maʿṭūf pada jāʾa, ay. 1":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada jāʾa, ay. 1"},"jawāb syarṭ bagi idhā, ay. 1":{"dasar":"jawāb syarṭ","ar":"جواب الشرط","id":"jawaban syarat","catatan":"bagi idhā, ay. 1"},"taʿlīl":{"dasar":"taʿlīl","ar":"تعليل","id":"alasan"},"tafrīʿ atas aʿṭaynāka, ay. 1":{"dasar":"tafrīʿ","ar":"تفريع","id":"kelanjutan/akibat (tafrīʿ)","catatan":"atas aʿṭaynāka, ay. 1"},"maqūl al-qawl bagi qul, ay. 1":{"dasar":"maqūl al-qawl","ar":"مقول القول","id":"isi ucapan","catatan":"bagi qul, ay. 1"},"ʿaṭf jumlah, pada ay. 2":{"dasar":"ʿaṭf jumlah","ar":"جملة معطوفة","id":"kalimat yang dirangkai","catatan":"pada ay. 2"},"ʿaṭf jumlah, pada ay. 3":{"dasar":"ʿaṭf jumlah","ar":"جملة معطوفة","id":"kalimat yang dirangkai","catatan":"pada ay. 3"},"ʿaṭf jumlah, pada ay. 4":{"dasar":"ʿaṭf jumlah","ar":"جملة معطوفة","id":"kalimat yang dirangkai","catatan":"pada ay. 4"},"jawāb syarṭ muqaddar, terkait ay. 1":{"dasar":"jawāb syarṭ muqaddar","ar":"جواب الشرط المقدر","id":"jawaban syarat yang diperkirakan (muqaddar)","catatan":"terkait ay. 1"},"maʿṭūf pada yaduʿʿu, ay. 2":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada yaduʿʿu, ay. 2"},"naʿt bagi al-muṣallīn, ay. 4":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi al-muṣallīn, ay. 4"},"naʿt kedua bagi al-muṣallīn, ay. 4":{"dasar":"naʿt kedua","ar":"نعت ثان","id":"sifat kedua","catatan":"bagi al-muṣallīn, ay. 4"},"maʿṭūf pada yurāʾūna, ay. 6":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada yurāʾūna, ay. 6"},"jar-majrūr bagi fa-lyaʿbudū, ay. 3":{"dasar":"jar-majrūr","ar":"جار ومجرور","id":"frasa preposisi (bermutaʿalliq)","catatan":"bagi fa-lyaʿbudū, ay. 3"},"badal bagi īlāfi, ay. 1":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"bagi īlāfi, ay. 1"},"naʿt bagi rabba, ay. 3":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi rabba, ay. 3"},"maʿṭūf pada yajʿal, ay. 2":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada yajʿal, ay. 2"},"naʿt kedua bagi ṭayran, ay. 3":{"dasar":"naʿt kedua","ar":"نعت ثان","id":"sifat kedua","catatan":"bagi ṭayran, ay. 3"},"maʿṭūf pada arsala, ay. 3":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada arsala, ay. 3"},"badal bagi kulli, ay. 1":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"bagi kulli, ay. 1"},"ḥāl bagi jamaʿa, ay. 2":{"dasar":"ḥāl","ar":"حال","id":"keterangan keadaan","catatan":"bagi jamaʿa, ay. 2"},"naʿt bagi nāru, ay. 6":{"dasar":"naʿt","ar":"نعت","id":"sifat","catatan":"bagi nāru, ay. 6"},"ḥāl bagi muʾṣadatun, ay. 8":{"dasar":"ḥāl","ar":"حال","id":"keterangan keadaan","catatan":"bagi muʾṣadatun, ay. 8"},"jawāb qasam, ay. 1":{"dasar":"jawāb qasam","ar":"جواب القسم","id":"jawaban sumpah","catatan":"ay. 1"},"istithnāʾ dari al-insān, ay. 2":{"dasar":"istithnāʾ","ar":"استثناء","id":"pengecualian","catatan":"dari al-insān, ay. 2"},"mustathnā":{"dasar":"mustathnā","ar":"مستثنى","id":"yang dikecualikan"},"ghāyah bagi alhākum, ay. 1":{"dasar":"ghāyah","ar":"غاية","id":"batas akhir (ghāyah)","catatan":"bagi alhākum, ay. 1"},"ghāyah":{"dasar":"ghāyah","ar":"غاية","id":"batas akhir (ghāyah)"},"ḥarf istiqbāl":{"dasar":"ḥarf istiqbāl","ar":"حرف استقبال","id":"penanda masa depan"},"maʿṭūf pada taʿlamūna, ay. 3":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada taʿlamūna, ay. 3"},"mafʿūl muṭlaq":{"dasar":"mafʿūl muṭlaq","ar":"مفعول مطلق","id":"objek mutlak"},"maʿṭūf pada tarawunna, ay. 6":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada tarawunna, ay. 6"},"maʿṭūf pada tarawunnahā, ay. 7":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada tarawunnahā, ay. 7"},"khabar (jumlah) bagi al-qāriʿah, ay. 1":{"dasar":"khabar (jumlah)","ar":"خبر (جملة)","id":"predikat (berupa kalimat)","catatan":"bagi al-qāriʿah, ay. 1"},"ẓarf bagi fiʿil dihapus (taqraʿu), ay. 1":{"dasar":"ẓarf","ar":"ظرف (مفعول فيه)","id":"keterangan waktu/tempat","catatan":"bagi fiʿil dihapus (taqraʿu), ay. 1"},"maʿṭūf pada yakūnu, ay. 4":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada yakūnu, ay. 4"},"ḥarf syarṭ wa tafṣīl":{"dasar":"ḥarf syarṭ wa tafṣīl","ar":"حرف شرط وتفصيل","id":"partikel syarat dan perincian"},"khabar bagi man, ay. 6":{"dasar":"khabar","ar":"خبر","id":"predikat","catatan":"bagi man, ay. 6"},"jumlah maʿṭūfah pada ay. 6":{"dasar":"jumlah maʿṭūfah","ar":"جملة معطوفة","id":"kalimat yang dirangkai","catatan":"pada ay. 6"},"khabar bagi man, ay. 8":{"dasar":"khabar","ar":"خبر","id":"predikat","catatan":"bagi man, ay. 8"},"mafʿūl muṭlaq bagi fiʿil yang dihapus (yaḍbaḥna); jumlahnya ḥāl dari al-ʿādiyāt":{"dasar":"mafʿūl muṭlaq","ar":"مفعول مطلق لفعل محذوف","id":"objek mutlak","catatan":"bagi fiʿil yang dihapus (yaḍbaḥna); jumlahnya ḥāl dari al-ʿādiyāt"},"maʿṭūf pada al-ʿādiyāt, ay. 1":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada al-ʿādiyāt, ay. 1"},"maʿṭūf pada al-mughīrāt, ay. 3":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada al-mughīrāt, ay. 3"},"maʿṭūf pada atharna, ay. 4":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada atharna, ay. 4"},"maʿṭūf pada jawāb qasam, ay. 6":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada jawāb qasam, ay. 6"},"ẓarf; bermutaʿalliq pada objek/jawāb yang dihapus (ditunjukkan ay. 11)":{"dasar":"ẓarf","ar":"ظرف (مفعول فيه)","id":"keterangan waktu/tempat","catatan":"bermutaʿalliq pada objek/jawāb yang dihapus (ditunjukkan ay. 11)"},"nāʾib fāʿil":{"dasar":"nāʾib fāʿil","ar":"نائب فاعل","id":"pengganti pelaku"},"maʿṭūf pada buʿthira, ay. 9":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada buʿthira, ay. 9"},"ẓarf bagi jawāb syarṭ tuḥaddithu, ay. 4":{"dasar":"ẓarf","ar":"ظرف (مفعول فيه)","id":"keterangan waktu/tempat","catatan":"bagi jawāb syarṭ tuḥaddithu, ay. 4"},"maʿṭūf pada zulzilati, ay. 1":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada zulzilati, ay. 1"},"jar-majrūr bagi tuḥaddithu, ay. 4":{"dasar":"jar-majrūr","ar":"جار ومجرور","id":"frasa preposisi (bermutaʿalliq)","catatan":"bagi tuḥaddithu, ay. 4"},"jawāb syarṭ":{"dasar":"jawāb syarṭ","ar":"جواب الشرط","id":"jawaban syarat"},"tamyīz":{"dasar":"tamyīz","ar":"تمييز","id":"penjelas (tamyīz)"},"maʿṭūf pada man, ay. 7":{"dasar":"maʿṭūf","ar":"معطوف","id":"kata yang dirangkai","catatan":"pada man, ay. 7"},"menempati mafʿūl bih 2 dan 3 (taʿlīq)":{"dasar":"mafʿūl bih 2 dan 3","ar":"سدّ مسدّ المفعولين الثاني والثالث","id":"menempati objek kedua dan ketiga (taʿlīq)","catatan":"menempati (taʿlīq)"},"badal bagi al-bayyinah, ay. 1":{"dasar":"badal","ar":"بدل","id":"pengganti","catatan":"bagi al-bayyinah, ay. 1"},"naʿt (jumlah)":{"dasar":"naʿt (jumlah)","ar":"نعت (جملة)","id":"sifat (berupa kalimat)"},"naʿt (jumlah) bagi ṣuḥufan, ay. 2":{"dasar":"naʿt (jumlah)","ar":"نعت (جملة)","id":"sifat (berupa kalimat)","catatan":"bagi ṣuḥufan, ay. 2"},"khabar muqaddam":{"dasar":"khabar muqaddam","ar":"خبر مقدم","id":"predikat yang didahulukan"},"ḥaṣr":{"dasar":"ḥaṣr","ar":"حصر","id":"pembatasan"},"ḥarf maṣdarī":{"dasar":"ḥarf maṣdarī","ar":"حرف مصدري","id":"partikel maṣdar"},"ḥāl (jumlah) bagi tafarraqa, ay. 4":{"dasar":"ḥāl (jumlah)","ar":"حال (جملة)","id":"keterangan keadaan (berupa kalimat)","catatan":"bagi tafarraqa, ay. 4"},"taʿlīl (jar-majrūr)":{"dasar":"taʿlīl (jar-majrūr)","ar":"تعليل (جار ومجرور)","id":"alasan (frasa preposisi)"},"ḥāl kedua":{"dasar":"ḥāl kedua","ar":"حال ثانية","id":"keterangan keadaan kedua"},"ḥāl (ṣāḥib al-ḥāl: hum; ʿāmil dihapus)":{"dasar":"ḥāl","ar":"حال","id":"keterangan keadaan","catatan":"ṣāḥib al-ḥāl: hum; ʿāmil dihapus"}},"kasus":{"marfu":{"id":"nominatif (marfūʿ)","ar":"مرفوع","ar_f":"مرفوعة","mahall":"في محل رفع"},"manshub":{"id":"akusatif (manṣūb)","ar":"منصوب","ar_f":"منصوبة","mahall":"في محل نصب"},"majrur":{"id":"genitif (majrūr)","ar":"مجرور","ar_f":"مجرورة","mahall":"في محل جر"},"majzum":{"id":"jusif (majzūm)","ar":"مجزوم","ar_f":"مجزومة","mahall":"في محل جزم"},"mabni":{"id":"tetap (mabnī)","ar":"مبني","ar_f":"مبنية","mahall":null}},"lit":{"jalalah":"لفظ الجلالة ","jm":"جار ومجرور","mabniF":"مبنية","mabni":"مبني","majhul":"مبني للمجهول","madi":"فعل ماض","komaMabni":"، مبني"}};
+/* ---------- Treebank gaya QAC (draf, belum divalidasi ahli) ---------- */
+// Label tampilan diambil dari TB_LABEL (peta kelas segmen, relasi, kasus). Data korpus tidak diubah.
+const TB_GRUP=[['nomina','nomina'],['verba','verba'],['ajektiva','ajektiva'],['nama-diri','nama diri'],['pronomina','pronomina, demonstrativa, relatif'],['partikel','partikel']];
+const TB_TAG={N:'nomina',NP:'nama diri',ADJ:'ajektiva',V:'verba',PRON:'pronomina',DEM:'demonstrativa',REL:'nomina relatif',DET:'penentu alif-lām',P:'preposisi',CONJ:'konjungsi',NEG:'negasi',T:'keterangan waktu',KET:'keterangan waktu/tempat',TNY:'tanya',SYR:'syarat',TEG:'penegas',AKAN:'penanda masa depan',SERU:'seru/panggil',KECU:'pengecualian/pembatasan',SUB:'partikel maṣdar',INIS:'huruf muqaṭṭaʿah',PRT:'partikel lain'};
+const tbK=s=>TB_LABEL.kelas[s[2]]||{tag:'?',nama:s[2],ar:'',grup:'partikel'};
+const tbCol=g=>`var(--tb-${g})`;
+const tbRel=l=>TB_LABEL.relasi[l]||{dasar:l,ar:'',id:l};
+const tbRef=(v,i)=>`${SURAHS[v.si].no}:${v.n}:${i+1}`;
+// Aturan jangkar busur: segmen pertama yang grup-nya bukan "partikel" (jadi melewati awalan DET, P, CONJ, dan partikel lain);
+// bila semua segmen partikel, dipakai segmen terakhir. Segmen ini sama dengan "inti" pada ringkasan iʿrāb (tempat kasus ditempelkan).
+function tbInti(w){const i=w.segs.findIndex(s=>tbK(s).grup!=='partikel');return i>=0?i:w.segs.length-1;}
+const tbPunyaInti=w=>w.segs.some(s=>tbK(s).grup!=='partikel');
+// Ringkasan iʿrāb per kata (aturan R1-R6 dari peta label; R0 = kesesuaian muannath istilah).
+function tbRingkas(w){
+  const L=TB_LABEL,T=L.lit,segs=w.segs.map(s=>({c:s[2],k:tbK(s)})).filter(s=>s.k.tag!=='DET');
+  const K=L.kasus[w.kasus],nonPart=s=>s.k.grup!=='partikel';
+  if(!K)return '';
+  if(segs.length===1&&segs[0].c==='Isim (lafẓ al-jalālah)'&&!w.mabni&&['marfu','manshub','majrur'].includes(w.kasus))return T.jalalah+K.ar;
+  const pi=segs.findIndex(s=>s.k.tag==='P'&&s.c!=='Lām taʿlīl');
+  if(pi>=0&&segs[pi+1]&&nonPart(segs[pi+1])&&w.kasus==='majrur')return [...segs.slice(0,pi).map(s=>s.k.ar),T.jm].join(' + ');
+  const ii=segs.findIndex(nonPart);
+  if(ii<0)return segs.map(s=>s.k.ar).join(' + ');
+  const depan=segs.slice(0,ii).map(s=>s.k.ar),sisa=segs.slice(ii+1).map(s=>s.k.ar),inti=segs[ii].k.ar,f=!!segs[ii].k.muannath;
+  let core;
+  if(w.mabni&&K.mahall&&w.kasus!=='mabni')core=inti+' '+(f?T.mabniF:T.mabni)+' '+K.mahall;
+  else if(w.kasus==='mabni'){if(inti.includes(T.majhul))core=inti.startsWith(T.madi)?inti:inti+T.komaMabni;else core=inti+' '+(f?T.mabniF:T.mabni);}
+  else core=inti+' '+(f?K.ar_f:K.ar);
+  return [...depan,core,...sisa].join(' + ');
+}
+// Kasus dalam bahasa Indonesia, hanya untuk segmen inti (data kasus bersifat per kata).
+function tbKasusId(w){
+  const K=TB_LABEL.kasus[w.kasus];if(!K)return '';
+  if(w.kasus==='mabni')return K.id;
+  return w.mabni?TB_LABEL.kasus.mabni.id+', di posisi '+K.id:K.id;
+}
+let tbCv=null,tbFontOk=false,tbKeepScroll=null;
+function tbW(t,font){if(!tbCv)tbCv=document.createElement('canvas').getContext('2d');tbCv.font=font;return tbCv.measureText(String(t)).width;}
+function tbWrap(t,font,max){
+  const out=[];let line='';
+  String(t).split(/\s+/).filter(Boolean).forEach(x=>{const c=line?line+' '+x:x;if(line&&tbW(c,font)>max){out.push(line);line=x;}else line=c;});
+  if(line)out.push(line);
+  return out.length?out:[''];
+}
+const TB_F={ar:"30px Amiri, 'Amiri Quran', 'Noto Naskh Arabic', serif",lat:'italic 13px Inter, system-ui, sans-serif',gl:'13px Inter, system-ui, sans-serif',ref:'12px Inter, system-ui, sans-serif',tag:'600 12px Inter, system-ui, sans-serif',lab:"15px 'Noto Naskh Arabic', Amiri, serif",id:'11px Inter, system-ui, sans-serif'};
+function tbSvg(v){
+  const pad=16,glMax=140;
+  const W=v.words.map((w,i)=>{
+    const segs=w.segs.map(s=>{const k=tbK(s);return {ar:s[0],k,tw:Math.max(22,tbW(k.tag,TB_F.tag)+12)};});
+    const gl=tbWrap(w.gloss,TB_F.gl,glMax),tagW=segs.reduce((a,s)=>a+s.tw,0);
+    const cw=Math.ceil(Math.max(84,tbW(w.ar,TB_F.ar)+24,tbW(w.lat,TB_F.lat)+18,...gl.map(g=>tbW(g,TB_F.gl)+18),tagW+16,tbW('('+tbRef(v,i)+')',TB_F.ref)+16));
+    return {w,i,segs,gl,tagW,cw};
+  });
+  const totalW=pad*2+W.reduce((a,c)=>a+c.cw,0);
+  let acc=pad;
+  W.forEach(c=>{c.cx=totalW-acc-c.cw/2;acc+=c.cw;let r=c.cx+c.tagW/2;c.segs.forEach(s=>{s.x=r-s.tw/2;r-=s.tw;});c.ax=c.segs[tbInti(c.w)].x;});
+  const nGl=Math.max(1,...W.map(c=>c.gl.length)),glY=54,arY=glY+16*(nGl-1)+50,dotY=arY+20,tagY=dotY+18,y0=tagY+8;
+  const D=L=>26+(L-1)*48;
+  // Busur dan tunas (kepala di luar ayat): level ditentukan dari rentang dan tabrakan kotak label.
+  const E=v.edges.map(e=>{
+    const d=W[e[0]],r=tbRel(e[2]),g=tbK(d.w.segs[tbInti(d.w)]).grup;
+    const lw=Math.max(tbW(r.ar,TB_F.lab),tbW(r.id,TB_F.id),e[1]<0&&r.catatan?tbW(r.catatan,TB_F.id):0)+10;
+    if(e[1]<0)return {e,d,r,g,stub:true,lo:d.ax,hi:d.ax,mid:d.ax,lw};
+    const h=W[e[1]],xh=h.ax+(d.ax>h.ax?5:-5);
+    return {e,d,h,r,g,stub:false,xh,xd:d.ax,lo:Math.min(xh,d.ax),hi:Math.max(xh,d.ax),mid:(xh+d.ax)/2,lw};
+  });
+  const placed=[],tabrak=(a,L)=>placed.some(b=>b.L===L&&Math.abs(a.mid-b.mid)<(a.lw+b.lw)/2+6);
+  const atur=(a,L)=>{while(tabrak(a,L))L++;a.L=L;placed.push(a);};
+  E.filter(a=>!a.stub).sort((a,b)=>(a.hi-a.lo)-(b.hi-b.lo)).forEach(a=>{let L=1;placed.forEach(b=>{if(b.lo>=a.lo-1&&b.hi<=a.hi+1)L=Math.max(L,b.L+1);});atur(a,L);});
+  E.filter(a=>a.stub).forEach(a=>{let L=1;placed.forEach(b=>{if(!b.stub&&b.lo<=a.mid+6&&b.hi>=a.mid-6)L=Math.max(L,b.L+1);});atur(a,L);});
+  const maxL=Math.max(0,...E.map(a=>a.L)),H=y0+(maxL?D(maxL)+(E.some(a=>a.stub&&a.L===maxL&&a.r.catatan)?60:48):12);
+  const ref=`QS ${SURAHS[v.si].no}:${v.n}`;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" class="tb-svg" width="${totalW}" height="${H}" viewBox="0 0 ${totalW} ${H}" role="img" aria-label="Graf dependensi ${esc(ref)} dengan kelas kata per segmen (draf, belum divalidasi ahli). Rinciannya ada pada tabel di bawah."><defs>`;
+  TB_GRUP.forEach(([g])=>{s+=`<marker id="tbm-${g}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:${tbCol(g)}"/></marker>`;});
+  s+='</defs>';
+  W.forEach(c=>{
+    const sel=c.i===state.w;
+    s+=`<g class="tbn${sel?' sel':''}" data-tbw="${c.i}"><title>${esc('('+tbRef(v,c.i)+') '+c.w.lat+': '+c.w.gloss)}</title>`;
+    s+=`<rect class="tb-bg" x="${c.cx-c.cw/2+3}" y="2" width="${c.cw-6}" height="${tagY+8}" rx="8"/>`;
+    s+=`<text class="tb-ref" x="${c.cx}" y="18" text-anchor="middle" direction="ltr">(${esc(tbRef(v,c.i))})</text>`;
+    s+=`<text class="tb-lat" x="${c.cx}" y="36" text-anchor="middle">${esc(c.w.lat)}</text>`;
+    c.gl.forEach((g,k)=>{s+=`<text class="tb-gl" x="${c.cx}" y="${glY+16*k}" text-anchor="middle">${esc(g)}</text>`;});
+    s+=`<text class="tb-ar" x="${c.cx}" y="${arY}" text-anchor="middle" direction="rtl" lang="ar">${c.segs.map(x=>`<tspan style="fill:${tbCol(x.k.grup)}">${x.ar}</tspan>`).join('')}</text>`;
+    c.segs.forEach(x=>{
+      s+=`<circle class="tb-dot" cx="${x.x}" cy="${dotY}" r="3" style="fill:${tbCol(x.k.grup)}"/>`;
+      s+=`<text class="tb-tag" x="${x.x}" y="${tagY}" text-anchor="middle" style="fill:${tbCol(x.k.grup)}"><title>${esc(x.k.tag+' – '+x.k.nama)}</title>${esc(x.k.tag)}</text>`;
+    });
+    s+='</g>';
+  });
+  E.forEach(a=>{
+    const dd=D(a.L),by=y0+dd,col=tbCol(a.g),tip=a.r.dasar+(a.r.catatan?' ('+a.r.catatan+')':'')+': '+(a.stub?'kepala di luar ayat ini':a.h.w.lat+' → '+a.d.w.lat);
+    s+=`<g class="tbe" data-dep="${a.e[0]}"><title>${esc(tip)}</title>`;
+    if(a.stub)s+=`<line x1="${a.mid}" y1="${by}" x2="${a.mid}" y2="${y0+1}" style="stroke:${col}" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#tbm-${a.g})"/>`;
+    else{const h=dd/0.75;s+=`<path d="M${a.xh} ${y0} C${a.xh} ${y0+h},${a.xd} ${y0+h},${a.xd} ${y0+1}" fill="none" style="stroke:${col}" stroke-width="1.6" marker-end="url(#tbm-${a.g})"/>`;}
+    s+=`<text class="tb-lab" x="${a.mid}" y="${by+19}" text-anchor="middle" direction="rtl" lang="ar" style="fill:${col}">${esc(a.r.ar||a.r.dasar)}</text>`;
+    s+=`<text class="tb-id" x="${a.mid}" y="${by+33}" text-anchor="middle">${esc(a.r.id)}</text>`;
+    if(a.stub&&a.r.catatan)s+=`<text class="tb-id tb-cat" x="${a.mid}" y="${by+46}" text-anchor="middle">${esc(a.r.catatan)}</text>`;
+    s+='</g>';
+  });
+  return s+'</svg>';
+}
+function tbLegend(){
+  const per={};Object.values(TB_LABEL.kelas).forEach(k=>{(per[k.grup]=per[k.grup]||new Set()).add(k.tag);});
+  return `<div class="tb-leg" role="note" aria-label="Legenda kelas kata">${TB_GRUP.map(([g,n])=>`<span class="tb-lg"><i style="background:${tbCol(g)}" aria-hidden="true"></i><b>${esc(n)}</b>: ${[...(per[g]||[])].map(t=>`<span class="tb-lt" style="color:${tbCol(g)}">${esc(t)}</span> ${esc(TB_TAG[t]||'')}`).join(', ')}</span>`).join('')}</div>`;
+}
+function tbWordHtml(w){
+  return `<span class="tb-word" lang="ar" dir="rtl">${w.segs.map(s=>`<span style="color:${tbCol(tbK(s).grup)}">${s[0]}</span>`).join('')}</span>`+
+    `<span class="tb-tags" dir="rtl">${w.segs.map(s=>{const k=tbK(s);return `<span class="tb-t" style="--c:${tbCol(k.grup)}">${esc(k.tag)}</span>`;}).join('')}</span>`;
+}
+function tbTable(v){
+  const rows=v.words.map((w,i)=>{
+    const ii=tbPunyaInti(w)?tbInti(w):-1,kas=tbKasusId(w),rg=tbRingkas(w);
+    const segs=w.segs.map((s,j)=>{const k=tbK(s);return `<li><b style="color:${tbCol(k.grup)}">${esc(k.tag)}</b> – ${esc(k.nama)} <i>${esc(s[1])}</i>${j===ii&&kas?', '+esc(kas):''}</li>`;}).join('');
+    return `<tr data-tbw="${i}"${i===state.w?' class="sel"':''}>
+      <td class="tb-c1"><button type="button" class="tb-pick" data-w="${i}" aria-pressed="${i===state.w}" dir="ltr">(${esc(tbRef(v,i))})</button><span class="tb-rlat">${esc(w.lat)}</span><span class="tb-rgl">${esc(w.gloss)}</span></td>
+      <td class="tb-c2">${tbWordHtml(w)}</td>
+      <td class="tb-c3"><ul class="tb-segs">${segs}</ul>${rg?`<p class="tb-ring" lang="ar" dir="rtl">${esc(rg)}</p>`:''}</td></tr>`;
+  }).join('');
+  return `<div class="tb-tabwrap"><table class="tb-tab"><caption>Sintaksis dan morfologi per kata, QS ${SURAHS[v.si].no}:${v.n} (draf mesin, belum divalidasi ahli)</caption>
+    <thead><tr><th scope="col">Terjemahan</th><th scope="col">Kata Arab</th><th scope="col">Sintaksis dan morfologi</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function tbRelList(v){
+  return v.edges.map(e=>{
+    const r=tbRel(e[2]),d=v.words[e[0]],h=e[1]>=0?v.words[e[1]]:null;
+    return `<li>${esc(d.lat)} (${esc(tbRef(v,e[0]))}) ← ${h?esc(h.lat)+' ('+esc(tbRef(v,e[1]))+')':'kata kepala di luar ayat ini'}: <span lang="ar" dir="rtl">${esc(r.ar||r.dasar)}</span> (${esc(r.id)})${r.catatan?', '+esc(r.catatan):''}</li>`;
+  }).join('');
+}
+function tree(){
+  const v=cur(),rl=tbRelList(v);
+  return ayatChips()+
+   `${provStrip(['teks','tree'],v)}
+    <div class="tb-note" role="note"><strong>Draf, belum divalidasi ahli.</strong> Kelas kata, relasi, dan ringkasan iʿrāb di bawah ini dihasilkan mesin dari anotasi kerja dan masih perlu ditinjau ahli.
+      Busur dependensi bersifat per kata (bukan per segmen); busur ditarik dari kata kepala ke kata yang bergantung padanya dan menempel pada segmen inti kata, yaitu segmen pertama yang bukan partikel (awalan alif-lām, preposisi, konjungsi, dan sebagainya dilewati), atau segmen terakhir bila seluruh kata berupa partikel.
+      Garis tegak putus-putus menandai kata kepala di luar ayat ini. Unsur tersembunyi atau dihapus (misalnya ḍamīr mustatir atau fiʿil yang dihapus) dan node frasa belum ditampilkan. Jenis kelamin, bilangan, dan persona belum ada pada data sehingga tidak ditampilkan.
+      Perbaikan ini direncanakan pada peta jalan proyek butir 2.4 (skema anotasi v2) dan 2.5 (dependensi tingkat segmen dengan node kosong).</div>
+    ${tbLegend()}
+    <p class="tree-hint" aria-hidden="true">Graf dibaca dari kanan. Geser ke kiri untuk kata berikutnya.</p>
+    <div class="scroll tb-box" id="tree-box">${tbSvg(v)}</div>
+    ${tbTable(v)}
+    <details class="textlist"><summary>Daftar relasi sebagai teks</summary><ul>${rl||'<li>Tidak ada relasi antarkata pada ayat ini.</li>'}</ul></details>
+    <details class="tb-lama" id="tb-lama"><summary>Tampilan lama (diagram per kata dengan warna kasus)</summary>${treeLama()}</details>`;
 }
 
 /* ---------- Tab: Akar kata ---------- */
@@ -4691,7 +4892,8 @@ function inspSet(on){
 function pascaRender(){
   document.body.classList.toggle('insp-open',!!state.insp);
   ukurChrome();
-  if(state.tab==='tree'){const sc=document.getElementById('tree-box');if(sc)sc.scrollLeft=sc.scrollWidth;}
+  if(state.tab==='tree'){const sc=document.getElementById('tree-box');if(sc)sc.scrollLeft=tbKeepScroll!=null?tbKeepScroll:sc.scrollWidth;tbKeepScroll=null;
+    if(!tbFontOk&&document.fonts&&document.fonts.status!=='loaded'){tbFontOk=true;document.fonts.ready.then(()=>{if(state.tab==='tree'){const b=document.getElementById('tree-box');tbKeepScroll=b?b.scrollLeft:null;renderView();}});}else tbFontOk=true;}
 }
 window.addEventListener('resize',ukurChrome);
 
@@ -4701,8 +4903,10 @@ document.addEventListener('click',function(e){
   if(e.target.closest('[data-sptog]')){const x=spEls();if(x){const open=x.list.hidden;if(open)spFilter('');else spOpen(false);x.inp.focus();if(open)x.inp.select();}return;}
   if(e.target.id==='sp-in'){const x=spEls();if(x&&x.list.hidden){spFilter('');x.inp.select();}return;}
   const opt=e.target.closest('#sp-list li[data-s]');if(opt){spPick(+opt.dataset.s);return;}
-  const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear],[data-insp]');
+  const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear],[data-insp],[data-tbw]');
   if(!t)return;
+  if(state.tab==='tree'&&(t.dataset.tbw!==undefined||t.dataset.w!==undefined)){const b=document.getElementById('tree-box');tbKeepScroll=b?b.scrollLeft:null;}
+  if(t.dataset.tbw!==undefined){state.w=+t.dataset.tbw;renderView();return;}
   if(t.dataset.insp!==undefined){inspSet(!state.insp);return;}
   if(t.dataset.gr!==undefined){grafPilih(t.dataset.gr===state.gr?'':t.dataset.gr);return;}
   if(t.dataset.gs!==undefined){state.gs=+t.dataset.gs;state.gr=null;renderView();return;}
@@ -4747,7 +4951,9 @@ document.addEventListener('change',function(e){
   if(t.id==='gs-sel'){state.gs=+t.value;state.gr=null;renderView();return;}
 });
 document.addEventListener('toggle',function(e){
-  const t=e.target;if(!t||t.id!=='lab-prompt'||!t.open||state.lab.prompt)return;
+  const t=e.target;
+  if(t&&t.id==='tb-lama'&&t.open){const sc=document.getElementById('tree-box-lama');if(sc)sc.scrollLeft=sc.scrollWidth;return;}
+  if(!t||t.id!=='lab-prompt'||!t.open||state.lab.prompt)return;
   const put=x=>{const p=document.getElementById('lab-prompt-text');if(p)p.textContent=x;};
   fetch('/api/label').then(r=>r.json()).then(j=>{
     state.lab.prompt=(j&&j.template)?('Versi '+j.versi+'\nModel: '+Object.values(j.model||{}).join(', ')+'\n\n'+j.template):'Prompt tidak dapat dimuat.';put(state.lab.prompt);
