@@ -3,457 +3,470 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F4EFE3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0C1422" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1F3B2F">
 <title>Prototipe Korpus Al-Qur’an Terjemahan Indonesia: Al-Fātiḥah, Al-Baqarah 1–6, Al-‘Alaq, dan Al-Qadr sampai An-Nās</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
 <style>
+/* ==========================================================================
+   Sistem desain Korpus Al-Qur'an Terjemahan Indonesia (lihat docs/design/SYSTEM.md)
+   Satu lapisan token: :root (terang) + satu blok gelap (prefers-color-scheme).
+   Warna kasus (--rafa --nashb --jarr --jazm --mabni --tree) bermakna gramatikal dan TIDAK diubah.
+   ========================================================================== */
 :root{
-  --ink:#1B2A41; --ink2:#4A5A70; --paper:#EDF1F5; --surface:#FFFFFF; --line:#CBD5E0; --soft:#F6F8FB;
-  --rafa:#2556C4; --nashb:#17795A; --jarr:#A23B72; --mabni:#5D6B7A; --jazm:#B45309; --tree:#2F4B9C;
+  color-scheme:light;
+  /* Permukaan dan teks: kertas gading */
+  --paper:#F6F1E6; --surface:#FFFDF8; --soft:#EFE8D8;
+  --ink:#1C2420; --ink2:#4D5650;
+  --line:#DED4BF;          /* pemisah dekoratif saja */
+  --line-strong:#8F8266;   /* batas kontrol dan chip interaktif, >= 3:1 (WCAG 1.4.11) */
+  /* Merek: hijau hutan, hanya untuk chrome (kepala, tab aktif, tombol utama) */
+  --brand:#1F3B2F; --brand-on:#F6F1E6; --brand-text:#1F3B2F; --brand-tint:#E4ECE6; --brand-line:#1F3B2F;
+  /* Emas redup: ornamen dan label kecil */
+  --gold:#A8873A; --gold-ink:#6E5520;
+  /* Status draf / peringatan */
   --warnbg:#FFF1CC; --warnink:#6B4200; --warnline:#E0B84A;
-  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
-  --sans:'Source Sans 3',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  --arab:'Amiri','Scheherazade New','Noto Naskh Arabic','Traditional Arabic','Geeza Pro',serif;
+  /* Interaksi: fokus dan tautan sengaja tidak memakai biru marfu' */
+  --focus:#1F3B2F; --link:var(--brand-text);
+  --hl:rgba(168,135,58,.24); --hl-line:#6E5520;
+  /* Warna kasus (tidak diubah) */
+  --rafa:#2556C4; --nashb:#17795A; --jarr:#A23B72; --mabni:#5D6B7A; --jazm:#B45309; --tree:#2F4B9C;
+  /* Peta sisipan (kategori) */
+  --s-ruj:#E2EAFB; --s-taf:#FADFEA; --s-str:#E9EDF2; --s-bel:#FFF1CC;
+  /* Graf akar: kelompok surah (bukan warna kasus) */
+  --g1:#A8873A; --g2:#6B5B95; --g3:#2C7A8C;
+  /* Lencana rencana dan label Lab */
+  --plan-bg:#E8EEFB; --plan-line:#B8C7EE; --plan-ink:#1F3A7A;
+  --lab-din-bg:#E3F4EC; --lab-din-ink:#11573F; --lab-tp-bg:#EEF0F3; --lab-tp-ink:#4A5A70;
+  --fn:#B42318; --code-bg:#1C2420; --code-ink:#ECE7DA;
+  /* Huruf */
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --serif:var(--sans);
+  --arab-quran:'Amiri','Amiri Quran','Scheherazade New','Noto Naskh Arabic','Traditional Arabic','Geeza Pro',serif;
+  --arab-ui:'Noto Naskh Arabic','Amiri','Geeza Pro','Segoe UI',serif;
+  --arab:var(--arab-quran);
+  --callig:'Aref Ruqaa','Amiri',serif;
+  /* Skala huruf (rasio ~1,2) */
+  --fs-xs:.75rem; --fs-sm:.875rem; --fs-base:1rem; --fs-md:1.125rem; --fs-lg:1.25rem; --fs-xl:1.5rem; --fs-2xl:1.875rem;
+  /* Spasi */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  /* Radius */
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  /* Bayangan */
+  --sh-1:0 1px 2px rgb(30 36 32/.06);
+  --sh-2:0 8px 24px -12px rgb(30 36 32/.25);
+  /* Ukuran chrome lengket (diisi JS) */
+  --tabs-h:56px; --ctx-h:0px;
 }
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --paper:#0F1512; --surface:#161E1A; --soft:#1D2722;
+    --ink:#ECE7DA; --ink2:#B3B9AE;
+    --line:#2C3832; --line-strong:#6B7C72;
+    --brand:#1F3B2F; --brand-on:#F6F1E6; --brand-text:#A9CDB8; --brand-tint:#22312A; --brand-line:#A9CDB8;
+    --gold:#CDAE66; --gold-ink:#D9BF80;
+    --warnbg:#3D3112; --warnink:#F0D58A; --warnline:#8A6B1F;
+    --focus:#D9BF80;
+    --hl:rgba(205,174,102,.26); --hl-line:#D9BF80;
+    --rafa:#86A9FF; --nashb:#55C9A1; --jarr:#E68FC0; --mabni:#A5B3C4; --jazm:#EBA662; --tree:#93A9F6;
+    --s-ruj:#1F2D4D; --s-taf:#47213A; --s-str:#26364B; --s-bel:#3D3112;
+    --g1:#CDAE66; --g2:#B3A5D6; --g3:#6CC3D1;
+    --plan-bg:#1D2A47; --plan-line:#34497C; --plan-ink:#C3D2FF;
+    --lab-din-bg:#123326; --lab-din-ink:#9EE7C6; --lab-tp-bg:#223246; --lab-tp-ink:#AFBDCD;
+    --fn:#FF9B90; --code-bg:#0A0F0C; --code-ink:#ECE7DA;
+    --sh-1:0 1px 2px rgb(0 0 0/.4);
+    --sh-2:0 10px 28px -12px rgb(0 0 0/.7);
+  }
+}
+
+/* ---------- Dasar ---------- */
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
-.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 48px}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,4.6vw,2.15rem);line-height:1.2;margin:0 0 6px}
-h2{font-family:var(--serif);font-weight:600;font-size:1.25rem;margin:0 0 8px}
-h3{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin:18px 0 6px}
-.sub{margin:0 0 12px;color:var(--ink2);max-width:64ch}
-.status{display:flex;flex-wrap:wrap;gap:8px}
-.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--ink2)}
-.badge.warn{background:var(--warnbg);border-color:var(--warnline);color:var(--warnink)}
-.muted{color:var(--ink2)}
-.note{color:var(--ink2);font-size:.92rem;max-width:70ch}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:var(--fs-base);line-height:1.55;font-feature-settings:'cv11','ss01'}
+.wrap{max-width:1180px;margin:0 auto;padding:var(--s4) var(--s4) var(--s7)}
+h1,h2,h3{font-family:var(--sans);font-weight:650;letter-spacing:-.011em;color:var(--ink)}
+h1{font-size:var(--fs-lg);line-height:1.25;margin:0}
+h2{font-size:var(--fs-lg);line-height:1.3;margin:0 0 var(--s2)}
+h3{font-size:var(--fs-base);line-height:1.4;margin:var(--s5) 0 var(--s2)}
 p{margin:0 0 10px}
+a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+.sub{margin:0;color:var(--ink2)}
+.muted{color:var(--ink2)}
+.note{color:var(--ink2);font-size:var(--fs-sm);line-height:1.6;max-width:72ch}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible,[role="option"]:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+[lang="ar"]{unicode-bidi:isolate}
+.hv,.pk-ref,.vof,.insp-ref,.rcount{font-variant-numeric:tabular-nums}
 
-.tabs{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;overflow-x:auto;border-bottom:1px solid var(--line);margin:16px -16px 16px;padding:0 16px;scrollbar-width:thin}
-.tabs button{flex:0 0 auto;border:0;background:transparent;font:inherit;font-size:.95rem;padding:12px 14px;color:var(--ink2);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
-.tabs button[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
-button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--rafa);outline-offset:2px}
+/* ---------- Lencana ---------- */
+.status{display:flex;flex-wrap:wrap;gap:6px}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:var(--fs-xs);font-weight:500;line-height:1.6;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink2)}
+.badge.warn{background:var(--warnbg);border-color:var(--warnline);color:var(--warnink)}
+.badge.plan{background:var(--plan-bg);border-color:var(--plan-line);color:var(--plan-ink)}
+/* Lencana provenans per lapisan */
+.prov-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 var(--s3);font-size:var(--fs-xs);color:var(--ink2)}
+.prov-strip .prov-l{font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink);margin-right:2px}
+.prov{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:var(--fs-xs);font-weight:500;line-height:1.6;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink2);white-space:normal}
+.prov b{font-weight:600;color:var(--ink)}
+.prov::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink2);flex:0 0 6px}
+.prov.src::before{background:var(--brand-text)}
+.prov.draf{background:var(--warnbg);border-color:var(--warnline);color:var(--warnink)}
+.prov.draf b{color:var(--warnink)}
+.prov.draf::before{background:var(--warnink)}
+.trow .prov{margin-top:4px}
 
-.ayat{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:14px}
-.ayat .lbl{font-size:.9rem;color:var(--ink2);margin-right:4px}
-.chip.wide{padding:0 14px}
-.chip{min-width:42px;height:42px;border:1px solid var(--line);background:var(--surface);border-radius:6px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* ---------- Kepala halaman ringkas ---------- */
+.masthead{background:var(--brand);color:var(--brand-on);border-bottom:2px solid var(--gold)}
+.mh-in{max-width:1180px;margin:0 auto;padding:10px var(--s4);display:flex;align-items:center;gap:var(--s3) var(--s4);flex-wrap:wrap}
+.callig{font-family:var(--callig);font-weight:700;font-size:1.55rem;line-height:1.7;color:var(--gold);margin:0;flex:0 0 auto;white-space:nowrap}
+@media (prefers-color-scheme: dark){.masthead .callig{color:#D9BF80}}
+.mh-title{flex:1 1 320px;min-width:0;border-left:1px solid rgba(205,174,102,.45);padding-left:var(--s4)}
+.masthead h1{color:var(--brand-on);font-size:var(--fs-md);font-weight:650}
+.masthead .sub{color:#D3DBD3;font-size:var(--fs-xs);line-height:1.5;max-width:92ch;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.masthead .status{flex:0 1 auto;justify-content:flex-end}
+.masthead .badge{background:rgba(246,241,230,.08);border-color:rgba(246,241,230,.4);color:#EDE8DC}
+.masthead .badge.warn{background:#F3E2B0;border-color:#F3E2B0;color:#4A3300;font-weight:600}
 
-.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--ink2);margin:0 0 12px}
+/* ---------- Navigasi tab berkelompok ---------- */
+.tabs{position:sticky;top:0;z-index:20;display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:thin;
+  background:var(--surface);border-bottom:1px solid var(--line);
+  padding:4px max(var(--s4),calc((100% - 1180px)/2 + var(--s4))) 0}
+.tabs .tg{display:flex;flex-direction:column;flex:0 0 auto}
+.tabs .tg-l{font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);padding:2px 12px 0;line-height:1.4}
+.tabs .tg-b{display:flex;gap:2px}
+.tabs .tg-sep{flex:0 0 1px;align-self:stretch;background:var(--line);margin:8px 10px}
+.tabs button{flex:0 0 auto;border:0;background:transparent;font:inherit;font-size:var(--fs-sm);font-weight:500;color:var(--ink2);padding:8px 12px 10px;min-height:44px;cursor:pointer;white-space:nowrap;border-radius:var(--r-sm) var(--r-sm) 0 0;box-shadow:inset 0 -3px 0 transparent;transition:background-color .15s,color .15s,box-shadow .15s}
+.tabs button:hover{color:var(--ink);background:var(--soft)}
+.tabs button[aria-selected="true"]{color:var(--brand-text);font-weight:650;background:var(--brand-tint);box-shadow:inset 0 -3px 0 var(--brand-line)}
+.tabs button:focus-visible{outline-offset:-3px}
+@media (min-width:1100px){.tabs{justify-content:center}}
+
+/* ---------- Bilah konteks lengket (pemilih surah dan ayat) ---------- */
+.pilih{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--s3) var(--s4);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s3) var(--s4);margin:0 0 var(--s4)}
+.pilih.ctxbar{position:sticky;top:var(--tabs-h);z-index:15;align-items:center;margin:calc(-1 * var(--s4)) calc(-1 * var(--s4)) var(--s4);padding:8px var(--s4);border:0;border-bottom:1px solid var(--line);border-radius:0;
+  background:color-mix(in srgb,var(--paper) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pk{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pk-l{font-size:var(--fs-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink)}
+.ctxbar .pk{flex-direction:row;align-items:center;gap:8px}
+.pk-surah{flex:1 1 300px;max-width:440px}
+.pk-gs{flex:1 1 260px;max-width:420px}
+.pk-ref{margin:0 0 0 auto;align-self:center;font-weight:650;color:var(--brand-text);font-size:var(--fs-base);white-space:nowrap;padding:4px 10px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface)}
+.sp{position:relative;flex:1 1 auto;min-width:0}
+.sp-in{width:100%;height:44px;padding:0 128px 0 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font:inherit;font-size:var(--fs-sm);font-weight:600;color:var(--ink);text-overflow:ellipsis}
+.sp-in::placeholder{color:var(--ink2);font-weight:400}
+.sp-in:focus{outline:3px solid var(--focus);outline-offset:1px}
+/* P0-1: harakat nama surah tidak boleh terpotong: line-height cukup, tanpa overflow:hidden. */
+.sp-ar{position:absolute;right:44px;top:50%;transform:translateY(-50%);font-family:var(--arab-ui);font-size:1.125rem;line-height:1.6;color:var(--gold-ink);pointer-events:none;white-space:nowrap;overflow:visible}
+.sp-tog{position:absolute;right:3px;top:3px;width:38px;height:38px;border:0;border-radius:var(--r-sm);background:transparent;cursor:pointer;color:var(--ink2)}
+.sp-tog span{display:block;width:9px;height:9px;margin:-4px auto 0;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .15s}
+.sp.open .sp-tog span{transform:rotate(-135deg);margin-top:4px}
+.sp-tog:hover{background:var(--soft)}
+.sp-list{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);max-height:min(380px,58vh);overflow:auto;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r-md);box-shadow:var(--sh-2)}
+.sp-list li[data-s]{display:grid;grid-template-columns:2.4rem 1fr auto;align-items:center;gap:10px;min-height:44px;padding:4px 10px;border-radius:var(--r-sm);cursor:pointer}
+.sp-list li[hidden]{display:none}
+.sp-list li[data-s]:hover{background:var(--soft)}
+.sp-list li.act{background:var(--brand-tint);box-shadow:inset 0 0 0 2px var(--brand-line)}
+.sp-list li[aria-selected="true"] .sp-nm{color:var(--brand-text);font-weight:700}
+.sp-no{display:grid;place-items:center;width:2rem;height:2rem;font-size:var(--fs-xs);font-weight:600;color:var(--gold-ink);border:1px solid var(--line);border-radius:50%;font-variant-numeric:tabular-nums}
+.sp-list li[aria-selected="true"] .sp-no{border-color:var(--gold);background:var(--hl)}
+.sp-nm{font-weight:600;font-size:var(--fs-sm);line-height:1.3;min-width:0}
+.sp-nm small{display:block;font-weight:400;font-size:var(--fs-xs);color:var(--ink2)}
+.sp-oar{font-family:var(--arab-ui);font-size:1.125rem;line-height:1.6;color:var(--ink)}
+.sp-none{padding:10px 12px;color:var(--ink2)}
+.vnav{display:flex;align-items:center;gap:6px}
+.vbtn{display:inline-flex;align-items:center;gap:6px;height:44px;min-width:44px;justify-content:center;padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font:inherit;font-size:var(--fs-sm);font-weight:600;color:var(--ink);cursor:pointer}
+.vbtn span[aria-hidden]{font-size:1.3rem;line-height:1;margin-top:-3px}
+.vbtn:hover:not([disabled]){border-color:var(--brand-line);color:var(--brand-text);background:var(--brand-tint)}
+.vbtn[disabled]{opacity:.45;cursor:default}
+.vsel,select.search{height:44px;min-width:72px;padding:0 34px 0 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);font:inherit;font-size:var(--fs-sm);font-weight:600;color:var(--ink);background-color:var(--surface);cursor:pointer;
+  -webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+.vsel.wide{width:100%}
+.vof{color:var(--ink2);font-size:var(--fs-sm);white-space:nowrap}
+
+/* ---------- Keterangan warna kasus ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:var(--fs-xs);color:var(--ink2);margin:0 0 var(--s3);padding:0}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{display:inline-block;width:22px;border-bottom:3px solid var(--c)}
+.legend i{display:inline-block;width:20px;border-bottom:3px solid var(--c)}
 .legend i.d{border-bottom-style:dashed}
 
-.reader{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 10px 14px}
-.row{direction:rtl;display:flex;flex-wrap:wrap;gap:6px 4px}
-.word{display:flex;flex-direction:column;align-items:center;min-width:68px;padding:6px 8px 8px;border:1px solid transparent;border-radius:6px;background:transparent;cursor:pointer;font:inherit;color:inherit}
-.word .ar{font-family:var(--arab);font-size:clamp(1.9rem,6vw,2.5rem);line-height:1.7;color:var(--c);direction:rtl}
-.word .bar{width:100%;border-bottom:3px solid var(--c);margin:0 0 5px}
+/* ---------- Baca: kolom baca + panel inspektur ---------- */
+.baca-main{min-width:0}
+.reader{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5) var(--s4) var(--s4);box-shadow:var(--sh-1)}
+.row{direction:rtl;display:flex;flex-wrap:wrap;align-items:center;gap:6px 4px}
+.word{display:flex;flex-direction:column;align-items:center;min-width:64px;min-height:44px;padding:2px 8px 8px;border:1px solid transparent;border-radius:var(--r-md);background:transparent;cursor:pointer;font:inherit;color:inherit;transition:background-color .12s}
+.word:hover{background:var(--soft)}
+.word .ar{font-family:var(--arab-quran);font-size:clamp(1.85rem,5.6vw,2.35rem);line-height:2.1;color:var(--c);direction:rtl}
+.word .bar{width:100%;border-bottom:3px solid var(--c);margin:0 0 5px;height:auto;background:none;border-radius:0;overflow:visible}
 .word.dashed .bar{border-bottom-style:dashed}
-.word .lat{font-size:.82rem;color:var(--ink2);direction:ltr;unicode-bidi:isolate}
-.word .gl{font-family:var(--serif);font-style:italic;font-size:.82rem;direction:ltr;unicode-bidi:isolate;max-width:112px;text-align:center;line-height:1.3}
-.word[aria-pressed="true"]{background:var(--soft);border-color:var(--ink)}
-.terj{margin:12px 6px 0;font-family:var(--serif);font-size:1.05rem;line-height:1.65}
-
-.detail{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
-.dhead{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}
-.dhead .big{font-family:var(--arab);font-size:2.7rem;line-height:1.5;direction:rtl;color:var(--c)}
-.kv{margin:0;color:var(--ink2)}
+.word .lat{font-size:var(--fs-xs);color:var(--ink2);direction:ltr;unicode-bidi:isolate}
+.word .gl{font-style:italic;font-size:var(--fs-xs);direction:ltr;unicode-bidi:isolate;max-width:112px;text-align:center;line-height:1.35;color:var(--ink)}
+.word[aria-pressed="true"]{background:var(--brand-tint);border-color:var(--brand-line);box-shadow:inset 0 0 0 1px var(--brand-line)}
+.ayah-end{font-family:var(--arab-quran);font-size:clamp(1.5rem,4.4vw,2rem);color:var(--gold-ink);line-height:1.6;padding:0 8px;direction:rtl}
+.parab .ayah-end{font-size:1.3rem;padding:0 4px}
+.terj{margin:var(--s4) 4px 0;padding-top:var(--s3);border-top:1px solid var(--line);font-size:var(--fs-md);line-height:1.7}
+.terj strong{font-variant-numeric:tabular-nums}
+.reader .note{margin:8px 4px 0 !important}
+.detail{margin-top:var(--s4);background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c,var(--line-strong));border-radius:var(--r-lg);padding:var(--s4);box-shadow:var(--sh-1)}
+.insp-head{display:flex;align-items:flex-start;gap:var(--s2)}
+.insp-ref{margin:0;font-size:var(--fs-xs);font-weight:600;letter-spacing:.04em;color:var(--gold-ink);text-transform:uppercase}
+.insp-tog{display:none}
+.dhead{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;flex:1 1 auto;min-width:0}
+.dhead .big{font-family:var(--arab-quran);font-size:2.6rem;line-height:2.1;direction:rtl;color:var(--c)}
+.dhead h2{margin:0}
+.kv{margin:0;color:var(--ink2);font-size:var(--fs-sm)}
 .seg{border-top:1px solid var(--line);padding:10px 0}
-.seg .segar{font-family:var(--arab);font-size:1.7rem;direction:rtl;display:inline-block;margin-right:10px;vertical-align:middle}
-.pos{font-size:.8rem;border:1px solid var(--line);border-radius:4px;padding:1px 7px;background:var(--soft);margin-left:6px}
-.seg p{margin:4px 0 0}
-.link{background:none;border:0;padding:0;color:var(--rafa);text-decoration:underline;cursor:pointer;font:inherit}
+.seg .segar{font-family:var(--arab-quran);font-size:1.6rem;line-height:2.1;direction:rtl;display:inline-block;margin-right:10px;vertical-align:middle}
+.pos{font-size:var(--fs-xs);border:1px solid var(--line-strong);border-radius:4px;padding:1px 7px;background:var(--soft);margin-left:8px;vertical-align:middle}
+.seg p{margin:4px 0 0;font-size:var(--fs-sm);line-height:1.6}
+.link{background:none;border:0;padding:8px 0;min-height:40px;color:var(--link);text-decoration:underline;text-underline-offset:2px;cursor:pointer;font:inherit}
 .actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-.btn{border:1px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:6px;padding:7px 12px;font:inherit;font-size:.92rem;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--brand-line);background:var(--surface);color:var(--brand-text);border-radius:var(--r-sm);padding:7px 14px;font:inherit;font-size:var(--fs-sm);font-weight:600;cursor:pointer}
+.btn:hover:not([disabled]){background:var(--brand);border-color:var(--brand);color:var(--brand-on)}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn[data-lab-run],.btn[data-sem]{background:var(--brand);border-color:var(--brand);color:var(--brand-on)}
+.btn[data-lab-run]:hover:not([disabled]),.btn[data-sem]:hover{background:#2A4E3E}
 details.json{margin-top:10px}
-details.json summary,details.textlist summary{cursor:pointer;color:var(--ink2);font-size:.92rem}
-pre{background:#14233A;color:#E6EDF7;border-radius:8px;padding:12px;overflow-x:auto;font-size:.8rem;line-height:1.5;direction:ltr}
+details summary{cursor:pointer;display:list-item;min-height:44px;padding:11px 0}
+details.json summary,details.textlist summary{color:var(--ink2);font-size:var(--fs-sm)}
+pre{background:var(--code-bg);color:var(--code-ink);border-radius:var(--r-md);padding:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+@media (min-width:980px){
+  .baca-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:var(--s5);align-items:start}
+  .baca-grid .detail{margin-top:0;position:sticky;top:calc(var(--tabs-h) + var(--ctx-h) + 12px);max-height:calc(100vh - var(--tabs-h) - var(--ctx-h) - 24px);overflow:auto;overscroll-behavior:contain}
+}
 
-.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px}
+/* ---------- Treebank ---------- */
+.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:8px}
 .tl{font:600 11.5px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
-.ta{font-family:var(--arab);font-size:30px}
+.ta{font-family:var(--arab-quran);font-size:30px}
 .tt{font:13px var(--sans);fill:var(--ink2)}
+.tree-hint{display:none;font-size:var(--fs-xs);color:var(--ink2);margin:0 0 6px}
 details.textlist{margin-top:12px}
 details.textlist ul{margin:8px 0 0;padding-left:20px}
 
-.search{width:100%;max-width:420px;padding:10px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;background:var(--surface);color:var(--ink);margin-bottom:14px}
-.entry{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;scroll-margin-top:70px}
-.entry.hl{border-color:var(--rafa);box-shadow:0 0 0 2px rgba(37,86,196,.18)}
+/* ---------- Akar kata dan konkordansi ---------- */
+.search{width:100%;max-width:440px;min-height:44px;padding:10px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);font:inherit;background:var(--surface);color:var(--ink);margin-bottom:var(--s3)}
+.entry{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4);margin-bottom:var(--s3)}
+.entry.hl,.card.hl{border-color:var(--brand-line);box-shadow:0 0 0 2px var(--brand-tint)}
 .rhead{display:flex;align-items:center;gap:14px;margin-bottom:6px}
-.rt{font-family:var(--arab);font-size:2.1rem;direction:rtl;line-height:1.4}
+.rt{font-family:var(--arab-ui);font-size:1.8rem;direction:rtl;line-height:1.6;color:var(--ink)}
 .forms{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 0}
-.formbtn{border:1px solid var(--line);background:var(--soft);border-radius:6px;padding:4px 10px;font:inherit;cursor:pointer;color:var(--ink)}
-.formbtn span{font-family:var(--arab);font-size:1.25rem;vertical-align:middle}
-.formbtn small{color:var(--ink2)}
+.formbtn{display:inline-flex;align-items:center;gap:6px;min-height:40px;border:1px solid var(--line-strong);background:var(--surface);border-radius:var(--r-sm);padding:2px 10px;font:inherit;font-size:var(--fs-sm);color:var(--ink);cursor:pointer}
+.formbtn:hover{background:var(--brand-tint);border-color:var(--brand-line)}
+.formbtn span{font-family:var(--arab-quran);font-size:1.25rem;line-height:2.1}
+.graf-side .formbtn span{font-family:var(--arab-ui);font-size:1.05rem;line-height:1.6}
+.formbtn small{color:var(--ink2);font-size:var(--fs-xs)}
 .empty{color:var(--ink2);padding:18px 4px}
+.hit{display:grid;grid-template-columns:auto auto 1fr;gap:4px 12px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:8px 12px;margin-bottom:8px;font:inherit;color:inherit;cursor:pointer}
+.hit:hover{border-color:var(--line-strong);background:var(--soft)}
+.hit .hv{font-size:var(--fs-xs);font-weight:600;color:var(--ink2);border:1px solid var(--line-strong);border-radius:4px;padding:1px 7px;background:var(--soft);white-space:nowrap}
+.hit .har{font-family:var(--arab-quran);font-size:1.55rem;direction:rtl;line-height:2.1}
+.hit .hmain{min-width:0;font-size:var(--fs-sm)}
+.hit.ay{grid-template-columns:auto 1fr}
+.hit.ay .har{grid-column:1 / -1;font-size:1.4rem;line-height:2.15}
+mark.kw{background:var(--hl);color:inherit;border-radius:4px;padding:0 3px;box-shadow:inset 0 -2px 0 var(--hl-line)}
+.ex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 14px;font-size:var(--fs-sm);color:var(--ink2)}
+.rcount{margin:0 0 10px;color:var(--ink2);font-size:var(--fs-sm)}
 
-.pblock{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
-.pblock .parab{font-family:var(--arab);font-size:1.7rem;direction:rtl;line-height:1.8;margin:0 0 8px}
-.trow{display:grid;grid-template-columns:150px 1fr;gap:4px 12px;padding:8px 0;border-top:1px solid var(--line)}
-.trow .lab{font-size:.88rem;color:var(--ink2)}
-.slot{border:1px dashed var(--line);border-radius:6px;padding:6px 10px;color:var(--ink2);font-style:italic;font-size:.92rem}
-@media(max-width:560px){.trow{grid-template-columns:1fr}}
+/* ---------- Pilihan mode (chip) ---------- */
+.ayat{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:14px}
+.ayat .lbl{font-size:var(--fs-sm);color:var(--ink2);margin-right:4px}
+.chip{min-width:44px;height:44px;border:1px solid var(--line-strong);background:var(--surface);border-radius:var(--r-sm);font:inherit;font-size:var(--fs-sm);font-weight:600;color:var(--ink);cursor:pointer}
+.chip.wide{padding:0 14px}
+.chip:hover{background:var(--soft)}
+.chip[aria-pressed="true"]{background:var(--brand-tint);border-color:var(--brand-line);color:var(--brand-text);box-shadow:inset 0 0 0 1px var(--brand-line)}
 
-.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--warnline);border-radius:10px;padding:14px 14px 6px;margin-bottom:14px;scroll-margin-top:70px}
-.card.hl{box-shadow:0 0 0 2px rgba(37,86,196,.18)}
+/* ---------- Terjemahan paralel ---------- */
+.pblock{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4);margin-bottom:var(--s3)}
+.pblock .parab{font-family:var(--arab-quran);font-size:1.7rem;direction:rtl;line-height:2.2;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.trow{display:grid;grid-template-columns:170px 1fr;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line);line-height:1.65}
+.pblock .trow:first-of-type{border-top:0}
+.trow .lab{font-size:var(--fs-xs);font-weight:600;color:var(--ink2)}
+.slot{border:1px dashed var(--line-strong);border-radius:var(--r-sm);padding:6px 10px;color:var(--ink2);font-style:italic;font-size:var(--fs-sm)}
+sup.fn{color:var(--fn);font-size:.72em;margin-left:1px}
+.fnl{margin:6px 0 0;padding-left:24px;font-size:var(--fs-sm);color:var(--ink2)}
+.fnl li{margin-bottom:4px}
+.reader .fnl{margin:6px 6px 0 30px}
+details.tafsir{margin-top:var(--s3);background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:4px 14px 10px}
+details.tafsir summary{font-weight:600;flex-wrap:wrap}
+details.tafsir p{margin:8px 0 0;line-height:1.65}
+details.tafsir .tfq{font-style:italic}
+
+/* ---------- Kartu (makna kontekstual, rencana AI) ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:var(--s4);margin-bottom:var(--s3)}
 .card.tpl{border-style:dashed;border-left-style:dashed;background:var(--soft)}
+.card.plan{border-left-color:var(--tree)}
 .card .ct{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-bottom:8px}
-.card .ctar{font-family:var(--arab);font-size:1.9rem;direction:rtl;line-height:1.5}
+.card .ctar{font-family:var(--arab-quran);font-size:1.85rem;direction:rtl;line-height:2.1}
 dl{margin:0}
-dt{font-weight:600;font-size:.92rem;margin-top:8px}
+dt{font-weight:600;font-size:var(--fs-sm);margin-top:10px}
 dd{margin:2px 0 8px}
 dd ul{margin:2px 0;padding-left:20px}
-.op{border-left:3px solid var(--line);padding:2px 0 2px 10px;margin:6px 0}
+.op{border-left:3px solid var(--line-strong);padding:2px 0 2px 10px;margin:6px 0}
 
-table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--surface)}
-th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+/* ---------- Tabel dan daftar ---------- */
+table{border-collapse:collapse;width:100%;font-size:var(--fs-sm);background:var(--surface)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
 th{background:var(--soft);font-weight:600}
 .tw{overflow-x:auto;margin-bottom:12px}
 ul.plain{margin:4px 0 12px;padding-left:20px}
 ul.plain li{margin-bottom:4px}
-.hit{display:grid;grid-template-columns:auto auto 1fr;gap:4px 12px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:8px;font:inherit;color:inherit;cursor:pointer}
-.hit .hv{font-size:.82rem;color:var(--ink2);border:1px solid var(--line);border-radius:4px;padding:1px 7px;background:var(--soft);white-space:nowrap}
-.hit .har{font-family:var(--arab);font-size:1.6rem;direction:rtl;line-height:1.5}
-.hit .hmain{min-width:0}
-.hit.ay{grid-template-columns:auto 1fr}
-.hit.ay .har{grid-column:1 / -1;font-size:1.4rem;line-height:1.8}
-@media(max-width:480px){.hit{grid-template-columns:auto 1fr}.hit .hmain{grid-column:1 / -1}}
-.ex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 14px;font-size:.9rem;color:var(--ink2)}
-.rcount{margin:0 0 10px;color:var(--ink2);font-size:.92rem}
-mark.kw{background:var(--hl);color:inherit;border-radius:4px;padding:0 3px;box-shadow:0 0 0 1px var(--rafa)}
-.card.plan{border-left-color:var(--tree)}
-.badge.plan{background:#E8EEFB;border-color:#B8C7EE;color:#1F3A7A}
 ol.plain{margin:4px 0 12px;padding-left:22px}
 ol.plain li{margin-bottom:4px}
+
+/* ---------- Cari ---------- */
 .semrow{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;margin-bottom:10px}
 .semrow .search{flex:1 1 220px;margin-bottom:0}
-.semnote{margin:0 0 12px;font-size:.92rem;color:var(--ink2);max-width:70ch}
+.semnote{margin:0 0 12px;font-size:var(--fs-sm);color:var(--ink2);max-width:72ch}
 .semnote .badge{margin-right:6px}
-.labform label{display:block;font-size:.9rem;color:var(--ink2);margin-bottom:10px}
+
+/* ---------- Lab label ---------- */
+.labform label{display:block;font-size:var(--fs-sm);color:var(--ink2);margin-bottom:10px}
 .labform .search{display:block;margin:4px 0 0;max-width:560px;color:var(--ink)}
 .labform textarea.search{resize:vertical;font:inherit}
-.labres{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.labres{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:10px 12px;margin-bottom:8px}
 .labres p{margin:6px 0 0}
-.lab-l{display:inline-block;font-size:.82rem;border-radius:4px;padding:1px 8px;margin-left:6px}
-.lab-l.formal{background:#E8EEFB;color:#1F3A7A}
-.lab-l.dinamis{background:#E3F4EC;color:#11573F}
-.lab-l.tidak_pasti{background:#EEF0F3;color:#4A5A70}
+.lab-l{display:inline-block;font-size:var(--fs-xs);border-radius:4px;padding:1px 8px;margin-left:6px}
+.lab-l.formal{background:var(--plan-bg);color:var(--plan-ink)}
+.lab-l.dinamis{background:var(--lab-din-bg);color:var(--lab-din-ink)}
+.lab-l.tidak_pasti{background:var(--lab-tp-bg);color:var(--lab-tp-ink)}
 .lab-l.err{background:var(--warnbg);color:var(--warnink)}
-.labcsv{width:100%;min-height:120px;font-size:.78rem;border:1px solid var(--line);border-radius:6px;padding:8px}
-.btn[disabled]{opacity:.5;cursor:default}
-sup.fn{color:#B42318;font-size:.72em;margin-left:1px}
-.fnl{margin:6px 0 0;padding-left:24px;font-size:.86rem;color:var(--ink2)}
-.fnl li{margin-bottom:4px}
-.reader .fnl{margin:6px 6px 0 30px}
-details.tafsir{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tree);border-radius:10px;padding:10px 14px}
-details.tafsir summary{cursor:pointer;font-weight:600;font-family:var(--serif)}
-details.tafsir p{margin:8px 0 0;line-height:1.6}
-details.tafsir .tfq{font-family:var(--serif);font-style:italic}
-footer{margin-top:28px;font-size:.85rem;color:var(--ink2);max-width:70ch}
+.labcsv{width:100%;min-height:120px;font-size:.78rem;border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:8px;background:var(--surface);color:var(--ink)}
 
-/* ---- Perbaikan tampilan ---- */
-:root{color-scheme:light}
-h1{letter-spacing:-.01em}
-.tabs{gap:2px}
-.tabsep{flex:0 0 1px;align-self:stretch;background:var(--line);margin:10px 8px}
-.reader{border-radius:14px;padding:22px 16px 18px;box-shadow:0 1px 2px rgba(20,35,58,.06),0 10px 28px -16px rgba(20,35,58,.22)}
-.row{align-items:center}
-.word:hover{background:var(--soft)}
-.ayah-end{font-family:var(--arab);font-size:clamp(1.5rem,4.6vw,2.1rem);color:var(--tree);line-height:1;padding:0 8px;direction:rtl}
-.parab .ayah-end{font-size:1.3rem;padding:0 4px}
-.detail{border-radius:12px}
-.baca-main{min-width:0}
-@media(min-width:980px){
-  .baca-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start}
-  .baca-grid .detail{margin-top:0;position:sticky;top:62px;max-height:calc(100vh - 78px);overflow:auto}
-}
-footer{border-top:1px solid var(--line);padding-top:14px;line-height:1.6}
-footer p{margin:0 0 6px}
-/* ---- Graf akar ---- */
+/* ---------- Graf akar ---------- */
 .graf-grid{display:grid;gap:14px}
 @media(min-width:980px){.graf-grid{grid-template-columns:minmax(0,1fr) 340px;align-items:start}}
 .graf-svg{display:block;width:100%;min-width:620px;height:auto}
-.graf-svg .ge{stroke:var(--line);transition:opacity .15s}
+.graf-svg .ge{stroke:var(--line-strong);stroke-opacity:.55;transition:opacity .15s}
 .graf-svg .gn{cursor:pointer;outline:none}
 .graf-svg .gn circle{stroke:var(--surface);stroke-width:2}
 .graf-svg .gn.multi circle{stroke:var(--ink);stroke-width:2.2}
-.graf-svg .gn text{font:17px var(--arab);direction:rtl;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.graf-svg .gn text{font:16px var(--arab-ui);direction:rtl;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
 .graf-svg .gn:focus-visible{outline:none}
-.graf-svg .gn:focus-visible circle,.graf-svg .gn.sel circle{stroke:var(--ink);stroke-width:3.5}
+.graf-svg .gn:focus-visible circle,.graf-svg .gn.sel circle{stroke:var(--focus);stroke-width:3.5}
 .graf-svg.focus .gn:not(.sel):not(.nb),.graf-svg.focus .ge:not(.on){opacity:.15}
-.graf-svg.focus .ge.on{stroke:var(--ink2)}
-.graf-side{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.graf-svg.focus .ge.on{stroke:var(--ink2);stroke-opacity:1}
+.graf-side{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px}
 .graf-side .forms{margin-top:8px}
 .graf-side .rt{white-space:nowrap}
-.graf-leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--ink2);margin:0 0 12px}
+.graf-leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:var(--fs-sm);color:var(--ink2);margin:0 0 12px}
 .graf-leg span{display:inline-flex;align-items:center;gap:6px}
 .graf-leg i{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--c)}
 .graf-leg i.ring{background:transparent;border:2px solid var(--ink)}
 
-/* ---- Mode gelap ---- */
-@media (prefers-color-scheme: dark){
-  :root{
-    color-scheme:dark;
-    --ink:#E4EBF4; --ink2:#9DAEC2; --paper:#0E1621; --surface:#152131; --line:#2B3C53; --soft:#1B2A3D;
-    --rafa:#86A9FF; --nashb:#55C9A1; --jarr:#E68FC0; --mabni:#A5B3C4; --jazm:#EBA662; --tree:#93A9F6;
-    --warnbg:#33290F; --warnink:#F2D48C; --warnline:#8C6E22;
-  }
-  .reader{box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.7)}
-  .badge.plan{background:#1D2A47;border-color:#34497C;color:#C3D2FF}
-  .lab-l.formal{background:#1D2A47;color:#C3D2FF}
-  .lab-l.dinamis{background:#123326;color:#9EE7C6}
-  .lab-l.tidak_pasti{background:#223246;color:#AFBDCD}
-  sup.fn{color:#FF9B90}
-  pre{background:#0A111B;border:1px solid var(--line)}
-  .entry.hl,.card.hl{box-shadow:0 0 0 2px rgba(134,169,255,.35)}
-}
-
-/* ---- Kepala halaman bernuansa Islami ---- */
-:root{--callig:'Aref Ruqaa','Amiri',serif;--gold:#D4A84B;--mh-dome:#284676;--mh-cut:#122140;--mh-bg:#14223F}
-.masthead{position:relative;overflow:hidden;border-radius:16px;text-align:center;color:#EEF2F8;padding:26px 18px 0;
-  background-color:var(--mh-bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M28 8 L48 28 L28 48 L8 28 Z'/%3E%3Cpath d='M14 14 H42 V42 H14 Z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(180deg,#0F1A33 0%,#1B3260 100%)}
-.mh-text{position:relative;z-index:1;max-width:760px;margin:0 auto}
-.callig{font-family:var(--callig);font-weight:700;font-size:clamp(2.5rem,8vw,4.3rem);line-height:1.45;color:var(--gold);margin:0;text-shadow:0 2px 16px rgba(212,168,75,.22)}
-.masthead h1{color:#F4F7FB;margin:2px 0 8px}
-.masthead .sub{color:#C6D1E5;margin:0 auto 14px}
-.masthead .status{justify-content:center}
-.masthead .badge{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#E4EAF4}
-.masthead .badge.warn{background:rgba(212,168,75,.16);border-color:rgba(212,168,75,.5);color:#F3D592}
-.mh-sky{display:block;width:100%;height:auto;margin-top:14px}
-.mh-dome{fill:var(--mh-dome)}
-.mh-cut{fill:var(--mh-cut)}
-.mh-gold{fill:var(--gold)}
-.mh-dot{fill:#F4E3B5;opacity:.7}
-@media (prefers-color-scheme: dark){
-  :root{--mh-bg:#0C1529;--mh-dome:#223C69;--mh-cut:#0B1428;--gold:#E0B55A}
-  .masthead{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M28 8 L48 28 L28 48 L8 28 Z'/%3E%3Cpath d='M14 14 H42 V42 H14 Z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(180deg,#0A1324 0%,#152A50 100%);border:1px solid var(--line)}
-}
-
-/* ---- Peta sisipan ---- */
-:root{--hl:rgba(37,86,196,.15);--s-ruj:#E2EAFB;--s-taf:#FADFEA;--s-str:#E9EDF2;--s-bel:#FFF1CC}
-.sg-p{cursor:pointer;border-radius:3px;border-bottom:2px solid var(--line)}
+/* ---------- Peta sisipan ---------- */
+.sg-p{cursor:pointer;border-radius:3px;border-bottom:2px solid var(--line-strong)}
 .sg-p:hover{background:var(--soft)}
 .sg-s{cursor:pointer;border-radius:4px;padding:0 3px;font-weight:600;color:var(--ink)}
 .sg-rujukan{background:var(--s-ruj)}.sg-tafsir{background:var(--s-taf)}.sg-struktur{background:var(--s-str)}.sg-belum{background:var(--s-bel)}
 .sg-x{border-bottom:1.5px dotted var(--ink2)}
-.sg-p.on,.sg-s.on,.sw-ar.on{background:var(--hl);box-shadow:0 0 0 1.5px var(--rafa)}
-[data-sw]:focus-visible{outline:2px solid var(--rafa);outline-offset:2px}
-.sis-leg{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:.88rem;color:var(--ink2);margin:10px 0 14px}
+.sg-p.on,.sg-s.on,.sw-ar.on{background:var(--hl);box-shadow:0 0 0 1.5px var(--hl-line)}
+[data-sw]:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.sis-leg{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:var(--fs-sm);color:var(--ink2);margin:10px 0 14px}
 .sis-leg .sw-ar{font-size:1rem;padding:0 8px;cursor:default}
-.sis-sum{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+.sis-sum{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;margin-bottom:14px}
 @media(min-width:760px){.sis-sum{grid-template-columns:1fr 1fr}.sis-riset{grid-column:1/-1}}
-.sis-col h3{margin:0 0 6px;font-size:1rem}
-.sis-big{margin:0 0 8px;font-size:.95rem}.sis-big b{font-family:var(--serif);font-size:1.7rem;color:var(--tree);margin-right:4px}
-.sbar{display:grid;grid-template-columns:9.5em 1fr 2em;align-items:center;gap:8px;font-size:.88rem;margin:4px 0}
+.sis-col h3{margin:0 0 6px;font-size:var(--fs-base)}
+.sis-big{margin:0 0 8px;font-size:var(--fs-sm)}.sis-big b{font-size:1.6rem;color:var(--brand-text);margin-right:4px;font-variant-numeric:tabular-nums}
+.sbar{display:grid;grid-template-columns:9.5em 1fr 2em;align-items:center;gap:8px;font-size:var(--fs-sm);margin:4px 0}
 .sbar b{text-align:right}
 .bar{height:10px;background:var(--soft);border-radius:5px;overflow:hidden}
 .bar i{display:block;height:100%;border-radius:5px}
 .b-rujukan{background:var(--rafa)}.b-tafsir{background:var(--jarr)}.b-struktur{background:var(--mabni)}.b-belum{background:var(--warnline)}
 .sis-riset{border-top:1px solid var(--line);padding-top:10px}
-.sis-riset p{margin:0 0 10px;color:var(--ink2);font-size:.93rem}
-.sis-ref{font-weight:600;font-size:.9rem;color:var(--ink2);margin-bottom:6px}
+.sis-riset p{margin:0 0 10px;color:var(--ink2);font-size:var(--fs-sm)}
+.sis-ref{font-weight:600;font-size:var(--fs-sm);color:var(--ink2);margin-bottom:6px}
 .sis-ar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.sw-ar{font-family:var(--arab);font-size:1.55rem;line-height:1.7;padding:0 9px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.sw-ar{font-family:var(--arab-quran);font-size:1.5rem;line-height:2.1;padding:0 9px;border-radius:var(--r-sm);border:1px solid var(--line-strong);background:var(--surface);cursor:pointer}
 .sw-ar.lebur{border-style:dashed;color:var(--ink2)}
-.sis-terj{font-family:var(--serif);font-size:1.08rem;line-height:2.05;margin:10px 0 4px}
-.sis-info{margin:0;font-size:.9rem;color:var(--ink2);min-height:1.5em}
-.ar-inline{font-family:var(--arab);font-size:1.25em}
+.sis-terj{font-size:var(--fs-md);line-height:2.05;margin:10px 0 4px}
+.sis-info{margin:0;font-size:var(--fs-sm);color:var(--ink2);min-height:1.5em}
+.ar-inline{font-family:var(--arab-quran);font-size:1.25em;line-height:2.1}
 .terj .sg-p{border-bottom-width:1.5px}
-@media (prefers-color-scheme: dark){
-  :root{--hl:rgba(134,169,255,.24);--s-ruj:#1F2D4D;--s-taf:#47213A;--s-str:#26364B;--s-bel:#3D3112}
-}
 
-/* ==== Gaya Islami: palet mushaf, ornamen geometris, tata letak fitur ==== */
-:root{
-  color-scheme:light;
-  /* palet mushaf dan masjid */
-  --hijau:#1E5A48; --hijau-ink:#174A3B; --malam:#13213D; --emas:#B08D3E; --emas-ink:#755A1E; --krem:#F4EFE3;
-  --paper:var(--krem); --surface:#FFFDF8; --soft:#F7F1E3; --line:#DDD2BA; --ink:#1B2A41; --ink2:#4B5868;
-  --frame:#CDB57A; --frame2:#E9DDBF; --tab-on:#1E5A48; --tab-on-ink:#FBF7EC;
-  --shadow:0 1px 2px rgba(60,45,15,.06),0 10px 26px -18px rgba(60,45,15,.32);
-  --star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5 15.1 5.4 20 4 18.6 8.9 22.5 12 18.6 15.1 20 20 15.1 18.6 12 22.5 8.9 18.6 4 20 5.4 15.1 1.5 12 5.4 8.9 4 4 8.9 5.4Z'/%3E%3C/svg%3E");
-  --star-o:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.3'%3E%3Crect x='5' y='5' width='14' height='14'/%3E%3Crect x='5' y='5' width='14' height='14' transform='rotate(45 12 12)'/%3E%3Ccircle cx='12' cy='12' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
-  --band:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14' viewBox='0 0 36 14'%3E%3Cg fill='none' stroke='%23000' stroke-width='1'%3E%3Cpath d='M0 7H10.5M25.5 7H36M0 .5H36M0 13.5H36'/%3E%3Crect x='13.5' y='2.5' width='9' height='9'/%3E%3Crect x='13.5' y='2.5' width='9' height='9' transform='rotate(45 18 7)'/%3E%3C/g%3E%3C/svg%3E");
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    color-scheme:dark;
-    --hijau:#5DB596; --hijau-ink:#8FD3BA; --malam:#0B1427; --emas:#C9A85C; --emas-ink:#D9BC74; --krem:#0C1422;
-    --paper:#0C1422; --surface:#132032; --soft:#1A293D; --line:#2C3D52; --ink:#E6ECF3; --ink2:#A3B2C4;
-    --frame:#6F5C30; --frame2:#3A3420; --tab-on:#1F5A49; --tab-on-ink:#F4EEDC;
-    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px -18px rgba(0,0,0,.75);
-  }
-}
-.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.wrap{padding-top:14px}
-select:focus-visible,[role="option"]:focus-visible{outline:3px solid var(--rafa);outline-offset:2px}
+/* ---------- Kaki halaman ---------- */
+footer{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line);font-size:var(--fs-sm);color:var(--ink2);line-height:1.6;max-width:78ch}
+footer p{margin:0 0 6px}
 
-/* ---- Kepala halaman: lebih ringkas, bingkai emas, pita girih ---- */
-:root{--mh-dome:#1C4740;--mh-cut:#0E2723}
-@media (prefers-color-scheme: dark){:root{--mh-dome:#183E38;--mh-cut:#0A1D1A}}
-.masthead{padding:18px 18px 0;border-radius:18px;border:1px solid rgba(201,168,92,.35);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.11' stroke-width='1'%3E%3Crect x='22' y='22' width='20' height='20'/%3E%3Crect x='22' y='22' width='20' height='20' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 10 10 0M54 0 64 10M64 54 54 64M10 64 0 54M32 18V0M32 46V64M18 32H0M46 32H64'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(120% 90% at 50% 0%,#1A3159 0%,#12223F 55%,#0F2A2A 100%)}
-@media (prefers-color-scheme: dark){
-  .masthead{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23D4A84B' stroke-opacity='.10' stroke-width='1'%3E%3Crect x='22' y='22' width='20' height='20'/%3E%3Crect x='22' y='22' width='20' height='20' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 10 10 0M54 0 64 10M64 54 54 64M10 64 0 54M32 18V0M32 46V64M18 32H0M46 32H64'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(120% 90% at 50% 0%,#132646 0%,#0C1A33 55%,#0B2020 100%);border-color:rgba(201,168,92,.28)}
+/* ---------- Tablet dan ponsel ---------- */
+@media (max-width:979px){
+  .masthead .sub{-webkit-line-clamp:1}
 }
-.masthead::before{content:"";position:absolute;inset:7px;border:1px solid rgba(212,168,75,.32);border-radius:13px;pointer-events:none}
-.callig{font-size:clamp(2rem,5.4vw,2.9rem);line-height:1.35}
-.masthead h1{font-size:clamp(1.3rem,3.4vw,1.75rem);margin:0 0 6px}
-.masthead .sub{font-size:.95rem;line-height:1.5;max-width:78ch;margin:0 auto 10px}
-.masthead .badge{font-size:.8rem;padding:2px 10px}
-.mh-sky{height:64px;margin-top:6px}
-.mh-band{position:relative;height:14px;margin:0 -18px;background:#C9A85C;opacity:.55;-webkit-mask:var(--band) repeat-x center/36px 14px;mask:var(--band) repeat-x center/36px 14px}
+@media (max-width:760px){
+  .mh-title{border-left:0;padding-left:0}
+  .masthead .sub{display:none}
+  .masthead .status{justify-content:flex-start}
+}
 @media (max-width:560px){
-  .masthead{padding:14px 14px 0}
-  .callig{font-size:2rem}
-  .masthead .sub{font-size:.86rem}
-  .mh-sky{display:none}
-  .mh-band{margin:12px -14px 0}
-}
-
-/* ---- Navigasi tab berkelompok ---- */
-.tabs{top:0;margin:12px -16px 18px;padding:6px 16px 7px;gap:0;align-items:stretch;border-bottom:1px solid var(--line);
-  background:color-mix(in srgb,var(--paper) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.tabs .tg{display:flex;flex-direction:column;gap:1px;flex:0 0 auto}
-.tabs .tg-l{font-size:.68rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--emas-ink);padding:0 10px;line-height:1.5}
-.tabs .tg-b{display:flex;gap:2px}
-.tabs .tg-sep{flex:0 0 14px;align-self:center;height:14px;margin:12px 6px 0;background:var(--emas);opacity:.75;-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
-.tabs button{padding:8px 11px;min-height:40px;border-radius:9px;border-bottom:0;font-size:.93rem;color:var(--ink2);transition:background-color .15s,color .15s}
-.tabs button:hover{background:var(--soft);color:var(--ink)}
-.tabs button[aria-selected="true"]{background:var(--tab-on);color:var(--tab-on-ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--emas)}
-@media (min-width:1100px){.tabs{justify-content:center}}
-
-/* ---- Pemilih surah dan ayat ---- */
-.pilih{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px;margin:0 0 16px;box-shadow:var(--shadow);position:relative}
-.pilih::before{content:"";position:absolute;top:-1px;left:22px;right:22px;height:2px;background:linear-gradient(90deg,transparent,var(--emas) 20%,var(--emas) 80%,transparent);opacity:.55;border-radius:2px}
-.pk{display:flex;flex-direction:column;gap:5px;min-width:0}
-.pk-l{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--emas-ink)}
-.pk-surah{flex:1 1 300px;max-width:460px}
-.pk-gs{flex:1 1 260px;max-width:420px}
-.pk-ref{margin:0 0 0 auto;align-self:center;font-family:var(--serif);font-weight:600;color:var(--hijau-ink);font-size:1.05rem;white-space:nowrap}
-.sp{position:relative}
-.sp-in{width:100%;height:46px;padding:0 128px 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font:inherit;font-weight:600;color:var(--ink);text-overflow:ellipsis}
-.sp-in::placeholder{color:var(--ink2);font-weight:400}
-.sp-in:focus{outline:3px solid var(--rafa);outline-offset:1px;background:var(--surface)}
-.sp-ar{position:absolute;right:46px;top:50%;transform:translateY(-50%);font-family:var(--arab);font-size:1.45rem;line-height:1;color:var(--hijau);pointer-events:none;max-width:80px;overflow:hidden;white-space:nowrap}
-.sp-tog{position:absolute;right:4px;top:4px;width:38px;height:38px;border:0;border-radius:8px;background:transparent;cursor:pointer;color:var(--ink2)}
-.sp-tog span{display:block;width:9px;height:9px;margin:-4px auto 0;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .15s}
-.sp.open .sp-tog span{transform:rotate(-135deg);margin-top:4px}
-.sp-tog:hover{background:var(--line)}
-.sp-list{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);max-height:min(380px,58vh);overflow:auto;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--frame);border-radius:12px;box-shadow:0 18px 40px -16px rgba(20,20,10,.4)}
-.sp-list li[data-s]{display:grid;grid-template-columns:2.4rem 1fr auto;align-items:center;gap:10px;min-height:44px;padding:4px 10px;border-radius:8px;cursor:pointer}
-.sp-list li[hidden]{display:none}
-.sp-list li.act{background:var(--soft);box-shadow:inset 0 0 0 1.5px var(--rafa)}
-.sp-list li[aria-selected="true"] .sp-nm{color:var(--hijau-ink);font-weight:700}
-.sp-no{display:grid;place-items:center;width:2.1rem;height:2.1rem;font-size:.74rem;font-weight:600;color:var(--emas-ink);position:relative}
-.sp-no::before{content:"";position:absolute;inset:0;background:var(--emas);opacity:.5;-webkit-mask:var(--star-o) center/contain no-repeat;mask:var(--star-o) center/contain no-repeat}
-.sp-list li[aria-selected="true"] .sp-no::before{opacity:1}
-.sp-nm{font-weight:600;line-height:1.25;min-width:0}
-.sp-nm small{display:block;font-weight:400;font-size:.78rem;color:var(--ink2)}
-.sp-oar{font-family:var(--arab);font-size:1.45rem;line-height:1.3;color:var(--ink)}
-.sp-none{padding:10px 12px;color:var(--ink2)}
-.vnav{display:flex;align-items:center;gap:6px}
-.vbtn{display:inline-flex;align-items:center;gap:6px;height:46px;min-width:46px;justify-content:center;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
-.vbtn span[aria-hidden]{font-size:1.4rem;line-height:1;margin-top:-3px}
-.vbtn:hover:not([disabled]){border-color:var(--hijau);color:var(--hijau-ink)}
-.vbtn[disabled]{opacity:.4;cursor:default}
-.vsel{height:46px;min-width:76px;padding:0 34px 0 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-weight:600;color:var(--ink);background-color:var(--soft);cursor:pointer;
-  -webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);
-  background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat}
-.vsel.wide{width:100%}
-.vof{color:var(--ink2);font-size:.92rem;white-space:nowrap}
-@media (max-width:560px){
-  .pilih{padding:10px 12px 12px;gap:10px}
+  .wrap{padding:var(--s3) var(--s4) var(--s7)}
+  .mh-in{padding:8px var(--s4);gap:6px 10px}
+  .callig{display:none}
+  .mh-title{flex:1 1 100%}
+  .masthead h1{font-size:var(--fs-base)}
+  .masthead .badge:not(.warn){display:none}
+  /* Tab: label kelompok sebaris dengan tombolnya, tepi kanan memudar sebagai tanda ada lanjutan. */
+  .tabs{padding-top:0;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .tabs .tg{flex-direction:row;align-items:center}
+  .tabs .tg-l{padding:0 4px 0 6px;writing-mode:horizontal-tb;font-size:.625rem}
+  .tabs .tg-sep{margin:10px 6px}
+  .tabs button{padding:10px 10px}
+  .pilih{padding:10px 12px;gap:10px}
+  .pilih.ctxbar{margin:calc(-1 * var(--s3)) calc(-1 * var(--s4)) var(--s3);padding:6px var(--s4);row-gap:6px}
+  .ctxbar .pk-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .pk-surah,.pk-ayat{flex:1 1 100%;max-width:none}
+  .pk-ayat{flex:1 1 auto}
   .vnav{width:100%}
   .vnav .vsel{flex:1 1 auto}
   .vtx{display:none}
-  .pk-ref{display:none}
+  .pk-ref{font-size:var(--fs-sm);padding:2px 8px}
+  .reader{padding:var(--s3) 8px var(--s3)}
+  .word{min-width:56px;padding:2px 5px 6px}
+  .word .ar{font-size:1.8rem}
+  .trow{grid-template-columns:1fr}
+  /* Panel inspektur menjadi lembar bawah (bottom sheet). */
+  body:has(.baca-grid){padding-bottom:96px}
+  .baca-grid .detail{position:fixed;left:0;right:0;bottom:0;z-index:40;margin:0;max-height:min(62vh,560px);overflow:auto;overscroll-behavior:contain;
+    border-radius:var(--r-lg) var(--r-lg) 0 0;border-left:0;border-right:0;border-bottom:0;padding:6px var(--s4) var(--s4);box-shadow:0 -10px 30px -12px rgb(0 0 0/.35)}
+  .baca-grid .detail::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:var(--line-strong);margin:2px auto 4px}
+  .insp-tog{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px;padding:0 12px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--brand-text);font:inherit;font-size:var(--fs-sm);font-weight:600;cursor:pointer;margin-top:6px}
+  body:not(.insp-open) .baca-grid .detail > :not(.insp-head){display:none}
+  body:not(.insp-open) .baca-grid .detail .dhead .big{font-size:1.7rem}
+  body:not(.insp-open) .baca-grid .detail .kv{display:none}
+  .dhead{gap:0 12px}
+  .dhead .big{font-size:2.2rem}
+  .tree-hint{display:block}
+  /* Lencana sumber: satu baris bergulir agar tidak memakan layar pertama. */
+  .prov-strip{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .prov-strip::-webkit-scrollbar{display:none}
+  .prov{white-space:nowrap;flex:0 0 auto}
+  .legend{gap:4px 12px}
+  .masthead .badge.warn{font-size:.6875rem}
 }
-
-/* ---- Pemisah dan judul berornamen ---- */
-#view h3{display:flex;align-items:center;gap:8px}
-#view h3::before{content:"";flex:0 0 13px;height:13px;background:var(--emas);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
-.legend{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-bottom:14px}
-footer{position:relative;border-top:0;padding-top:26px;margin-top:34px}
-footer::before{content:"";position:absolute;top:0;left:0;right:0;height:14px;
-  background:linear-gradient(var(--frame),var(--frame)) left center/calc(50% - 22px) 1px no-repeat,linear-gradient(var(--frame),var(--frame)) right center/calc(50% - 22px) 1px no-repeat}
-footer::after{content:"";position:absolute;top:-2px;left:50%;width:18px;height:18px;margin-left:-9px;background:var(--emas);-webkit-mask:var(--star-o) center/contain no-repeat;mask:var(--star-o) center/contain no-repeat}
-
-/* ---- Bingkai ayat bergaya mushaf ---- */
-.reader{position:relative;border:1px solid var(--frame);border-radius:16px;padding:28px 22px 22px;
-  box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px var(--frame2),var(--shadow)}
-.reader::before,.reader::after{content:"";position:absolute;top:11px;width:14px;height:14px;background:var(--emas);opacity:.7;-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
-.reader::before{left:11px}.reader::after{right:11px}
-.ayah-end{color:var(--hijau)}
-.word[aria-pressed="true"]{border-color:var(--frame);background:var(--soft);box-shadow:inset 0 0 0 1px var(--frame)}
-.terj{border-top:1px solid var(--frame2);padding-top:12px}
-.pblock{border-radius:14px;box-shadow:var(--shadow);position:relative}
-.pblock .parab{border-bottom:1px solid var(--frame2);padding-bottom:6px}
-.detail,.entry,.graf-side,.sis-sum,.labres,.scroll{border-radius:14px}
-.detail{box-shadow:var(--shadow);border-top:3px solid var(--c,var(--frame))}
-.entry,.card,.sis-sum{box-shadow:var(--shadow)}
-.card{border-left-color:var(--emas)}
-.card.plan{border-left-color:var(--tree)}
-.badge{background:var(--surface)}
-.btn{border-color:var(--hijau);color:var(--hijau-ink);border-radius:9px;min-height:40px;font-weight:600}
-.btn:hover:not([disabled]){background:var(--hijau);color:var(--tab-on-ink)}
-.chip{border-radius:9px}
-.chip[aria-pressed="true"]{background:var(--tab-on);border-color:var(--tab-on);color:var(--tab-on-ink)}
-.search{border-radius:10px;background:var(--surface)}
-th{background:var(--soft)}
-@media (max-width:560px){
-  .reader{padding:26px 10px 16px}
-  .reader::before,.reader::after{top:9px;width:11px;height:11px}
-  .reader::before{left:9px}.reader::after{right:9px}
-}
-.word .bar{height:auto;background:none;border-radius:0;overflow:visible}
-@media (max-width:560px){.masthead .sub{display:none}.masthead h1{margin-bottom:8px}.masthead .status{gap:6px}}
-@media (prefers-reduced-motion: reduce){.tabs button,.sp-tog span{transition:none}}
+@media (max-width:480px){.hit{grid-template-columns:auto 1fr}.hit .hmain{grid-column:1 / -1}}
+@media (prefers-reduced-motion: reduce){*,*::before{transition:none !important}}
+.skip:focus{position:fixed;left:12px;top:12px;z-index:100;width:auto;height:auto;margin:0;padding:10px 14px;clip:auto;overflow:visible;white-space:normal;background:var(--surface);color:var(--brand-text);border:2px solid var(--focus);border-radius:var(--r-sm)}
+.entry,.card,.pblock{scroll-margin-top:calc(var(--tabs-h) + var(--ctx-h) + 12px)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="masthead">
-    <div class="mh-text">
+<a class="sr skip" href="#view">Langsung ke isi</a>
+<header class="masthead">
+  <div class="mh-in">
     <p class="callig" lang="ar" dir="rtl">الْقُرْآنُ الْكَرِيمُ</p>
+    <div class="mh-title">
     <h1>Korpus Al-Qur’an Terjemahan Indonesia</h1>
     <p class="sub">Purwarupa tahap awal untuk QS Al-Fātiḥah, QS Al-Baqarah ayat 1–6, QS Al-‘Alaq, dan 18 surah dari QS Al-Qadr sampai QS An-Nās: teks Arab dengan anotasi i‘rāb per kata, treebank sintaksis, kamus akar kata, terjemahan paralel, dan makna kontekstual berbasis tafsir.</p>
-    <div class="status" id="status"></div>
     </div>
-    <svg class="mh-sky" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="70" cy="40" r="1.6" class="mh-dot"/><circle cx="140" cy="92" r="1.1" class="mh-dot"/><circle cx="205" cy="30" r="1.4" class="mh-dot"/><circle cx="330" cy="62" r="1.2" class="mh-dot"/><circle cx="395" cy="24" r="1.7" class="mh-dot"/><circle cx="610" cy="34" r="1.3" class="mh-dot"/><circle cx="680" cy="80" r="1.1" class="mh-dot"/><circle cx="735" cy="22" r="1.5" class="mh-dot"/><circle cx="930" cy="96" r="1.3" class="mh-dot"/><circle cx="965" cy="30" r="1.6" class="mh-dot"/><circle cx="30" cy="118" r="1.2" class="mh-dot"/><circle cx="560" cy="96" r="1.0" class="mh-dot"/>
-      <path d="M839.94 34.08 A26 26 0 1 0 866.30 69.24 A22 22 0 0 1 839.94 34.08 Z" class="mh-gold"/>
-      <polygon points="871.0,36.0 872.9,41.4 878.6,41.5 874.0,45.0 875.7,50.5 871.0,47.2 866.3,50.5 868.0,45.0 863.4,41.5 869.1,41.4" class="mh-gold"/>
-      <g class="mh-dome">
-        <rect x="242" y="72" width="16" height="128"/><rect x="236" y="104" width="28" height="6" rx="1.5"/><path d="M240 72 L250 44 L260 72 Z"/><circle cx="250" cy="39" r="2.6"/>
-        <rect x="742" y="72" width="16" height="128"/><rect x="736" y="104" width="28" height="6" rx="1.5"/><path d="M740 72 L750 44 L760 72 Z"/><circle cx="750" cy="39" r="2.6"/>
-        <rect x="300" y="150" width="84" height="50"/><path d="M306 150 C306 128 324 116 342 113 C360 116 378 128 378 150 Z"/>
-        <rect x="616" y="150" width="84" height="50"/><path d="M622 150 C622 128 640 116 658 113 C676 116 694 128 694 150 Z"/>
-        <rect x="380" y="132" width="240" height="68"/><rect x="404" y="122" width="192" height="12" rx="2"/>
-        <path d="M410 124 C410 80 460 58 500 50 C540 58 590 80 590 124 Z"/>
-        <rect x="498.6" y="27" width="2.8" height="24"/>
-        <rect x="0" y="196" width="1000" height="4"/>
-      </g>
-      <path d="M492.80 15.48 A8.5 8.5 0 1 0 507.20 15.48 A7.2 7.2 0 0 1 492.80 15.48 Z" class="mh-gold"/>
-      <g class="mh-cut">
-        <path d="M478 200 L478 170 Q500 146 522 170 L522 200 Z"/>
-        <path d="M414 190 L414 170 Q422 159 430 170 L430 190 Z"/><path d="M446 190 L446 170 Q454 159 462 170 L462 190 Z"/>
-        <path d="M538 190 L538 170 Q546 159 554 170 L554 190 Z"/><path d="M570 190 L570 170 Q578 159 586 170 L586 190 Z"/>
-        <path d="M334 192 L334 176 Q342 166 350 176 L350 192 Z"/><path d="M650 192 L650 176 Q658 166 666 176 L666 192 Z"/>
-        <path d="M246 140 L246 128 Q250 121 254 128 L254 140 Z"/><path d="M746 140 L746 128 Q750 121 754 128 L754 140 Z"/>
-      </g>
-    </svg>
-    <div class="mh-band" aria-hidden="true"></div>
-  </header>
-  <nav class="tabs" role="tablist" id="tabs" aria-label="Lapisan korpus"></nav>
-  <main id="view" role="tabpanel"></main>
+    <div class="status" id="status"></div>
+  </div>
+</header>
+<nav class="tabs" role="tablist" id="tabs" aria-label="Lapisan korpus"></nav>
+<div class="wrap">
+  <main id="view" role="tabpanel" tabindex="-1"></main>
   <footer>
     <p>Peneliti: Muhammad Albie Fathurrahman. Purwarupa riset disertasi; anotasi berstatus draf dan belum divalidasi ahli.</p>
     <p>Teks Arab mengikuti riwayat Ḥafṣ ʿan ʿĀṣim dan dicocokkan dengan teks Uthmani <a href="https://tanzil.net/" target="_blank" rel="noopener">Tanzil</a> (CC BY 3.0). Penomoran ayat mengikuti mushaf standar Indonesia: basmalah dihitung ayat 1 pada Al-Fātiḥah dan tidak dinomori pada surah lain.</p>
@@ -3640,7 +3653,7 @@ const DIS=[
 ];
 
 /* ---------- State dan util ---------- */
-const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:'',cmode:'kw',sem:null,semBusy:false,gs:-1,gr:null};
+const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:'',cmode:'kw',sem:null,semBusy:false,gs:-1,gr:null,insp:false};
 const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['sisipan','Peta sisipan'],['makna','Makna kontekstual'],['graf','Graf akar'],['cari','Cari'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const cur=()=>SURAHS[state.s].verses[state.v-1];
@@ -3650,6 +3663,24 @@ function kasusLabel(w){return w.mabni?('Mabnī, di posisi '+POSISI[w.kasus]):KAS
 function occurrences(k){const r=[];VERSES.forEach(v=>v.words.forEach((w,i)=>{if(w.root===k)r.push({s:v.si,sn:v.sn,v:v.n,w:i,ar:w.ar,lat:w.lat,gloss:w.gloss});}));return r;}
 
 /* ---------- Komponen ---------- */
+// Lencana provenans per lapisan: hanya memakai konstanta sumber yang sudah ada, tanpa klaim baru.
+// QS 97-113 dikutip dari buku Juz 'Amma LPMQ (lihat catatan pada tab Terjemahan paralel); surah lain dari Qur'an Kemenag daring.
+function kemenagSumberOf(v){return v&&v.sn>=97&&v.sn<=113?KEMENAG_SUMBER_JUZAMMA:KEMENAG_SUMBER;}
+function provBadge(k,v){
+  const K=kemenagSumberOf(v);
+  const P={
+    teks:['src','Teks Arab','Tanzil Uthmani','Teks Uthmani Tanzil (CC BY 3.0), riwayat Ḥafṣ ʿan ʿĀṣim'],
+    kemenag:['src','Terjemahan','Kemenag',K.nama+(K.diakses?', diakses '+K.diakses:'')],
+    nu:['src','Terjemahan','NU Online',NU_SUMBER.nama+', diakses '+NU_SUMBER.diakses],
+    kerja:['draf','Terjemahan kerja peneliti','draf','Terjemahan kerja peneliti: draf, bukan rujukan'],
+    tafsir:['src','Tafsir',TAFSIR_SUMBER.kitab+' (contoh awal)',TAFSIR_SUMBER.penulis+', '+TAFSIR_SUMBER.kitab+', '+TAFSIR_SUMBER.media+', diakses '+TAFSIR_SUMBER.diakses],
+    irab:['draf','Anotasi i‘rāb','draf, belum divalidasi ahli','Anotasi i‘rāb per kata berstatus draf kerja dan belum divalidasi ahli'],
+    tree:['draf','Treebank','draf, belum divalidasi ahli','Relasi dependensi berstatus draf kerja dan belum divalidasi ahli']
+  }[k];
+  if(!P)return '';
+  return `<span class="prov ${P[0]}" title="${esc(P[3])}"><span>${esc(P[1])}:</span> <b>${esc(P[2])}</b></span>`;
+}
+function provStrip(ks,v){return `<div class="prov-strip" role="note" aria-label="Sumber dan status lapisan data"><span class="prov-l" aria-hidden="true">Sumber</span>${ks.filter(Boolean).map(k=>provBadge(k,v)).join('')}</div>`;}
 // Pemilih surah ringkas: combobox dengan pencarian nama atau nomor (urut mushaf), bukan deretan tombol.
 function surahNama(i){const S=SURAHS[i];return S.label||S.nama;}
 function surahPick(){
@@ -3675,8 +3706,8 @@ function ayatPick(){
       <button type="button" class="vbtn" id="v-next" ${next!==null?`data-v="${next}"`:'disabled'} aria-label="Ayat berikutnya"><span class="vtx">Berikutnya</span><span aria-hidden="true">›</span></button>
     </div></div>`;
 }
-function surahChips(){return `<div class="pilih" role="group" aria-label="Pilih surah">${surahPick()}</div>`;}
-function ayatChips(){return `<div class="pilih" role="group" aria-label="Pilih surah dan ayat">${surahPick()}${ayatPick()}<p class="pk-ref" aria-live="polite">QS ${SURAHS[state.s].no}:${state.v}</p></div>`;}
+function surahChips(){return `<div class="pilih ctxbar" role="group" aria-label="Pilih surah">${surahPick()}</div>`;}
+function ayatChips(){return `<div class="pilih ctxbar" role="group" aria-label="Pilih surah dan ayat">${surahPick()}${ayatPick()}<p class="pk-ref" aria-live="polite">QS ${SURAHS[state.s].no}:${state.v}</p></div>`;}
 // Perilaku combobox surah (daftar disaring di DOM tanpa render ulang, agar fokus ketikan tidak hilang).
 const spNorm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[ʾʿ‘’'`\-\s.]/g,'');
 function spEls(){const box=document.getElementById('sp');return box?{box,inp:document.getElementById('sp-in'),list:document.getElementById('sp-list')}:null;}
@@ -3730,14 +3761,16 @@ function legend(){
 }
 function wordBtn(x,i){
   return `<button class="word ${x.mabni?'dashed':''}" style="--c:${KASUS[x.kasus].c}" data-w="${i}" aria-pressed="${i===state.w}" aria-label="${esc(x.lat)}, ${esc(x.gloss)}">
-    <span class="ar" lang="ar">${x.ar}</span><span class="bar"></span><span class="lat">${esc(x.lat)}</span><span class="gl">${esc(x.gloss)}</span></button>`;
+    <span class="ar" lang="ar" dir="rtl">${x.ar}</span><span class="bar"></span><span class="lat">${esc(x.lat)}</span><span class="gl">${esc(x.gloss)}</span></button>`;
 }
 function detail(v,w){
   const data={surah:SURAHS[state.s].no,ayat:v.n,urutan:state.w+1,arab:w.ar,transliterasi:w.lat,glosa:w.gloss,akar:w.root?ROOTS[w.root].lat:null,kasus:kasusLabel(w),
     segmen:w.segs.map(s=>({arab:s[0],bentuk:s[1],kelas:s[2],irab:s[3]}))};
-  return `<section class="detail" style="--c:${KASUS[w.kasus].c}" aria-live="polite">
-    <div class="dhead"><span class="big" lang="ar">${w.ar}</span>
-      <div><h2>${esc(w.lat)}</h2><p class="kv">${esc(w.gloss)}</p><p class="kv">Status: <strong>${esc(kasusLabel(w))}</strong></p></div></div>
+  return `<section class="detail" id="insp" style="--c:${KASUS[w.kasus].c}" aria-live="polite" aria-label="Detail kata">
+    <div class="insp-head"><div class="dhead"><span class="big" lang="ar" dir="rtl">${w.ar}</span>
+      <div><p class="insp-ref" dir="ltr">QS ${SURAHS[state.s].no}:${v.n}:${state.w+1}</p><h2>${esc(w.lat)}</h2><p class="kv">${esc(w.gloss)}</p><p class="kv">Status: <strong>${esc(kasusLabel(w))}</strong></p></div></div>
+      <button type="button" class="insp-tog" data-insp aria-controls="insp" aria-expanded="${!!state.insp}">${state.insp?'Tutup':'Detail'}</button></div>
+    ${provStrip(['irab'],v)}
     <div class="actions">
       ${w.root?`<button class="btn" data-root="${w.root}">Akar ${esc(ROOTS[w.root].lat)}: lihat kamus</button>`:''}
       ${w.dis?`<button class="btn" data-dis="${w.dis}">Lihat makna kontekstual</button>`:''}
@@ -3749,11 +3782,17 @@ function detail(v,w){
 }
 
 /* ---------- Tab: Baca ---------- */
-function baca(){
+function bacaInti(){
   const v=cur(),w=v.words[state.w];
   return ayatChips()+legend()+
    `<div class="baca-grid"><div class="baca-main"><div class="reader"><div class="row">${v.words.map(wordBtn).join('')}<span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
     ${(k=>k?`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${selarasHtml(v,state.w)||kemenagHtml(k)} <span class="muted">(Terjemahan Kemenag)</span></p>${kemenagNotes(k)}<p class="note" style="margin:8px 6px 0">Terjemahan kerja peneliti (draf): ${esc(v.tr)}</p>`:`<p class="terj"><strong>QS ${v.sn}:${v.n}.</strong> ${esc(v.tr)} <span class="muted">(terjemahan kerja prototipe)</span></p>`)(kemenagOf(v))}</div>`+tafsirBlock(v)+'</div>'+detail(v,w)+'</div>';
+}
+
+// Pembungkus tampilan: menambahkan lencana sumber per lapisan di atas kolom baca.
+function baca(){
+  const v=cur();
+  return bacaInti().replace('<div class="baca-main">',()=>'<div class="baca-main">'+provStrip(['teks',kemenagOf(v)?'kemenag':null,'kerja',TAFSIR_MISBAH[`${v.si}:${v.n}`]?'tafsir':null],v));
 }
 
 /* ---------- Tab: Treebank ---------- */
@@ -3795,7 +3834,7 @@ function tree(){
   }).join('');
   return ayatChips()+
    `<p class="note">Panah menunjuk dari kata kepala ke kata yang bergantung padanya. Panah tegak menandakan kata kepalanya berada di ayat lain atau dihapus (taqdīr). Arah baca dari kanan ke kiri.</p>
-    <div class="scroll">${svgTree(v)}</div>
+    ${provStrip(['teks','tree'],v)}<p class="tree-hint" aria-hidden="true">Diagram dibaca dari kanan. Geser ke kiri untuk kata berikutnya.</p><div class="scroll" id="tree-box">${svgTree(v)}</div>
     <details class="textlist"><summary>Daftar relasi sebagai teks</summary><ul>${list||'<li>Tidak ada relasi antarkata pada ayat ini.</li>'}</ul></details>
     <p class="note" style="margin-top:12px">Treebank purwarupa memakai dependensi tingkat kata. Penandaan tingkat segmen (misalnya ḍamīr muttaṣil sebagai dependen tersendiri) tercatat pada tab Baca dan i‘rāb.</p>`;
 }
@@ -3862,7 +3901,23 @@ function akar(){
 /* ---------- Tab: Graf akar ---------- */
 // Simpul = akar; sisi = dua akar muncul dalam ayat yang sama (bobot = jumlah ayat bersama).
 // Tata letak gaya (force-directed) dihitung sekali per pilihan surah dengan posisi awal tetap, sehingga hasilnya selalu sama.
-const GRAF_W=900,GRAF_H=620,GRAF_WARNA=['var(--rafa)','var(--nashb)','var(--jazm)','var(--jarr)'];
+const GRAF_W=900,GRAF_H=620;
+// Warna simpul = kelompok surah tempat akar paling sering muncul. Tiga kelompok tetap terbaca untuk 21 surah atau lebih;
+// rincian surah ada di panel samping. Surah di luar kelompok mendapat warna netral, jadi tidak pernah "undefined".
+const GRAF_KEL=[
+  {nama:'Al-Fātiḥah',c:'var(--g1)',cek:S=>S.no===1},
+  {nama:'Al-Baqarah 1–6',c:'var(--g2)',cek:S=>S.no===2},
+  {nama:'Juz ‘Amma',c:'var(--g3)',cek:S=>S.no>=78&&S.no<=114}
+];
+const GRAF_LAIN={nama:'Surah lain',c:'var(--ink2)',cek:()=>true};
+function grafKel(si){const S=SURAHS[si],i=S?GRAF_KEL.findIndex(k=>k.cek(S)):-1;return i<0?GRAF_KEL.length:i;}
+const grafKelOf=i=>GRAF_KEL[i]||GRAF_LAIN;
+const GRAF_WARNA=si=>grafKelOf(grafKel(si)).c;
+function grafLegenda(g){
+  const ada=[...new Set(g.N.map(p=>grafKel(p.dom)))].sort((a,b)=>a-b);
+  return ada.map(i=>{const k=grafKelOf(i),n=SURAHS.filter(k.cek).length;
+    return `<span style="--c:${k.c}"><i></i>${esc(k.nama)}${i===2?` (${n} surah dalam korpus)`:''}</span>`;}).join('');
+}
 const grafCache={};
 function grafData(gs){
   if(grafCache[gs])return grafCache[gs];
@@ -3913,7 +3968,7 @@ function grafSvg(g){
   g.E.forEach(e=>{const p=g.nodes[e.a],q=g.nodes[e.b],on=sel&&(e.a===sel||e.b===sel);
     s+=`<line class="ge${on?' on':''}" x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${q.x.toFixed(1)}" y2="${q.y.toFixed(1)}" stroke-width="${(1.2+1.6*(e.vs.length-1)).toFixed(1)}"/>`;});
   g.N.slice().sort((a,b)=>b.r-a.r).forEach(p=>{const r=ROOTS[p.k],cls=(Object.keys(p.su).length>1?' multi':'')+(p.k===sel?' sel':sel&&g.nodes[sel].nb.has(p.k)?' nb':'');
-    s+=`<g class="gn${cls}" data-gr="${p.k}" tabindex="0" role="button" aria-pressed="${p.k===sel}" aria-label="Akar ${r.ar}, ${p.n} kemunculan, ${p.nb.size} akar tetangga"><circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}" style="fill:${GRAF_WARNA[p.dom]}"/><text x="${p.x.toFixed(1)}" y="${(p.y+p.r+19).toFixed(1)}" text-anchor="middle" lang="ar">${r.ar}</text></g>`;});
+    s+=`<g class="gn${cls}" data-gr="${p.k}" tabindex="0" role="button" aria-pressed="${p.k===sel}" aria-label="Akar ${r.ar}, ${p.n} kemunculan, ${p.nb.size} akar tetangga"><circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}" style="fill:${GRAF_WARNA(p.dom)}"/><text x="${p.x.toFixed(1)}" y="${(p.y+p.r+19).toFixed(1)}" text-anchor="middle" lang="ar">${r.ar}</text></g>`;});
   return s+'</svg>';
 }
 function grafSide(g){
@@ -3938,9 +3993,9 @@ function grafList(g){
 function graf(){
   const g=grafData(state.gs);
   if(!g.nodes[state.gr])state.gr=null;
-  return `<p class="note">Graf kemunculan bersama: setiap simpul adalah akar kata, dan dua akar dihubungkan bila muncul dalam ayat yang sama. Ukuran simpul menunjukkan jumlah kemunculan, tebal garis menunjukkan jumlah ayat bersama, dan warna menunjukkan surah tempat akar paling sering muncul.</p>
+  return `<p class="note">Graf kemunculan bersama: setiap simpul adalah akar kata, dan dua akar dihubungkan bila muncul dalam ayat yang sama. Ukuran simpul menunjukkan jumlah kemunculan, tebal garis menunjukkan jumlah ayat bersama, dan warna menunjukkan kelompok surah (Al-Fātiḥah, Al-Baqarah 1–6, atau Juz ‘Amma) tempat akar paling sering muncul. Rincian surah setiap akar ada di panel samping.</p>
     <div class="pilih"><div class="pk pk-gs"><label class="pk-l" for="gs-sel">Cakupan graf</label><select id="gs-sel" class="vsel wide"><option value="-1"${state.gs<0?' selected':''}>Semua surah (${SURAHS.length})</option>${SURAH_URUT.map(i=>`<option value="${i}"${state.gs===i?' selected':''}>${SURAHS[i].no}. ${esc(SURAHS[i].label||SURAHS[i].nama)}</option>`).join('')}</select></div></div>
-    <div class="graf-leg" aria-label="Keterangan warna">${SURAHS.map((S,i)=>`<span style="--c:${GRAF_WARNA[i]}"><i></i>${esc(S.label||S.nama)}</span>`).join('')}<span><i class="ring"></i>muncul di lebih dari satu surah</span></div>
+    <div class="graf-leg" aria-label="Keterangan warna">${grafLegenda(g)}<span><i class="ring"></i>muncul di lebih dari satu surah</span></div>
     <div class="graf-grid"><div class="scroll" id="graf-box">${grafSvg(g)}</div><div id="graf-side">${grafSide(g)}</div></div>
     <details class="textlist"><summary>Daftar hubungan sebagai teks (${g.E.length})</summary><ul>${grafList(g)||'<li>Tidak ada hubungan.</li>'}</ul></details>`;
 }
@@ -3954,7 +4009,7 @@ function grafPilih(k){
 
 /* ---------- Tab: Paralel ---------- */
 function para(){
-  return surahChips()+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, untuk Al-Fātiḥah, Al-Baqarah 1–6, Al-‘Alaq, dan An-Nās. Untuk Al-Qadr sampai Al-Falaq, teksnya dikutip dari ${esc(KEMENAG_SUMBER_JUZAMMA.nama)}, yang menulis transliterasi nama tanpa diakritik (mis. Ruh, Al-Qari‘ah). Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a> , diakses ${NU_SUMBER.diakses}. Setiap ayat diberi penanda otomatis: identik, beda ejaan, atau berbeda dari Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
+  return surahChips()+provStrip(['teks','kemenag','nu','kerja'],SURAHS[state.s].verses[0])+`<p class="note">Terjemahan Kemenag dikutip apa adanya dari <a href="${KEMENAG_SUMBER.url}" target="_blank" rel="noopener">${esc(KEMENAG_SUMBER.nama)}</a>, diakses ${KEMENAG_SUMBER.diakses}, untuk Al-Fātiḥah, Al-Baqarah 1–6, Al-‘Alaq, dan An-Nās. Untuk Al-Qadr sampai Al-Falaq, teksnya dikutip dari ${esc(KEMENAG_SUMBER_JUZAMMA.nama)}, yang menulis transliterasi nama tanpa diakritik (mis. Ruh, Al-Qari‘ah). Terjemahan NU Online dikutip dari <a href="${NU_SUMBER.url}" target="_blank" rel="noopener">${esc(NU_SUMBER.nama)}</a>, diakses ${NU_SUMBER.diakses}. Setiap ayat diberi penanda otomatis: identik, beda ejaan, atau berbeda dari Kemenag. Terjemahan kerja peneliti adalah draf, bukan rujukan.</p>`+
    SURAHS[state.s].verses.map(v=>`<section class="pblock"><div class="parab" lang="ar">${v.ar} <span class="ayah-end" aria-hidden="true">﴿${arabNum(v.n)}﴾</span></div>
      <div class="trow"><div class="lab">Terjemahan resmi Kemenag</div><div>${kemenagOf(v)?kemenagHtml(kemenagOf(v))+kemenagNotes(kemenagOf(v)):'<div class="slot">Belum dimuat untuk ayat ini.</div>'}</div></div>
      <div class="trow"><div class="lab">Terjemahan NU Online</div><div>${nuHtml(v)}</div></div>
@@ -4360,7 +4415,7 @@ function renderTabs(){
   const nm=Object.fromEntries(TABS);
   document.getElementById('tabs').innerHTML=TAB_GRUP.map(([g,ks],gi)=>(gi?'<span class="tg-sep" aria-hidden="true"></span>':'')+
     `<div class="tg" role="none"><span class="tg-l" aria-hidden="true">${esc(g)}</span><div class="tg-b" role="none">${ks.map(k=>`<button role="tab" data-tab="${k}" aria-selected="${k===state.tab}" tabindex="${k===state.tab?0:-1}" title="Kelompok ${esc(g)}">${nm[k]}</button>`).join('')}</div></div>`).join('');
-  const on=document.querySelector('#tabs [aria-selected="true"]');if(on&&on.scrollIntoView&&window.innerWidth<980)on.scrollIntoView({block:'nearest',inline:'center'});
+  const on=document.querySelector('#tabs [aria-selected="true"]');const tb=document.getElementById('tabs');if(on&&tb&&tb.scrollWidth>tb.clientWidth){const r=on.getBoundingClientRect(),q=tb.getBoundingClientRect();tb.scrollLeft+=(r.left+r.width/2)-(q.left+q.width/2);}
 }
 /* ---------- Peta sisipan penerjemah ---------- */
 // Markah penyelarasan terjemahan Kemenag dengan kata Arab (indeks kata dimulai dari 0):
@@ -4617,11 +4672,28 @@ function renderView(){
   document.getElementById('view').innerHTML=fn();
   if(keep){let el=document.getElementById(keep);if(el&&el.disabled)el=document.getElementById('v-sel');if(el)el.focus({preventScroll:true});}
   renderTabs();
+  pascaRender();
   const target=state.tab==='akar'&&state.focusRoot?document.getElementById('root-'+state.focusRoot):
                state.tab==='makna'&&state.focusDis?document.getElementById('dis-'+state.focusDis):null;
   if(target){target.scrollIntoView({block:'start'});}
   state.focusRoot=null;state.focusDis=null;
 }
+
+function ukurChrome(){
+  const tb=document.getElementById('tabs'),cx=document.querySelector('#view .ctxbar'),r=document.documentElement.style;
+  r.setProperty('--tabs-h',(tb&&getComputedStyle(tb).position==='sticky'?tb.offsetHeight:0)+'px');
+  r.setProperty('--ctx-h',(cx?cx.offsetHeight:0)+'px');
+}
+function inspSet(on){
+  state.insp=!!on;document.body.classList.toggle('insp-open',state.insp);
+  const tg=document.querySelector('#view [data-insp]');if(tg){tg.setAttribute('aria-expanded',String(state.insp));tg.textContent=state.insp?'Tutup':'Detail';}
+}
+function pascaRender(){
+  document.body.classList.toggle('insp-open',!!state.insp);
+  ukurChrome();
+  if(state.tab==='tree'){const sc=document.getElementById('tree-box');if(sc)sc.scrollLeft=sc.scrollWidth;}
+}
+window.addEventListener('resize',ukurChrome);
 
 /* ---------- Event ---------- */
 document.addEventListener('click',function(e){
@@ -4629,8 +4701,9 @@ document.addEventListener('click',function(e){
   if(e.target.closest('[data-sptog]')){const x=spEls();if(x){const open=x.list.hidden;if(open)spFilter('');else spOpen(false);x.inp.focus();if(open)x.inp.select();}return;}
   if(e.target.id==='sp-in'){const x=spEls();if(x&&x.list.hidden){spFilter('');x.inp.select();}return;}
   const opt=e.target.closest('#sp-list li[data-s]');if(opt){spPick(+opt.dataset.s);return;}
-  const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear]');
+  const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear],[data-insp]');
   if(!t)return;
+  if(t.dataset.insp!==undefined){inspSet(!state.insp);return;}
   if(t.dataset.gr!==undefined){grafPilih(t.dataset.gr===state.gr?'':t.dataset.gr);return;}
   if(t.dataset.gs!==undefined){state.gs=+t.dataset.gs;state.gr=null;renderView();return;}
   if(t.dataset.sw){sisPilih(t.dataset.sw);return;}
@@ -4638,7 +4711,7 @@ document.addEventListener('click',function(e){
   if(t.dataset.tab){state.tab=t.dataset.tab;renderView();window.scrollTo({top:0});return;}
   if(t.dataset.s!==undefined){state.s=+t.dataset.s;state.v=1;state.w=0;renderView();return;}
   if(t.dataset.v){state.v=+t.dataset.v;state.w=0;renderView();return;}
-  if(t.dataset.w!==undefined){state.w=+t.dataset.w;renderView();return;}
+  if(t.dataset.w!==undefined){state.w=+t.dataset.w;state.insp=true;renderView();const wb=document.querySelector(`#view [data-w="${state.w}"]`);if(wb)wb.focus({preventScroll:true});return;}
   if(t.dataset.root){state.tab='akar';state.q='';state.focusRoot=t.dataset.root;renderView();return;}
   if(t.dataset.dis){state.tab='makna';state.focusDis=t.dataset.dis;renderView();return;}
   if(t.dataset.lmodel){state.lab.model=t.dataset.lmodel;renderView();return;}
@@ -4649,7 +4722,7 @@ document.addEventListener('click',function(e){
   if(t.dataset.qs!==undefined){state.cq=t.dataset.qs;renderView();semSearch(t.dataset.qs);return;}
   if(t.dataset.sem!==undefined){const i=document.getElementById('cq');semSearch(i?i.value:state.cq);return;}
   if(t.dataset.q!==undefined){state.cq=t.dataset.q;renderView();return;}
-  if(t.dataset.goto){const p=t.dataset.goto.split(':');state.tab='baca';state.s=+p[0];state.v=+p[1];state.w=+p[2];renderView();window.scrollTo({top:0});return;}
+  if(t.dataset.goto){const p=t.dataset.goto.split(':');state.tab='baca';state.s=+p[0];state.v=+p[1];state.w=+p[2];state.insp=true;renderView();window.scrollTo({top:0});return;}
 });
 document.addEventListener('input',function(e){
   if(e.target&&e.target.id==='lab-key'){state.lab.key=e.target.value;return;}
@@ -4690,6 +4763,7 @@ document.addEventListener('keydown',function(e){
     if(e.key==='Tab'&&open){spOpen(false);e.target.value=e.target.dataset.cur;}
     return;
   }
+  if(e.key==='Escape'&&state.insp&&document.querySelector('#view [data-insp]')&&window.matchMedia('(max-width:560px)').matches){inspSet(false);const tg=document.querySelector('#view [data-insp]');if(tg)tg.focus();return;}
   if(e.target&&e.target.getAttribute&&e.target.getAttribute('role')==='tab'&&(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End')){
     const tabs=[...document.querySelectorAll('#tabs [role="tab"]')],k=tabs.indexOf(e.target);
     const n=e.key==='Home'?0:e.key==='End'?tabs.length-1:(k+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
