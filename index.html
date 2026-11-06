@@ -4477,11 +4477,10 @@ function labPrefill(id){
 }
 async function labRun(){
   const L=state.lab,F=L.form;
-  if(!L.key.trim()){L.err='Isi kunci lab terlebih dahulu.';paintLab();return;}
   if(!F.istilah.trim()||!F.padanan.trim()){L.err='Istilah dan padanan wajib diisi.';paintLab();return;}
   L.busy=true;L.err=null;paintLab();
   try{
-    const r=await fetch('/api/label',{method:'POST',headers:{'content-type':'application/json','x-lab-key':L.key.trim()},
+    const r=await fetch('/api/label',{method:'POST',headers:Object.assign({'content-type':'application/json'},L.key.trim()?{'x-lab-key':L.key.trim()}:{}),
       body:JSON.stringify({istilah:F.istilah,konteks:F.konteks,padanan:F.padanan,model:L.model})});
     let j=null;try{j=await r.json();}catch(_){j=null;}
     if(r.status===404||(r.status===405&&!j))throw new Error('Lab hanya aktif pada situs di Cloudflare.');
@@ -4504,7 +4503,7 @@ function lab(){
   return `<h2>Lab label padanan</h2>
   <p class="semnote"><span class="badge warn">Eksperimen, akses terbatas</span> Alat ini meminta saran label formal atau dinamis dari dua model AI, lalu membandingkannya dengan label ahli. AI hanya mengklasifikasikan teknik penerjemahan, tidak menafsirkan ayat, dan hasilnya wajib diverifikasi.</p>
   <div class="labform">
-    <label>Kunci lab<input id="lab-key" class="search" type="password" autocomplete="off" value="${esc(L.key)}" placeholder="Kunci akses dari pengaturan Cloudflare"></label>
+    <label>Kunci pemilik (opsional)<input id="lab-key" class="search" type="password" autocomplete="off" value="${esc(L.key)}" placeholder="Kosongkan bila bukan pemilik"></label>
     <label>Ambil contoh dari korpus (padanan diambil dari terjemahan Kemenag)<select id="lab-prefill" class="search"><option value="">Pilih entri</option>${pre}</select></label>
     <label>Istilah sumber<input id="lab-istilah" class="search" value="${esc(F.istilah)}" placeholder="Contoh: taqwā (تقوى)"></label>
     <label>Konteks ayat (opsional)<textarea id="lab-konteks" class="search" rows="3" placeholder="Contoh: QS 2:2 beserta teks ayatnya">${esc(F.konteks)}</textarea></label>
@@ -4550,7 +4549,7 @@ function ai(){
    <ul class="plain">
     <li>AI tidak menafsirkan. Jawaban hanya berasal dari entri korpus yang sudah diverifikasi dan selalu menyertakan sumbernya. Bila tidak ada entri yang relevan, sistem menyatakan tidak ada jawaban.</li>
     <li>Setiap keluaran AI diberi tanda yang jelas dan dapat dilacak ke data asalnya.</li>
-    <li>Lab label dikunci dengan kunci akses agar jatah AI tidak terpakai pengunjung umum. Model generatif di sana hanya diminta mengklasifikasikan teknik penerjemahan.</li>
+    <li>Lab label terbuka untuk umum tanpa kunci, dengan pembatas laju (5 permintaan per menit per pengunjung) agar jatah AI tidak terkuras. Model generatif di sana hanya diminta mengklasifikasikan teknik penerjemahan.</li>
     <li>Fitur AI berjalan lewat server perantara (Cloudflare Worker) agar kunci layanan tidak terbuka di halaman publik. Karena itu mode Makna hanya aktif pada alamat Cloudflare, bukan pada hosting statis biasa.</li>
     <li>Terjemahan Kemenag beserta catatan kakinya dikirim ke layanan AI untuk pencarian makna dan Lab label, dikutip dengan atribusi. Izin pemakaian formal untuk korpus penuh dan pemakaian terjemahan penerbit tetap mengikuti izin data.</li>
     <li>Yang dikirim ke layanan AI hanyalah teks korpus buatan sendiri dan pertanyaan pengguna. Terjemahan Kemenag dan penerbit tidak dikirim sebelum izin data tersedia.</li>

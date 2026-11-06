@@ -1,20 +1,20 @@
 {
   "corpus.json": {
-    "mtime": 1793957472.540365,
-    "seen": 1793957561.4526138,
+    "mtime": 1793959872.7994106,
+    "seen": 1793959973.6203103,
     "ast_hash": "fe6cecc0c5defb55ca058ec718557ce9",
     "semantic_hash": ""
   },
   "worker.js": {
-    "mtime": 1793956901.9952555,
-    "seen": 1793957561.452637,
-    "ast_hash": "7ea1edc618c23ca3166b35ca65513616",
+    "mtime": 1793959921.7249537,
+    "seen": 1793959973.6203375,
+    "ast_hash": "6101d1ac65cd5a278642ad80d581919a",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1793957472.4163651,
-    "seen": 1793957561.4526834,
-    "ast_hash": "cd985a810ae1fb03b574afcf122e3d59",
+    "mtime": 1793959921.7303162,
+    "seen": 1793959973.6203954,
+    "ast_hash": "f5f5be9494a3581df3b22e27ffdaff1a",
     "semantic_hash": ""
   },
   ".claude/settings.json": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "tools/buat-corpus.js": {
-    "mtime": 1793956901.9954605,
-    "seen": 1793957561.4526339,
+    "mtime": 1793959872.8065805,
+    "seen": 1793959973.6203349,
     "ast_hash": "01aeb784a1c2f95e9eeff9ee53d33446",
     "semantic_hash": ""
   },
@@ -180,38 +180,38 @@
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/fathur_konsisten.json": {
-    "mtime": 1793957560.090205,
-    "seen": 1793957561.4526172,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.620315,
     "ast_hash": "8a601a1873189ed9207f3d7c6d0d0688",
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/fathur_lama.json": {
-    "mtime": 1793957560.0901704,
-    "seen": 1793957561.4526193,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203172,
     "ast_hash": "b161f56a90a6503e940b22f827819509",
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/log-penerapan.json": {
-    "mtime": 1793957560.0917766,
-    "seen": 1793957561.4526203,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.620319,
     "ast_hash": "affc7fc9dee08bb4c8f3bde05e1fb103",
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/qac_lama.json": {
-    "mtime": 1793957560.0903587,
-    "seen": 1793957561.4526212,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203206,
     "ast_hash": "eaf348ebd165b573d990d642a800b611",
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/tanzil-pemulihan.json": {
-    "mtime": 1793957472.4163651,
-    "seen": 1793957561.4526227,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.620322,
     "ast_hash": "2b70310178f84559bb4b452f3e0b5e28",
     "semantic_hash": ""
   },
   "tools/pulihkan-tanzil.js": {
-    "mtime": 1793957560.096588,
-    "seen": 1793957561.452635,
+    "mtime": 1793959872.8065805,
+    "seen": 1793959973.620336,
     "ast_hash": "22142699adcb43340bb05c9a8e0d5470",
     "semantic_hash": ""
   },
@@ -264,26 +264,26 @@
     "semantic_hash": ""
   },
   "data/sumber/tanzil-uthmani-1.1.txt": {
-    "mtime": 1793956825.480243,
-    "seen": 1793957561.452663,
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203678,
     "ast_hash": "7410caf5dc5b337de917b47ed887e3cb",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1793957560.107381,
-    "seen": 1793957561.4526641,
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203692,
     "ast_hash": "546292a496fdbc71ae071a96898d2040",
     "semantic_hash": ""
   },
   "docs/DATA_SOURCES.md": {
-    "mtime": 1793956915.577852,
-    "seen": 1793957561.4526649,
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203704,
     "ast_hash": "3c8ffc7cda7d6382cc600889e15e472e",
     "semantic_hash": ""
   },
   "docs/ROADMAP.md": {
-    "mtime": 1793957560.1077785,
-    "seen": 1793957561.452666,
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203718,
     "ast_hash": "8883185da7c2e013e2dfc536c81120ff",
     "semantic_hash": ""
   },
@@ -342,20 +342,20 @@
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/README.md": {
-    "mtime": 1793957560.0981128,
-    "seen": 1793957561.4526775,
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203876,
     "ast_hash": "ac93d41179b3dbd6f2cf96174bf39001",
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/fathur_lama.md": {
-    "mtime": 1793957560.0902522,
-    "seen": 1793957561.4526782,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203887,
     "ast_hash": "f179a8a36557c1f067c79392b8663001",
     "semantic_hash": ""
   },
   "docs/tinjauan-21-surah/qac_lama_laporan.md": {
-    "mtime": 1793957560.0904624,
-    "seen": 1793957561.4526792,
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203902,
     "ast_hash": "8813235e304c3d316ef6ee19e4090ed7",
     "semantic_hash": ""
   }

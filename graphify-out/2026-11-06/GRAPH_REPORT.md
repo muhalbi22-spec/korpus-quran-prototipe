@@ -1,17 +1,17 @@
-# Graph Report - agent-a7becd4de89d849bb  (2026-11-05)
+# Graph Report - korpus-quran-prototipe  (2026-11-06)
 
 ## Corpus Check
-- 29 files · ~83,928 words
+- 58 files · ~211,260 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .jsonc 1)
+- Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .jsonc 1)
 
 ## Summary
-- 222 nodes · 385 edges · 26 communities (13 shown, 13 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.87)
+- 409 nodes · 568 edges · 47 communities (32 shown, 15 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a71965ee`
+- Built from commit: `a1243776`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,15 +22,36 @@
 - Worker AI Cloudflare
 - Kamus dan pencarian akar
 - esc
-- I‘rāb dan treebank
-- buat-corpus.js
-- DIS (contextual meaning entries)
+- esc
+- pulihkan-tanzil.js
+- Findings
 - Perbandingan anotasi QS 97–113 dengan Quranic Arabic Corpus (QAC)
 - Tinjauan QS 97–113
-- CLAUDE.md
+- Indonesian Quranic Corpus
 - .claude/CLAUDE.md
 - Tinjauan Fathur: markah SELARAS QS 97–113 (105 ayat)
 - Sistem desain
+- Academic audit: documentation and research methodology
+- Linguistic annotation audit: korpus-quran-prototipe (branch claude/ai-organization)
+- QA audit: index.html (branch claude/ai-organization, byte-identical to production)
+- UI/UX audit: Korpus Al-Qur'an Terjemahan Indonesia (branch claude/ai-organization = production)
+- Collaboration workflow
+- Perbandingan anotasi QS 1, QS 2:1–6, QS 96, QS 114 dengan Quranic Arabic Corpus (QAC)
+- Development roadmap
+- ui-ux-specialist.md
+- academic-research-specialist.md
+- arabic-linguistics-specialist.md
+- corpus-data-engineer.md
+- full-stack-developer.md
+- project-manager.md
+- security-devops-engineer.md
+- Architecture
+- AI employee organization
+- Tinjauan Fathur: QS 1, 2:1–6, 96, 114 dan 15 masalah konsistensi
+- qa-engineer.md
+- Data sources and licences
+- audit-2026-11/README.md
+- tinjauan-21-surah/README.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `esc()` - 33 edges
@@ -39,20 +60,22 @@
 4. `sisipan() tab` - 12 edges
 5. `runSearch()` - 12 edges
 6. `baca() tab` - 12 edges
-7. `para() tab` - 11 edges
-8. `ROOTS (root dictionary)` - 10 edges
-9. `labelPadanan()` - 9 edges
-10. `state (UI state)` - 9 edges
+7. `Findings` - 11 edges
+8. `para() tab` - 11 edges
+9. `labelPadanan()` - 10 edges
+10. `ROOTS (root dictionary)` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `lab-prompt toggle handler` --references--> `labelPadanan()`  [INFERRED]
-  index.html → worker.js
-- `semSearch()` --references--> `cari()`  [INFERRED]
-  index.html → worker.js
-- `Cloudflare Worker API (/api/cari, /api/label, /api/status)` --references--> `status()`  [INFERRED]
-  index.html → worker.js
-- `labRun()` --references--> `labelPadanan()`  [INFERRED]
-  index.html → worker.js
+- `Clean / positive` --references--> `q()`  [INFERRED]
+  docs/audit-2026-11/security.md → tools/pulihkan-tanzil.js
+- `P2-5 Semantic search cold start (~20 s) and public quota use` --references--> `ambilIndeks()`  [INFERRED]
+  docs/audit-2026-11/data.md → worker.js
+- `HIGH` --references--> `ambilIndeks()`  [INFERRED]
+  docs/audit-2026-11/qa.md → worker.js
+- `P1` --references--> `status()`  [INFERRED]
+  docs/audit-2026-11/academic.md → worker.js
+- `P2-3 Data and code not separated` --references--> `fetch()`  [INFERRED]
+  docs/audit-2026-11/data.md → worker.js
 
 ## Import Cycles
 - None detected.
@@ -62,43 +85,43 @@
 - **Tab renderers dispatched by renderView** — index_renderview, index_baca, index_tree, index_akar, index_para, index_sisipan, index_makna, index_graf, index_cari, index_lab, index_ai, index_pedoman [EXTRACTED 1.00]
 - **AI experiments routed through Cloudflare Worker** — index_semsearch, index_labrun, index_cloudflare_worker_api, worker_cari, worker_labelpadanan, index_ai_usage_limits [INFERRED 0.85]
 
-## Communities (26 total, 13 thin omitted)
+## Communities (47 total, 15 thin omitted)
 
 ### Community 0 - "Tab UI dan event"
-Cohesion: 0.09
-Nodes (31): Agreement metrics: accuracy, Cohen's kappa, recall/F1 for dinamis, ai() tab, akar() tab, Always-'formal' baseline comparator, document change handler, document click handler (event delegation), Cloudflare Worker API (/api/cari, /api/label, /api/status), KEMENAG_PADANAN (+23 more)
+Cohesion: 0.13
+Nodes (19): Agreement metrics: accuracy, Cohen's kappa, recall/F1 for dinamis, ai() tab, Always-'formal' baseline comparator, document click handler (event delegation), Cloudflare Worker API (/api/cari, /api/label, /api/status), LAB_NAMA (SEA-LION v4, Gemma 4), labBadge(), labCsv() (+11 more)
 
 ### Community 1 - "Peta sisipan dan graf akar"
 Cohesion: 0.13
-Nodes (28): AL() definite-article segment helper, Alignment markup {i|text|note} and «i|type|(text)», Riwayat Hafs 'an 'Asim / Tanzil Uthmani text, Indonesian mushaf verse numbering (basmalah = 1:1 only), Insertion types: penegasan rujukan, penafsiran makna, pelengkap struktur, belum diklasifikasi, KATA_RE, KEMENAG_SUMBER, NU_SUMBER (+20 more)
+Nodes (26): AL() definite-article segment helper, Alignment markup {i|text|note} and «i|type|(text)», Riwayat Hafs 'an 'Asim / Tanzil Uthmani text, Indonesian mushaf verse numbering (basmalah = 1:1 only), Insertion types: penegasan rujukan, penafsiran makna, pelengkap struktur, belum diklasifikasi, KATA_RE, parseSelaras(), pedoman() tab (+18 more)
 
 ### Community 2 - "3. Brief desain untuk situs kita"
 Cohesion: 0.18
 Nodes (10): 1. Pola yang membuat situs terasa modern dan kredibel secara akademik, 2. Yang dihindari, 3.1 Tata letak per kelompok tab, 3.2 Komponen, 3.3 Token desain (satu lapisan `:root` + satu blok gelap + `[data-theme]`), 3.4 Aturan tipografi Arab, 3.5 Aturan seluler (390 px), 3. Brief desain untuk situs kita (+2 more)
 
 ### Community 3 - "Worker AI Cloudflare"
-Cohesion: 0.23
-Nodes (16): ambilIndeks(), ambilVektor(), bacaTeks(), batasi(), bersih(), buatPrompt(), cacheKueri, cari() (+8 more)
+Cohesion: 0.12
+Nodes (27): Clean / positive, Critical, Findings, Fix in the repo vs. configure in the Cloudflare dashboard, Hardening plan (in order), High, Low, Medium (+19 more)
 
 ### Community 4 - "Kamus dan pencarian akar"
 Cohesion: 0.22
 Nodes (16): akarList(), Arabic/Latin diacritic normalization, Arabic triliteral/quadriliteral root, hasArabic(), kwicRow(), occurrences(), Root concordance (KWIC), rootAr() (+8 more)
 
 ### Community 5 - "esc"
-Cohesion: 0.11
-Nodes (24): cari() tab, cariResults(), esc(), graf() tab, grafCache, grafData(), grafLayout(), grafList() (+16 more)
+Cohesion: 0.10
+Nodes (23): cari() tab, cariResults(), document change handler, DIS (contextual meaning entries), disCard(), hitWord(), document input handler, KEMENAG translation table (+15 more)
 
-### Community 6 - "I‘rāb dan treebank"
-Cohesion: 0.18
-Nodes (14): ayatChips(), baca() tab, cur(), detail(), KASUS (i'rab case table), kasusLabel(), kemenagHtml(), kemenagNotes() (+6 more)
+### Community 6 - "esc"
+Cohesion: 0.09
+Nodes (37): akar() tab, ayatChips(), baca() tab, cur(), detail(), esc(), graf() tab, grafCache (+29 more)
 
-### Community 7 - "buat-corpus.js"
-Cohesion: 0.15
-Nodes (9): akar, akhir, awal, D, fs, html, lama, out (+1 more)
+### Community 7 - "pulihkan-tanzil.js"
+Cohesion: 0.06
+Nodes (33): akar, akhir, awal, D, DIS, fs, hakCipta, html (+25 more)
 
-### Community 8 - "DIS (contextual meaning entries)"
-Cohesion: 0.22
-Nodes (8): DIS (contextual meaning entries), disCard(), makna() tab, Tafsir Al-Mishbah (M. Quraish Shihab), TAFSIR_MISBAH summaries, TAFSIR_SUMBER, tafsirBlock(), Theological terms (rahmat, taqwa, kufr, rizq) of prior master's research
+### Community 8 - "Findings"
+Cohesion: 0.12
+Nodes (16): Corpus data architecture audit (Corpus Data Engineer), Findings, P0, P1-1 Arabic text not verbatim Tanzil for 33 verses (NFC + 2:4 hamza), P1-2 Licensing and provenance metadata incomplete and not machine-readable, P1-3 No schema, no validation in the repo, no versioning, P2-1 Unstable, position-based identifiers, P2-2 Untyped linguistic annotation (+8 more)
 
 ### Community 9 - "Perbandingan anotasi QS 97–113 dengan Quranic Arabic Corpus (QAC)"
 Cohesion: 0.25
@@ -108,6 +131,10 @@ Nodes (7): Beda analisis (sah), Beda notasi, Catatan konsistensi internal (bukan
 Cohesion: 0.40
 Nodes (4): Alur, Berkas, Tinjauan QS 97–113, Yang masih perlu dicek ahli
 
+### Community 11 - "Indonesian Quranic Corpus"
+Cohesion: 0.50
+Nodes (3): graphify, Indonesian Quranic Corpus, Integrity rules (always)
+
 ### Community 23 - "Tinjauan Fathur: markah SELARAS QS 97–113 (105 ayat)"
 Cohesion: 0.29
 Nodes (6): A. Keputusan per sisipan (QS s:a — sisipan — jenis lama → baru — alasan), B. Keraguan yang dikukuhkan (tanpa perubahan), C. Perbaikan padanan dan catatan pergeseran, D. Kebijakan konsistensi yang ditetapkan, E. Tindak lanjut per agen, Tinjauan Fathur: markah SELARAS QS 97–113 (105 ayat)
@@ -116,25 +143,97 @@ Nodes (6): A. Keputusan per sisipan (QS s:a — sisipan — jenis lama → baru 
 Cohesion: 0.25
 Nodes (7): 1. Token, 2. Huruf, 3. Aturan teks Arab, 4. Komponen, 5. Responsif dan aksesibilitas, 6. Keputusan terbuka (pemilik), Sistem desain
 
+### Community 26 - "Academic audit: documentation and research methodology"
+Cohesion: 0.15
+Nodes (12): Academic audit: documentation and research methodology, Citation readiness, Ethics of presenting AI annotation of sacred text, Findings (P0 = blocks credible public/academic use; P3 = polish), Five most valuable improvements, P0, P1, P2 (+4 more)
+
+### Community 27 - "Linguistic annotation audit: korpus-quran-prototipe (branch claude/ai-organization)"
+Cohesion: 0.17
+Nodes (11): Corpus at a glance (script-verified), Findings, Five most valuable improvements, Linguistic annotation audit: korpus-quran-prototipe (branch claude/ai-organization), Mapping feasibility, P0. Changes the schema before more data is added, P1. Required for research use and for mapping, P2. Consistency and coverage (+3 more)
+
+### Community 28 - "QA audit: index.html (branch claude/ai-organization, byte-identical to production)"
+Cohesion: 0.20
+Nodes (9): Bugs, ranked, Coverage, HIGH, LOW, MEDIUM, Proposed repeatable test suite (`tests/`, no package manager; Node ≥ 20 built-in `node:test` + preinstalled Playwright), QA audit: index.html (branch claude/ai-organization, byte-identical to production), Top 5 QA improvements (+1 more)
+
+### Community 29 - "UI/UX audit: Korpus Al-Qur'an Terjemahan Indonesia (branch claude/ai-organization = production)"
+Cohesion: 0.25
+Nodes (7): Functional gaps vs corpus.quran.com (functional reference only), P0: blocking (fidelity of Arabic text), P1: high, P2: important, P3: nice to have, Top 5 most valuable improvements, UI/UX audit: Korpus Al-Qur'an Terjemahan Indonesia (branch claude/ai-organization = production)
+
+### Community 30 - "Collaboration workflow"
+Cohesion: 0.25
+Nodes (7): 1. Chief AI Officer loop (main session), 2. Task brief template, 3. Code review procedure, 4. Required checks before merge, 5. Priorities for resolving conflicts, 6. Data protection and research integrity, Collaboration workflow
+
+### Community 31 - "Perbandingan anotasi QS 1, QS 2:1–6, QS 96, QS 114 dengan Quranic Arabic Corpus (QAC)"
+Cohesion: 0.25
+Nodes (7): Beda analisis (sah), Beda notasi, Catatan konsistensi internal (bukan beda dengan QAC), Kemungkinan galat korpus kita, Perbandingan anotasi QS 1, QS 2:1–6, QS 96, QS 114 dengan Quranic Arabic Corpus (QAC), Prioritas untuk ditinjau ahli, Ringkasan kecocokan
+
+### Community 32 - "Development roadmap"
+Cohesion: 0.29
+Nodes (6): Decisions needed from the owner, Development roadmap, Phase 0 — Correct and protect (first week), Phase 1 — Foundations for credibility (weeks 2–4), Phase 2 — Research-grade annotation (1–3 months), Phase 3 — Scale and platform (3+ months)
+
+### Community 33 - "ui-ux-specialist.md"
+Cohesion: 0.33
+Nodes (5): Design identity (requested by the project owner), Method, Non-negotiable integrity rules, Project context (read first), Responsibilities
+
+### Community 34 - "academic-research-specialist.md"
+Cohesion: 0.40
+Nodes (4): Non-negotiable integrity rules, Project context (read first), Responsibilities, Rules
+
+### Community 35 - "arabic-linguistics-specialist.md"
+Cohesion: 0.40
+Nodes (4): Non-negotiable integrity rules, Output, Project context (read first), Rules
+
+### Community 36 - "corpus-data-engineer.md"
+Cohesion: 0.40
+Nodes (4): Non-negotiable integrity rules, Project context (read first), Responsibilities, Rules
+
+### Community 37 - "full-stack-developer.md"
+Cohesion: 0.40
+Nodes (4): Before handing back, Conventions, Non-negotiable integrity rules, Project context (read first)
+
+### Community 38 - "project-manager.md"
+Cohesion: 0.40
+Nodes (4): Non-negotiable integrity rules, Output, Project context (read first), Responsibilities
+
+### Community 39 - "security-devops-engineer.md"
+Cohesion: 0.40
+Nodes (4): Non-negotiable integrity rules, Project context (read first), Rules, Scope
+
+### Community 40 - "Architecture"
+Cohesion: 0.40
+Nodes (4): Architecture, Data sources, Known architectural constraints, Overview
+
+### Community 41 - "AI employee organization"
+Cohesion: 0.40
+Nodes (4): AI employee organization, Coordination and its platform limit, Core organization (8 employees), Existing specialist helpers (kept, not removed)
+
+### Community 42 - "Tinjauan Fathur: QS 1, 2:1–6, 96, 114 dan 15 masalah konsistensi"
+Cohesion: 0.40
+Nodes (4): A. Tugas 1: keputusan per ayat, B. Tugas 2: kebijakan baku, C. Tindak lanjut per agen, Tinjauan Fathur: QS 1, 2:1–6, 96, 114 dan 15 masalah konsistensi
+
+### Community 43 - "qa-engineer.md"
+Cohesion: 0.50
+Nodes (3): Non-negotiable integrity rules, Project context (read first), Responsibilities
+
 ## Knowledge Gaps
 - **8 isolated node(s):** `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `KEMENAG_SUMBER`, `NU_SUMBER`, `UNA() -una suffix segment helper` (+3 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 74 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 215 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `esc()` connect `esc` to `Tab UI dan event`, `Peta sisipan dan graf akar`, `Kamus dan pencarian akar`, `I‘rāb dan treebank`, `DIS (contextual meaning entries)`?**
-  _High betweenness centrality (0.144) - this node is a cross-community bridge._
+- **Why does `Clean / positive` connect `Worker AI Cloudflare` to `pulihkan-tanzil.js`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
 - **What connects `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `KEMENAG_SUMBER` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Tab UI dan event` be split into smaller, more focused modules?**
-  _Cohesion score 0.09243697478991597 - nodes in this community are weakly interconnected._
-- **Why does `SURAHS` connect `Peta sisipan dan graf akar` to `Tab UI dan event`, `esc`, `I‘rāb dan treebank`?**
-  _High betweenness centrality (0.071) - this node is a cross-community bridge._
+  _Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected._
 - **Should `Peta sisipan dan graf akar` be split into smaller, more focused modules?**
-  _Cohesion score 0.12807881773399016 - nodes in this community are weakly interconnected._
-- **Why does `renderView()` connect `Tab UI dan event` to `DIS (contextual meaning entries)`, `Peta sisipan dan graf akar`, `esc`, `I‘rāb dan treebank`?**
-  _High betweenness centrality (0.068) - this node is a cross-community bridge._
+  _Cohesion score 0.12561576354679804 - nodes in this community are weakly interconnected._
+- **Should `Worker AI Cloudflare` be split into smaller, more focused modules?**
+  _Cohesion score 0.11954022988505747 - nodes in this community are weakly interconnected._
 - **Should `esc` be split into smaller, more focused modules?**
-  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09686609686609686 - nodes in this community are weakly interconnected._
+- **Should `esc` be split into smaller, more focused modules?**
+  _Cohesion score 0.09230769230769231 - nodes in this community are weakly interconnected._
