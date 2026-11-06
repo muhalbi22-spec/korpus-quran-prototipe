@@ -1,0 +1,182 @@
+{
+  "corpus.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068335,
+    "ast_hash": "d746f8bcb5e49f0ae1b612399924e17d",
+    "semantic_hash": ""
+  },
+  "worker.js": {
+    "mtime": 1793876474.6107707,
+    "seen": 1793877163.106861,
+    "ast_hash": "741f8b307a0d4b52d2cbf4a4410b5da8",
+    "semantic_hash": "741f8b307a0d4b52d2cbf4a4410b5da8"
+  },
+  "index.html": {
+    "mtime": 1793877092.3628075,
+    "seen": 1793877163.1069074,
+    "ast_hash": "9796e8e7d06a70bf66d6ef735982970c",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.1068223,
+    "ast_hash": "3b541b9935fcf0831355da956f897645",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/akar.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.106839,
+    "ast_hash": "424d94aae5209b5edd62ff3e5afffce5",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/fathur_AB.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068423,
+    "ast_hash": "1b123523b2e662119c75de407aa7d85f",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/fathur_C.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068451,
+    "ast_hash": "e3382365d9890b45e906edb46942a38f",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/fathur_DE.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068482,
+    "ast_hash": "229458baeceae9d80c3c6b2bf3180088",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/log-penerapan.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068506,
+    "ast_hash": "13641c8792a7dd15dfcc20a4134a4f9b",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/qac.json": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068525,
+    "ast_hash": "eda34e55eac5199b89edaf602e151cb6",
+    "semantic_hash": ""
+  },
+  "tools/buat-corpus.js": {
+    "mtime": 1793876474.6107707,
+    "seen": 1793877163.1068585,
+    "ast_hash": "601ff0b78750cffbd8d7bb316cf25079",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1793876474.593431,
+    "seen": 1793877163.106864,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  ".claude/agents/anotator-irab.md": {
+    "mtime": 1793876474.593431,
+    "seen": 1793877163.1068661,
+    "ast_hash": "46646cf78d5c5e2e579e17fbaf6b6699",
+    "semantic_hash": ""
+  },
+  ".claude/agents/fathur.md": {
+    "mtime": 1793876474.593431,
+    "seen": 1793877163.1068718,
+    "ast_hash": "75887e416afc2a067ed407bc3432c14a",
+    "semantic_hash": ""
+  },
+  ".claude/agents/leksikograf-akar.md": {
+    "mtime": 1793876474.593431,
+    "seen": 1793877163.1068745,
+    "ast_hash": "207f8db1426595f11c7d4eaeaaefa59a",
+    "semantic_hash": ""
+  },
+  ".claude/agents/peneliti-makna-tafsir.md": {
+    "mtime": 1793876474.593431,
+    "seen": 1793877163.1068766,
+    "ast_hash": "3a308aa956942a0b50bc9b59727cc626",
+    "semantic_hash": ""
+  },
+  ".claude/agents/pengawas-qac.md": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.1068792,
+    "ast_hash": "b471103586689f365bf5ca388786b559",
+    "semantic_hash": ""
+  },
+  ".claude/agents/pengembang-web.md": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.1068819,
+    "ast_hash": "a0398c5325854bb0015d9d72af56384b",
+    "semantic_hash": ""
+  },
+  ".claude/agents/penjaga-keamanan.md": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.106884,
+    "ast_hash": "fbbb9fe16bc4d2d8e2444e8f39aa832d",
+    "semantic_hash": ""
+  },
+  ".claude/agents/penyelaras-terjemahan.md": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.1068864,
+    "ast_hash": "f248005c525a1d74cb539d41b8061273",
+    "semantic_hash": ""
+  },
+  ".claude/agents/perancang-ux.md": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.1068888,
+    "ast_hash": "25d245cd1430d7e2fd16eb3d3fe532c1",
+    "semantic_hash": ""
+  },
+  ".claude/agents/validator-data.md": {
+    "mtime": 1793876474.5947707,
+    "seen": 1793877163.1068912,
+    "ast_hash": "6877a2ea9212429333bce5994379855e",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1068935,
+    "ast_hash": "67d88e9d0760c3ba54c75dfd9551c1c5",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/README.md": {
+    "mtime": 1793876474.5987709,
+    "seen": 1793877163.1069007,
+    "ast_hash": "a791d130b98b236b8c3209e8f4973104",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/qac_laporan.md": {
+    "mtime": 1793876474.6027708,
+    "seen": 1793877163.106903,
+    "ast_hash": "a8a154c5899e3522fbe5537bfb3760ed",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/selaras-fathur.json": {
+    "mtime": 1793876474.6027708,
+    "seen": 1793877163.1068556,
+    "ast_hash": "cb249a0f518c205dd13943134c9c82ed",
+    "semantic_hash": ""
+  },
+  ".claude/agents/desainer-islami.md": {
+    "mtime": 1793876474.593431,
+    "seen": 1793877163.1068687,
+    "ast_hash": "1bc923c38f06555aaea05561a710a09c",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/selaras-fathur.md": {
+    "mtime": 1793876474.6027708,
+    "seen": 1793877163.1069055,
+    "ast_hash": "cba10ad8d3dba1333ed7eb91a44fb180",
+    "semantic_hash": ""
+  },
+  "docs/design/SYSTEM.md": {
+    "mtime": 1793877116.5348089,
+    "seen": 1793877163.1068957,
+    "ast_hash": "d003b81acea103b2428872508d6989c3",
+    "semantic_hash": ""
+  },
+  "docs/design/riset-2026-11.md": {
+    "mtime": 1793876479.8655493,
+    "seen": 1793877163.106898,
+    "ast_hash": "018d43e3bd36503c54d20d5e3c0b3070",
+    "semantic_hash": ""
+  }
+}

@@ -1,0 +1,3331 @@
+{
+ "peninjau": "fathur",
+ "cakupan": "15 ketidakkonsistenan dari tinjau/masalah15.json, seluruh 21 surah",
+ "konvensi_lokasi": "surah:ayat:indeksKata, indeks kata mulai 0 (sesuai FORMAT.md); masalah15.json memakai indeks mulai 1",
+ "temuan": [
+  {
+   "lokasi": "96:12:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 1 (ejaan kelas ʿaṭf). Bentuk baku: “Huruf ʿaṭf” (63 kemunculan, sudah ada di peta label); “Ḥarf ʿaṭf” hanya muncul 4 kali di QS 96. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "أَوْ",
+     "aw",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf (pilihan), mabnī atas sukūn."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:13:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 1 (ejaan kelas ʿaṭf). Bentuk baku: “Huruf ʿaṭf” (63 kemunculan, sudah ada di peta label); “Ḥarf ʿaṭf” hanya muncul 4 kali di QS 96. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī."
+    ],
+    [
+     "تَوَلَّىٰٓ",
+     "tawallā",
+     "Fiʿil māḍī (bentuk V)",
+     "Fiʿil māḍī bentuk V (tafaʿʿala), mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Diʿaṭafkan pada kadhdhaba."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:19:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 1 (ejaan kelas ʿaṭf). Bentuk baku: “Huruf ʿaṭf” (63 kemunculan, sudah ada di peta label); “Ḥarf ʿaṭf” hanya muncul 4 kali di QS 96. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī."
+    ],
+    [
+     "ٱسْجُدْ",
+     "sjud",
+     "Fiʿil amr",
+     "Fiʿil amr, mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Ayat ini termasuk ayat sajdah menurut banyak ulama; hukum sujud tilawah diperselisihkan para fuqaha."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:19:4",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 1 (ejaan kelas ʿaṭf). Bentuk baku: “Huruf ʿaṭf” (63 kemunculan, sudah ada di peta label); “Ḥarf ʿaṭf” hanya muncul 4 kali di QS 96. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī."
+    ],
+    [
+     "ٱقْتَرِب",
+     "qtarib",
+     "Fiʿil amr (bentuk VIII)",
+     "Fiʿil amr bentuk VIII (iftaʿala), mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Diʿaṭafkan pada usjud: mendekatkan diri kepada Allah melalui sujud."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:16:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 2 (ejaan kelas isim fāʿil). Bentuk baku: “Isim (isim fāʿil)” (pola umum Isim (subkelas), 21 kemunculan). Agen: anotator-irab.",
+   "usulan": [
+    [
+     "كَٰذِبَةٍ",
+     "kādhibatin",
+     "Isim (isim fāʿil)",
+     "Naʿt bagi nāṣiyatin, majrūr, tanda jarr kasrah. Sifat dusta dinisbahkan pada ubun-ubun sebagai majāz: bagian disebut untuk keseluruhan. Ada pula yang menjelaskannya sebagai majāz ʿaqlī (sifat orangnya disandarkan pada ubun-ubun)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:16:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 2 (ejaan kelas isim fāʿil). Bentuk baku: “Isim (isim fāʿil)” (pola umum Isim (subkelas), 21 kemunculan). Agen: anotator-irab.",
+   "usulan": [
+    [
+     "خَاطِئَةٍ",
+     "khāṭiʾatin",
+     "Isim (isim fāʿil)",
+     "Naʿt kedua bagi nāṣiyatin, majrūr, tanda jarr kasrah. Khāṭiʾ adalah yang bersalah dengan sengaja, berbeda dengan mukhṭiʾ yang keliru tanpa sengaja."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:6:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Masalah 3 (kelas inna). Inna menaṣabkan isim dan merafaʿkan khabar; kelas baku “Ḥarf tawkīd wa naṣb” (17 kemunculan) memuat kedua fungsi itu. “Huruf taukīd” juga memakai ejaan taukīd yang tidak baku (baku: tawkīd). Keterangan disamakan dengan preseden 96:6:1. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "إِنَّ",
+     "inna",
+     "Ḥarf tawkīd wa naṣb",
+     "Huruf penegas yang menaṣabkan isimnya dan merafaʿkan khabarnya; mabnī atas fatḥah."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:6:7",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Masalah 4 (kelas lam). Lam bukan sekadar huruf jazm: ia menafikan, menjazmkan, dan membalik makna muḍāriʿ ke masa lampau. Kelas baku “Ḥarf nafy, jazm, dan qalb” (9 kemunculan). Keterangan disamakan dengan preseden 96:5:3. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "لَمْ",
+     "lam",
+     "Ḥarf nafy, jazm, dan qalb",
+     "Huruf penafian yang menjazmkan fiʿil muḍāriʿ dan membalik maknanya ke masa lampau; mabnī atas sukūn."
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:5:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Masalah 5 (lām taʿlīl). Kebijakan: lām yang masuk pada fiʿil muḍāriʿ manṣūb (lām kay/taʿlīl, dengan an muḍmarah) berkelas “Lām taʿlīl”, seperti 99:6:4; lām jarr yang masuk pada isim tetap “Huruf jarr” dan maknanya (taʿlīl, milik, dll.) dijelaskan di keterangan. Keterangan 98:5:3 sudah benar dan alternatif al-Farrāʾ tetap tercatat. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "لِ",
+     "li",
+     "Lām taʿlīl",
+     "Lām taʿlīl (lām kay), huruf jarr, mabnī atas kasrah. Fiʿil sesudahnya manṣūb oleh an muḍmarah; an dan fiʿilnya ditakwil sebagai maṣdar (ʿibādah) yang majrūr oleh lām; jar-majrūr bermutaʿalliq pada umirū. Ada pandangan lain (dinisbatkan kepada al-Farrāʾ dan ulama Kufah): lām di sini menggantikan “an”, sehingga maknanya “diperintah untuk menyembah” (bi-an yaʿbudū)."
+    ],
+    [
+     "يَعْبُدُ",
+     "yaʿbudu",
+     "Fiʿil muḍāriʿ",
+     "Fiʿil muḍāriʿ manṣūb oleh an muḍmarah, tanda naṣab dibuangnya nūn karena termasuk al-afʿāl al-khamsah."
+    ],
+    [
+     "وا۟",
+     "-ū",
+     "Ḍamīr muttaṣil",
+     "Wāw: ḍamīr muttaṣil, mabnī, di posisi rafaʿ sebagai fāʿil (mereka). Alif sesudahnya alif fāriqah."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:15:4",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Masalah 6 (segmentasi nūn tawkīd). Kebijakan: nūn tawkīd dipisah menjadi segmen sendiri bila ditulis sebagai huruf nūn (104:4:1, 102:6:0, 102:7:1, 102:8:1). Pada la-nasfaʿan, nūn tawkīd khafīfah ditulis sebagai tanwīn di atas huruf terakhir dan alif; memisahkannya akan membuat segmen yang diawali tanda harakat, bukan huruf. Jadi satu segmen dipertahankan sebagai pengecualian ortografis. Pengembang-web sebaiknya memetakan kelas ini ke tag ganda (V + nūn tawkīd), bukan V saja. Catatan: kasus 104:4:1 mabni (nūn langsung bersambung) dan 102:6/7/8 marfu (dipisah wāw jamāʿah yang dibuang) sudah benar. Agen: pengembang-web (peta label).",
+   "usulan": null
+  },
+  {
+   "lokasi": "2:4:8",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "قَبْلِ",
+     "qabli",
+     "Ẓarf zamān",
+     "Isim majrūr oleh huruf jarr min, tanda jarr kasrah; sekaligus muḍāf."
+    ],
+    [
+     "كَ",
+     "-ka",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil, mabnī; di posisi jarr sebagai muḍāf ilayh."
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:8:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "يَوْمَ",
+     "yawma",
+     "Ẓarf zamān",
+     "Ẓarf zamān, manṣūb, tanda naṣab fatḥah (ada pandangan: mabnī atas fatḥah karena disandarkan pada idh yang mabnī); bermutaʿalliq pada tusʾalunna; sekaligus muḍāf."
+    ],
+    [
+     "ئِذٍ",
+     "idhin",
+     "Ẓarf zamān",
+     "Idh: isim ẓarf mabnī atas sukūn, di posisi jarr sebagai muḍāf ilayh; dikasrahkan karena bertemu sukūn tanwīn. Tanwīnnya tanwīn ʿiwaḍ yang menggantikan kalimat yang dihapus (taqdīr: yawma idh tarawnahā, hari ketika kalian melihatnya). QAC menandai keseluruhannya sebagai satu ẓarf zamān."
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:3:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "صُبْحًا",
+     "ṣubḥan",
+     "Ẓarf zamān",
+     "Ẓarf zamān (keterangan waktu), manṣūb, tanda naṣab fatḥah (tanwīn); bermutaʿalliq pada al-mughīrāt (isim fāʿil yang beramal seperti fiʿil). Bangsa Arab biasa menyerang musuh pada waktu subuh."
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:11:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "يَوْمَ",
+     "yawma",
+     "Ẓarf zamān",
+     "Ẓarf zamān, manṣūb, tanda naṣab fatḥah; bermutaʿalliq pada khabīr; sekaligus muḍāf. Ada pandangan bahwa yawma di sini mabnī atas fatḥah karena disandarkan pada isim mabnī (idh). QAC memperlakukan yawmaʾidhin sebagai satu kata keterangan waktu; di sini dipisah menjadi dua segmen agar iḍāfah-nya tampak."
+    ],
+    [
+     "ئِذٍ",
+     "idhin",
+     "Ẓarf zamān",
+     "Idh: ẓarf zamān lampau, mabnī atas sukūn, di posisi jarr sebagai muḍāf ilayh; dikasrahkan karena bertemunya dua sukūn dengan tanwīn ʿiwaḍ. Tanwīn itu menggantikan kalimat yang dihapus (taqdīr: yawma idh buʿthira mā fī al-qubūr)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:4:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "يَوْمَ",
+     "yawma",
+     "Ẓarf zamān",
+     "Ẓarf zamān, manṣūb, tanda naṣab fatḥah (ada pandangan: mabnī atas fatḥah karena disandarkan pada idh); sekaligus muḍāf. Pilihan di sini: bermutaʿalliq pada tuḥaddithu. Alternatif: badal dari idhā (ay. 1), dan keduanya sama-sama bermutaʿalliq pada tuḥaddithu."
+    ],
+    [
+     "ئِذٍ",
+     "idhin",
+     "Ẓarf zamān",
+     "Idh: ẓarf zamān, mabnī atas sukūn, di posisi jarr sebagai muḍāf ilayh; dikasrahkan karena bertemu dengan tanwīn ʿiwaḍ, yang menggantikan kalimat (taqdīr: yawma idh zulzilat al-arḍ)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:6:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "يَوْمَ",
+     "yawma",
+     "Ẓarf zamān",
+     "Ẓarf zamān, manṣūb, tanda naṣab fatḥah; bermutaʿalliq pada yaṣduru; sekaligus muḍāf. Ada pandangan bahwa ia badal dari yawmaʾidhin pada ayat 4."
+    ],
+    [
+     "ئِذٍ",
+     "idhin",
+     "Ẓarf zamān",
+     "Idh: ẓarf zamān, mabnī atas sukūn, di posisi jarr sebagai muḍāf ilayh; tanwīnnya tanwīn ʿiwaḍ yang menggantikan kalimat yang dihapus."
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:4:7",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf zamān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "بَعْدِ",
+     "baʿdi",
+     "Ẓarf zamān",
+     "Isim ẓarf zamān yang majrūr oleh min, tanda jarr kasrah; sekaligus muḍāf."
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:8:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf makān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "عِندَ",
+     "ʿinda",
+     "Ẓarf makān",
+     "Ẓarf makān, manṣūb, tanda naṣab fatḥah; sekaligus muḍāf. Bermutaʿalliq pada maṣdar jazāʾ; ada pandangan lain: pada ḥāl yang dihapus dari jazāʾ (taqdīr “kāʾinan ʿinda rabbihim”)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:8:7",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 7 (ẓarf zamān/makān). Kebijakan: kelas menyebut jenis ẓarf secara leksikal, “Ẓarf zamān” atau “Ẓarf makān”, juga bila ẓarf itu majrūr oleh min; kedudukan i‘rāb (manṣūb ʿalā aẓ-ẓarfiyyah atau majrūr) dijelaskan di keterangan. “Isim (ẓarf)” tidak dipakai lagi. Kata ini: ẓarf makān. “Ẓarf makān” adalah kelas baru: pengembang-web perlu memetakannya ke tag LOC. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "تَحْتِ",
+     "taḥti",
+     "Ẓarf makān",
+     "Isim ẓarf makān yang majrūr oleh min, tanda jarr kasrah; sekaligus muḍāf."
+    ],
+    [
+     "هَا",
+     "-hā",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil (merujuk pada jannāt), mabnī atas sukūn; di posisi jarr sebagai muḍāf ilayh."
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:9:1",
+   "aspek": "segs",
+   "keputusan": "diperselisihkan",
+   "tingkat": "saran",
+   "alasan": "Masalah 8 (Isim (jamak)). Kelas “Isim (jamak)” ambigu. Keputusan: “Isim (jamak taksir)”, karena ʿamad dalam kamus lazim disebut jamak bagi ʿamūd/ʿimād; alternatif bahwa ia isim jamʿ (wazan faʿal bukan wazan jamak taksir yang lazim) dicatat di keterangan. Catatan qirāʾah yang sudah ada dipertahankan. Perlu verifikasi ahli. Agen: anotator-irab; leksikograf-akar.",
+   "usulan": [
+    [
+     "عَمَدٍ",
+     "ʿamadin",
+     "Isim (jamak taksir)",
+     "Isim majrūr oleh fī, tanda jarr kasrah (tanwīn). ʿAmad adalah jamak bagi ʿamūd atau ʿimād (tiang); sebagian ahli bahasa menggolongkannya isim jamʿ karena wazan faʿal bukan wazan jamak taksir yang lazim. Syuʿbah, Ḥamzah, dan al-Kisāʾī membaca ʿumudin."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:17:0",
+   "aspek": "kasus",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Masalah 13. Kebijakan dikukuhkan: w.kasus dan w.mabni menyatakan i‘rāb segmen inti kata (isim atau fiʿil), bukan proklitik (wa, fa, la, bi, sa). Jadi fal-yadʿu = majzum dan fa-man = marfu sudah benar. UI tidak boleh menempelkan kasus pada partikel. Pengecualian yang sudah ada tetap: kata berupa huruf jarr + ḍamīr berkasus majrur dan mabni true (maḥall). Agen: pengembang-web.",
+   "usulan": null
+  },
+  {
+   "lokasi": "2:6",
+   "aspek": "edges",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Masalah 11 (label busur berupa nama kelas: ḥarf jazm, ḥarf istiqbāl, ḥarf maṣdarī, ḥarf syarṭ wa tafṣīl, ḍamīr faṣl, nafy, ʿaṭf). Keputusan: diterima. Partikel tidak memiliki maḥall i‘rāb, sehingga busurnya menyatakan hubungan ʿamal/makna partikel dengan kata yang dimasukinya, seperti tag partikel pada QAC (NEG, FUT, COND). Baku: busur partikel selalu berarah partikel → kata yang dimasukinya (dependen = partikel). Pemeriksaan skrip: semua busur jenis ini sudah berarah demikian, kecuali 96:19 (diperbaiki, masalah 9). Tidak ada perubahan label. Agen: pengembang-web (tampilkan sebagai relasi partikel).",
+   "usulan": null
+  },
+  {
+   "lokasi": "111:4:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Masalah 15. Pilihan naṣb ʿalā adh-dhamm (mafʿūl bih bagi fiʿil yang dihapus, taqdīr adhummu/aʿnī) dikukuhkan sebagai pilihan utama: ia menjelaskan naṣab pada bacaan ʿĀṣim sebagai celaan, dan sejalan dengan banyak kitab iʿrāb. Alternatif ḥāl dari imraʾatuhu sah bila iḍāfah-nya lafẓiyyah, dan sudah tercatat di keterangan. Label busur dipertahankan. Agen: validasi ahli manusia.",
+   "usulan": null
+  },
+  {
+   "lokasi": "110:3:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Tambahan (di luar 15 masalah, ditemukan saat memindai): kelas fiʿil mazīd tidak menyebut bentuknya padahal keterangan menyebutnya; diseragamkan dengan konvensi “Fiʿil … (bentuk N)” seperti pada QS 96. Kelas baru: “Fiʿil amr (bentuk II)”. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "فَ",
+     "fa",
+     "Fāʾ rābiṭah",
+     "Fāʾ penghubung jawāb syarat (wāqiʿah fī jawāb asy-syarṭ), mabnī atas fatḥah; diperlukan karena jawāb-nya kalimat perintah."
+    ],
+    [
+     "سَبِّحْ",
+     "sabbiḥ",
+     "Fiʿil amr (bentuk II)",
+     "Fiʿil amr bentuk II (faʿʿala), mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Kalimatnya jawāb syarat bagi idhā (ayat 1), tidak memiliki posisi iʿrāb."
+    ]
+   ]
+  },
+  {
+   "lokasi": "110:3:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Tambahan (di luar 15 masalah, ditemukan saat memindai): kelas fiʿil mazīd tidak menyebut bentuknya padahal keterangan menyebutnya; diseragamkan dengan konvensi “Fiʿil … (bentuk N)” seperti pada QS 96. Kelas baru: “Fiʿil amr (bentuk X)”. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf sambung (ʿaṭf), mabnī; menghubungkan istaghfir dengan sabbiḥ."
+    ],
+    [
+     "ٱسْتَغْفِرْ",
+     "staghfir",
+     "Fiʿil amr (bentuk X)",
+     "Fiʿil amr bentuk X (istafʿala), mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Alif waṣl tidak dibaca."
+    ],
+    [
+     "هُ",
+     "hu",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil (Dia), mabnī atas ḍamm, di posisi naṣab sebagai mafʿūl bih."
+    ]
+   ]
+  },
+  {
+   "lokasi": "108:2:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Tambahan (di luar 15 masalah, ditemukan saat memindai): kelas fiʿil mazīd tidak menyebut bentuknya padahal keterangan menyebutnya; diseragamkan dengan konvensi “Fiʿil … (bentuk N)” seperti pada QS 96. Kelas baru: “Fiʿil amr (bentuk II)”. Agen: anotator-irab; pengembang-web (peta label).",
+   "usulan": [
+    [
+     "فَ",
+     "fa",
+     "Fāʾ sababiyyah",
+     "Fāʾ yang menunjukkan urutan dan sebab (fāʾ sababiyyah/tafrīʿ): perintah ini lahir dari nikmat pada ayat 1, mabnī atas fatḥah. Ada pandangan lain: fāʾ istiʾnāf, atau fāʾ jawāb syarat yang diperkirakan (“bila Kami telah memberimu, maka …”)."
+    ],
+    [
+     "صَلِّ",
+     "ṣalli",
+     "Fiʿil amr (bentuk II)",
+     "Fiʿil amr bentuk II (faʿʿala), mabnī atas terbuangnya huruf ʿillah (yāʾ); fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt, ay. 2"
+    ],
+    [
+     1,
+     -1,
+     "naʿt kedua",
+     "naʿt kedua, ay. 2"
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi Allāh, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Usulan ini sudah memuat busur nāʾib fāʿil dari fathur_lama.json (1:7). Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal dari aṣ-ṣirāṭ, ay. 6"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "jar-majrūr"
+    ],
+    [
+     4,
+     1,
+     "naʿt"
+    ],
+    [
+     5,
+     4,
+     "muḍāf ilayh"
+    ],
+    [
+     6,
+     5,
+     "nāʾib fāʿil"
+    ],
+    [
+     8,
+     5,
+     "maʿṭūf"
+    ],
+    [
+     7,
+     8,
+     "ʿaṭf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "badal"
+    ],
+    [
+     2,
+     0,
+     "khabar (jumlah)"
+    ],
+    [
+     3,
+     2,
+     "isim lā"
+    ],
+    [
+     4,
+     2,
+     "khabar lā"
+    ],
+    [
+     5,
+     -1,
+     "khabar",
+     "khabar, mubtadaʾ dihapus"
+    ],
+    [
+     6,
+     5,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi al-muttaqīn, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     1,
+     "maʿṭūf"
+    ],
+    [
+     4,
+     3,
+     "mafʿūl bih"
+    ],
+    [
+     5,
+     7,
+     "jar-majrūr"
+    ],
+    [
+     6,
+     5,
+     "ṣilah"
+    ],
+    [
+     7,
+     1,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada alladhīna, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "ṣilah"
+    ],
+    [
+     4,
+     3,
+     "jar-majrūr"
+    ],
+    [
+     5,
+     2,
+     "maʿṭūf"
+    ],
+    [
+     6,
+     5,
+     "ṣilah"
+    ],
+    [
+     7,
+     6,
+     "jar-majrūr"
+    ],
+    [
+     8,
+     7,
+     "majrūr"
+    ],
+    [
+     9,
+     11,
+     "jar-majrūr"
+    ],
+    [
+     10,
+     1,
+     "maʿṭūf"
+    ],
+    [
+     11,
+     10,
+     "khabar"
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi rabbi, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ʿaṭf bayān",
+     "ʿaṭf bayān bagi rabbi, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jar-majrūr",
+     "jar-majrūr bagi aʿūdhu, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     2,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi al-khannās, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:6",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jar-majrūr",
+     "jar-majrūr bagi yuwaswisu, ay. 5"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal bagi khalaqa, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih"
+    ],
+    [
+     2,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi al-akram, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal bagi ʿallama, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih"
+    ],
+    [
+     2,
+     0,
+     "mafʿūl bih 2"
+    ],
+    [
+     3,
+     4,
+     "ḥarf jazm"
+    ],
+    [
+     4,
+     2,
+     "ṣilah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "taʿlīl",
+     "taʿlīl bagi yaṭghā, ay. 6"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih 2"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:10",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "mafʿūl bih",
+     "mafʿūl bih bagi yanhā, ay. 9"
+    ],
+    [
+     1,
+     -1,
+     "ẓarf",
+     "ẓarf bagi yanhā, ay. 9"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:11",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "syarṭ"
+    ],
+    [
+     2,
+     1,
+     "fiʿil syarṭ"
+    ],
+    [
+     3,
+     2,
+     "khabar kāna"
+    ],
+    [
+     4,
+     3,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:12",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada kāna, ay. 11"
+    ],
+    [
+     0,
+     1,
+     "ʿaṭf"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:13",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "syarṭ"
+    ],
+    [
+     2,
+     1,
+     "fiʿil syarṭ"
+    ],
+    [
+     3,
+     2,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:14",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "ḥarf jazm"
+    ],
+    [
+     1,
+     -1,
+     "mafʿūl bih 2",
+     "mafʿūl bih 2 bagi araʾayta, ay. 9"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     2,
+     "isim anna"
+    ],
+    [
+     4,
+     2,
+     "khabar anna"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:15",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     2,
+     3,
+     "ḥarf jazm"
+    ],
+    [
+     3,
+     1,
+     "fiʿil syarṭ"
+    ],
+    [
+     4,
+     1,
+     "jawāb qasam"
+    ],
+    [
+     5,
+     4,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:16",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal bagi an-nāṣiyah, ay. 15"
+    ],
+    [
+     1,
+     0,
+     "naʿt"
+    ],
+    [
+     2,
+     0,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:19",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "galat",
+   "alasan": "Masalah 9: lā nāhiyah 96:19:1 diberi label “nafy” dan busurnya berarah fiʿil → lā. Naḥw: lā di sini ṭalabiyyah (larangan) yang menjazmkan tuṭiʿ, jadi labelnya “nahy”, dan arahnya disamakan dengan busur partikel lain (lā → fiʿil, seperti 2:6). Busur menjadi [1,2,\"nahy\"]. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     2,
+     "nahy"
+    ],
+    [
+     3,
+     2,
+     "maʿṭūf"
+    ],
+    [
+     4,
+     3,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "113:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jar-majrūr",
+     "jar-majrūr bagi aʿūdhu, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     2,
+     "ṣilah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "113:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada min sharri, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     1,
+     "ẓarf"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh (jumlah)"
+    ]
+   ]
+  },
+  {
+   "lokasi": "113:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada min sharri, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     2,
+     "jar-majrūr"
+    ],
+    [
+     4,
+     3,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "113:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada min sharri, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     1,
+     "ẓarf"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh (jumlah)"
+    ]
+   ]
+  },
+  {
+   "lokasi": "112:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "ḥarf jazm"
+    ],
+    [
+     1,
+     -1,
+     "ʿaṭf jumlah",
+     "ʿaṭf jumlah pada lam yalid, ay. 3"
+    ],
+    [
+     2,
+     3,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     1,
+     "khabar kāna"
+    ],
+    [
+     4,
+     1,
+     "isim kāna"
+    ]
+   ]
+  },
+  {
+   "lokasi": "111:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada fāʿil sayaṣlā, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "naṣb ʿalā adh-dhamm"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "111:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ḥāl",
+     "ḥāl dari imraʾatuhu, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     0,
+     "mubtadaʾ"
+    ],
+    [
+     3,
+     2,
+     "naʿt"
+    ],
+    [
+     4,
+     3,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "110:1",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Masalah 12: idhā (110:1:0) berkelas Ẓarf zamān dan berlabel “syarṭ; …”. Naḥw: idhā adalah ẓarf untuk masa datang yang mengandung makna syarat, dan menurut pendapat yang banyak dipakai ʿāmil-nya adalah jawāb (fa-sabbiḥ). Label baku “ẓarf”, dengan catatan “ẓarf syarṭiyyah; …”, sejajar dengan pola 99:1 (ẓarf bagi jawāb syarṭ tuḥaddithu). Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ẓarf",
+     "ẓarf syarṭiyyah; bermutaʿalliq pada jawāb fa-sabbiḥ, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "fiʿil syarṭ"
+    ],
+    [
+     2,
+     1,
+     "fāʿil"
+    ],
+    [
+     3,
+     2,
+     "muḍāf ilayh"
+    ],
+    [
+     4,
+     2,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "110:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada jāʾa, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih"
+    ],
+    [
+     2,
+     0,
+     "ḥāl"
+    ],
+    [
+     3,
+     2,
+     "jar-majrūr"
+    ],
+    [
+     4,
+     3,
+     "majrūr"
+    ],
+    [
+     5,
+     4,
+     "muḍāf ilayh"
+    ],
+    [
+     6,
+     2,
+     "ḥāl"
+    ]
+   ]
+  },
+  {
+   "lokasi": "110:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jawāb syarṭ",
+     "jawāb syarṭ bagi idhā, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "ḥāl"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     0,
+     "ʿaṭf jumlah"
+    ],
+    [
+     4,
+     3,
+     "taʿlīl"
+    ],
+    [
+     5,
+     4,
+     "khabar inna"
+    ],
+    [
+     6,
+     5,
+     "khabar kāna"
+    ]
+   ]
+  },
+  {
+   "lokasi": "108:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "tafrīʿ",
+     "tafrīʿ atas aʿṭaynāka, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     0,
+     "ʿaṭf jumlah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "109:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "nafy"
+    ],
+    [
+     1,
+     -1,
+     "maqūl al-qawl",
+     "maqūl al-qawl bagi qul, ay. 1"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     2,
+     "ṣilah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "109:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     2,
+     "nafy"
+    ],
+    [
+     1,
+     -1,
+     "ʿaṭf jumlah",
+     "ʿaṭf jumlah, pada ay. 2"
+    ],
+    [
+     2,
+     1,
+     "khabar"
+    ],
+    [
+     3,
+     2,
+     "mafʿūl bih"
+    ],
+    [
+     4,
+     3,
+     "ṣilah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "109:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     2,
+     "nafy"
+    ],
+    [
+     1,
+     -1,
+     "ʿaṭf jumlah",
+     "ʿaṭf jumlah, pada ay. 3"
+    ],
+    [
+     2,
+     1,
+     "khabar"
+    ],
+    [
+     3,
+     2,
+     "mafʿūl bih"
+    ],
+    [
+     4,
+     3,
+     "ṣilah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "109:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     2,
+     "nafy"
+    ],
+    [
+     1,
+     -1,
+     "ʿaṭf jumlah",
+     "ʿaṭf jumlah, pada ay. 4"
+    ],
+    [
+     2,
+     1,
+     "khabar"
+    ],
+    [
+     3,
+     2,
+     "mafʿūl bih"
+    ],
+    [
+     4,
+     3,
+     "ṣilah"
+    ]
+   ]
+  },
+  {
+   "lokasi": "107:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jawāb syarṭ",
+     "jawāb syarṭ muqaddar, terkait ay. 1"
+    ],
+    [
+     1,
+     0,
+     "khabar"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "107:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "nafy"
+    ],
+    [
+     1,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada yaduʿʿu, ay. 2"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "107:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi al-muṣallīn, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     4,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ],
+    [
+     4,
+     1,
+     "khabar"
+    ]
+   ]
+  },
+  {
+   "lokasi": "107:6",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt kedua",
+     "naʿt kedua bagi al-muṣallīn, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "khabar"
+    ]
+   ]
+  },
+  {
+   "lokasi": "107:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada yurāʾūna, ay. 6"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "106:1",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jar-majrūr",
+     "jar-majrūr bagi fa-lyaʿbudū, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "106:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal bagi īlāfi, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     2,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "106:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi rabba, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ],
+    [
+     4,
+     1,
+     "maʿṭūf"
+    ],
+    [
+     5,
+     4,
+     "jar-majrūr"
+    ],
+    [
+     6,
+     5,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "105:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada yajʿal, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     0,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     2,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "105:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt kedua",
+     "naʿt kedua bagi ṭayran, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     1,
+     "naʿt"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "105:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada arsala, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih 2"
+    ],
+    [
+     2,
+     1,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal bagi kulli, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     1,
+     "maʿṭūf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ḥāl",
+     "ḥāl bagi jamaʿa, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl bih"
+    ],
+    [
+     2,
+     1,
+     "isim anna"
+    ],
+    [
+     3,
+     1,
+     "khabar anna"
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:6",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "khabar",
+     "khabar, mubtadaʾ dihapus"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ],
+    [
+     2,
+     0,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "naʿt",
+     "naʿt bagi nāru, ay. 6"
+    ],
+    [
+     1,
+     0,
+     "ṣilah"
+    ],
+    [
+     2,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "104:9",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ḥāl",
+     "ḥāl bagi muʾṣadatun, ay. 8"
+    ],
+    [
+     1,
+     0,
+     "majrūr"
+    ],
+    [
+     2,
+     1,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "103:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jawāb qasam",
+     "jawāb qasam, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "isim inna"
+    ],
+    [
+     2,
+     0,
+     "khabar inna"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "103:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "istithnāʾ",
+     "istithnāʾ dari al-insān, ay. 2"
+    ],
+    [
+     1,
+     0,
+     "mustathnā"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "maʿṭūf"
+    ],
+    [
+     4,
+     3,
+     "mafʿūl bih"
+    ],
+    [
+     5,
+     2,
+     "maʿṭūf"
+    ],
+    [
+     6,
+     5,
+     "jar-majrūr"
+    ],
+    [
+     7,
+     2,
+     "maʿṭūf"
+    ],
+    [
+     8,
+     7,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ghāyah",
+     "ghāyah bagi alhākum, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "ghāyah"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     3,
+     "ʿaṭf"
+    ],
+    [
+     2,
+     3,
+     "ḥarf istiqbāl"
+    ],
+    [
+     3,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada taʿlamūna, ay. 3"
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     2,
+     1,
+     "fiʿil syarṭ"
+    ],
+    [
+     3,
+     2,
+     "mafʿūl muṭlaq"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "ʿaṭf"
+    ],
+    [
+     1,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada tarawunna, ay. 6"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl muṭlaq"
+    ],
+    [
+     3,
+     2,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "102:8",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "ʿaṭf"
+    ],
+    [
+     1,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada tarawunnahā, ay. 7"
+    ],
+    [
+     2,
+     1,
+     "ẓarf"
+    ],
+    [
+     3,
+     1,
+     "jar-majrūr"
+    ],
+    [
+     4,
+     3,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "khabar (jumlah)",
+     "khabar (jumlah) bagi al-qāriʿah, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "khabar"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ẓarf",
+     "ẓarf bagi fiʿil dihapus (taqraʿu), ay. 1"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ],
+    [
+     2,
+     1,
+     "isim kāna"
+    ],
+    [
+     3,
+     1,
+     "khabar kāna"
+    ],
+    [
+     4,
+     3,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada yakūnu, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "isim kāna"
+    ],
+    [
+     2,
+     0,
+     "khabar kāna"
+    ],
+    [
+     3,
+     2,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "khabar",
+     "khabar bagi man, ay. 6"
+    ],
+    [
+     1,
+     0,
+     "khabar"
+    ],
+    [
+     2,
+     1,
+     "majrūr"
+    ],
+    [
+     3,
+     2,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:8",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "ḥarf syarṭ wa tafṣīl"
+    ],
+    [
+     1,
+     -1,
+     "ʿaṭf jumlah",
+     "jumlah maʿṭūfah pada ay. 6"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "fāʿil"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:9",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "khabar",
+     "khabar bagi man, ay. 8"
+    ],
+    [
+     1,
+     0,
+     "khabar"
+    ]
+   ]
+  },
+  {
+   "lokasi": "101:11",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "khabar",
+     "khabar, mubtadaʾ dihapus"
+    ],
+    [
+     1,
+     0,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:1",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "mafʿūl muṭlaq",
+     "mafʿūl muṭlaq bagi fiʿil yang dihapus (yaḍbaḥna); jumlahnya ḥāl dari al-ʿādiyāt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada al-ʿādiyāt, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "mafʿūl muṭlaq"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada al-ʿādiyāt, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "ẓarf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada al-mughīrāt, ay. 3"
+    ],
+    [
+     1,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     0,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada atharna, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     0,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:6",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jawāb qasam",
+     "jawāb qasam, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "isim inna"
+    ],
+    [
+     3,
+     0,
+     "khabar inna"
+    ],
+    [
+     2,
+     3,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada jawāb qasam, ay. 6"
+    ],
+    [
+     3,
+     0,
+     "khabar inna"
+    ],
+    [
+     1,
+     3,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     1,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:8",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada jawāb qasam, ay. 6"
+    ],
+    [
+     3,
+     0,
+     "khabar inna"
+    ],
+    [
+     1,
+     3,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:9",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "nafy"
+    ],
+    [
+     2,
+     -1,
+     "ẓarf",
+     "ẓarf; bermutaʿalliq pada objek/jawāb yang dihapus (ditunjukkan ay. 11)"
+    ],
+    [
+     3,
+     2,
+     "fiʿil syarṭ"
+    ],
+    [
+     4,
+     3,
+     "nāʾib fāʿil"
+    ],
+    [
+     5,
+     4,
+     "ṣilah"
+    ],
+    [
+     6,
+     5,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "100:10",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada buʿthira, ay. 9"
+    ],
+    [
+     1,
+     0,
+     "nāʾib fāʿil"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:1",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "ẓarf",
+     "ẓarf bagi jawāb syarṭ tuḥaddithu, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "fiʿil syarṭ"
+    ],
+    [
+     2,
+     1,
+     "nāʾib fāʿil"
+    ],
+    [
+     3,
+     1,
+     "mafʿūl muṭlaq"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada zulzilati, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "fāʿil"
+    ],
+    [
+     2,
+     0,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada zulzilati, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "fāʿil"
+    ],
+    [
+     2,
+     0,
+     "maqūl al-qawl"
+    ],
+    [
+     3,
+     2,
+     "khabar"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:4",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     1,
+     "ẓarf"
+    ],
+    [
+     1,
+     -1,
+     "jawāb syarṭ",
+     "jawāb syarṭ bagi idhā, ay. 1"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "jar-majrūr",
+     "jar-majrūr bagi tuḥaddithu, ay. 4"
+    ],
+    [
+     1,
+     0,
+     "isim anna"
+    ],
+    [
+     2,
+     0,
+     "khabar anna"
+    ],
+    [
+     3,
+     2,
+     "jar-majrūr"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "fiʿil syarṭ"
+    ],
+    [
+     5,
+     0,
+     "jawāb syarṭ"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     2,
+     "muḍāf ilayh"
+    ],
+    [
+     4,
+     2,
+     "tamyīz"
+    ]
+   ]
+  },
+  {
+   "lokasi": "99:8",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 10: label “fiʿil syarat” diseragamkan menjadi “fiʿil syarṭ”, sejalan dengan “syarṭ”, “jawāb syarṭ”, “Ḥarf syarṭ”, “Isim syarṭ”. Dalam prosa keterangan, kata Indonesia “syarat” tetap boleh dipakai. Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "maʿṭūf",
+     "maʿṭūf pada man, ay. 7"
+    ],
+    [
+     1,
+     0,
+     "fiʿil syarṭ"
+    ],
+    [
+     5,
+     0,
+     "jawāb syarṭ"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih"
+    ],
+    [
+     3,
+     2,
+     "muḍāf ilayh"
+    ],
+    [
+     4,
+     2,
+     "tamyīz"
+    ]
+   ]
+  },
+  {
+   "lokasi": "97:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "khabar"
+    ],
+    [
+     2,
+     1,
+     "mafʿūl bih 2 dan 3",
+     "menempati mafʿūl bih 2 dan 3 (taʿlīq)"
+    ],
+    [
+     3,
+     2,
+     "khabar"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:2",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal bagi al-bayyinah, ay. 1"
+    ],
+    [
+     1,
+     0,
+     "jar-majrūr"
+    ],
+    [
+     2,
+     1,
+     "majrūr"
+    ],
+    [
+     3,
+     0,
+     "naʿt (jumlah)"
+    ],
+    [
+     4,
+     3,
+     "mafʿūl bih"
+    ],
+    [
+     5,
+     4,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:3",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     -1,
+     "naʿt (jumlah)",
+     "naʿt (jumlah) bagi ṣuḥufan, ay. 2"
+    ],
+    [
+     0,
+     1,
+     "khabar muqaddam"
+    ],
+    [
+     2,
+     1,
+     "naʿt"
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:5",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     -1,
+     "ḥāl (jumlah)",
+     "ḥāl (jumlah) bagi tafarraqa, ay. 4"
+    ],
+    [
+     0,
+     1,
+     "nafy"
+    ],
+    [
+     2,
+     1,
+     "ḥaṣr"
+    ],
+    [
+     3,
+     1,
+     "taʿlīl (jar-majrūr)"
+    ],
+    [
+     4,
+     3,
+     "mafʿūl bih"
+    ],
+    [
+     5,
+     3,
+     "ḥāl"
+    ],
+    [
+     6,
+     5,
+     "jar-majrūr"
+    ],
+    [
+     7,
+     5,
+     "mafʿūl bih"
+    ],
+    [
+     8,
+     3,
+     "ḥāl kedua"
+    ],
+    [
+     9,
+     3,
+     "maʿṭūf"
+    ],
+    [
+     10,
+     9,
+     "mafʿūl bih"
+    ],
+    [
+     11,
+     3,
+     "maʿṭūf"
+    ],
+    [
+     12,
+     11,
+     "mafʿūl bih"
+    ],
+    [
+     14,
+     13,
+     "khabar"
+    ],
+    [
+     15,
+     14,
+     "muḍāf ilayh"
+    ]
+   ]
+  },
+  {
+   "lokasi": "98:8",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Masalah 14: label busur hanya memuat istilah relasi baku. Kata kepala lintas-ayat, taqdīr, dan uraian dipindahkan ke elemen ke-4 busur (catatan): [dependen, kepala, label, catatan]. Fungsi tbRel di index.html saat ini memotong catatan dari label; pengembang-web perlu membaca e[3] lebih dahulu sebelum usulan ini diterapkan. Usulan ini menggantikan usulan label panjang dalam fathur_DE.json untuk 100:1. Agen: anotator-irab; pengembang-web (dukungan elemen ke-4).",
+   "usulan": [
+    [
+     1,
+     0,
+     "ẓarf"
+    ],
+    [
+     2,
+     1,
+     "muḍāf ilayh"
+    ],
+    [
+     3,
+     0,
+     "khabar"
+    ],
+    [
+     4,
+     3,
+     "muḍāf ilayh"
+    ],
+    [
+     5,
+     3,
+     "naʿt (jumlah)"
+    ],
+    [
+     6,
+     5,
+     "jar-majrūr"
+    ],
+    [
+     7,
+     6,
+     "majrūr"
+    ],
+    [
+     8,
+     5,
+     "fāʿil"
+    ],
+    [
+     9,
+     0,
+     "ḥāl",
+     "ḥāl (ṣāḥib al-ḥāl: hum; ʿāmil dihapus)"
+    ],
+    [
+     10,
+     9,
+     "jar-majrūr"
+    ],
+    [
+     11,
+     9,
+     "ẓarf"
+    ],
+    [
+     13,
+     12,
+     "fāʿil"
+    ],
+    [
+     14,
+     12,
+     "jar-majrūr"
+    ],
+    [
+     15,
+     12,
+     "ʿaṭf jumlah"
+    ],
+    [
+     16,
+     15,
+     "jar-majrūr"
+    ],
+    [
+     18,
+     17,
+     "khabar"
+    ],
+    [
+     19,
+     18,
+     "ṣilah"
+    ],
+    [
+     20,
+     19,
+     "mafʿūl bih"
+    ]
+   ]
+  }
+ ],
+ "ringkasan": "15 masalah konsistensi diputuskan dengan satu bentuk baku per kasus. Semua kemunculan di 21 surah dicari dengan skrip dan diberi usulan nilai penuh. Usulan pada lokasi yang sama dengan fathur_lama.json sudah digabung (nilai akhir identik di kedua berkas). Kelas dan label baru yang perlu dipetakan pengembang-web: Ẓarf makān, Fiʿil amr (bentuk II/VIII/X), Fiʿil māḍī (bentuk X), nahy, fiʿil syarṭ, ʿaṭf bayān, tafrīʿ, istithnāʾ, mafʿūl bih 2 dan 3, serta dukungan elemen ke-4 (catatan) pada busur."
+}

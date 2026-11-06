@@ -9,7 +9,11 @@ const html = fs.readFileSync(path.join(akar, 'index.html'), 'utf8');
 const awal = html.indexOf('const KASUS='), akhir = html.indexOf('const state=');
 const D = new Function(html.slice(awal, akhir) + ';return {VERSES,ROOTS,KEMENAG,NU};')();
 const bersih = (s) => String(s).replace(/\[\[\d+\]\]/g, '').replace(/\s+/g, ' ').trim();
-const lama = JSON.parse(fs.readFileSync(path.join(akar, 'corpus.json'), 'utf8'));
+const lamaJ = JSON.parse(fs.readFileSync(path.join(akar, 'corpus.json'), 'utf8'));
+const lama = Array.isArray(lamaJ) ? lamaJ : lamaJ.data;
+// Pernyataan hak cipta Tanzil wajib disertakan pada berkas turunan yang memuat teks Al-Qur'an.
+const sumberTz = fs.readFileSync(path.join(akar, 'data', 'sumber', 'tanzil-uthmani-1.1.txt'), 'utf8').split('\n');
+const hakCipta = sumberTz.slice(sumberTz.findIndex((l) => l.includes('PLEASE DO NOT REMOVE'))).filter((l) => l.startsWith('#'));
 
 const out = [];
 D.VERSES.forEach((v) => {
@@ -31,9 +35,15 @@ D.VERSES.forEach((v) => {
     });
   });
 });
-lama.filter((x) => x.type === 'makna').forEach((x) => out.push(x));
+// Entri makna disalin dari corpus.json lama; istilah Arab di awal teksnya disamakan dengan DIS terkini.
+const DIS = new Function(html.slice(awal, akhir) + ';return DIS;')();
+lama.filter((x) => x.type === 'makna').forEach((x) => {
+  const d = DIS.find((y) => 'd:' + y.id === x.id), awalTeks = d && x.text.slice(0, d.term.length);
+  if (d && awalTeks !== d.term && awalTeks.normalize('NFC') === d.term.normalize('NFC')) x = { ...x, text: d.term + x.text.slice(d.term.length) };
+  out.push(x);
+});
 
-const teks = '[\n' + out.map((x) => JSON.stringify(x)).join(',\n') + '\n]\n';
+const teks = '{"hak_cipta_tanzil":' + JSON.stringify(hakCipta) + ',\n"data":[\n' + out.map((x) => JSON.stringify(x)).join(',\n') + '\n]}\n';
 if (process.argv.includes('--cek')) {
   const sama = teks === fs.readFileSync(path.join(akar, 'corpus.json'), 'utf8');
   console.log(sama ? 'corpus.json mutakhir' : 'corpus.json berbeda dari data index.html');

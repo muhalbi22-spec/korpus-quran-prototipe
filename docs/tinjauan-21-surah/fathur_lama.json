@@ -1,0 +1,548 @@
+{
+ "peninjau": "fathur",
+ "cakupan": "QS 1 Al-Fātiḥah (7 ayat), QS 2 Al-Baqarah 1–6, QS 96 Al-ʿAlaq (19 ayat), QS 114 An-Nās (6 ayat)",
+ "konvensi_lokasi": "surah:ayat:indeksKata, indeks kata mulai 0 (sesuai FORMAT.md); masalah15.json memakai indeks mulai 1",
+ "temuan": [
+  {
+   "lokasi": "1:4",
+   "aspek": "tr",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Riwayat Ḥafṣ ʿan ʿĀṣim membaca māliki (isim fāʿil dari malaka: memiliki), sedangkan padanan “Penguasa” lebih dekat ke bacaan malik (raja) yang bukan bacaan teks ini. Gloss kata sudah memuat “Pemilik”; tr kerja diselaraskan dengan bacaan Ḥafṣ dan dengan Kemenag/NU (“Pemilik hari Pembalasan”). Agen: anotator-irab (tr kerja), dicek penyelaras-terjemahan.",
+   "usulan": "Pemilik hari pembalasan."
+  },
+  {
+   "lokasi": "1:4:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Naḥw: isim fāʿil yang di-iḍāfah-kan pada maʿmūl-nya biasanya iḍāfah lafẓiyyah (tetap nakirah), sehingga perlu alasan mengapa māliki sah menjadi naʿt bagi lafẓ al-jalālah yang maʿrifah. Alasan yang lazim: maknanya tetap/terus-menerus (bukan masa kini atau datang), sehingga iḍāfah-nya maḥḍah dan ia menjadi maʿrifah; pandangan lain menjadikannya badal. Ditambahkan ke keterangan agar alternatif tercatat. Kelas tidak diubah (sudah baku: Isim (isim fāʿil)). Agen: anotator-irab.",
+   "usulan": [
+    [
+     "مَٰلِكِ",
+     "māliki",
+     "Isim (isim fāʿil)",
+     "Naʿt bagi lafẓ al-jalālah, majrūr, tanda jarr kasrah; sekaligus muḍāf. Mengikuti riwayat Ḥafṣ ʿan ʿĀṣim (qirā’ah lain membaca “malik”). Ia sah menjadi naʿt bagi maʿrifah karena iḍāfah-nya dipandang maḥḍah (maknanya tetap, tidak terikat masa kini atau masa datang); ada pandangan lain: badal."
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:5:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah yang relevan bagi penerjemahan: iltifāt dari gaya orang ketiga (al-ḥamdu lillāh … māliki yawm ad-dīn) ke sapaan langsung (iyyāka). Pergeseran ini menjelaskan mengapa terjemahan berpindah ke “-Mu/Engkau”. Ḥaṣr karena taqdīm mafʿūl sudah tercatat. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "إِيَّا",
+     "iyyā",
+     "Ḍamīr munfaṣil",
+     "Ḍamīr munfaṣil, mabnī; di posisi naṣab sebagai mafʿūl bih yang didahulukan (muqaddam) untuk pengkhususan (ḥaṣr): “hanya kepada-Mu”. Balāghah: di sini terjadi iltifāt dari gaya orang ketiga (ayat 2–4) ke sapaan langsung kepada Allah."
+    ],
+    [
+     "كَ",
+     "-ka",
+     "Huruf khiṭāb",
+     "Kāf penanda orang kedua tunggal. Menurut pandangan yang umum dipakai ia ḥarf khiṭāb tanpa posisi i‘rāb; ada pandangan lain bahwa ia muḍāf ilayh."
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:7:6",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Naḥw: al-maghḍūb adalah isim mafʿūl yang beramal seperti fiʿil majhūl, dan jar-majrūr ʿalayhim sesudahnya menempati posisi rafaʿ sebagai nāʾib fāʿil baginya (bukan sekadar mutaʿalliq). Ini analisis yang umum dalam kitab-kitab iʿrāb Al-Qur’an; halaman rujukannya perlu dicek ahli sebelum dikutip. Kasus kata tetap majrur dan mabni true sesuai konvensi huruf jarr + ḍamīr. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "عَلَيْ",
+     "ʿalay",
+     "Huruf jarr",
+     "Huruf jarr, mabnī."
+    ],
+    [
+     "هِمْ",
+     "-him",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil, mabnī; di posisi jarr (majrūr). Jar-majrūr ʿalayhim berposisi rafaʿ sebagai nāʾib fāʿil bagi isim mafʿūl al-maghḍūb."
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:7",
+   "aspek": "edges",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Busur [6,5] diberi label nāʾib fāʿil, sejalan dengan perbaikan keterangan 1:7:6. Usulan sudah memuat penyeragaman label lintas-ayat dari fathur_konsisten.json (label baku + catatan pada elemen ke-4). Agen: anotator-irab.",
+   "usulan": [
+    [
+     0,
+     -1,
+     "badal",
+     "badal dari aṣ-ṣirāṭ, ay. 6"
+    ],
+    [
+     1,
+     0,
+     "muḍāf ilayh"
+    ],
+    [
+     2,
+     1,
+     "ṣilah"
+    ],
+    [
+     3,
+     2,
+     "jar-majrūr"
+    ],
+    [
+     4,
+     1,
+     "naʿt"
+    ],
+    [
+     5,
+     4,
+     "muḍāf ilayh"
+    ],
+    [
+     6,
+     5,
+     "nāʾib fāʿil"
+    ],
+    [
+     8,
+     5,
+     "maʿṭūf"
+    ],
+    [
+     7,
+     8,
+     "ʿaṭf"
+    ]
+   ]
+  },
+  {
+   "lokasi": "1:7:5",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: nikmat disandarkan langsung kepada Allah (anʿamta), sedangkan murka diungkapkan dengan isim mafʿūl tanpa menyebut pelaku. Gejala ini sering dicatat dalam kajian balāghah sebagai adab dalam pengungkapan; terjemahan “yang dimurkai” (pasif, tanpa pelaku) sudah mempertahankannya. Dicatat agar penerjemah tidak menambahkan pelaku. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "ٱلْ",
+     "al-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf)."
+    ],
+    [
+     "مَغْضُوبِ",
+     "maghḍūbi",
+     "Isim (isim mafʿūl)",
+     "Muḍāf ilayh bagi ghayri, majrūr, tanda jarr kasrah. Balāghah: pelaku murka tidak disebut (bentuk isim mafʿūl), berbeda dengan anʿamta yang menyebut Allah sebagai pemberi nikmat; terjemahan pasif mempertahankan gejala ini."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:2:0",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah yang menjelaskan perbedaan terjemahan: isim isyārah untuk yang jauh (dhālika) dipakai untuk kitab yang hadir, lazim dijelaskan sebagai isyarat ketinggian kedudukan (buʿd al-manzilah). Ini menjelaskan mengapa Kemenag/NU memakai “ini” sedangkan tr kerja memakai “Itulah”. Tidak ada perubahan tr. Agen: anotator-irab; penyelaras-terjemahan untuk catatan SELARAS.",
+   "usulan": [
+    [
+     "ذَٰ",
+     "dhā",
+     "Isim isyārah",
+     "Isim isyārah (kata tunjuk), mabnī; di posisi rafaʿ sebagai mubtadaʾ. Balāghah: kata tunjuk jauh dipakai untuk kitab yang hadir, lazim dipahami sebagai isyarat ketinggian kedudukannya; karena itu sebagian terjemahan memakai “ini”."
+    ],
+    [
+     "لِ",
+     "li",
+     "Lām buʿd",
+     "Lām penanda jauh, tidak memiliki posisi i‘rāb."
+    ],
+    [
+     "كَ",
+     "-ka",
+     "Huruf khiṭāb",
+     "Kāf penanda orang kedua, tidak memiliki posisi i‘rāb."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:2:4",
+   "aspek": "segs",
+   "keputusan": "diperselisihkan",
+   "tingkat": "saran",
+   "alasan": "Naḥw dan waqf: pilihan yang dipakai (fīhi mutaʿalliq pada khabar lā yang dihapus, lalu hudan khabar bagi mubtadaʾ yang dihapus) adalah yang paling banyak dipakai dan dipertahankan. Alternatif yang dikenal: berhenti pada lā rayba (khabar lā dihapus), lalu fīhi menjadi khabar muqaddam bagi hudan. Di banyak mushaf tempat ini diberi tanda waqf muʿānaqah. Alternatif ditambahkan ke keterangan; edges tidak diubah. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "فِي",
+     "fī",
+     "Huruf jarr",
+     "Huruf jarr, mabnī. Jar-majrūr bermuta‘alliq pada khabar lā yang dihapus (taqdīr “kāʾin” atau “mawjūd”, ada). Ada pandangan lain: berhenti pada lā rayba (khabar lā dihapus), lalu fīhi menjadi khabar muqaddam bagi hudan."
+    ],
+    [
+     "هِ",
+     "-hi",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil, mabnī; di posisi jarr (majrūr)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:2:6",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf: akar w-q-y sudah benar, tetapi keterangan belum menjelaskan bentuknya. Muttaqīn adalah isim fāʿil bentuk VIII (ittaqā) dengan ibdāl wāw fāʾ al-fiʿl menjadi tāʾ lalu di-idgām-kan (awtaqā → ittaqā), dan i‘lāl pada lām al-fiʿl (asal muttaqiyīna). Penjelasan ini penting karena pemakai sering mengira akarnya t-q-y. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "لِّ",
+     "li",
+     "Huruf jarr",
+     "Huruf jarr, mabnī. Jar-majrūr bermuta‘alliq pada hudan (ada pandangan: pada sifat bagi hudan yang dihapus)."
+    ],
+    [
+     "لْ",
+     "l-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf); alifnya tidak ditulis setelah huruf jarr lām."
+    ],
+    [
+     "مُتَّقِينَ",
+     "muttaqīna",
+     "Isim (isim fāʿil, bentuk VIII)",
+     "Isim majrūr oleh huruf jarr, tanda jarr yā’ karena jamak mudzakkar sālim. Ṣarf: isim fāʿil bentuk VIII dari akar w-q-y; wāw di awal akar diganti tāʾ lalu di-idgām-kan (ittaqā), dan yāʾ di akhir akar dibuang karena i‘lāl (asal: muttaqiyīna)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:3:5",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "QAC (pembanding) menandai wāw ini istiʾnāf; data memilih ʿaṭf (kalimat yunfiqūna maʿṭūf pada ṣilah), pilihan yang lebih kuat karena ketiga sifat (beriman, mendirikan salat, berinfak) satu rangkaian ṣilah bagi alladhīna. Tidak diubah; perbedaan dengan QAC dicatat di laporan pengawas-qac saja. Agen: pengawas-qac (catat).",
+   "usulan": null
+  },
+  {
+   "lokasi": "2:4:9",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Sama dengan 2:3:5 (QAC: istiʾnāf). Pilihan ʿaṭf dipertahankan. Balāghah: pendahuluan bil-ākhirati atas yūqinūna dan penampakan ḍamīr hum memberi makna pengkhususan (ḥaṣr) dan penegasan, bukan sekadar penekanan; ditambahkan ke keterangan huruf jarr. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf sambung (ʿaṭf)."
+    ],
+    [
+     "بِ",
+     "bi",
+     "Huruf jarr",
+     "Huruf jarr, mabnī. Jar-majrūr bermuta‘alliq pada yūqinūna dan didahulukan untuk penegasan dan pengkhususan (ḥaṣr), diperkuat oleh ḍamīr hum yang ditampakkan."
+    ],
+    [
+     "ٱلْ",
+     "al-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf)."
+    ],
+    [
+     "ءَاخِرَةِ",
+     "ākhirati",
+     "Isim",
+     "Isim majrūr oleh huruf jarr, tanda jarr kasrah."
+    ]
+   ]
+  },
+  {
+   "lokasi": "2:5:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: ʿalā hudan adalah istiʿlāʾ majāzī; para ahli balāghah menjelaskannya sebagai istiʿārah (keteguhan di atas petunjuk diserupakan dengan orang yang berada di atas tunggangan). Ini menjelaskan pilihan tr kerja “berada di atas petunjuk” yang lebih harfiah daripada Kemenag (“mendapat petunjuk”). Agen: anotator-irab.",
+   "usulan": [
+    [
+     "عَلَىٰ",
+     "ʿalā",
+     "Huruf jarr",
+     "Huruf jarr, mabnī. Jar-majrūr bermuta‘alliq pada khabar yang dihapus (taqdīr “kāʾinūn”, berada). Balāghah: makna “di atas” bersifat majāz (istiʿārah), menggambarkan keteguhan mereka pada petunjuk."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:4:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil māḍī (bentuk II)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "عَلَّمَ",
+     "ʿallama",
+     "Fiʿil māḍī (bentuk II)",
+     "Fiʿil māḍī bentuk II (faʿʿala), mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kedua objeknya tidak disebut pada ayat ini (taqdīr: mengajarkan tulisan kepada manusia)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:5:0",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil māḍī (bentuk II)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "عَلَّمَ",
+     "ʿallama",
+     "Fiʿil māḍī (bentuk II)",
+     "Fiʿil māḍī bentuk II, mabnī atas fatḥah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kalimat ini badal dari ʿallama pada ayat 4 (ada pula yang menilainya kalimat baru)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:7:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil māḍī (bentuk X)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "ٱسْتَغْنَىٰٓ",
+     "istaghnā",
+     "Fiʿil māḍī (bentuk X)",
+     "Fiʿil māḍī bentuk X (istafʿala), mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Kalimat ini berposisi naṣab sebagai mafʿūl bih kedua bagi raʾā."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:10:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil māḍī (bentuk II)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "صَلَّىٰٓ",
+     "ṣallā",
+     "Fiʿil māḍī (bentuk II)",
+     "Fiʿil māḍī bentuk II, mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (sang hamba). Kalimat ini berposisi jarr sebagai muḍāf ilayh bagi idhā."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:13:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil māḍī (bentuk II)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "كَذَّبَ",
+     "kadhdhaba",
+     "Fiʿil māḍī (bentuk II)",
+     "Fiʿil māḍī bentuk II, mabnī atas fatḥah, di posisi jazm sebagai fiʿil syarat; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia) (orang yang melarang)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:13:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil māḍī (bentuk V)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī."
+    ],
+    [
+     "تَوَلَّىٰٓ",
+     "tawallā",
+     "Fiʿil māḍī (bentuk V)",
+     "Fiʿil māḍī bentuk V (tafaʿʿala), mabnī atas fatḥah muqaddarah; fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Diʿaṭafkan pada kadhdhaba."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:15:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil muḍāriʿ (bentuk VIII)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "يَنتَهِ",
+     "yantahi",
+     "Fiʿil muḍāriʿ (bentuk VIII)",
+     "Fiʿil muḍāriʿ bentuk VIII (iftaʿala), majzūm oleh lam, tanda jazm hilangnya huruf ʿillah (yāʾ); fāʿil: ḍamīr mustatir, taqdīr “huwa” (dia). Lam yantahi adalah fiʿil syarat."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:19:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil muḍāriʿ (bentuk IV)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "تُطِعْ",
+     "tuṭiʿ",
+     "Fiʿil muḍāriʿ (bentuk IV)",
+     "Fiʿil muḍāriʿ bentuk IV (afʿala), majzūm oleh lā nāhiyah, tanda jazm sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau)."
+    ],
+    [
+     "هُ",
+     "hu",
+     "Ḍamīr muttaṣil",
+     "Ḍamīr muttaṣil (dia), mabnī atas ḍamm; di posisi naṣab sebagai mafʿūl bih."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:19:4",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf dan konsistensi: keterangan sudah menyebut bentuk turunan (mazīd), tetapi kelas segmen tidak, berbeda dengan konvensi QS 1, 2, dan 97–113 (mis. “Fiʿil māḍī (bentuk IV)”). Kelas diubah menjadi “Fiʿil amr (bentuk VIII)”. Agen: anotator-irab; pengembang-web menambahkan kelas baru ke peta label bila belum ada.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī."
+    ],
+    [
+     "ٱقْتَرِب",
+     "qtarib",
+     "Fiʿil amr (bentuk VIII)",
+     "Fiʿil amr bentuk VIII (iftaʿala), mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Diʿaṭafkan pada usjud: mendekatkan diri kepada Allah melalui sujud."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:15:5",
+   "aspek": "root",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Ṣarf/leksikon: nāṣiyah lazim dimasukkan ke akar n-ṣ-w (naṣā, yanṣū), dan QAC (pembanding) juga memakai n-ṣ-w; data memakai n-ṣ-y. Bentuk yāʾ pada nāṣiyah adalah hasil i‘lāl (wāw sesudah kasrah). Usulan: pakai kunci akar baru nsw; n-ṣ-y dicatat sebagai pendapat lain di cat. Perlu verifikasi leksikograf pada kamus induk. Agen: leksikograf-akar (entri), anotator-irab (kunci akar kata).",
+   "usulan": "nsw"
+  },
+  {
+   "lokasi": "96:16:0",
+   "aspek": "root",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Sama dengan 96:15:5. Agen: leksikograf-akar, anotator-irab.",
+   "usulan": "nsw"
+  },
+  {
+   "lokasi": "96:16:1",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: penyandaran dusta dan dosa pada ubun-ubun dijelaskan ahli balāghah dengan dua cara: majāz mursal (bagian untuk keseluruhan, yang sudah tercatat) atau majāz ʿaqlī (penyandaran sifat kepada yang bukan pelakunya). Alternatif kedua ditambahkan. Kelas diseragamkan menjadi Isim (isim fāʿil) (lihat fathur_konsisten.json). Agen: anotator-irab.",
+   "usulan": [
+    [
+     "كَٰذِبَةٍ",
+     "kādhibatin",
+     "Isim (isim fāʿil)",
+     "Naʿt bagi nāṣiyatin, majrūr, tanda jarr kasrah. Sifat dusta dinisbahkan pada ubun-ubun sebagai majāz: bagian disebut untuk keseluruhan. Ada pula yang menjelaskannya sebagai majāz ʿaqlī (sifat orangnya disandarkan pada ubun-ubun)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "96:19:3",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "peringatan",
+   "alasan": "Klaim fikih berisiko: “disunahkan sujud tilawah” adalah pendapat sebagian mazhab, sedangkan hukum sujud tilawah dan status sajdah pada surah-surah mufaṣṣal diperselisihkan fuqaha. Diperlunak tanpa menyebut nama mazhab. Kelas wāw diseragamkan menjadi Huruf ʿaṭf (lihat fathur_konsisten.json). Agen: anotator-irab; peneliti-makna-tafsir bila ingin rincian bersumber.",
+   "usulan": [
+    [
+     "وَ",
+     "wa",
+     "Huruf ʿaṭf",
+     "Huruf ʿaṭf, mabnī."
+    ],
+    [
+     "ٱسْجُدْ",
+     "sjud",
+     "Fiʿil amr",
+     "Fiʿil amr, mabnī atas sukūn; fāʿil: ḍamīr mustatir wājib, taqdīr “anta” (engkau). Ayat ini termasuk ayat sajdah menurut banyak ulama; hukum sujud tilawah diperselisihkan para fuqaha."
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:4:2",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Ṣarf yang menjelaskan terjemahan: waswās adalah maṣdar dari fiʿil rubāʿī waswasa (pola faʿlāl), di sini bermakna pelaku (“pembisik”), baik sebagai maṣdar yang dipakai untuk pelaku demi mubālaghah maupun dengan taqdīr muḍāf (dhī al-waswās). Kelas diubah ke Isim (maṣdar) agar sejalan dengan gloss “pembisik, bisikan”. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "ٱلْ",
+     "al-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf)."
+    ],
+    [
+     "وَسْوَاسِ",
+     "waswāsi",
+     "Isim (maṣdar)",
+     "Muḍāf ilayh bagi sharri, majrūr, tanda jarr kasrah. Ṣarf: maṣdar dari fiʿil rubāʿī waswasa (pola faʿlāl), di sini bermakna pelaku (pembisik), sebagai mubālaghah atau dengan taqdīr muḍāf (dhī al-waswās, yang mempunyai bisikan)."
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:3:1",
+   "aspek": "segs",
+   "keputusan": "diterima dengan catatan",
+   "tingkat": "saran",
+   "alasan": "Balāghah: pengulangan an-nās pada akhir ayat 1–3 (dan ayat 5) adalah penampakan isim di tempat ḍamīr (iẓhār fī mawḍiʿ al-iḍmār) yang memberi penegasan dan menjaga fāṣilah. Terjemahan yang mengulang “manusia” sudah tepat; dicatat agar tidak diringkas menjadi kata ganti. Agen: anotator-irab.",
+   "usulan": [
+    [
+     "ٱل",
+     "an-",
+     "Awalan definit",
+     "Alif-lām penentu (taʿrīf); lām melebur ke huruf berikutnya (idgām syamsiyyah)."
+    ],
+    [
+     "نَّاسِ",
+     "nāsi",
+     "Isim",
+     "Muḍāf ilayh bagi ilāhi, majrūr, tanda jarr kasrah. Balāghah: an-nās diulang (bukan diganti ḍamīr) untuk penegasan dan keselarasan akhir ayat."
+    ]
+   ]
+  },
+  {
+   "lokasi": "114:6:0",
+   "aspek": "segs",
+   "keputusan": "diperselisihkan",
+   "tingkat": "saran",
+   "alasan": "Taʿalluq mina al-jinnati wa-n-nās memengaruhi makna (pembisik dari jin dan manusia, atau yang dibisiki). Pilihan dan alternatifnya sudah tercatat dan sudah ditandai perlu verifikasi ahli; dipertahankan. Tidak ada perubahan. Agen: validasi ahli manusia.",
+   "usulan": null
+  },
+  {
+   "lokasi": "akar:nsw",
+   "aspek": "akar",
+   "keputusan": "diperselisihkan",
+   "tingkat": "peringatan",
+   "alasan": "Entri akar baru untuk nāṣiyah (lihat 96:15:5). Huruf Arab disusun skrip dari huruf entri nsy dan smw yang ada. Entri nsy dihapus bila tidak dipakai kata lain (saat ini hanya dipakai 96:15:5 dan 96:16:0). Agen: leksikograf-akar.",
+   "usulan": {
+    "ar": "ن ص و",
+    "lat": "n-ṣ-w",
+    "makna": "ubun-ubun, rambut depan",
+    "cat": "Nāṣiyah lazim dimasukkan ke akar n-ṣ-w; yāʾ pada nāṣiyah hasil i‘lāl (wāw sesudah kasrah). Sebagian rujukan mencatatnya di bawah n-ṣ-y. QAC (pembanding) memakai n-ṣ-w. Perlu verifikasi pada kamus induk."
+   }
+  }
+ ],
+ "ringkasan": "QS 1, 2:1–6, 96, dan 114 (38 ayat, 168 kata) bermutu baik: kedudukan i‘rāb, tanda i‘rāb (termasuk taqdīr pada isim maqṣūr dan tanda far‘ī pada jamak dan al-afʿāl al-khamsah), maḥall mabnī, ḍamīr mustatir, dan alternatif utama sudah tercatat dan sesuai dengan kitab iʿrāb yang lazim. Tidak ada galat berat. Perbaikan terpenting: nāʾib fāʿil bagi al-maghḍūb (1:7), tr 1:4 yang harus mengikuti bacaan māliki (Ḥafṣ), klaim fikih sujud tilawah (96:19) yang perlu diperlunak, akar nāṣiyah (n-ṣ-w, diperselisihkan), dan kelas fiʿil mazīd di QS 96 yang belum menyebut bentuknya. Sisanya catatan balāghah yang menjelaskan pilihan terjemahan. Status tetap draf ilmiah, belum divalidasi ahli."
+}
