@@ -62,11 +62,11 @@ const samaJ = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const seg = (s) => { for (const a of [true, false]) if (samaJ(s, D.AL(s[0], s[1], a))) return `AL(${q(s[0])},${q(s[1])},${a})`;
   const u = D.UNA(); if (samaJ(s, u)) return 'UNA()'; if (s[0] === u[0] && s[1] === u[1] && s[2] === u[2]) return `UNA(${q(s[3])})`; return '[' + s.map(q).join(',') + ']'; };
 const kata = (w) => `  W(${q(w.ar)},${q(w.lat)},${q(w.gloss)},${w.root ? q(w.root) : 'null'},${q(w.kasus)},${w.mabni},[\n    ${w.segs.map(seg).join(',\n    ')}]${w.dis ? ',' + q(w.dis) : ''})`;
-const ayat = (v) => `{n:${v.n},ar:${q(v.ar)},tr:${q(v.tr)},\n words:[\n${v.words.map(kata).join(',\n')}\n ],\n edges:[${v.edges.map((e) => `[${e[0]},${e[1]},${q(e[2])}]`).join(',')}]}`;
+const ayat = (v) => `{n:${v.n},ar:${q(v.ar)},tr:${q(v.tr)},\n words:[\n${v.words.map(kata).join(',\n')}\n ],\n edges:[${v.edges.map((e) => `[${e[0]},${e[1]},${q(e[2])}${e[3]!=null?','+q(e[3]):''}]`).join(',')}]}`;
 const NAMA = { 1: 'FATIHAH', 2: 'BAQARAH', 96: 'ALAQ', 114: 'NAS' };
 for (const no of ubahSurah) { const S = D.SURAHS.find((x) => x.no === no); if (!NAMA[no]) throw new Error('nama blok tidak dikenal: ' + no);
   const nm = 'const V_' + NAMA[no] + '=[\n', a = h.indexOf(nm), b = h.indexOf('\n];\n', a); h = h.slice(0, a) + nm + S.verses.map(ayat).join(',\n\n') + h.slice(b); }
 for (const u of disUbah) { const lama = `term:${q(u.lama)}`; if (h.split(lama).length !== 2) throw new Error('DIS tidak unik: ' + u.id); h = h.replace(lama, () => `term:${q(u.baru)}`); }
 fs.writeFileSync(F, h);
 fs.writeFileSync(path.join(AKAR, 'docs', 'tanzil-pemulihan.json'), JSON.stringify({ayat: laporan, dis: disUbah}, null, 1) + '\n');
-console.log('ditulis; log di docs/tanzil-pemulihan.json');
+console.log('ditulis; log di docs/tinjauan-21-surah/tanzil-pemulihan.json');

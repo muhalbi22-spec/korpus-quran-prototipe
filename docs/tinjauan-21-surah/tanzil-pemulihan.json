@@ -1,0 +1,579 @@
+{
+ "ayat": [
+  {
+   "ayat": "1:1",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱللَّهِ",
+     "baru": "ٱللَّهِ",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "ٱلرَّحْمَٰنِ",
+     "baru": "ٱلرَّحْمَٰنِ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "ٱلرَّحِيمِ",
+     "baru": "ٱلرَّحِيمِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "1:2",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "لِلَّهِ",
+     "baru": "لِلَّهِ",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "رَبِّ",
+     "baru": "رَبِّ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "1:3",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "ٱلرَّحْمَٰنِ",
+     "baru": "ٱلرَّحْمَٰنِ",
+     "samaNFC": true
+    },
+    {
+     "k": 1,
+     "lama": "ٱلرَّحِيمِ",
+     "baru": "ٱلرَّحِيمِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "1:4",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "ٱلدِّينِ",
+     "baru": "ٱلدِّينِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "1:5",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "إِيَّاكَ",
+     "baru": "إِيَّاكَ",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "وَإِيَّاكَ",
+     "baru": "وَإِيَّاكَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "1:6",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلصِّرَٰطَ",
+     "baru": "ٱلصِّرَٰطَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "1:7",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلَّذِينَ",
+     "baru": "ٱلَّذِينَ",
+     "samaNFC": true
+    },
+    {
+     "k": 8,
+     "lama": "ٱلضَّآلِّينَ",
+     "baru": "ٱلضَّآلِّينَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "2:2",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 6,
+     "lama": "لِّلْمُتَّقِينَ",
+     "baru": "لِّلْمُتَّقِينَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "2:3",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "ٱلَّذِينَ",
+     "baru": "ٱلَّذِينَ",
+     "samaNFC": true
+    },
+    {
+     "k": 4,
+     "lama": "ٱلصَّلَوٰةَ",
+     "baru": "ٱلصَّلَوٰةَ",
+     "samaNFC": true
+    },
+    {
+     "k": 5,
+     "lama": "وَمِمَّا",
+     "baru": "وَمِمَّا",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "2:4",
+   "jenis": "isi berbeda",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "وَٱلَّذِينَ",
+     "baru": "وَٱلَّذِينَ",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "بِمَآ",
+     "baru": "بِمَآ",
+     "samaNFC": true
+    },
+    {
+     "k": 5,
+     "lama": "وَمَآ",
+     "baru": "وَمَآ",
+     "samaNFC": true
+    },
+    {
+     "k": 9,
+     "lama": "وَبِٱلْءَاخِرَةِ",
+     "baru": "وَبِٱلْـَٔاخِرَةِ",
+     "samaNFC": false
+    }
+   ]
+  },
+  {
+   "ayat": "2:5",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 3,
+     "lama": "مِّن",
+     "baru": "مِّن",
+     "samaNFC": true
+    },
+    {
+     "k": 4,
+     "lama": "رَّبِّهِمْ",
+     "baru": "رَّبِّهِمْ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "2:6",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "إِنَّ",
+     "baru": "إِنَّ",
+     "samaNFC": true
+    },
+    {
+     "k": 1,
+     "lama": "ٱلَّذِينَ",
+     "baru": "ٱلَّذِينَ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "سَوَآءٌ",
+     "baru": "سَوَآءٌ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "114:1",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "بِرَبِّ",
+     "baru": "بِرَبِّ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "ٱلنَّاسِ",
+     "baru": "ٱلنَّاسِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "114:2",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلنَّاسِ",
+     "baru": "ٱلنَّاسِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "114:3",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلنَّاسِ",
+     "baru": "ٱلنَّاسِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "114:4",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "شَرِّ",
+     "baru": "شَرِّ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "ٱلْخَنَّاسِ",
+     "baru": "ٱلْخَنَّاسِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "114:5",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "ٱلَّذِى",
+     "baru": "ٱلَّذِى",
+     "samaNFC": true
+    },
+    {
+     "k": 4,
+     "lama": "ٱلنَّاسِ",
+     "baru": "ٱلنَّاسِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "114:6",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلْجِنَّةِ",
+     "baru": "ٱلْجِنَّةِ",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "وَٱلنَّاسِ",
+     "baru": "وَٱلنَّاسِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:1",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "رَبِّكَ",
+     "baru": "رَبِّكَ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "ٱلَّذِى",
+     "baru": "ٱلَّذِى",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:3",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "وَرَبُّكَ",
+     "baru": "وَرَبُّكَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:4",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "ٱلَّذِى",
+     "baru": "ٱلَّذِى",
+     "samaNFC": true
+    },
+    {
+     "k": 1,
+     "lama": "عَلَّمَ",
+     "baru": "عَلَّمَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:5",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "عَلَّمَ",
+     "baru": "عَلَّمَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:6",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "كَلَّآ",
+     "baru": "كَلَّآ",
+     "samaNFC": true
+    },
+    {
+     "k": 1,
+     "lama": "إِنَّ",
+     "baru": "إِنَّ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:7",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "رَّءَاهُ",
+     "baru": "رَّءَاهُ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:8",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "إِنَّ",
+     "baru": "إِنَّ",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "رَبِّكَ",
+     "baru": "رَبِّكَ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "ٱلرُّجْعَىٰٓ",
+     "baru": "ٱلرُّجْعَىٰٓ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:9",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلَّذِى",
+     "baru": "ٱلَّذِى",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:10",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "صَلَّىٰٓ",
+     "baru": "صَلَّىٰٓ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:12",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "بِٱلتَّقْوَىٰٓ",
+     "baru": "بِٱلتَّقْوَىٰٓ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:13",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "كَذَّبَ",
+     "baru": "كَذَّبَ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "وَتَوَلَّىٰٓ",
+     "baru": "وَتَوَلَّىٰٓ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:14",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 2,
+     "lama": "بِأَنَّ",
+     "baru": "بِأَنَّ",
+     "samaNFC": true
+    },
+    {
+     "k": 3,
+     "lama": "ٱللَّهَ",
+     "baru": "ٱللَّهَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:15",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "كَلَّا",
+     "baru": "كَلَّا",
+     "samaNFC": true
+    },
+    {
+     "k": 2,
+     "lama": "لَّمْ",
+     "baru": "لَّمْ",
+     "samaNFC": true
+    },
+    {
+     "k": 5,
+     "lama": "بِٱلنَّاصِيَةِ",
+     "baru": "بِٱلنَّاصِيَةِ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:18",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 1,
+     "lama": "ٱلزَّبَانِيَةَ",
+     "baru": "ٱلزَّبَانِيَةَ",
+     "samaNFC": true
+    }
+   ]
+  },
+  {
+   "ayat": "96:19",
+   "jenis": "urutan tanda (NFC)",
+   "kata": [
+    {
+     "k": 0,
+     "lama": "كَلَّا",
+     "baru": "كَلَّا",
+     "samaNFC": true
+    }
+   ]
+  }
+ ],
+ "dis": [
+  {
+   "id": "dyn",
+   "lama": "ٱلدِّينِ",
+   "baru": "ٱلدِّينِ"
+  },
+  {
+   "id": "rhm",
+   "lama": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+   "baru": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+  },
+  {
+   "id": "wsws",
+   "lama": "ٱلْوَسْوَاسِ ٱلْخَنَّاسِ",
+   "baru": "ٱلْوَسْوَاسِ ٱلْخَنَّاسِ"
+  }
+ ]
+}

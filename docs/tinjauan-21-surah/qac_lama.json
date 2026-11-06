@@ -1,0 +1,34 @@
+{
+ "peninjau": "pengawas-qac",
+ "cakupan": "QS 1, QS 2:1–6, QS 96, QS 114 (38 ayat, 168 kata); pembanding Quranic Arabic Corpus wordbyword (GNU GPL)",
+ "temuan": [
+  {
+   "lokasi": "96:15:4",
+   "aspek": "segs",
+   "keputusan": "perlu perbaikan",
+   "tingkat": "saran",
+   "alasan": "Nūn tawkīd khafīfah digabung ke batang fiʿil dengan label kelas majemuk \"Fiʿil muḍāriʿ + nūn tawkīd\". QAC (wordbyword 96:15:5) memisahkannya: EMPH emphatic prefix lām / V 1st person plural imperfect verb / EMPH emphatic suffix nūn (\"ونون التوكيد رسمت ألفًا\"); korpus kita sendiri memisahkan nūn tawkīd pada 102:6:0 dan 102:7:1. Karena rasm menulis nūn sebagai tanwīn fatḥ + alif, segmen ketiga dimulai dengan harakat; bila tampilan tidak menerimanya, alternatifnya cukup ganti label kelas segmen kedua menjadi \"Fiʿil muḍāriʿ\". Urutan kode dipertahankan (gabungan segmen = w.ar).",
+   "usulan": [
+    [
+     "لَ",
+     "la",
+     "Lām jawāb al-qasam",
+     "Lām jawaban sumpah, mabnī."
+    ],
+    [
+     "نَسْفَع",
+     "nasfaʿ",
+     "Fiʿil muḍāriʿ",
+     "Fiʿil muḍāriʿ mabnī atas fatḥah karena bersambung langsung dengan nūn tawkīd khafīfah. Fāʿil: ḍamīr mustatir wājib, taqdīr “naḥnu” (Kami). Kalimat ini jawāb al-qasam."
+    ],
+    [
+     "ًۢا",
+     "an",
+     "Nūn tawkīd",
+     "Nūn tawkīd khafīfah (nūn penegas ringan), ditulis sebagai tanwīn fatḥ dan alif; saat berhenti dibaca alif. Huruf mabnī atas sukūn, tidak memiliki posisi iʿrāb."
+    ]
+   ]
+  }
+ ],
+ "ringkasan": "168 kata dibandingkan. Segmentasi 99.4% cocok (identik + notasi), kelas kata 97.6%, kasus/mood 100% (109 kata), akar 100% (112 kata). Satu kemungkinan galat ringan (segmentasi la-nasfaʿan); empat beda analisis yang sah (1:7:8, 96:3:2, 2:3:6, 2:4:10 nomor QAC); beberapa ketidakseragaman label kelas antarsurah dicatat di laporan sebagai saran. Relasi treebank tidak dibandingkan."
+}
