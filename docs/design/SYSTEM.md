@@ -25,6 +25,7 @@ Aturan di luar blok token tidak memuat warna heksadesimal, kecuali empat warna k
 | `--link` | = `--brand-text` | = `--brand-text` | tautan bergaris bawah (bukan biru) |
 | `--hl` / `--hl-line` | emas transparan | emas transparan | sorotan KWIC dan Peta sisipan |
 | `--g1 --g2 --g3` | #A8873A #6B5B95 #2C7A8C | #CDAE66 #B3A5D6 #6CC3D1 | kelompok surah pada Graf akar |
+| `--tb-nomina --tb-verba --tb-ajektiva --tb-nama-diri --tb-pronomina --tb-partikel` | #3E4C63 #2A7A2E #7A3E9D #0B7285 #94560F #B42318 | #C3CEDD #86D28F #D2A8F0 #6FD3E3 #EDB874 #FF9B8F | kelompok kelas kata pada Treebank (segmen, tag, busur); bukan warna kasus |
 
 **Warna kasus tidak diubah** dan hanya dipakai untuk makna gramatikal:
 `--rafa #2556C4`, `--nashb #17795A`, `--jarr #A23B72`, `--mabni #5D6B7A`, `--jazm #B45309`, `--tree #2F4B9C`
@@ -66,7 +67,7 @@ Rujukan dan hitungan memakai `font-variant-numeric: tabular-nums`.
 | Inspektur | `.detail#insp` | ≥ 980 px: kolom 380 px, lengket di bawah bilah konteks. 561–979 px: di bawah kolom baca. ≤ 560 px: lembar bawah (`position:fixed`). Lembar tertutup hanya menampilkan kata dan tombol "Detail". Ketuk kata membukanya; Esc atau "Tutup" menutupnya |
 | Lencana provenans | `.prov-strip .prov(.src/.draf)` | per lapisan: Teks Arab (Tanzil), Terjemahan (Kemenag, NU Online), terjemahan kerja (draf), Tafsir (contoh awal), i‘rāb/treebank (draf). Nama sumber lengkap ada di `title` dan diambil dari `KEMENAG_SUMBER`, `KEMENAG_SUMBER_JUZAMMA`, `NU_SUMBER`, `TAFSIR_SUMBER` |
 | Graf akar | `.graf-svg`, `.graf-leg` | warna mengikuti kelompok surah (`GRAF_KEL`): Al-Fātiḥah, Al-Baqarah 1–6, Juz ‘Amma, dan cadangan netral. Legenda hanya memuat kelompok yang ada pada cakupan |
-| Treebank | `#tree-box` | dibuka dari kata pertama (kanan). Di ponsel ada petunjuk geser |
+| Treebank | `#tree-box .tb-svg`, `.tb-leg`, `.tb-tab`, `.tb-note` | graf gaya QAC: alamat, transliterasi, dan glos di atas kata; segmen Arab berwarna menurut kelompok kelas kata dengan titik dan tag di bawahnya; busur di bawah dengan istilah Arab dan glos Indonesia. Busur menempel pada segmen inti (segmen pertama yang bukan partikel; bila semua partikel, segmen terakhir). Dibuka dari kata pertama (kanan); posisi gulir dipertahankan saat memilih kata. Tabel Terjemahan / Kata Arab / Sintaksis dan morfologi; ringkasan iʿrāb memakai `--gold-ink`. Di ≤ 560 px tabel menjadi kartu. Tampilan lama (warna kasus) tetap ada di `details#tb-lama` |
 | Kontrol | `.btn .chip .formbtn .vbtn .vsel .search .sp-in` | tinggi minimal 40–44 px, batas `--line-strong`. Tombol utama (Cari makna, Minta saran label) terisi `--brand` |
 | Tautan lewati | `.skip` | muncul saat fokus dan langsung menuju `#view` |
 
