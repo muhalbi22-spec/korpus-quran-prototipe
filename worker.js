@@ -11,7 +11,9 @@
 //   POST /api/label (butuh kunci lab)  -> saran label padanan formal/dinamis (eksperimen)
 // Permintaan lain dilayani sebagai berkas statis (index.html).
 
-import CORPUS from './corpus.json';
+import CORPUS_JSON from './corpus.json';
+// corpus.json memuat pernyataan hak cipta Tanzil dan larik entri di kolom data.
+const CORPUS = Array.isArray(CORPUS_JSON) ? CORPUS_JSON : CORPUS_JSON.data;
 
 const MODEL = '@cf/baai/bge-m3';
 const BATCH = 32;          // jumlah teks per panggilan embedding
