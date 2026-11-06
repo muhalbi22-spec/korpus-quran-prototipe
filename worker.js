@@ -8,7 +8,7 @@
 // Titik akses:
 //   GET /api/cari?q=kasih+sayang&k=8   -> entri teratas menurut kemiripan makna
 //   GET /api/status                    -> pemeriksaan cepat bahwa layanan AI berfungsi
-//   POST /api/label (butuh kunci lab)  -> saran label padanan formal/dinamis (eksperimen)
+//   POST /api/label                    -> saran label padanan formal/dinamis (eksperimen, dibatasi lajunya)
 // Permintaan lain dilayani sebagai berkas statis (index.html).
 
 import CORPUS_JSON from './corpus.json';
@@ -120,7 +120,8 @@ async function status(env) {
 
 // ---------- Lab label padanan (eksperimen, akses terbatas) ----------
 // Model generatif hanya diminta mengklasifikasikan teknik penerjemahan (formal/dinamis),
-// tidak menafsirkan ayat. Akses dikunci dengan secret LAB_KEY agar jatah AI tidak dipakai umum.
+// tidak menafsirkan ayat. Terbuka untuk umum dengan pembatas laju per pengunjung dan per lokasi agar jatah AI
+// tidak terkuras; pengirim kunci LAB_KEY yang benar (pemilik) dibebaskan dari pembatas.
 // Opsi per model. Gemma 4 punya mode berpikir yang aktif secara default; tanpa dimatikan,
 // jatah token habis untuk berpikir dan jawabannya kosong. max_tokens sudah usang untuk Gemma 4,
 // diganti max_completion_tokens (skema resmi model).
@@ -196,8 +197,11 @@ async function labelPadanan(request, env) {
     return json({ ok: true, versi: PROMPT_VERSI, model, opsi, template: TEMPLATE });
   }
   if (request.method !== 'POST') return json({ ok: false, galat: 'Metode tidak didukung.' }, 405);
-  if (!env.LAB_KEY) return json({ ok: false, galat: 'Lab belum diaktifkan: secret LAB_KEY belum diatur di Cloudflare.' }, 503);
-  if ((request.headers.get('x-lab-key') || '') !== env.LAB_KEY) return json({ ok: false, galat: 'Kunci lab salah.' }, 401);
+  const pemilik = await kunciCocok(request.headers.get('x-lab-key') || '', env.LAB_KEY || '');
+  if (!pemilik) {
+    if (!(await bolehLewat(env.BATAS_LAB, 'lab:' + pengunjung(request))) || !(await bolehLewat(env.BATAS_LAB_TOTAL, 'lab:total')))
+      return terlaluSering();
+  }
   if (!env.AI) return json({ ok: false, galat: 'Binding AI belum aktif pada Worker ini.' }, 503);
 
   let body;
@@ -222,6 +226,26 @@ async function labelPadanan(request, env) {
   return json({ ok: true, versi: PROMPT_VERSI, hasil });
 }
 
+// ---------- Pembatas laju ----------
+// Binding ratelimits di wrangler.jsonc; bila tidak ada (pengembangan lokal), permintaan diloloskan.
+const pengunjung = (request) => request.headers.get('cf-connecting-ip') || 'tanpa-ip';
+async function bolehLewat(binding, key) {
+  if (!binding) return true;
+  try { return (await binding.limit({ key })).success; } catch (e) { return true; }
+}
+const terlaluSering = () =>
+  json({ ok: false, galat: 'Terlalu banyak permintaan. Tunggu sekitar satu menit, lalu coba lagi.' }, 429);
+// Perbandingan kunci dengan waktu tetap (tidak membocorkan panjang awalan yang cocok).
+async function kunciCocok(a, b) {
+  if (!a || !b) return false;
+  const enc = new TextEncoder();
+  const [x, y] = await Promise.all([crypto.subtle.digest('SHA-256', enc.encode(a)), crypto.subtle.digest('SHA-256', enc.encode(b))]);
+  const p = new Uint8Array(x), q = new Uint8Array(y);
+  let beda = 0;
+  for (let i = 0; i < p.length; i++) beda |= p[i] ^ q[i];
+  return beda === 0;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -231,6 +255,7 @@ export default {
     if (url.pathname === '/api/cari' || url.pathname === '/api/status') {
       if (request.method !== 'GET' && request.method !== 'HEAD')
         return json({ ok: false, galat: 'Metode tidak didukung.' }, 405);
+      if (!(await bolehLewat(env.BATAS_CARI, 'cari:' + pengunjung(request)))) return terlaluSering();
       return url.pathname === '/api/cari' ? cari(url, env) : status(env);
     }
 
