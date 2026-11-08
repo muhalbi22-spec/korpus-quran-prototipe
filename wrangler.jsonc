@@ -14,5 +14,13 @@
   // Akses ke Workers AI, dipakai oleh /api/cari untuk pencarian makna (eksperimen)
   "ai": {
     "binding": "AI"
-  }
+  },
+
+  // Pembatas laju (per lokasi Cloudflare, perkiraan). Lab label terbuka tanpa kunci, jadi dibatasi per pengunjung
+  // dan total; pencarian makna dibatasi per pengunjung. period hanya boleh 10 atau 60 detik.
+  "ratelimits": [
+    { "name": "BATAS_LAB", "namespace_id": "7101", "simple": { "limit": 5, "period": 60 } },
+    { "name": "BATAS_LAB_TOTAL", "namespace_id": "7102", "simple": { "limit": 60, "period": 60 } },
+    { "name": "BATAS_CARI", "namespace_id": "7103", "simple": { "limit": 20, "period": 60 } }
+  ]
 }
