@@ -4471,7 +4471,7 @@ function labPrefill(id){
   const d=DIS.find(x=>x.id===id);if(!d)return;
   const v=SURAHS[d.s||0].verses[d.verse-1],w=v.words[d.word];
   const kk=kemenagOf(v);
-  state.lab.form={istilah:`${d.lat} (${d.term})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?` — Terjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:KEMENAG_PADANAN[id]||w.gloss};
+  state.lab.form={istilah:`${d.lat} (${d.term})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?`\nTerjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:KEMENAG_PADANAN[id]||w.gloss};
   renderView();
 }
 /* Padanan Kemenag untuk satu kata: gabungan bagian SELARAS (padanan dan sisipan) yang menunjuk indeks kata itu, urut teks. */
@@ -4483,7 +4483,7 @@ function labPick(){
   const P=state.lab.pick,v=VERSES[P.v];if(!v)return;
   const w=v.words[P.w];if(!w)return;
   const kk=kemenagOf(v);
-  state.lab.form={istilah:`${w.lat} (${w.ar})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?` — Terjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:labPadananKata(v,P.w)||w.gloss};
+  state.lab.form={istilah:`${w.lat} (${w.ar})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?`\nTerjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:labPadananKata(v,P.w)||w.gloss};
 }
 async function labRun(){
   const L=state.lab,F=L.form;
@@ -4513,7 +4513,7 @@ function lab(){
   const P=L.pick,pv=VERSES[P.v];
   const ayatOpt=SURAHS.map((S,si)=>`<optgroup label="${esc(S.no+'. '+surahNama(si))}">${S.verses.map(v=>{const i=VERSES.indexOf(v);
     return `<option value="${i}"${i===P.v?' selected':''}>QS ${v.sn}:${v.n}</option>`;}).join('')}</optgroup>`).join('');
-  const kataOpt=pv?pv.words.map((w,i)=>`<option value="${i}"${i===P.w?' selected':''}>${i+1}. ${esc(w.lat)} — ${esc(w.gloss)} (${esc(w.ar)})</option>`).join(''):'';
+  const kataOpt=pv?pv.words.map((w,i)=>`<option value="${i}"${i===P.w?' selected':''}>${i+1}. ${esc(w.lat)} (${esc(w.ar)}): ${esc(w.gloss)}</option>`).join(''):'';
   return `<h2>Lab label padanan</h2>
   <p class="semnote"><span class="badge warn">Eksperimen, terbuka dengan pembatas laju</span> Alat ini meminta saran label formal atau dinamis dari dua model AI, lalu membandingkannya dengan label ahli. AI hanya mengklasifikasikan teknik penerjemahan, tidak menafsirkan ayat, dan hasilnya wajib diverifikasi.</p>
   <div class="labform">
