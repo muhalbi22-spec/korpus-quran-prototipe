@@ -1709,7 +1709,7 @@ const V_NASR=[
   W('أَفْوَاجًا','afwājan','berbondong-bondong','fwj','manshub',false,[
     ['أَفْوَاجًا','afwājan','Isim (jamak taksir)','Ḥāl dari wāw (fāʿil) dalam yadkhulūna, manṣūb, tanda naṣab fatḥah (tanwīn). Bentuk tunggalnya fawj (rombongan).']])
  ],
- edges:[[0,-1,'maʿṭūf','maʿṭūf pada jāʾa, ay. 1'],[1,0,'mafʿūl bih'],[2,0,'ḥāl'],[3,2,'jar-majrūr'],[4,3,'majrūr'],[5,4,'muḍāf ilayh'],[6,2,'ḥāl']]},
+ edges:[[0,-1,'maʿṭūf','maʿṭūf pada jāʾa, ay. 1'],[1,0,'mafʿūl bih'],[2,1,'ḥāl'],[3,2,'jar-majrūr'],[4,3,'majrūr'],[5,4,'muḍāf ilayh'],[6,2,'ḥāl']]},
 
 {n:3,ar:'فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ إِنَّهُۥ كَانَ تَوَّابًۢا',tr:'maka bertasbihlah sambil memuji Tuhanmu dan mohonlah ampunan kepada-Nya. Sungguh, Dia Maha Penerima tobat.',
  words:[
@@ -2788,7 +2788,7 @@ const V_ZALZALAH=[
     ['زِلْزَالَ','zilzāla','Isim (maṣdar)','Mafʿūl muṭlaq bagi zulzilat, manṣūb, tanda naṣab fatḥah; sekaligus muḍāf. Penyandarannya pada ḍamīr bumi menunjukkan guncangan yang khas dan sedahsyat-dahsyatnya bagi bumi (bukan sekadar penegasan).'],
     ['هَا','hā','Ḍamīr muttaṣil','Ḍamīr muttaṣil (dia, perempuan), mabnī atas sukūn; di posisi jarr sebagai muḍāf ilayh, merujuk pada al-arḍ.']])
  ],
- edges:[[0,-1,'ẓarf','ẓarf bagi jawāb syarṭ tuḥaddithu, ay. 4'],[1,0,'fiʿil syarṭ'],[2,1,'nāʾib fāʿil'],[3,1,'mafʿūl muṭlaq']]},
+ edges:[[1,0,'fiʿil syarṭ'],[2,1,'nāʾib fāʿil'],[3,1,'mafʿūl muṭlaq']]},
 
 {n:2,ar:'وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا',tr:'dan bumi mengeluarkan beban-beban beratnya,',
  words:[
@@ -3939,9 +3939,13 @@ const tbRef=(v,i)=>`${SURAHS[v.si].no}:${v.n}:${i+1}`;
 function tbInti(w){const i=w.segs.findIndex(s=>tbK(s).grup!=='partikel');return i>=0?i:w.segs.length-1;}
 const tbPunyaInti=w=>w.segs.some(s=>tbK(s).grup!=='partikel');
 // Ringkasan iʿrāb per kata (aturan R1-R6 dari peta label; R0 = kesesuaian muannath istilah).
-function tbRingkas(w){
+// R7: dalam iʿrāb «صفة» berarti naʿt, jadi kata berkelas Isim (ṣifah) yang relasinya bukan naʿt
+// (fāʿil, khabar, muḍāf ilayh, dst.) diringkas dengan label Isim, sebagaimana QAC menandainya.
+const tbBukanNaat=(v,i)=>{const e=v.edges.find(e=>e[0]===i);return !!e&&!/^naʿt/.test(e[2]);};
+function tbRingkas(w,bukanNaat){
   const L=TB_LABEL,T=L.lit,segs=w.segs.map(s=>({c:s[2],k:tbK(s)})).filter(s=>s.k.tag!=='DET');
   const K=L.kasus[w.kasus],nonPart=s=>s.k.grup!=='partikel';
+  if(bukanNaat)segs.forEach(s=>{if(s.c==='Isim (ṣifah)')s.k=L.kelas['Isim'];});
   if(!K)return '';
   if(segs.length===1&&segs[0].c==='Isim (lafẓ al-jalālah)'&&!w.mabni&&['marfu','manshub','majrur'].includes(w.kasus))return T.jalalah+K.ar;
   const pi=segs.findIndex(s=>s.k.tag==='P'&&s.c!=='Lām taʿlīl');
@@ -4036,7 +4040,7 @@ function tbWordHtml(w){
 }
 function tbTable(v){
   const rows=v.words.map((w,i)=>{
-    const ii=tbPunyaInti(w)?tbInti(w):-1,kas=tbKasusId(w),rg=tbRingkas(w);
+    const ii=tbPunyaInti(w)?tbInti(w):-1,kas=tbKasusId(w),rg=tbRingkas(w,tbBukanNaat(v,i));
     const segs=w.segs.map((s,j)=>{const k=tbK(s);return `<li><b style="color:${tbCol(k.grup)}">${esc(k.tag)}</b> – ${esc(k.nama)} <i>${esc(s[1])}</i>${j===ii&&kas?', '+esc(kas):''}</li>`;}).join('');
     return `<tr data-tbw="${i}"${i===state.w?' class="sel"':''}>
       <td class="tb-c1"><button type="button" class="tb-pick" data-w="${i}" aria-pressed="${i===state.w}" dir="ltr">(${esc(tbRef(v,i))})</button><span class="tb-rlat">${esc(w.lat)}</span><span class="tb-rgl">${esc(w.gloss)}</span></td>
