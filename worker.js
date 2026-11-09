@@ -11,6 +11,7 @@
 //   POST /api/label                    -> saran label padanan formal/dinamis (eksperimen, dibatasi lajunya)
 // Permintaan lain dilayani sebagai berkas statis (index.html).
 
+import { DurableObject } from 'cloudflare:workers';
 import CORPUS_JSON from './corpus.json';
 // corpus.json memuat pernyataan hak cipta Tanzil dan larik entri di kolom data.
 const CORPUS = Array.isArray(CORPUS_JSON) ? CORPUS_JSON : CORPUS_JSON.data;
@@ -120,7 +121,7 @@ async function status(env) {
 
 // ---------- Lab label padanan (eksperimen, akses terbatas) ----------
 // Model generatif hanya diminta mengklasifikasikan teknik penerjemahan (formal/dinamis),
-// tidak menafsirkan ayat. Terbuka untuk umum dengan pembatas laju per pengunjung dan per lokasi agar jatah AI
+// tidak menafsirkan ayat. Terbuka untuk umum dengan pembatas laju per pengunjung dan total (seluruh dunia) agar jatah AI
 // tidak terkuras; pengirim kunci LAB_KEY yang benar (pemilik) dibebaskan dari pembatas.
 // Opsi per model. Gemma 4 punya mode berpikir yang aktif secara default; tanpa dimatikan,
 // jatah token habis untuk berpikir dan jawabannya kosong. max_tokens sudah usang untuk Gemma 4,
@@ -199,7 +200,10 @@ async function labelPadanan(request, env) {
   if (request.method !== 'POST') return json({ ok: false, galat: 'Metode tidak didukung.' }, 405);
   const pemilik = await kunciCocok(request.headers.get('x-lab-key') || '', env.LAB_KEY || '');
   if (!pemilik) {
-    if (!(await bolehLewat(env.BATAS_LAB, 'lab:' + pengunjung(request))) || !(await bolehLewat(env.BATAS_LAB_TOTAL, 'lab:total')))
+    // Gagal-tutup: bila pembatas bermasalah, permintaan ditolak agar jatah AI tetap aman.
+    if (!(await bolehLewat(env, 'lab:' + pengunjung(request), BATAS.labPengunjung, true)) ||
+        !(await bolehLewat(env, 'lab:total', BATAS.labMenit, true)) ||
+        !(await bolehLewat(env, 'lab:total', BATAS.labHari, true)))
       return terlaluSering();
   }
   if (!env.AI) return json({ ok: false, galat: 'Binding AI belum aktif pada Worker ini.' }, 503);
@@ -227,14 +231,39 @@ async function labelPadanan(request, env) {
 }
 
 // ---------- Pembatas laju ----------
-// Binding ratelimits di wrangler.jsonc; bila tidak ada (pengembangan lokal), permintaan diloloskan.
+// Penghitung ketat di Durable Object (binding PEMBATAS): satu objek per kunci dan jendela waktu,
+// dijalankan berurutan sehingga hitungannya pasti dan berlaku di seluruh lokasi Cloudflare.
+// (Binding ratelimits bawaan bersifat perkiraan per lokasi dan tidak pernah menolak saat diuji di produksi.)
+const BATAS = {
+  labPengunjung: { batas: 5, detik: 60 },     // per pengunjung (IP)
+  labMenit: { batas: 60, detik: 60 },         // total semua pengunjung per menit
+  labHari: { batas: 1000, detik: 86400 },     // total semua pengunjung per hari
+  cariPengunjung: { batas: 20, detik: 60 },   // pencarian makna per pengunjung
+};
 const pengunjung = (request) => request.headers.get('cf-connecting-ip') || 'tanpa-ip';
-async function bolehLewat(binding, key) {
-  if (!binding) return true;
-  try { return (await binding.limit({ key })).success; } catch (e) { return true; }
+export class PembatasLaju extends DurableObject {
+  // Jendela tetap: hitungan direset setelah `detik` berlalu sejak permintaan pertama di jendela itu.
+  async hitung(batas, detik) {
+    const kini = Date.now();
+    let w = (await this.ctx.storage.get('w')) || { t: kini, n: 0 };
+    if (kini - w.t >= detik * 1000) w = { t: kini, n: 0 };
+    if (w.n >= batas) return false;
+    w.n++;
+    await this.ctx.storage.put('w', w);
+    return true;
+  }
+}
+async function bolehLewat(env, kunci, { batas, detik }, gagalTutup) {
+  if (!env.PEMBATAS) return !gagalTutup;
+  try {
+    return await env.PEMBATAS.get(env.PEMBATAS.idFromName(kunci + ':' + detik)).hitung(batas, detik);
+  } catch (e) {
+    console.error('Pembatas laju gagal:', String((e && e.message) || e).slice(0, 200));
+    return !gagalTutup;
+  }
 }
 const terlaluSering = () =>
-  json({ ok: false, galat: 'Terlalu banyak permintaan. Tunggu sekitar satu menit, lalu coba lagi.' }, 429);
+  json({ ok: false, galat: 'Terlalu banyak permintaan. Tunggu sebentar, lalu coba lagi.' }, 429);
 // Perbandingan kunci dengan waktu tetap (tidak membocorkan panjang awalan yang cocok).
 async function kunciCocok(a, b) {
   if (!a || !b) return false;
@@ -255,7 +284,7 @@ export default {
     if (url.pathname === '/api/cari' || url.pathname === '/api/status') {
       if (request.method !== 'GET' && request.method !== 'HEAD')
         return json({ ok: false, galat: 'Metode tidak didukung.' }, 405);
-      if (!(await bolehLewat(env.BATAS_CARI, 'cari:' + pengunjung(request)))) return terlaluSering();
+      if (!(await bolehLewat(env, 'cari:' + pengunjung(request), BATAS.cariPengunjung, false))) return terlaluSering();
       return url.pathname === '/api/cari' ? cari(url, env) : status(env);
     }
 

@@ -4548,7 +4548,7 @@ function ai(){
    <ul class="plain">
     <li>AI tidak menafsirkan. Jawaban hanya berasal dari entri korpus yang sudah diverifikasi dan selalu menyertakan sumbernya. Bila tidak ada entri yang relevan, sistem menyatakan tidak ada jawaban.</li>
     <li>Setiap keluaran AI diberi tanda yang jelas dan dapat dilacak ke data asalnya.</li>
-    <li>Lab label terbuka untuk umum tanpa kunci, dengan pembatas laju (5 permintaan per menit per pengunjung) agar jatah AI tidak terkuras. Model generatif di sana hanya diminta mengklasifikasikan teknik penerjemahan.</li>
+    <li>Lab label terbuka untuk umum tanpa kunci, dengan pembatas laju (5 permintaan per menit per pengunjung, 60 per menit dan 1.000 per hari untuk semua pengunjung) agar jatah AI tidak terkuras. Model generatif di sana hanya diminta mengklasifikasikan teknik penerjemahan.</li>
     <li>Fitur AI berjalan lewat server perantara (Cloudflare Worker) agar kunci layanan tidak terbuka di halaman publik. Karena itu mode Makna hanya aktif pada alamat Cloudflare, bukan pada hosting statis biasa.</li>
     <li>Terjemahan Kemenag beserta catatan kakinya dikirim ke layanan AI untuk pencarian makna dan Lab label, dikutip dengan atribusi. Izin pemakaian formal untuk korpus penuh dan pemakaian terjemahan penerbit tetap mengikuti izin data.</li>
     <li>Yang dikirim ke layanan AI hanyalah teks korpus buatan sendiri dan pertanyaan pengguna. Terjemahan Kemenag dan penerbit tidak dikirim sebelum izin data tersedia.</li>
