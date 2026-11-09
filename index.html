@@ -282,7 +282,6 @@ pre{background:var(--code-bg);color:var(--code-ink);border-radius:var(--r-md);pa
 details.textlist{margin-top:12px}
 details.textlist ul{margin:8px 0 0;padding-left:20px}
 /* Treebank gaya QAC: warna kelompok kelas kata (--tb-*), bukan warna kasus */
-.tb-note{background:var(--warnbg);color:var(--warnink);border:1px solid var(--warnline);border-radius:var(--r-md);padding:var(--s3) var(--s4);font-size:var(--fs-sm);line-height:1.6;margin:var(--s3) 0}
 .tb-leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:var(--fs-xs);color:var(--ink2);margin:0 0 var(--s3);line-height:1.6}
 .tb-lg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
 .tb-lg b{color:var(--ink);font-weight:600}
@@ -4057,10 +4056,6 @@ function tree(){
   const v=cur(),rl=tbRelList(v);
   return ayatChips()+
    `${provStrip(['teks','tree'],v)}
-    <div class="tb-note" role="note"><strong>Draf, belum divalidasi ahli.</strong> Kelas kata, relasi, dan ringkasan iʿrāb di bawah ini dihasilkan mesin dari anotasi kerja dan masih perlu ditinjau ahli.
-      Busur dependensi bersifat per kata (bukan per segmen); busur ditarik dari kata kepala ke kata yang bergantung padanya dan menempel pada segmen inti kata, yaitu segmen pertama yang bukan partikel (awalan alif-lām, preposisi, konjungsi, dan sebagainya dilewati), atau segmen terakhir bila seluruh kata berupa partikel.
-      Garis tegak putus-putus menandai kata kepala di luar ayat ini. Unsur tersembunyi atau dihapus (misalnya ḍamīr mustatir atau fiʿil yang dihapus) dan node frasa belum ditampilkan. Jenis kelamin, bilangan, dan persona belum ada pada data sehingga tidak ditampilkan.
-      Perbaikan ini direncanakan pada peta jalan proyek butir 2.4 (skema anotasi v2) dan 2.5 (dependensi tingkat segmen dengan node kosong).</div>
     ${tbLegend()}
     <p class="tree-hint" aria-hidden="true">Graf dibaca dari kanan. Geser ke kiri untuk kata berikutnya.</p>
     <div class="scroll tb-box" id="tree-box">${tbSvg(v)}</div>
