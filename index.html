@@ -4405,7 +4405,7 @@ function cari(){
 /* ---------- Tab: Lab label ---------- */
 const LAB_LBL={formal:'formal',dinamis:'dinamis',tidak_pasti:'tidak pasti'};
 const LAB_NAMA={sealion:'SEA-LION v4',gemma:'Gemma 4'};
-state.lab={key:'',model:'keduanya',form:{istilah:'',konteks:'',padanan:''},rows:[],busy:false,err:null,prompt:null};
+state.lab={key:'',model:'keduanya',form:{istilah:'',konteks:'',padanan:''},rows:[],busy:false,err:null,prompt:null,pick:{v:-1,w:-1}};
 const fmt2=x=>(x===null||x===undefined||isNaN(x))?'—':Number(x).toFixed(2).replace('.',',');
 function labMetrics(pairs){
   const n=pairs.length;if(!n)return {n:0};
@@ -4474,6 +4474,17 @@ function labPrefill(id){
   state.lab.form={istilah:`${d.lat} (${d.term})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?` — Terjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:KEMENAG_PADANAN[id]||w.gloss};
   renderView();
 }
+/* Padanan Kemenag untuk satu kata: gabungan bagian SELARAS (padanan dan sisipan) yang menunjuk indeks kata itu, urut teks. */
+function labPadananKata(v,wi){
+  const seg=selarasOf(v);if(!seg)return '';
+  return normTeks(seg.filter(s=>s.w===wi).map(s=>s.t).join(' '));
+}
+function labPick(){
+  const P=state.lab.pick,v=VERSES[P.v];if(!v)return;
+  const w=v.words[P.w];if(!w)return;
+  const kk=kemenagOf(v);
+  state.lab.form={istilah:`${w.lat} (${w.ar})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?` — Terjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:labPadananKata(v,P.w)||w.gloss};
+}
 async function labRun(){
   const L=state.lab,F=L.form;
   if(!F.istilah.trim()||!F.padanan.trim()){L.err='Istilah dan padanan wajib diisi.';paintLab();return;}
@@ -4499,11 +4510,18 @@ function labDownload(){
 function lab(){
   const L=state.lab,F=L.form;
   const pre=DIS.map(d=>`<option value="${d.id}">${esc(d.lat)} (${esc(d.ref)})</option>`).join('');
+  const P=L.pick,pv=VERSES[P.v];
+  const ayatOpt=SURAHS.map((S,si)=>`<optgroup label="${esc(S.no+'. '+surahNama(si))}">${S.verses.map(v=>{const i=VERSES.indexOf(v);
+    return `<option value="${i}"${i===P.v?' selected':''}>QS ${v.sn}:${v.n}</option>`;}).join('')}</optgroup>`).join('');
+  const kataOpt=pv?pv.words.map((w,i)=>`<option value="${i}"${i===P.w?' selected':''}>${i+1}. ${esc(w.lat)} — ${esc(w.gloss)} (${esc(w.ar)})</option>`).join(''):'';
   return `<h2>Lab label padanan</h2>
-  <p class="semnote"><span class="badge warn">Eksperimen, akses terbatas</span> Alat ini meminta saran label formal atau dinamis dari dua model AI, lalu membandingkannya dengan label ahli. AI hanya mengklasifikasikan teknik penerjemahan, tidak menafsirkan ayat, dan hasilnya wajib diverifikasi.</p>
+  <p class="semnote"><span class="badge warn">Eksperimen, terbuka dengan pembatas laju</span> Alat ini meminta saran label formal atau dinamis dari dua model AI, lalu membandingkannya dengan label ahli. AI hanya mengklasifikasikan teknik penerjemahan, tidak menafsirkan ayat, dan hasilnya wajib diverifikasi.</p>
   <div class="labform">
     <label>Kunci pemilik (opsional)<input id="lab-key" class="search" type="password" autocomplete="off" value="${esc(L.key)}" placeholder="Kosongkan bila bukan pemilik"></label>
-    <label>Ambil contoh dari korpus (padanan diambil dari terjemahan Kemenag)<select id="lab-prefill" class="search"><option value="">Pilih entri</option>${pre}</select></label>
+    <label>Istilah teologis terpilih (padanan diambil dari terjemahan Kemenag)<select id="lab-prefill" class="search"><option value="">Pilih entri</option>${pre}</select></label>
+    <p class="note" style="margin:4px 0 6px">Atau pilih kata mana pun dari korpus (padanan diambil dari penyelarasan terjemahan Kemenag per kata):</p>
+    <label>Ayat<select id="lab-ayat" class="search"><option value="">Pilih ayat</option>${ayatOpt}</select></label>
+    <label>Kata<select id="lab-kata" class="search"${pv?'':' disabled'}><option value="">${pv?'Pilih kata':'Pilih ayat lebih dulu'}</option>${kataOpt}</select></label>
     <label>Istilah sumber<input id="lab-istilah" class="search" value="${esc(F.istilah)}" placeholder="Contoh: taqwā (تقوى)"></label>
     <label>Konteks ayat (opsional)<textarea id="lab-konteks" class="search" rows="3" placeholder="Contoh: QS 2:2 beserta teks ayatnya">${esc(F.konteks)}</textarea></label>
     <label>Padanan dalam terjemahan<input id="lab-padanan" class="search" value="${esc(F.padanan)}" placeholder="Contoh: orang-orang yang bertakwa"></label>
@@ -4974,6 +4992,8 @@ document.addEventListener('change',function(e){
   const t=e.target;if(!t)return;
   if(t.dataset&&t.dataset.ahli){const r=state.lab.rows.find(x=>x.id===t.dataset.ahli);if(r){r.ahli=t.value;paintLab();}return;}
   if(t.id==='lab-prefill'&&t.value){labPrefill(t.value);}
+  if(t.id==='lab-ayat'){state.lab.pick={v:t.value===''?-1:+t.value,w:-1};renderView();return;}
+  if(t.id==='lab-kata'){state.lab.pick.w=t.value===''?-1:+t.value;if(state.lab.pick.w>=0)labPick();renderView();return;}
   if(t.id==='v-sel'){state.v=+t.value;state.w=0;renderView();return;}
   if(t.id==='gs-sel'){state.gs=+t.value;state.gr=null;renderView();return;}
 });
