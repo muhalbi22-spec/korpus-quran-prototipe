@@ -1,17 +1,17 @@
-# Graph Report - korpus-quran-prototipe  (2026-11-06)
+# Graph Report - korpus-quran-prototipe  (2026-11-09)
 
 ## Corpus Check
-- 58 files · ~211,416 words
+- 58 files · ~211,494 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .jsonc 1)
 
 ## Summary
-- 413 nodes · 580 edges · 46 communities (31 shown, 15 thin omitted)
+- 417 nodes · 584 edges · 46 communities (31 shown, 15 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `850ffaf6`
+- Built from commit: `90c4efe4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -54,8 +54,8 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `esc()` - 33 edges
-2. `SURAHS` - 16 edges
-3. `renderView()` - 16 edges
+2. `renderView()` - 16 edges
+3. `SURAHS` - 16 edges
 4. `labelPadanan()` - 14 edges
 5. `sisipan() tab` - 12 edges
 6. `runSearch()` - 12 edges
@@ -87,8 +87,8 @@
 ## Communities (46 total, 15 thin omitted)
 
 ### Community 0 - "Tab UI dan event"
-Cohesion: 0.08
-Nodes (34): Agreement metrics: accuracy, Cohen's kappa, recall/F1 for dinamis, ai() tab, Always-'formal' baseline comparator, document change handler, document click handler (event delegation), Cloudflare Worker API (/api/cari, /api/label, /api/status), DIS (contextual meaning entries), disCard() (+26 more)
+Cohesion: 0.07
+Nodes (41): Agreement metrics: accuracy, Cohen's kappa, recall/F1 for dinamis, ai() tab, Always-'formal' baseline comparator, document change handler, document click handler (event delegation), Cloudflare Worker API (/api/cari, /api/label, /api/status), DIS (contextual meaning entries), disCard() (+33 more)
 
 ### Community 1 - "Peta sisipan dan graf akar"
 Cohesion: 0.11
@@ -99,16 +99,16 @@ Cohesion: 0.18
 Nodes (10): 1. Pola yang membuat situs terasa modern dan kredibel secara akademik, 2. Yang dihindari, 3.1 Tata letak per kelompok tab, 3.2 Komponen, 3.3 Token desain (satu lapisan `:root` + satu blok gelap + `[data-theme]`), 3.4 Aturan tipografi Arab, 3.5 Aturan seluler (390 px), 3. Brief desain untuk situs kita (+2 more)
 
 ### Community 3 - "Worker AI Cloudflare"
-Cohesion: 0.11
-Nodes (31): Clean / positive, Critical, Findings, Fix in the repo vs. configure in the Cloudflare dashboard, Hardening plan (in order), High, Low, Medium (+23 more)
+Cohesion: 0.10
+Nodes (33): Clean / positive, Critical, Findings, Fix in the repo vs. configure in the Cloudflare dashboard, Hardening plan (in order), High, Low, Medium (+25 more)
 
 ### Community 4 - "Kamus dan pencarian akar"
 Cohesion: 0.19
 Nodes (18): akar() tab, akarList(), Arabic/Latin diacritic normalization, Arabic triliteral/quadriliteral root, hasArabic(), document input handler, kwicRow(), occurrences() (+10 more)
 
 ### Community 6 - "esc"
-Cohesion: 0.08
-Nodes (40): ayatChips(), baca() tab, cari() tab, cariResults(), cur(), detail(), esc(), graf() tab (+32 more)
+Cohesion: 0.10
+Nodes (33): ayatChips(), baca() tab, cari() tab, cariResults(), cur(), detail(), esc(), hitWord() (+25 more)
 
 ### Community 7 - "pulihkan-tanzil.js"
 Cohesion: 0.06
@@ -211,8 +211,8 @@ Cohesion: 0.50
 Nodes (3): Non-negotiable integrity rules, Project context (read first), Responsibilities
 
 ## Knowledge Gaps
-- **8 isolated node(s):** `LAB_NAMA (SEA-LION v4, Gemma 4)`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)`, `grafCache`, `KEMENAG_SUMBER` (+3 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 215 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **8 isolated node(s):** `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `grafCache`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)` (+3 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 218 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -222,13 +222,13 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.102) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `labelPadanan()` (e.g. with `High` and `labRun()`) actually correct?**
   _`labelPadanan()` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `LAB_NAMA (SEA-LION v4, Gemma 4)`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)` to the rest of the system?**
+- **What connects `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `grafCache` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Tab UI dan event` be split into smaller, more focused modules?**
-  _Cohesion score 0.08205128205128205 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06938020351526364 - nodes in this community are weakly interconnected._
 - **Should `Peta sisipan dan graf akar` be split into smaller, more focused modules?**
-  _Cohesion score 0.11088709677419355 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10606060606060606 - nodes in this community are weakly interconnected._
 - **Should `Worker AI Cloudflare` be split into smaller, more focused modules?**
-  _Cohesion score 0.1140819964349376 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09672830725462304 - nodes in this community are weakly interconnected._
 - **Should `esc` be split into smaller, more focused modules?**
-  _Cohesion score 0.08080808080808081 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1006006006006006 - nodes in this community are weakly interconnected._

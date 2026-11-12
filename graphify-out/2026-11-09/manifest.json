@@ -1,0 +1,362 @@
+{
+  "corpus.json": {
+    "mtime": 1793959872.7994106,
+    "seen": 1793959973.6203103,
+    "ast_hash": "fe6cecc0c5defb55ca058ec718557ce9",
+    "semantic_hash": ""
+  },
+  "worker.js": {
+    "mtime": 1793959921.7249537,
+    "seen": 1793959973.6203375,
+    "ast_hash": "6101d1ac65cd5a278642ad80d581919a",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1794201314.700496,
+    "seen": 1794201337.3294792,
+    "ast_hash": "c6cb0d7b42b1aa4aaae703fc172cbd5e",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1793541802.6873004,
+    "seen": 1793957561.4526074,
+    "ast_hash": "3b541b9935fcf0831355da956f897645",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/akar.json": {
+    "mtime": 1793541802.693491,
+    "seen": 1793957561.452624,
+    "ast_hash": "424d94aae5209b5edd62ff3e5afffce5",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/fathur_AB.json": {
+    "mtime": 1793541802.6938214,
+    "seen": 1793957561.4526258,
+    "ast_hash": "1b123523b2e662119c75de407aa7d85f",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/fathur_C.json": {
+    "mtime": 1793541802.694287,
+    "seen": 1793957561.452627,
+    "ast_hash": "e3382365d9890b45e906edb46942a38f",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/fathur_DE.json": {
+    "mtime": 1793541802.6945543,
+    "seen": 1793957561.4526284,
+    "ast_hash": "229458baeceae9d80c3c6b2bf3180088",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/log-penerapan.json": {
+    "mtime": 1793541802.6949804,
+    "seen": 1793957561.4526298,
+    "ast_hash": "13641c8792a7dd15dfcc20a4134a4f9b",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/qac.json": {
+    "mtime": 1793541802.6953166,
+    "seen": 1793957561.452631,
+    "ast_hash": "eda34e55eac5199b89edaf602e151cb6",
+    "semantic_hash": ""
+  },
+  "tools/buat-corpus.js": {
+    "mtime": 1793959872.8065805,
+    "seen": 1793959973.6203349,
+    "ast_hash": "01aeb784a1c2f95e9eeff9ee53d33446",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1793541802.6832764,
+    "seen": 1793957561.4526384,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  ".claude/agents/anotator-irab.md": {
+    "mtime": 1793541802.6832764,
+    "seen": 1793957561.452641,
+    "ast_hash": "46646cf78d5c5e2e579e17fbaf6b6699",
+    "semantic_hash": ""
+  },
+  ".claude/agents/fathur.md": {
+    "mtime": 1793541802.6853395,
+    "seen": 1793957561.452645,
+    "ast_hash": "75887e416afc2a067ed407bc3432c14a",
+    "semantic_hash": ""
+  },
+  ".claude/agents/leksikograf-akar.md": {
+    "mtime": 1793541802.6857746,
+    "seen": 1793957561.4526477,
+    "ast_hash": "207f8db1426595f11c7d4eaeaaefa59a",
+    "semantic_hash": ""
+  },
+  ".claude/agents/peneliti-makna-tafsir.md": {
+    "mtime": 1793541802.6859121,
+    "seen": 1793957561.4526489,
+    "ast_hash": "3a308aa956942a0b50bc9b59727cc626",
+    "semantic_hash": ""
+  },
+  ".claude/agents/pengawas-qac.md": {
+    "mtime": 1793541802.6862903,
+    "seen": 1793957561.4526505,
+    "ast_hash": "b471103586689f365bf5ca388786b559",
+    "semantic_hash": ""
+  },
+  ".claude/agents/pengembang-web.md": {
+    "mtime": 1793541802.6865335,
+    "seen": 1793957561.4526515,
+    "ast_hash": "a0398c5325854bb0015d9d72af56384b",
+    "semantic_hash": ""
+  },
+  ".claude/agents/penjaga-keamanan.md": {
+    "mtime": 1793541802.6867259,
+    "seen": 1793957561.4526527,
+    "ast_hash": "fbbb9fe16bc4d2d8e2444e8f39aa832d",
+    "semantic_hash": ""
+  },
+  ".claude/agents/penyelaras-terjemahan.md": {
+    "mtime": 1793541802.6869454,
+    "seen": 1793957561.452654,
+    "ast_hash": "f248005c525a1d74cb539d41b8061273",
+    "semantic_hash": ""
+  },
+  ".claude/agents/perancang-ux.md": {
+    "mtime": 1793541802.6871362,
+    "seen": 1793957561.4526546,
+    "ast_hash": "25d245cd1430d7e2fd16eb3d3fe532c1",
+    "semantic_hash": ""
+  },
+  ".claude/agents/validator-data.md": {
+    "mtime": 1793541802.6873004,
+    "seen": 1793957561.4526613,
+    "ast_hash": "6877a2ea9212429333bce5994379855e",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526622,
+    "ast_hash": "a156b8bf16bbfe268a13715cbaed2e57",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/README.md": {
+    "mtime": 1793541802.6911542,
+    "seen": 1793957561.45268,
+    "ast_hash": "a791d130b98b236b8c3209e8f4973104",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/qac_laporan.md": {
+    "mtime": 1793541802.6953166,
+    "seen": 1793957561.4526815,
+    "ast_hash": "a8a154c5899e3522fbe5537bfb3760ed",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/selaras-fathur.json": {
+    "mtime": 1793541802.6953166,
+    "seen": 1793957561.4526327,
+    "ast_hash": "cb249a0f518c205dd13943134c9c82ed",
+    "semantic_hash": ""
+  },
+  ".claude/agents/desainer-islami.md": {
+    "mtime": 1793541802.6853395,
+    "seen": 1793957561.4526439,
+    "ast_hash": "1bc923c38f06555aaea05561a710a09c",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-qs97-113/selaras-fathur.md": {
+    "mtime": 1793541802.6953166,
+    "seen": 1793957561.4526825,
+    "ast_hash": "cba10ad8d3dba1333ed7eb91a44fb180",
+    "semantic_hash": ""
+  },
+  "docs/design/SYSTEM.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.4526732,
+    "ast_hash": "d003b81acea103b2428872508d6989c3",
+    "semantic_hash": ""
+  },
+  "docs/design/riset-2026-11.md": {
+    "mtime": 1793956454.3201096,
+    "seen": 1793957561.4526744,
+    "ast_hash": "018d43e3bd36503c54d20d5e3c0b3070",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/fathur_konsisten.json": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.620315,
+    "ast_hash": "8a601a1873189ed9207f3d7c6d0d0688",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/fathur_lama.json": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203172,
+    "ast_hash": "b161f56a90a6503e940b22f827819509",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/log-penerapan.json": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.620319,
+    "ast_hash": "affc7fc9dee08bb4c8f3bde05e1fb103",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/qac_lama.json": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203206,
+    "ast_hash": "eaf348ebd165b573d990d642a800b611",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/tanzil-pemulihan.json": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.620322,
+    "ast_hash": "2b70310178f84559bb4b452f3e0b5e28",
+    "semantic_hash": ""
+  },
+  "tools/pulihkan-tanzil.js": {
+    "mtime": 1793959872.8065805,
+    "seen": 1793959973.620336,
+    "ast_hash": "22142699adcb43340bb05c9a8e0d5470",
+    "semantic_hash": ""
+  },
+  ".claude/agents/academic-research-specialist.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526398,
+    "ast_hash": "9098ea997134e45dc270421523abeb1f",
+    "semantic_hash": ""
+  },
+  ".claude/agents/arabic-linguistics-specialist.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526417,
+    "ast_hash": "6516f01a12b15ada7b3a36a4e9de1a17",
+    "semantic_hash": ""
+  },
+  ".claude/agents/corpus-data-engineer.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526432,
+    "ast_hash": "a1e2e92482f52a9e9abc9587229db848",
+    "semantic_hash": ""
+  },
+  ".claude/agents/full-stack-developer.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526463,
+    "ast_hash": "055eeaa56630262d710b0d8f1f9adc13",
+    "semantic_hash": ""
+  },
+  ".claude/agents/project-manager.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526556,
+    "ast_hash": "a56331ac8b26b3c8133e43ae8f91b9ae",
+    "semantic_hash": ""
+  },
+  ".claude/agents/qa-engineer.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526567,
+    "ast_hash": "df4dbb18f8472d3a33539639f9abace6",
+    "semantic_hash": ""
+  },
+  ".claude/agents/security-devops-engineer.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.452658,
+    "ast_hash": "0c45ebc996a25cb60040aa5e60a76b08",
+    "semantic_hash": ""
+  },
+  ".claude/agents/ui-ux-specialist.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.4526603,
+    "ast_hash": "3a0f17a66919b71fd653eab83c6d70bb",
+    "semantic_hash": ""
+  },
+  "data/sumber/tanzil-uthmani-1.1.txt": {
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203678,
+    "ast_hash": "7410caf5dc5b337de917b47ed887e3cb",
+    "semantic_hash": ""
+  },
+  "docs/ARCHITECTURE.md": {
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203692,
+    "ast_hash": "546292a496fdbc71ae071a96898d2040",
+    "semantic_hash": ""
+  },
+  "docs/DATA_SOURCES.md": {
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203704,
+    "ast_hash": "3c8ffc7cda7d6382cc600889e15e472e",
+    "semantic_hash": ""
+  },
+  "docs/ROADMAP.md": {
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203718,
+    "ast_hash": "8883185da7c2e013e2dfc536c81120ff",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/README.md": {
+    "mtime": 1793956454.3163967,
+    "seen": 1793957561.452667,
+    "ast_hash": "9c789279f8bf5a51f78ba7d5d46fe274",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/academic.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.4526677,
+    "ast_hash": "354fa2f061fce866eedb1f44ed7c8e2b",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/data.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.4526684,
+    "ast_hash": "6d3dfdbbbba41629601468e7307cab0c",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/linguistics.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.4526694,
+    "ast_hash": "4eeb2ee4db7e161c60706d4e890240e8",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/qa.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.45267,
+    "ast_hash": "6aeb17b48643095f1e4923c32309a6df",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/security.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.4526713,
+    "ast_hash": "17d853a3c912c1ec71d90bd3782ba7ff",
+    "semantic_hash": ""
+  },
+  "docs/audit-2026-11/ui-ux.md": {
+    "mtime": 1793956454.3185916,
+    "seen": 1793957561.452672,
+    "ast_hash": "a560704f8c9531cb31075e345e7b66fe",
+    "semantic_hash": ""
+  },
+  "docs/organization/AGENTS.md": {
+    "mtime": 1793956454.3201096,
+    "seen": 1793957561.4526753,
+    "ast_hash": "0052a51c86ad3bb68aef006bdabfacec",
+    "semantic_hash": ""
+  },
+  "docs/organization/WORKFLOW.md": {
+    "mtime": 1793956454.3204942,
+    "seen": 1793957561.4526763,
+    "ast_hash": "84e10611df149208d14b8581edc657c8",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/README.md": {
+    "mtime": 1793959872.8004508,
+    "seen": 1793959973.6203876,
+    "ast_hash": "ac93d41179b3dbd6f2cf96174bf39001",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/fathur_lama.md": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203887,
+    "ast_hash": "f179a8a36557c1f067c79392b8663001",
+    "semantic_hash": ""
+  },
+  "docs/tinjauan-21-surah/qac_lama_laporan.md": {
+    "mtime": 1793959872.8056347,
+    "seen": 1793959973.6203902,
+    "ast_hash": "8813235e304c3d316ef6ee19e4090ed7",
+    "semantic_hash": ""
+  }
+}

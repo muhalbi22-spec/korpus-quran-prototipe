@@ -6,3 +6,14 @@ graphify-out/.graphify_root
 
 # Salinan kerja sementara agen (git worktree)
 .claude/worktrees/
+
+# Hasil deploy dan berkas lokal (jangan di-commit)
+public/
+.wrangler/
+.dev.vars
+.env
+.env.*
+.claude/settings.local.json
+
+# Dependensi
+node_modules/

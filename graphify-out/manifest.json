@@ -6,15 +6,15 @@
     "semantic_hash": ""
   },
   "worker.js": {
-    "mtime": 1793959921.7249537,
-    "seen": 1793959973.6203375,
-    "ast_hash": "6101d1ac65cd5a278642ad80d581919a",
+    "mtime": 1794202492.692278,
+    "seen": 1794202493.5167537,
+    "ast_hash": "a463874abd96ce4547b714e23427f139",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1794201314.700496,
-    "seen": 1794201337.3294792,
-    "ast_hash": "c6cb0d7b42b1aa4aaae703fc172cbd5e",
+    "mtime": 1794202492.692278,
+    "seen": 1794202493.5168176,
+    "ast_hash": "86fdf8f871efb8c6560802977b5b5193",
     "semantic_hash": ""
   },
   ".claude/settings.json": {

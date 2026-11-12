@@ -428,12 +428,28 @@ ol.plain li{margin-bottom:4px}
 /* ---------- Graf akar ---------- */
 .graf-grid{display:grid;gap:14px}
 @media(min-width:980px){.graf-grid{grid-template-columns:minmax(0,1fr) 340px;align-items:start}}
-.graf-svg{display:block;width:100%;min-width:620px;height:auto}
+.graf-svg{display:block;width:100%;height:auto;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.graf-svg.zoomed{touch-action:none;cursor:grab}
+.graf-svg .ge,.graf-svg .gn circle{vector-effect:non-scaling-stroke}
+.graf-svg .ge.hl{stroke:var(--ink2);stroke-opacity:.9}
+.graf-svg.cari .gn:not(.hit):not(.hl),.graf-svg.cari .ge:not(.hl){opacity:.15}
+.graf-svg .gn.hit circle{stroke:var(--focus);stroke-width:3.5}
+.graf-svg.fokus .ge{stroke:var(--ink2);stroke-opacity:.8}
+.graf-ctl{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:flex-end;margin:4px 0 10px}
+.graf-ctl label{font-size:var(--fs-sm);color:var(--ink2)}
+.graf-ctl .search,.graf-ctl .vsel{display:block;margin:4px 0 0;color:var(--ink)}
+.graf-ctl .search{width:min(320px,100%)}
+.graf-ctl .chk{display:inline-flex;align-items:center;gap:8px;min-height:40px}
+.graf-ctl .chk input{width:18px;height:18px;margin:0}
+.graf-zoom{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0 0 8px}
+.graf-zoom .btn{min-width:44px}
+.graf-tip{font-size:var(--fs-sm)}
+#g-hasil .forms{margin:0 0 10px}
 .graf-svg .ge{stroke:var(--line-strong);stroke-opacity:.55;transition:opacity .15s}
 .graf-svg .gn{cursor:pointer;outline:none}
 .graf-svg .gn circle{stroke:var(--surface);stroke-width:2}
 .graf-svg .gn.multi circle{stroke:var(--ink);stroke-width:2.2}
-.graf-svg .gn text{font:16px var(--arab-ui);direction:rtl;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.graf-svg .gt{font-family:var(--arab-ui);direction:rtl;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-linejoin:round;pointer-events:none}
 .graf-svg .gn:focus-visible{outline:none}
 .graf-svg .gn:focus-visible circle,.graf-svg .gn.sel circle{stroke:var(--focus);stroke-width:3.5}
 .graf-svg.focus .gn:not(.sel):not(.nb),.graf-svg.focus .ge:not(.on){opacity:.15}
@@ -1709,7 +1725,7 @@ const V_NASR=[
   W('أَفْوَاجًا','afwājan','berbondong-bondong','fwj','manshub',false,[
     ['أَفْوَاجًا','afwājan','Isim (jamak taksir)','Ḥāl dari wāw (fāʿil) dalam yadkhulūna, manṣūb, tanda naṣab fatḥah (tanwīn). Bentuk tunggalnya fawj (rombongan).']])
  ],
- edges:[[0,-1,'maʿṭūf','maʿṭūf pada jāʾa, ay. 1'],[1,0,'mafʿūl bih'],[2,0,'ḥāl'],[3,2,'jar-majrūr'],[4,3,'majrūr'],[5,4,'muḍāf ilayh'],[6,2,'ḥāl']]},
+ edges:[[0,-1,'maʿṭūf','maʿṭūf pada jāʾa, ay. 1'],[1,0,'mafʿūl bih'],[2,1,'ḥāl'],[3,2,'jar-majrūr'],[4,3,'majrūr'],[5,4,'muḍāf ilayh'],[6,2,'ḥāl']]},
 
 {n:3,ar:'فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ إِنَّهُۥ كَانَ تَوَّابًۢا',tr:'maka bertasbihlah sambil memuji Tuhanmu dan mohonlah ampunan kepada-Nya. Sungguh, Dia Maha Penerima tobat.',
  words:[
@@ -2788,7 +2804,7 @@ const V_ZALZALAH=[
     ['زِلْزَالَ','zilzāla','Isim (maṣdar)','Mafʿūl muṭlaq bagi zulzilat, manṣūb, tanda naṣab fatḥah; sekaligus muḍāf. Penyandarannya pada ḍamīr bumi menunjukkan guncangan yang khas dan sedahsyat-dahsyatnya bagi bumi (bukan sekadar penegasan).'],
     ['هَا','hā','Ḍamīr muttaṣil','Ḍamīr muttaṣil (dia, perempuan), mabnī atas sukūn; di posisi jarr sebagai muḍāf ilayh, merujuk pada al-arḍ.']])
  ],
- edges:[[0,-1,'ẓarf','ẓarf bagi jawāb syarṭ tuḥaddithu, ay. 4'],[1,0,'fiʿil syarṭ'],[2,1,'nāʾib fāʿil'],[3,1,'mafʿūl muṭlaq']]},
+ edges:[[1,0,'fiʿil syarṭ'],[2,1,'nāʾib fāʿil'],[3,1,'mafʿūl muṭlaq']]},
 
 {n:2,ar:'وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا',tr:'dan bumi mengeluarkan beban-beban beratnya,',
  words:[
@@ -3939,9 +3955,13 @@ const tbRef=(v,i)=>`${SURAHS[v.si].no}:${v.n}:${i+1}`;
 function tbInti(w){const i=w.segs.findIndex(s=>tbK(s).grup!=='partikel');return i>=0?i:w.segs.length-1;}
 const tbPunyaInti=w=>w.segs.some(s=>tbK(s).grup!=='partikel');
 // Ringkasan iʿrāb per kata (aturan R1-R6 dari peta label; R0 = kesesuaian muannath istilah).
-function tbRingkas(w){
+// R7: dalam iʿrāb «صفة» berarti naʿt, jadi kata berkelas Isim (ṣifah) yang relasinya bukan naʿt
+// (fāʿil, khabar, muḍāf ilayh, dst.) diringkas dengan label Isim, sebagaimana QAC menandainya.
+const tbBukanNaat=(v,i)=>{const e=v.edges.find(e=>e[0]===i);return !!e&&!/^naʿt/.test(e[2]);};
+function tbRingkas(w,bukanNaat){
   const L=TB_LABEL,T=L.lit,segs=w.segs.map(s=>({c:s[2],k:tbK(s)})).filter(s=>s.k.tag!=='DET');
   const K=L.kasus[w.kasus],nonPart=s=>s.k.grup!=='partikel';
+  if(bukanNaat)segs.forEach(s=>{if(s.c==='Isim (ṣifah)')s.k=L.kelas['Isim'];});
   if(!K)return '';
   if(segs.length===1&&segs[0].c==='Isim (lafẓ al-jalālah)'&&!w.mabni&&['marfu','manshub','majrur'].includes(w.kasus))return T.jalalah+K.ar;
   const pi=segs.findIndex(s=>s.k.tag==='P'&&s.c!=='Lām taʿlīl');
@@ -4036,7 +4056,7 @@ function tbWordHtml(w){
 }
 function tbTable(v){
   const rows=v.words.map((w,i)=>{
-    const ii=tbPunyaInti(w)?tbInti(w):-1,kas=tbKasusId(w),rg=tbRingkas(w);
+    const ii=tbPunyaInti(w)?tbInti(w):-1,kas=tbKasusId(w),rg=tbRingkas(w,tbBukanNaat(v,i));
     const segs=w.segs.map((s,j)=>{const k=tbK(s);return `<li><b style="color:${tbCol(k.grup)}">${esc(k.tag)}</b> – ${esc(k.nama)} <i>${esc(s[1])}</i>${j===ii&&kas?', '+esc(kas):''}</li>`;}).join('');
     return `<tr data-tbw="${i}"${i===state.w?' class="sel"':''}>
       <td class="tb-c1"><button type="button" class="tb-pick" data-w="${i}" aria-pressed="${i===state.w}" dir="ltr">(${esc(tbRef(v,i))})</button><span class="tb-rlat">${esc(w.lat)}</span><span class="tb-rgl">${esc(w.gloss)}</span></td>
@@ -4144,6 +4164,9 @@ function grafLegenda(g){
     return `<span style="--c:${k.c}"><i></i>${esc(k.nama)}${i===2?` (${n} surah dalam korpus)`:''}</span>`;}).join('');
 }
 const grafCache={};
+// Pengaturan tampilan graf. min = minimal ayat bersama agar sebuah garis tampil; vb = viewBox saat diperbesar (null = utuh).
+const GRAF_UMUM_N=3,GRAF_LABEL_N=25,GRAF_LABEL_SEMUA=40;
+state.gv={min:2,umum:false,fokus:false,q:'',vb:null};
 function grafData(gs){
   if(grafCache[gs])return grafCache[gs];
   const vs=gs<0?VERSES:SURAHS[gs].verses,nodes={},edges={};
@@ -4158,8 +4181,25 @@ function grafData(gs){
   const N=Object.values(nodes),E=Object.values(edges);
   N.forEach(n=>{n.dom=+Object.keys(n.su).sort((a,b)=>n.su[b]-n.su[a]||a-b)[0];n.nb=new Set();n.r=6+3.2*Math.sqrt(n.n);});
   E.forEach(e=>{nodes[e.a].nb.add(e.b);nodes[e.b].nb.add(e.a);});
-  grafLayout(N,E,nodes);
-  return grafCache[gs]={nodes,N,E};
+  // Akar paling umum pada cakupan ini: tiga akar dengan tetangga terbanyak (dapat disembunyikan).
+  const umum=N.slice().sort((a,b)=>b.nb.size-a.nb.size||b.n-a.n).slice(0,GRAF_UMUM_N).map(p=>p.k);
+  return grafCache[gs]={nodes,N,E,umum,views:{}};
+}
+// Tampilan tersaring dari grafData: hanya garis dengan minimal V.min ayat bersama. Bila min > 1, akar tanpa garis disembunyikan.
+// Selama pencarian menemukan akar, saringan diabaikan agar akar yang dicari dan tetangganya tidak tersembunyi.
+const grafMencari=g=>{const c=grafCocok(g);return !!(c&&c.length);};
+function grafView(g){
+  const V=grafMencari(g)?{min:1,umum:false}:state.gv,key=V.min+'|'+(V.umum?1:0);
+  if(g.views[key])return g.views[key];
+  const sem=new Set(V.umum?g.umum:[]);
+  const E=g.E.filter(e=>e.vs.length>=V.min&&!sem.has(e.a)&&!sem.has(e.b));
+  const pakai=new Set();E.forEach(e=>{pakai.add(e.a);pakai.add(e.b);});
+  const nodes={},N=g.N.filter(p=>!sem.has(p.k)&&(V.min<=1||pakai.has(p.k))).map(p=>(nodes[p.k]={k:p.k,src:p,r:p.r,nb:new Set()}));
+  E.forEach(e=>{nodes[e.a].nb.add(e.b);nodes[e.b].nb.add(e.a);});
+  if(N.length)grafLayout(N,E,nodes);
+  // Label tetap hanya untuk akar tersering, kecuali bila simpulnya sedikit.
+  const top=new Set((N.length<=GRAF_LABEL_SEMUA?N:N.slice().sort((a,b)=>b.src.n-a.src.n||b.nb.size-a.nb.size).slice(0,GRAF_LABEL_N)).map(p=>p.k));
+  return g.views[key]={nodes,N,E,top};
 }
 function grafLayout(N,E,idx){
   // Simulasi pada bidang bebas, lalu hasilnya diskalakan agar pas di kanvas (tanpa simpul menempel di tepi).
@@ -4177,7 +4217,7 @@ function grafLayout(N,E,idx){
       const f=d*d/k*(1+0.5*(e.vs.length-1));dx/=d;dy/=d;p.dx-=dx*f;p.dy-=dy*f;q.dx+=dx*f;q.dy+=dy*f;
     });
     N.forEach(p=>{
-      p.dx-=p.x*0.9;p.dy-=p.y*1.3;
+      p.dx-=p.x*0.6;p.dy-=p.y*0.9;
       const d=Math.hypot(p.dx,p.dy)||0.01,s=Math.min(d,t)/d;p.x+=p.dx*s;p.y+=p.dy*s;
     });
     t=Math.max(0.5,t*0.99);
@@ -4186,27 +4226,114 @@ function grafLayout(N,E,idx){
   const sc=Math.min((GRAF_W-2*m)/((Math.max(...xs)-x0)||1),(GRAF_H-2*m)/((Math.max(...ys)-y0)||1));
   const ox=(GRAF_W-(Math.max(...xs)-x0)*sc)/2,oy=(GRAF_H-(Math.max(...ys)-y0)*sc)/2;
   N.forEach(p=>{p.x=ox+(p.x-x0)*sc;p.y=oy+(p.y-y0)*sc;});
+  // Pisahkan lingkaran yang masih bertumpuk, tetap di dalam kanvas.
+  const jarak=4;
+  for(let it=0;it<200;it++){
+    let geser=false;
+    for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){
+      const p=N[i],q=N[j];let dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy);const perlu=p.r+q.r+jarak;
+      if(d<perlu){if(d<0.01){dx=1;dy=0;d=1;}const s=(perlu-d)/2/d;p.x-=dx*s;p.y-=dy*s;q.x+=dx*s;q.y+=dy*s;geser=true;}
+    }
+    N.forEach(p=>{p.x=Math.max(p.r+6,Math.min(GRAF_W-p.r-6,p.x));p.y=Math.max(p.r+6,Math.min(GRAF_H-p.r-26,p.y));});
+    if(!geser)break;
+  }
+}
+// Mode fokus: akar terpilih di tengah, tetangganya melingkar. Makin banyak ayat bersama, makin dekat ke cincin dalam.
+function grafFokus(v,k){
+  const es=v.E.filter(e=>e.a===k||e.b===k).sort((a,b)=>b.vs.length-a.vs.length||(a.a+a.b).localeCompare(b.a+b.b));
+  const cx=GRAF_W/2,cy=GRAF_H/2-12,pos={[k]:{x:cx,y:cy}},cincin=[];
+  for(let i=0,ri=0;i<es.length;ri++){const R=150+ri*95,muat=Math.max(6,Math.floor(2*Math.PI*R/46));cincin.push({R,es:es.slice(i,i+muat)});i+=muat;}
+  const Rmax=cincin.length?cincin[cincin.length-1].R:1,sc=Math.min(1,(GRAF_H/2-60)/Rmax);
+  cincin.forEach(({R,es:c},ri)=>c.forEach((e,j)=>{const o=e.a===k?e.b:e.a,a=-Math.PI/2+(j+(ri%2?0.5:0))*2*Math.PI/c.length;
+    pos[o]={x:cx+R*sc*1.35*Math.cos(a),y:cy+R*sc*Math.sin(a)};}));
+  return {pos,es};
+}
+// Pencarian akar memakai aturan yang sama dengan tab Akar kata.
+function grafCocok(g){
+  const rq=rootQuery(state.gv.q);if(!rq)return null;
+  return g.N.map(p=>({k:p.k,s:rootScore(p.k,rq)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s||g.nodes[b.k].n-g.nodes[a.k].n).map(x=>x.k);
+}
+function grafHasil(g){
+  const c=grafCocok(g);if(!c)return '';
+  if(!c.length)return '<p class="note">Tidak ada akar yang cocok pada cakupan ini.</p>';
+  const tampil=c,ubah=state.gv.min>1||state.gv.umum;
+  return `<div class="forms"><span class="muted">${tampil.length} akar cocok${tampil.length>12?', 12 teratas':''}:</span>${tampil.slice(0,12).map(k=>`<button class="formbtn" data-gr="${k}"><span lang="ar" dir="rtl">${ROOTS[k].ar}</span> <small dir="ltr">${esc(ROOTS[k].lat)}</small></button>`).join('')}</div>`+
+    (ubah?'<p class="note">Selama pencarian, graf menampilkan semua garis agar akar yang dicari tidak tersembunyi. Kosongkan kotak cari untuk kembali ke saringan.</p>':'');
+}
+// Perbesar ke daerah akar yang cocok beserta tetangganya.
+function grafCariZoom(g){
+  const V=state.gv,v=grafView(g),c=(grafCocok(g)||[]).filter(k=>v.nodes[k]);
+  if(!c.length||V.fokus&&v.nodes[state.gr]){V.vb=null;return;}
+  const ks=new Set(c);c.forEach(k=>v.nodes[k].nb.forEach(x=>ks.add(x)));
+  const ps=[...ks].map(k=>v.nodes[k]),pad=50;
+  let x0=Math.min(...ps.map(p=>p.x-p.r))-pad,x1=Math.max(...ps.map(p=>p.x+p.r))+pad,y0=Math.min(...ps.map(p=>p.y-p.r))-pad,y1=Math.max(...ps.map(p=>p.y+p.r))+pad+20;
+  let w=Math.max(x1-x0,280,(y1-y0)*GRAF_W/GRAF_H);const h=w*GRAF_H/GRAF_W;
+  V.vb=grafJepit([(x0+x1-w)/2,(y0+y1-h)/2,w,h]);
+}
+function grafJepit(vb){
+  if(!vb)return null;let [x,y,w,h]=vb;
+  if(w>=GRAF_W*0.98)return null;
+  x=Math.max(-w*0.2,Math.min(GRAF_W-w*0.8,x));y=Math.max(-h*0.2,Math.min(GRAF_H-h*0.8,y));
+  return [x,y,w,h];
+}
+const grafVB=()=>(state.gv.vb||[0,0,GRAF_W,GRAF_H]).map(x=>+x.toFixed(1)).join(' ');
+function grafTerapkanVB(){
+  const s=document.getElementById('graf-svg');if(!s)return;
+  s.setAttribute('viewBox',grafVB());s.classList.toggle('zoomed',!!state.gv.vb);grafLabelUlang();
+  const z=document.getElementById('graf-zl');if(z)z.textContent=Math.round(GRAF_W/(state.gv.vb?state.gv.vb[2]:GRAF_W)*100)+'%';
+}
+function grafZoom(f,cx,cy){
+  const [x,y,w,h]=state.gv.vb||[0,0,GRAF_W,GRAF_H];
+  if(cx==null){cx=x+w/2;cy=y+h/2;}
+  const nw=Math.min(GRAF_W,Math.max(GRAF_W/8,w/f)),nh=nw*GRAF_H/GRAF_W;
+  state.gv.vb=grafJepit([cx-(cx-x)*nw/w,cy-(cy-y)*nh/h,nw,nh]);grafTerapkanVB();
 }
 function grafSvg(g){
-  const sel=g.nodes[state.gr]?state.gr:null;
-  let s=`<svg class="graf-svg${sel?' focus':''}" viewBox="0 0 ${GRAF_W} ${GRAF_H}" role="group" aria-label="Graf kemunculan bersama akar kata">`;
-  g.E.forEach(e=>{const p=g.nodes[e.a],q=g.nodes[e.b],on=sel&&(e.a===sel||e.b===sel);
-    s+=`<line class="ge${on?' on':''}" x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${q.x.toFixed(1)}" y2="${q.y.toFixed(1)}" stroke-width="${(1.2+1.6*(e.vs.length-1)).toFixed(1)}"/>`;});
-  g.N.slice().sort((a,b)=>b.r-a.r).forEach(p=>{const r=ROOTS[p.k],cls=(Object.keys(p.su).length>1?' multi':'')+(p.k===sel?' sel':sel&&g.nodes[sel].nb.has(p.k)?' nb':'');
-    s+=`<g class="gn${cls}" data-gr="${p.k}" tabindex="0" role="button" aria-pressed="${p.k===sel}" aria-label="Akar ${r.ar}, ${p.n} kemunculan, ${p.nb.size} akar tetangga"><circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}" style="fill:${GRAF_WARNA(p.dom)}"/><text x="${p.x.toFixed(1)}" y="${(p.y+p.r+19).toFixed(1)}" text-anchor="middle" lang="ar">${r.ar}</text></g>`;});
-  return s+'</svg>';
+  const v=grafView(g),V=state.gv,sel=v.nodes[state.gr]?state.gr:null;
+  if(!v.N.length)return `<p class="empty">Tidak ada hubungan dengan minimal ${V.min} ayat bersama pada cakupan ini. <button class="link" data-gall>Tampilkan semua akar</button></p>`;
+  const fk=V.fokus&&sel?grafFokus(v,sel):null;
+  const hit=new Set(sel?[]:(grafCocok(g)||[]).filter(k=>v.nodes[k])),terang=new Set(hit);
+  hit.forEach(k=>v.nodes[k].nb.forEach(x=>terang.add(x)));
+  const P=k=>fk?fk.pos[k]:v.nodes[k],E=fk?fk.es:v.E,N=fk?v.N.filter(p=>fk.pos[p.k]):v.N;
+  const mode=fk?' fokus':sel?' focus':hit.size?' cari':'';
+  const tg=k=>!!(sel&&v.nodes[sel].nb.has(k));
+  // Label: ukurannya tetap di layar saat diperbesar (dibagi faktor zoom), jadi makin diperbesar makin banyak label yang muat.
+  const z=GRAF_W/(V.vb?V.vb[2]:GRAF_W),mob=window.matchMedia&&matchMedia('(max-width:600px)').matches?1.6:1,fs=16*mob/z;
+  const ingin=p=>fk?true:sel?(p.k===sel||tg(p.k)):hit.size?terang.has(p.k):(v.top.has(p.k)||z>=2);
+  const prio=p=>(p.k===sel||hit.has(p.k)?2e6:0)+(tg(p.k)||terang.has(p.k)?1e6:0)+p.src.n;
+  const ditaruh=[],labY={};
+  N.filter(ingin).sort((a,b)=>prio(b)-prio(a)).forEach(p=>{
+    const pp=P(p.k),w=(ROOTS[p.k].ar.length*0.47+0.4)*fs,h=1.15*fs;
+    const wajib=p.k===sel||hit.has(p.k);
+    for(const y of [pp.y+p.r+2/z,pp.y-p.r-h-2/z]){const b={x:pp.x-w/2,y,w,h};
+      if(!ditaruh.some(o=>b.x<o.x+o.w&&o.x<b.x+b.w&&b.y<o.y+o.h&&o.y<b.y+b.h)){ditaruh.push(b);labY[p.k]=y+h*0.82;break;}}
+    if(wajib&&labY[p.k]==null){ditaruh.push({x:pp.x-w/2,y:pp.y+p.r+2/z,w,h});labY[p.k]=pp.y+p.r+2/z+h*0.82;}
+  });
+  let s=`<svg id="graf-svg" class="graf-svg${mode}${V.vb?' zoomed':''}" viewBox="${grafVB()}" role="group" aria-label="Graf kemunculan bersama akar kata${fk?', mode fokus':''}">`;
+  E.forEach(e=>{const p=P(e.a),q=P(e.b),on=sel&&(e.a===sel||e.b===sel),hl=hit.has(e.a)||hit.has(e.b);
+    s+=`<line class="ge${on?' on':''}${hl?' hl':''}" x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${q.x.toFixed(1)}" y2="${q.y.toFixed(1)}" stroke-width="${(1.2+1.6*(e.vs.length-1)).toFixed(1)}"/>`;});
+  let lab='';
+  N.slice().sort((a,b)=>b.r-a.r).forEach(p=>{const r=ROOTS[p.k],src=p.src,pp=P(p.k);
+    const cls=(Object.keys(src.su).length>1?' multi':'')+(p.k===sel?' sel':tg(p.k)?' nb':'')+(hit.has(p.k)?' hit':terang.has(p.k)?' hl':'');
+    s+=`<g class="gn${cls}" data-gr="${p.k}" tabindex="0" role="button" aria-pressed="${p.k===sel}" aria-label="Akar ${r.ar}, ${src.n} kemunculan, ${src.nb.size} akar tetangga"><title>${r.ar} (${esc(r.lat)})</title><circle cx="${pp.x.toFixed(1)}" cy="${pp.y.toFixed(1)}" r="${p.r.toFixed(1)}" style="fill:${GRAF_WARNA(src.dom)}"/></g>`;
+    if(labY[p.k]!=null)lab+=`<text class="gt" x="${pp.x.toFixed(1)}" y="${labY[p.k].toFixed(1)}" text-anchor="middle" lang="ar">${r.ar}</text>`;});
+  return s+`<g class="gl" aria-hidden="true" font-size="${fs.toFixed(2)}" stroke-width="${(fs*0.2).toFixed(2)}">${lab}</g></svg>`;
 }
+// Setelah zoom berhenti, gambar ulang agar label menyesuaikan perbesaran.
+let grafTunda=null;
+function grafLabelUlang(){clearTimeout(grafTunda);grafTunda=setTimeout(()=>{if(document.getElementById('graf-svg')&&!grafSeret)grafSegarkan();},160);}
 function grafSide(g){
   const p=g.nodes[state.gr];
   if(!p){
     const top=g.N.slice().sort((a,b)=>b.nb.size-a.nb.size||b.n-a.n).slice(0,6);
-    return `<div class="graf-side"><h3 style="margin-top:0">Ringkasan</h3><p>${g.N.length} akar, ${g.E.length} hubungan kemunculan bersama.</p>
+    return `<div class="graf-side"><h3 style="margin-top:0">Ringkasan</h3><p>${g.N.length} akar, ${g.E.length} hubungan kemunculan bersama. Graf menampilkan ${grafView(g).N.length} akar dan ${grafView(g).E.length} hubungan sesuai saringan.</p>
       <p class="muted">Akar dengan tetangga terbanyak:</p><div class="forms">${top.map(x=>`<button class="formbtn" data-gr="${x.k}"><span lang="ar" dir="rtl">${ROOTS[x.k].ar}</span> <small dir="ltr">${x.nb.size} tetangga</small></button>`).join('')}</div>
       <p class="note" style="margin-top:10px">Ketuk sebuah simpul untuk menyorot tetangganya.</p></div>`;
   }
   const r=ROOTS[p.k],nb=[...p.nb].map(k=>g.E.find(e=>(e.a===p.k&&e.b===k)||(e.b===p.k&&e.a===k))).sort((a,b)=>b.vs.length-a.vs.length);
   const lain=e=>e.a===p.k?e.b:e.a;
   return `<div class="graf-side"><div class="rhead"><span class="rt" lang="ar">${r.ar}</span><div><span class="muted">${esc(r.makna)}</span><br><span class="muted">${p.n} kemunculan dalam ${p.vs.length} ayat, ${Object.keys(p.su).map(si=>esc(SURAHS[si].nama)).join(', ')}</span></div></div>
+    ${grafView(g).nodes[p.k]?'':'<p class="note">Akar ini tersembunyi oleh saringan graf. <button class="link" data-gall>Tampilkan semua akar</button></p>'}
     <div class="actions"><button class="btn" data-root="${p.k}">Buka di Akar kata</button> <button class="btn" data-gr="">Lepas sorotan</button></div>
     <h3>Tetangga (${nb.length})</h3>
     ${nb.length?`<div class="forms">${nb.map(e=>`<button class="formbtn" data-gr="${lain(e)}"><span lang="ar" dir="rtl">${ROOTS[lain(e)].ar}</span> <small dir="ltr">${e.vs.length} ayat: ${e.vs.map(v=>'QS '+v.sn+':'+v.n).join(', ')}</small></button>`).join('')}</div>`:'<p class="muted">Akar ini tidak muncul bersama akar lain dalam satu ayat.</p>'}
@@ -4216,21 +4343,75 @@ function grafList(g){
   return g.E.slice().sort((a,b)=>b.vs.length-a.vs.length||ROOTS[a.a].ar.localeCompare(ROOTS[b.a].ar,'ar')).map(e=>`<li><span lang="ar" dir="rtl">${ROOTS[e.a].ar}</span> dan <span lang="ar" dir="rtl">${ROOTS[e.b].ar}</span>: ${e.vs.map(v=>'QS '+v.sn+':'+v.n).join(', ')}</li>`).join('');
 }
 function graf(){
-  const g=grafData(state.gs);
+  const g=grafData(state.gs),V=state.gv;
   if(!g.nodes[state.gr])state.gr=null;
-  return `<p class="note">Graf kemunculan bersama: setiap simpul adalah akar kata, dan dua akar dihubungkan bila muncul dalam ayat yang sama. Ukuran simpul menunjukkan jumlah kemunculan, tebal garis menunjukkan jumlah ayat bersama, dan warna menunjukkan kelompok surah (Al-Fātiḥah, Al-Baqarah 1–6, atau Juz ‘Amma) tempat akar paling sering muncul. Rincian surah setiap akar ada di panel samping.</p>
+  const umumNama=g.umum.map(k=>ROOTS[k].lat).join(', ');
+  return `<p class="note">Graf kemunculan bersama: setiap simpul adalah akar kata, dan dua akar dihubungkan bila muncul dalam ayat yang sama. Ukuran simpul menunjukkan jumlah kemunculan. Tebal garis menunjukkan jumlah ayat bersama. Warna menunjukkan kelompok surah tempat akar paling sering muncul: Al-Fātiḥah, Al-Baqarah 1–6, atau Juz ‘Amma. Rincian surah setiap akar ada di panel samping.</p>
     <div class="pilih"><div class="pk pk-gs"><label class="pk-l" for="gs-sel">Cakupan graf</label><select id="gs-sel" class="vsel wide"><option value="-1"${state.gs<0?' selected':''}>Semua surah (${SURAHS.length})</option>${SURAH_URUT.map(i=>`<option value="${i}"${state.gs===i?' selected':''}>${SURAHS[i].no}. ${esc(SURAHS[i].label||SURAHS[i].nama)}</option>`).join('')}</select></div></div>
+    <div class="graf-ctl">
+      <label>Cari akar<input id="gq" class="search" type="search" autocomplete="off" value="${esc(V.q)}" placeholder="r-ḥ-m, rhm, huruf Arab, atau makna"></label>
+      <label>Garis yang ditampilkan<select id="g-min" class="vsel">${[[1,'Semua (graf penuh)'],[2,'Minimal 2 ayat bersama'],[3,'Minimal 3 ayat bersama']].map(([n,t])=>`<option value="${n}"${V.min===n?' selected':''}>${t}</option>`).join('')}</select></label>
+      <label class="chk"><input type="checkbox" id="g-umum"${V.umum?' checked':''}> Sembunyikan akar paling umum (${esc(umumNama)})</label>
+      <label class="chk"><input type="checkbox" id="g-fokus"${V.fokus?' checked':''}> Mode fokus: akar terpilih di tengah</label>
+    </div>
+    <div id="g-hasil" aria-live="polite">${grafHasil(g)}</div>
     <div class="graf-leg" aria-label="Keterangan warna">${grafLegenda(g)}<span><i class="ring"></i>muncul di lebih dari satu surah</span></div>
+    <div class="graf-zoom" role="group" aria-label="Perbesaran graf"><button class="btn" data-gz="in" aria-label="Perbesar">+</button><button class="btn" data-gz="out" aria-label="Perkecil">&minus;</button><button class="btn" data-gz="reset">Ukuran semula</button><span id="graf-zl" class="muted">${Math.round(GRAF_W/(V.vb?V.vb[2]:GRAF_W)*100)}%</span><span class="muted graf-tip">Seret untuk menggeser. Cubit, atau Ctrl + gulir, untuk memperbesar.</span></div>
     <div class="graf-grid"><div class="scroll" id="graf-box">${grafSvg(g)}</div><div id="graf-side">${grafSide(g)}</div></div>
+    <p class="note">Label hanya ditampilkan untuk ${GRAF_LABEL_N} akar tersering, kecuali bila simpulnya ${GRAF_LABEL_SEMUA} atau kurang. Label akar lain muncul saat disorot atau dicari.</p>
     <details class="textlist"><summary>Daftar hubungan sebagai teks (${g.E.length})</summary><ul>${grafList(g)||'<li>Tidak ada hubungan.</li>'}</ul></details>`;
+}
+function grafSegarkan(){
+  const g=grafData(state.gs),b=document.getElementById('graf-box'),sd=document.getElementById('graf-side'),h=document.getElementById('g-hasil');
+  if(!b)return;
+  b.innerHTML=grafSvg(g);sd.innerHTML=grafSide(g);if(h)h.innerHTML=grafHasil(g);
+  const z=document.getElementById('graf-zl');if(z)z.textContent=Math.round(GRAF_W/(state.gv.vb?state.gv.vb[2]:GRAF_W)*100)+'%';
 }
 function grafPilih(k){
   state.gr=k||null;
-  const g=grafData(state.gs),b=document.getElementById('graf-box'),sd=document.getElementById('graf-side');
-  if(!b)return;
-  b.innerHTML=grafSvg(g);sd.innerHTML=grafSide(g);
-  const n=state.gr&&b.querySelector(`[data-gr="${state.gr}"]`);if(n)n.focus({preventScroll:true});
+  if(state.gv.fokus)state.gv.vb=null;
+  else if(!state.gr)grafCariZoom(grafData(state.gs));
+  grafSegarkan();
+  const b=document.getElementById('graf-box'),n=b&&state.gr&&b.querySelector(`[data-gr="${state.gr}"]`);if(n)n.focus({preventScroll:true});
 }
+// Geser dengan seret, perbesar dengan cubit (dua jari) atau Ctrl + gulir. Seretan tidak dihitung sebagai ketukan.
+const grafPtr=new Map();let grafSeret=null,grafBaruSeret=false;
+function grafKeSvg(s,cx,cy){const r=s.getBoundingClientRect(),[x,y,w,h]=state.gv.vb||[0,0,GRAF_W,GRAF_H];return [x+(cx-r.left)/r.width*w,y+(cy-r.top)/r.height*h];}
+document.addEventListener('pointerdown',function(e){
+  const s=e.target.closest&&e.target.closest('#graf-svg');if(!s)return;
+  grafPtr.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  grafSeret={x:e.clientX,y:e.clientY,vb:(state.gv.vb||[0,0,GRAF_W,GRAF_H]).slice(),gerak:false,jarak:null};
+  grafBaruSeret=false;
+});
+document.addEventListener('pointermove',function(e){
+  if(!grafSeret||!grafPtr.has(e.pointerId))return;
+  const s=document.getElementById('graf-svg');if(!s)return;
+  grafPtr.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  const pts=[...grafPtr.values()];
+  if(pts.length===2){
+    const d=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y);
+    if(grafSeret.jarak){const [cx,cy]=grafKeSvg(s,(pts[0].x+pts[1].x)/2,(pts[0].y+pts[1].y)/2);grafZoom(d/grafSeret.jarak,cx,cy);}
+    grafSeret.jarak=d;grafSeret.gerak=true;return;
+  }
+  const dx=e.clientX-grafSeret.x,dy=e.clientY-grafSeret.y;
+  if(!grafSeret.gerak&&Math.hypot(dx,dy)<6)return;
+  if(!state.gv.vb)return; // geser hanya saat diperbesar; tanpa zoom, halaman tetap bisa digulir
+  grafSeret.gerak=true;
+  const r=s.getBoundingClientRect(),[x,y,w,h]=grafSeret.vb;
+  state.gv.vb=grafJepit([x-dx/r.width*w,y-dy/r.height*h,w,h])||state.gv.vb;grafTerapkanVB();
+});
+function grafLepas(e){
+  grafPtr.delete(e.pointerId);
+  if(grafSeret&&grafSeret.gerak)grafBaruSeret=true;
+  if(!grafPtr.size){const gerak=grafSeret&&grafSeret.gerak;grafSeret=null;if(gerak)grafLabelUlang();}else if(grafSeret)grafSeret.jarak=null;
+}
+document.addEventListener('pointerup',grafLepas);
+document.addEventListener('pointercancel',grafLepas);
+document.addEventListener('wheel',function(e){
+  if(!e.ctrlKey&&!e.metaKey)return;
+  const s=e.target.closest&&e.target.closest('#graf-svg');if(!s)return;
+  e.preventDefault();const [cx,cy]=grafKeSvg(s,e.clientX,e.clientY);grafZoom(Math.exp(-e.deltaY*0.01),cx,cy);
+},{passive:false});
 
 /* ---------- Tab: Paralel ---------- */
 function para(){
@@ -4401,7 +4582,7 @@ function cari(){
 /* ---------- Tab: Lab label ---------- */
 const LAB_LBL={formal:'formal',dinamis:'dinamis',tidak_pasti:'tidak pasti'};
 const LAB_NAMA={sealion:'SEA-LION v4',gemma:'Gemma 4'};
-state.lab={key:'',model:'keduanya',form:{istilah:'',konteks:'',padanan:''},rows:[],busy:false,err:null,prompt:null};
+state.lab={key:'',model:'keduanya',form:{istilah:'',konteks:'',padanan:''},rows:[],busy:false,err:null,prompt:null,pick:{v:-1,w:-1}};
 const fmt2=x=>(x===null||x===undefined||isNaN(x))?'—':Number(x).toFixed(2).replace('.',',');
 function labMetrics(pairs){
   const n=pairs.length;if(!n)return {n:0};
@@ -4467,8 +4648,19 @@ function labPrefill(id){
   const d=DIS.find(x=>x.id===id);if(!d)return;
   const v=SURAHS[d.s||0].verses[d.verse-1],w=v.words[d.word];
   const kk=kemenagOf(v);
-  state.lab.form={istilah:`${d.lat} (${d.term})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?` — Terjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:KEMENAG_PADANAN[id]||w.gloss};
+  state.lab.form={istilah:`${d.lat} (${d.term})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?`\nTerjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:KEMENAG_PADANAN[id]||w.gloss};
   renderView();
+}
+/* Padanan Kemenag untuk satu kata: gabungan bagian SELARAS (padanan dan sisipan) yang menunjuk indeks kata itu, urut teks. */
+function labPadananKata(v,wi){
+  const seg=selarasOf(v);if(!seg)return '';
+  return normTeks(seg.filter(s=>s.w===wi).map(s=>s.t).join(' '));
+}
+function labPick(){
+  const P=state.lab.pick,v=VERSES[P.v];if(!v)return;
+  const w=v.words[P.w];if(!w)return;
+  const kk=kemenagOf(v);
+  state.lab.form={istilah:`${w.lat} (${w.ar})`,konteks:`QS ${v.sn}:${v.n} ${v.ar}`+(kk?`\nTerjemahan Kemenag: ${normTeks(kk.teks)}`:''),padanan:labPadananKata(v,P.w)||w.gloss};
 }
 async function labRun(){
   const L=state.lab,F=L.form;
@@ -4495,11 +4687,18 @@ function labDownload(){
 function lab(){
   const L=state.lab,F=L.form;
   const pre=DIS.map(d=>`<option value="${d.id}">${esc(d.lat)} (${esc(d.ref)})</option>`).join('');
+  const P=L.pick,pv=VERSES[P.v];
+  const ayatOpt=SURAHS.map((S,si)=>`<optgroup label="${esc(S.no+'. '+surahNama(si))}">${S.verses.map(v=>{const i=VERSES.indexOf(v);
+    return `<option value="${i}"${i===P.v?' selected':''}>QS ${v.sn}:${v.n}</option>`;}).join('')}</optgroup>`).join('');
+  const kataOpt=pv?pv.words.map((w,i)=>`<option value="${i}"${i===P.w?' selected':''}>${i+1}. ${esc(w.lat)} (${esc(w.ar)}): ${esc(w.gloss)}</option>`).join(''):'';
   return `<h2>Lab label padanan</h2>
-  <p class="semnote"><span class="badge warn">Eksperimen, akses terbatas</span> Alat ini meminta saran label formal atau dinamis dari dua model AI, lalu membandingkannya dengan label ahli. AI hanya mengklasifikasikan teknik penerjemahan, tidak menafsirkan ayat, dan hasilnya wajib diverifikasi.</p>
+  <p class="semnote"><span class="badge warn">Eksperimen, terbuka dengan pembatas laju</span> Alat ini meminta saran label formal atau dinamis dari dua model AI, lalu membandingkannya dengan label ahli. AI hanya mengklasifikasikan teknik penerjemahan, tidak menafsirkan ayat, dan hasilnya wajib diverifikasi.</p>
   <div class="labform">
     <label>Kunci pemilik (opsional)<input id="lab-key" class="search" type="password" autocomplete="off" value="${esc(L.key)}" placeholder="Kosongkan bila bukan pemilik"></label>
-    <label>Ambil contoh dari korpus (padanan diambil dari terjemahan Kemenag)<select id="lab-prefill" class="search"><option value="">Pilih entri</option>${pre}</select></label>
+    <label>Istilah teologis terpilih (padanan diambil dari terjemahan Kemenag)<select id="lab-prefill" class="search"><option value="">Pilih entri</option>${pre}</select></label>
+    <p class="note" style="margin:4px 0 6px">Atau pilih kata mana pun dari korpus (padanan diambil dari penyelarasan terjemahan Kemenag per kata):</p>
+    <label>Ayat<select id="lab-ayat" class="search"><option value="">Pilih ayat</option>${ayatOpt}</select></label>
+    <label>Kata<select id="lab-kata" class="search"${pv?'':' disabled'}><option value="">${pv?'Pilih kata':'Pilih ayat lebih dulu'}</option>${kataOpt}</select></label>
     <label>Istilah sumber<input id="lab-istilah" class="search" value="${esc(F.istilah)}" placeholder="Contoh: taqwā (تقوى)"></label>
     <label>Konteks ayat (opsional)<textarea id="lab-konteks" class="search" rows="3" placeholder="Contoh: QS 2:2 beserta teks ayatnya">${esc(F.konteks)}</textarea></label>
     <label>Padanan dalam terjemahan<input id="lab-padanan" class="search" value="${esc(F.padanan)}" placeholder="Contoh: orang-orang yang bertakwa"></label>
@@ -4544,7 +4743,7 @@ function ai(){
    <ul class="plain">
     <li>AI tidak menafsirkan. Jawaban hanya berasal dari entri korpus yang sudah diverifikasi dan selalu menyertakan sumbernya. Bila tidak ada entri yang relevan, sistem menyatakan tidak ada jawaban.</li>
     <li>Setiap keluaran AI diberi tanda yang jelas dan dapat dilacak ke data asalnya.</li>
-    <li>Lab label terbuka untuk umum tanpa kunci, dengan pembatas laju (5 permintaan per menit per pengunjung) agar jatah AI tidak terkuras. Model generatif di sana hanya diminta mengklasifikasikan teknik penerjemahan.</li>
+    <li>Lab label terbuka untuk umum tanpa kunci, dengan pembatas laju (5 permintaan per menit per pengunjung, 60 per menit dan 1.000 per hari untuk semua pengunjung) agar jatah AI tidak terkuras. Model generatif di sana hanya diminta mengklasifikasikan teknik penerjemahan.</li>
     <li>Fitur AI berjalan lewat server perantara (Cloudflare Worker) agar kunci layanan tidak terbuka di halaman publik. Karena itu mode Makna hanya aktif pada alamat Cloudflare, bukan pada hosting statis biasa.</li>
     <li>Terjemahan Kemenag beserta catatan kakinya dikirim ke layanan AI untuk pencarian makna dan Lab label, dikutip dengan atribusi. Izin pemakaian formal untuk korpus penuh dan pemakaian terjemahan penerbit tetap mengikuti izin data.</li>
     <li>Yang dikirim ke layanan AI hanyalah teks korpus buatan sendiri dan pertanyaan pengguna. Terjemahan Kemenag dan penerbit tidak dikirim sebelum izin data tersedia.</li>
@@ -4892,7 +5091,7 @@ function sisipan(){
 
 function renderView(){
   const fn={baca,tree,akar,cari,para,sisipan,makna,graf,lab,ai,pedoman}[state.tab];
-  const ae=document.activeElement,keep=ae&&ae.id&&['v-prev','v-next','v-sel','sp-in','gs-sel'].includes(ae.id)?ae.id:null;
+  const ae=document.activeElement,keep=ae&&ae.id&&['v-prev','v-next','v-sel','sp-in','gs-sel','g-min','g-umum','g-fokus'].includes(ae.id)?ae.id:null;
   document.getElementById('view').innerHTML=fn();
   if(keep){let el=document.getElementById(keep);if(el&&el.disabled)el=document.getElementById('v-sel');if(el)el.focus({preventScroll:true});}
   renderTabs();
@@ -4926,6 +5125,9 @@ document.addEventListener('click',function(e){
   if(e.target.closest('[data-sptog]')){const x=spEls();if(x){const open=x.list.hidden;if(open)spFilter('');else spOpen(false);x.inp.focus();if(open)x.inp.select();}return;}
   if(e.target.id==='sp-in'){const x=spEls();if(x&&x.list.hidden){spFilter('');x.inp.select();}return;}
   const opt=e.target.closest('#sp-list li[data-s]');if(opt){spPick(+opt.dataset.s);return;}
+  if(grafBaruSeret&&e.target.closest('#graf-svg')){grafBaruSeret=false;return;}
+  const gz=e.target.closest('[data-gz]');if(gz){const a=gz.dataset.gz;if(a==='reset'){state.gv.vb=null;grafTerapkanVB();}else grafZoom(a==='in'?1.5:1/1.5);return;}
+  if(e.target.closest('[data-gall]')){Object.assign(state.gv,{min:1,umum:false,vb:null});renderView();return;}
   const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear],[data-insp],[data-tbw]');
   if(!t)return;
   if(state.tab==='tree'&&(t.dataset.tbw!==undefined||t.dataset.w!==undefined)){const b=document.getElementById('tree-box');tbKeepScroll=b?b.scrollLeft:null;}
@@ -4958,6 +5160,7 @@ document.addEventListener('input',function(e){
   if(e.target&&e.target.id==='lab-padanan'){state.lab.form.padanan=e.target.value;return;}
   if(e.target&&e.target.id==='cq'){state.cq=e.target.value;if(state.cmode==='kw')document.getElementById('cresults').innerHTML=cariResults();}
   if(e.target&&e.target.id==='q'){state.q=e.target.value;document.getElementById('rootlist').innerHTML=akarList();}
+  if(e.target&&e.target.id==='gq'){state.gv.q=e.target.value;state.gr=null;grafCariZoom(grafData(state.gs));grafSegarkan();}
   if(e.target&&e.target.id==='sp-in'){spFilter(e.target.value);}
 });
 document.addEventListener('mousedown',function(e){if(e.target.closest&&e.target.closest('#sp-list,[data-sptog]'))e.preventDefault();});
@@ -4970,8 +5173,13 @@ document.addEventListener('change',function(e){
   const t=e.target;if(!t)return;
   if(t.dataset&&t.dataset.ahli){const r=state.lab.rows.find(x=>x.id===t.dataset.ahli);if(r){r.ahli=t.value;paintLab();}return;}
   if(t.id==='lab-prefill'&&t.value){labPrefill(t.value);}
+  if(t.id==='lab-ayat'){state.lab.pick={v:t.value===''?-1:+t.value,w:-1};renderView();return;}
+  if(t.id==='lab-kata'){state.lab.pick.w=t.value===''?-1:+t.value;if(state.lab.pick.w>=0)labPick();renderView();return;}
   if(t.id==='v-sel'){state.v=+t.value;state.w=0;renderView();return;}
-  if(t.id==='gs-sel'){state.gs=+t.value;state.gr=null;renderView();return;}
+  if(t.id==='gs-sel'){state.gs=+t.value;state.gr=null;Object.assign(state.gv,{min:state.gs<0?2:1,vb:null});renderView();return;}
+  if(t.id==='g-min'){state.gv.min=+t.value;state.gv.vb=null;grafCariZoom(grafData(state.gs));renderView();return;}
+  if(t.id==='g-umum'){state.gv.umum=t.checked;state.gv.vb=null;grafCariZoom(grafData(state.gs));renderView();return;}
+  if(t.id==='g-fokus'){state.gv.fokus=t.checked;state.gv.vb=null;if(!t.checked)grafCariZoom(grafData(state.gs));grafSegarkan();grafTerapkanVB();return;}
 });
 document.addEventListener('toggle',function(e){
   const t=e.target;
