@@ -262,8 +262,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visi
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--brand-line);background:var(--surface);color:var(--brand-text);border-radius:var(--r-sm);padding:7px 14px;font:inherit;font-size:var(--fs-sm);font-weight:600;cursor:pointer}
 .btn:hover:not([disabled]){background:var(--brand);border-color:var(--brand);color:var(--brand-on)}
 .btn[disabled]{opacity:.5;cursor:default}
-.btn[data-lab-run],.btn[data-sem]{background:var(--brand);border-color:var(--brand);color:var(--brand-on)}
-.btn[data-lab-run]:hover:not([disabled]),.btn[data-sem]:hover{background:#2A4E3E}
+.btn[data-lab-run],.btn[data-sem],.btn[data-chat]{background:var(--brand);border-color:var(--brand);color:var(--brand-on)}
+.btn[data-lab-run]:hover:not([disabled]),.btn[data-sem]:hover,.btn[data-chat]:hover:not([disabled]){background:#2A4E3E}
 details.json{margin-top:10px}
 details summary{cursor:pointer;display:list-item;min-height:44px;padding:11px 0}
 details.json summary,details.textlist summary{color:var(--ink2);font-size:var(--fs-sm)}
@@ -3756,7 +3756,7 @@ const DIS=[
 
 /* ---------- State dan util ---------- */
 const state={tab:'baca',s:0,v:1,w:0,q:'',focusRoot:null,focusDis:null,cq:'',cmode:'kw',sem:null,semBusy:false,gs:-1,gr:null,insp:false};
-const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['sisipan','Peta sisipan'],['makna','Makna kontekstual'],['graf','Graf akar'],['cari','Cari'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
+const TABS=[['baca','Baca dan i‘rāb'],['tree','Treebank'],['akar','Akar kata'],['para','Terjemahan paralel'],['sisipan','Peta sisipan'],['makna','Makna kontekstual'],['graf','Graf akar'],['cari','Cari'],['chat','Tanya ayat'],['lab','Lab label'],['ai','Rencana AI'],['pedoman','Pedoman dan status']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const cur=()=>SURAHS[state.s].verses[state.v-1];
 const arabNum=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
@@ -4579,6 +4579,55 @@ function cari(){
     <p class="note" style="margin-top:14px">Mode ini mencocokkan huruf yang diketik tanpa memahami makna. Ia menjadi pembanding bagi mode Makna (eksperimen AI).</p>`;
 }
 
+/* ---------- Tab: Tanya ayat (chat pencarian ayat, eksperimen) ---------- */
+// Teks Arab dan terjemahan datang dari korpus di server (dipilih menurut id); AI hanya memilih ayat dan menulis catatan singkat.
+state.chat={q:'',busy:false,res:null};
+function chatRow(a){
+  const p=String(a.id).split(':'),si=+p[1],vn=+p[2];
+  return `<button class="hit ay" data-goto="${si}:${vn}:0"><span class="hv">${esc(a.ref)}</span><span class="hmain">${esc(a.kemenag)} <span class="muted">(Kemenag)</span>${a.kerja?`<br><span class="muted">Terjemahan kerja: ${esc(a.kerja)}</span>`:''}</span><span class="har" lang="ar">${esc(a.arab)}</span></button>`;
+}
+function chatResults(){
+  const C=state.chat;
+  if(C.busy)return '<p class="empty">Mencari ayat…</p>';
+  const r=C.res;
+  if(!r)return '<p class="empty">Tulis pertanyaan dalam bahasa Indonesia, lalu ketuk Tanya.</p>';
+  if(r.galat)return `<p class="empty">${esc(r.galat)}</p>`;
+  const catatan=r.catatan?`<p class="semnote"><span class="badge warn">Catatan mesin</span>${esc(r.catatan)}</p>`:'';
+  const mode=r.ringkas?'':'<p class="note">Ringkasan AI sedang tidak tersedia; berikut ayat paling mirip menurut pencarian makna.</p>';
+  const isi=r.ayat.length?r.ayat.map(chatRow).join(''):'<p class="empty">Tidak ada ayat yang relevan di korpus purwarupa.</p>';
+  return `<p class="rcount">${r.ayat.length} ayat untuk “${esc(r.pertanyaan)}” <span class="badge warn">${esc(r.status)}</span></p>${catatan}${mode}${isi}`;
+}
+function chat(){
+  const ex=['ayat tentang keesaan Allah','ayat tentang wahyu pertama','perintah membaca'];
+  return `<p class="semnote"><span class="badge warn">Eksperimen, belum divalidasi</span>Tanyakan sebuah topik, lalu sistem mencari ayat yang relevan di korpus. Teks Arab dan terjemahan selalu diambil dari korpus; AI hanya memilih ayat dan menulis catatan singkat, tanpa tafsir atau fatwa. Korpus purwarupa baru memuat Al-Fātiḥah, sebagian Al-Baqarah, dan surah 96 sampai 114.</p>
+    <div class="semrow"><input id="chatq" class="search" type="search" maxlength="200" placeholder="Contoh: ayat tentang keesaan Allah" value="${esc(state.chat.q)}" aria-label="Pertanyaan tentang ayat"><button class="btn" data-chat${state.chat.busy?' disabled':''}>Tanya</button></div>
+    <div class="ex"><span>Coba:</span>${ex.map(x=>`<button class="formbtn" data-chatq="${esc(x)}">${esc(x)}</button>`).join('')}</div>
+    <div id="chatres" aria-live="polite">${chatResults()}</div>
+    <p class="note" style="margin-top:14px">Pertanyaan Anda dan isi korpus diproses layanan Workers AI di Cloudflare, dengan pembatasan jumlah pertanyaan. Fitur ini hanya aktif pada alamat Cloudflare. Hasilnya draf mesin dan bisa meleset; rujuklah ayat dan terjemahannya, bukan catatan mesin.</p>`;
+}
+function paintChat(){
+  const el=document.getElementById('chatres');
+  if(el&&state.tab==='chat')el.innerHTML=chatResults();
+  const b=document.querySelector('[data-chat]');if(b)b.disabled=state.chat.busy;
+}
+async function chatSend(raw){
+  const C=state.chat;if(C.busy)return;
+  const q=String(raw||'').replace(/\s+/g,' ').trim();
+  C.q=q;
+  if(q.length<2){C.res={galat:'Ketik minimal dua huruf.'};paintChat();return;}
+  C.busy=true;C.res=null;paintChat();
+  try{
+    const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json',accept:'application/json'},body:JSON.stringify({pesan:q})});
+    let j=null;try{j=await r.json();}catch(_){}
+    if(!j)throw new Error('Server tidak memberi jawaban yang dapat dibaca (kode '+r.status+'). Fitur ini hanya aktif pada situs di Cloudflare.');
+    if(!r.ok||!j.ok)throw new Error(j.galat||('Server menjawab dengan kode '+r.status+'.'));
+    C.res=j;
+  }catch(e){
+    C.res={galat:(e&&e.name==='TypeError')?'Tidak dapat terhubung ke server. Fitur ini hanya aktif pada situs di Cloudflare.':((e&&e.message)||'Terjadi kesalahan.')};
+  }
+  C.busy=false;paintChat();
+}
+
 /* ---------- Tab: Lab label ---------- */
 const LAB_LBL={formal:'formal',dinamis:'dinamis',tidak_pasti:'tidak pasti'};
 const LAB_NAMA={sealion:'SEA-LION v4',gemma:'Gemma 4'};
@@ -4833,7 +4882,7 @@ function renderStatus(){
      <span class="badge warn">Draf kerja: belum divalidasi ahli</span>`;
 }
 // Tab dikelompokkan menurut kegunaan; semua fitur tetap ada.
-const TAB_GRUP=[['Baca',['baca','para','makna']],['Analisis',['tree','akar','graf','sisipan']],['Riset dan lab',['cari','lab','ai','pedoman']]];
+const TAB_GRUP=[['Baca',['baca','para','makna']],['Analisis',['tree','akar','graf','sisipan']],['Riset dan lab',['chat','cari','lab','ai','pedoman']]];
 function renderTabs(){
   const nm=Object.fromEntries(TABS);
   document.getElementById('tabs').innerHTML=TAB_GRUP.map(([g,ks],gi)=>(gi?'<span class="tg-sep" aria-hidden="true"></span>':'')+
@@ -5090,7 +5139,7 @@ function sisipan(){
 }
 
 function renderView(){
-  const fn={baca,tree,akar,cari,para,sisipan,makna,graf,lab,ai,pedoman}[state.tab];
+  const fn={baca,tree,akar,cari,para,sisipan,makna,graf,chat,lab,ai,pedoman}[state.tab];
   const ae=document.activeElement,keep=ae&&ae.id&&['v-prev','v-next','v-sel','sp-in','gs-sel','g-min','g-umum','g-fokus'].includes(ae.id)?ae.id:null;
   document.getElementById('view').innerHTML=fn();
   if(keep){let el=document.getElementById(keep);if(el&&el.disabled)el=document.getElementById('v-sel');if(el)el.focus({preventScroll:true});}
@@ -5128,7 +5177,7 @@ document.addEventListener('click',function(e){
   if(grafBaruSeret&&e.target.closest('#graf-svg')){grafBaruSeret=false;return;}
   const gz=e.target.closest('[data-gz]');if(gz){const a=gz.dataset.gz;if(a==='reset'){state.gv.vb=null;grafTerapkanVB();}else grafZoom(a==='in'?1.5:1/1.5);return;}
   if(e.target.closest('[data-gall]')){Object.assign(state.gv,{min:1,umum:false,vb:null});renderView();return;}
-  const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear],[data-insp],[data-tbw]');
+  const t=e.target.closest('[data-gr],[data-gs],[data-sw],[data-sisgo],[data-tab],[data-v],[data-w],[data-root],[data-dis],[data-goto],[data-q],[data-s],[data-cmode],[data-qs],[data-sem],[data-chat],[data-chatq],[data-lmodel],[data-lab-run],[data-lab-csv],[data-lab-clear],[data-insp],[data-tbw]');
   if(!t)return;
   if(state.tab==='tree'&&(t.dataset.tbw!==undefined||t.dataset.w!==undefined)){const b=document.getElementById('tree-box');tbKeepScroll=b?b.scrollLeft:null;}
   if(t.dataset.tbw!==undefined){state.w=+t.dataset.tbw;renderView();return;}
@@ -5149,6 +5198,8 @@ document.addEventListener('click',function(e){
   if(t.dataset.labClear!==undefined){state.lab.rows=[];state.lab.err=null;paintLab();return;}
   if(t.dataset.cmode){state.cmode=t.dataset.cmode;renderView();return;}
   if(t.dataset.qs!==undefined){state.cq=t.dataset.qs;renderView();semSearch(t.dataset.qs);return;}
+  if(t.dataset.chatq!==undefined){state.chat.q=t.dataset.chatq;renderView();chatSend(t.dataset.chatq);return;}
+  if(t.dataset.chat!==undefined){const i=document.getElementById('chatq');chatSend(i?i.value:state.chat.q);return;}
   if(t.dataset.sem!==undefined){const i=document.getElementById('cq');semSearch(i?i.value:state.cq);return;}
   if(t.dataset.q!==undefined){state.cq=t.dataset.q;renderView();return;}
   if(t.dataset.goto){const p=t.dataset.goto.split(':');state.tab='baca';state.s=+p[0];state.v=+p[1];state.w=+p[2];state.insp=true;renderView();window.scrollTo({top:0});return;}
@@ -5206,6 +5257,7 @@ document.addEventListener('keydown',function(e){
     const n=e.key==='Home'?0:e.key==='End'?tabs.length-1:(k+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
     e.preventDefault();state.tab=tabs[n].dataset.tab;renderView();const nb=document.querySelector(`#tabs [data-tab="${state.tab}"]`);if(nb)nb.focus();return;
   }
+  if(e.key==='Enter'&&e.target&&e.target.id==='chatq'){e.preventDefault();chatSend(e.target.value);}
   if(e.key==='Enter'&&e.target&&e.target.id==='cq'&&state.cmode==='sem'){e.preventDefault();semSearch(e.target.value);}
   if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.classList&&e.target.classList.contains('gn')){e.preventDefault();grafPilih(e.target.dataset.gr===state.gr?'':e.target.dataset.gr);}
   if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.dataset&&e.target.dataset.sw){e.preventDefault();sisPilih(e.target.dataset.sw);}
