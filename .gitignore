@@ -14,3 +14,6 @@ public/
 .env
 .env.*
 .claude/settings.local.json
+
+# Dependensi
+node_modules/
