@@ -6,15 +6,15 @@
     "semantic_hash": ""
   },
   "worker.js": {
-    "mtime": 1794202492.692278,
-    "seen": 1794202493.5167537,
-    "ast_hash": "a463874abd96ce4547b714e23427f139",
+    "mtime": 1794497684.3621764,
+    "seen": 1794498142.3642964,
+    "ast_hash": "ffd8352b875f5a4df1f6d3aa62dc04ba",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1794202492.692278,
-    "seen": 1794202493.5168176,
-    "ast_hash": "86fdf8f871efb8c6560802977b5b5193",
+    "mtime": 1794497925.5877042,
+    "seen": 1794498142.3643723,
+    "ast_hash": "8dacda4ad4c8bf12eb6ae1be1a7ed686",
     "semantic_hash": ""
   },
   ".claude/settings.json": {
@@ -357,6 +357,18 @@
     "mtime": 1793959872.8056347,
     "seen": 1793959973.6203902,
     "ast_hash": "8813235e304c3d316ef6ee19e4090ed7",
+    "semantic_hash": ""
+  },
+  ".claude/hooks/cek-sebelum-tayang.sh": {
+    "mtime": 1794497684.3541765,
+    "seen": 1794498142.364237,
+    "ast_hash": "6d1692ed04e2e1627f8ac4a135dce20e",
+    "semantic_hash": ""
+  },
+  ".claude/hooks/simpan-dan-cadangkan.sh": {
+    "mtime": 1794497684.3585527,
+    "seen": 1794498142.3642478,
+    "ast_hash": "b602cb2f733bc22be1590b0660f6abc3",
     "semantic_hash": ""
   }
 }

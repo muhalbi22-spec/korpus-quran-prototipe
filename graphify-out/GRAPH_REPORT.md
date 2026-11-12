@@ -1,17 +1,17 @@
-# Graph Report - korpus-quran-prototipe  (2026-11-09)
+# Graph Report - korpus-quran-prototipe  (2026-11-12)
 
 ## Corpus Check
-- 58 files · ~211,494 words
+- 60 files · ~215,525 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .jsonc 1)
 
 ## Summary
-- 417 nodes · 584 edges · 46 communities (31 shown, 15 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.91)
+- 443 nodes · 642 edges · 49 communities (32 shown, 17 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `90c4efe4`
+- Built from commit: `cbd05098`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,6 +21,7 @@
 - 3. Brief desain untuk situs kita
 - Worker AI Cloudflare
 - Kamus dan pencarian akar
+- Findings
 - esc
 - pulihkan-tanzil.js
 - Findings
@@ -51,30 +52,32 @@
 - Data sources and licences
 - audit-2026-11/README.md
 - tinjauan-21-surah/README.md
+- simpan-dan-cadangkan.sh
+- cek-sebelum-tayang.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `esc()` - 33 edges
 2. `renderView()` - 16 edges
 3. `SURAHS` - 16 edges
-4. `labelPadanan()` - 14 edges
-5. `sisipan() tab` - 12 edges
-6. `runSearch()` - 12 edges
-7. `baca() tab` - 12 edges
-8. `Findings` - 11 edges
-9. `para() tab` - 11 edges
-10. `fetch()` - 10 edges
+4. `chatAyat()` - 15 edges
+5. `labelPadanan()` - 14 edges
+6. `sisipan() tab` - 12 edges
+7. `runSearch()` - 12 edges
+8. `baca() tab` - 12 edges
+9. `fetch()` - 11 edges
+10. `Findings` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Clean / positive` --references--> `q()`  [INFERRED]
   docs/audit-2026-11/security.md → tools/pulihkan-tanzil.js
+- `Fix in the repo vs. configure in the Cloudflare dashboard` --references--> `json()`  [INFERRED]
+  docs/audit-2026-11/security.md → worker.js
+- `Medium` --references--> `json()`  [INFERRED]
+  docs/audit-2026-11/security.md → worker.js
 - `P2-5 Semantic search cold start (~20 s) and public quota use` --references--> `ambilIndeks()`  [INFERRED]
   docs/audit-2026-11/data.md → worker.js
 - `HIGH` --references--> `ambilIndeks()`  [INFERRED]
   docs/audit-2026-11/qa.md → worker.js
-- `P1` --references--> `status()`  [INFERRED]
-  docs/audit-2026-11/academic.md → worker.js
-- `P2-3 Data and code not separated` --references--> `fetch()`  [INFERRED]
-  docs/audit-2026-11/data.md → worker.js
 
 ## Import Cycles
 - None detected.
@@ -84,11 +87,11 @@
 - **Tab renderers dispatched by renderView** — index_renderview, index_baca, index_tree, index_akar, index_para, index_sisipan, index_makna, index_graf, index_cari, index_lab, index_ai, index_pedoman [EXTRACTED 1.00]
 - **AI experiments routed through Cloudflare Worker** — index_semsearch, index_labrun, index_cloudflare_worker_api, worker_cari, worker_labelpadanan, index_ai_usage_limits [INFERRED 0.85]
 
-## Communities (46 total, 15 thin omitted)
+## Communities (49 total, 17 thin omitted)
 
 ### Community 0 - "Tab UI dan event"
-Cohesion: 0.07
-Nodes (41): Agreement metrics: accuracy, Cohen's kappa, recall/F1 for dinamis, ai() tab, Always-'formal' baseline comparator, document change handler, document click handler (event delegation), Cloudflare Worker API (/api/cari, /api/label, /api/status), DIS (contextual meaning entries), disCard() (+33 more)
+Cohesion: 0.08
+Nodes (34): Agreement metrics: accuracy, Cohen's kappa, recall/F1 for dinamis, ai() tab, akar() tab, Always-'formal' baseline comparator, document change handler, document click handler (event delegation), Cloudflare Worker API (/api/cari, /api/label, /api/status), DIS (contextual meaning entries) (+26 more)
 
 ### Community 1 - "Peta sisipan dan graf akar"
 Cohesion: 0.11
@@ -100,15 +103,19 @@ Nodes (10): 1. Pola yang membuat situs terasa modern dan kredibel secara akademi
 
 ### Community 3 - "Worker AI Cloudflare"
 Cohesion: 0.10
-Nodes (33): Clean / positive, Critical, Findings, Fix in the repo vs. configure in the Cloudflare dashboard, Hardening plan (in order), High, Low, Medium (+25 more)
+Nodes (44): High, ambilIndeks(), ambilIstilahHitung(), ambilVektor(), AYAT, bacaTeks(), BATAS, batasi() (+36 more)
 
 ### Community 4 - "Kamus dan pencarian akar"
-Cohesion: 0.19
-Nodes (18): akar() tab, akarList(), Arabic/Latin diacritic normalization, Arabic triliteral/quadriliteral root, hasArabic(), document input handler, kwicRow(), occurrences() (+10 more)
+Cohesion: 0.22
+Nodes (16): akarList(), Arabic/Latin diacritic normalization, Arabic triliteral/quadriliteral root, hasArabic(), kwicRow(), occurrences(), Root concordance (KWIC), rootAr() (+8 more)
+
+### Community 5 - "Findings"
+Cohesion: 0.18
+Nodes (10): Clean / positive, Critical, Findings, Fix in the repo vs. configure in the Cloudflare dashboard, Hardening plan (in order), Low, Medium, Security & DevOps review: korpus-quran-prototipe (+2 more)
 
 ### Community 6 - "esc"
-Cohesion: 0.10
-Nodes (33): ayatChips(), baca() tab, cari() tab, cariResults(), cur(), detail(), esc(), hitWord() (+25 more)
+Cohesion: 0.08
+Nodes (42): ayatChips(), baca() tab, cari() tab, cariResults(), cur(), detail(), esc(), graf() tab (+34 more)
 
 ### Community 7 - "pulihkan-tanzil.js"
 Cohesion: 0.06
@@ -212,23 +219,23 @@ Nodes (3): Non-negotiable integrity rules, Project context (read first), Respons
 
 ## Knowledge Gaps
 - **8 isolated node(s):** `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `grafCache`, `UNA() -una suffix segment helper`, `Indonesian mushaf verse numbering (basmalah = 1:1 only)` (+3 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 218 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 224 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Clean / positive` connect `Worker AI Cloudflare` to `pulihkan-tanzil.js`?**
-  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **Why does `Findings` connect `Findings` to `Worker AI Cloudflare`?**
+  _High betweenness centrality (0.108) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `labelPadanan()` (e.g. with `High` and `labRun()`) actually correct?**
   _`labelPadanan()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `LAB_NAMA (SEA-LION v4, Gemma 4)`, `TABS`, `grafCache` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Tab UI dan event` be split into smaller, more focused modules?**
-  _Cohesion score 0.06938020351526364 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08205128205128205 - nodes in this community are weakly interconnected._
+- **Why does `Clean / positive` connect `Findings` to `pulihkan-tanzil.js`?**
+  _High betweenness centrality (0.099) - this node is a cross-community bridge._
 - **Should `Peta sisipan dan graf akar` be split into smaller, more focused modules?**
   _Cohesion score 0.10606060606060606 - nodes in this community are weakly interconnected._
-- **Should `Worker AI Cloudflare` be split into smaller, more focused modules?**
-  _Cohesion score 0.09672830725462304 - nodes in this community are weakly interconnected._
-- **Should `esc` be split into smaller, more focused modules?**
-  _Cohesion score 0.1006006006006006 - nodes in this community are weakly interconnected._
+- **Why does `q()` connect `pulihkan-tanzil.js` to `Findings`?**
+  _High betweenness centrality (0.097) - this node is a cross-community bridge._
