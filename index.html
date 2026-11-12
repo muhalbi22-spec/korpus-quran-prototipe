@@ -4612,7 +4612,7 @@ function chatRow(a){
 function chatBubble(m){
   if(m.r==='user')return `<div class="cm cm-u"><div class="cb">${esc(m.t)}</div></div>`;
   const ay=(m.ayat||[]).map(chatRow).join('');
-  const cip=state.chat.msgs.length===1&&m.sapaan?`<div class="ex" style="margin:10px 0 0">${['ayat tentang keesaan Allah','ayat tentang wahyu pertama','perintah membaca'].map(x=>`<button class="formbtn" data-chatq="${esc(x)}">${esc(x)}</button>`).join('')}</div>`:'';
+  const cip=state.chat.msgs.length===1&&m.sapaan?`<div class="ex" style="margin:10px 0 0">${['ayat tentang keesaan Allah','ayat tentang wahyu pertama','perintah membaca','berapa kali kata ar-raḥmān diulang?'].map(x=>`<button class="formbtn" data-chatq="${esc(x)}">${esc(x)}</button>`).join('')}</div>`:'';
   return `<div class="cm cm-b"><div class="cw"><div class="cn">Asisten Korpus</div><div class="cb">${esc(m.t)}</div>${cip}${ay?`<div class="cays">${ay}</div>`:''}${m.draf?`<div class="cd">${esc(m.draf)}</div>`:''}</div></div>`;
 }
 function chatLog(){
